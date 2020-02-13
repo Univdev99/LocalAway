@@ -1,0 +1,63 @@
+    body {
+        background-color: white;
+    }
+    
+    .card {
+        border: 0px;
+    }
+    
+    .color-orange {
+        color: #fe5d49;
+        font-weight: bold;
+    }
+    
+    .provider {
+        left: 72px;
+        top: 5px;
+        padding-left: 11px;
+        padding-right: 11px;
+        width: 62%;
+    }
+    
+    .form-control {
+        border: none;
+        border-bottom: 1px solid #eaeaea;
+        border-radius: 0px!important;
+    }
+    
+    .circle-btn {
+        border-radius: 25px!important;
+        background-color: #c6a07a;
+        border-color: #c6a07a;
+        width: 74%;
+        height: 40px;
+    }
+    
+    .google-btn {
+        border-color: #eaeaea;
+    }
+    
+    .facebook-btn {
+        border-color: #45619d;
+        background-color: #45619d;
+    }
+    
+    .width-400px {
+        width: 400px;
+    }
+    
+    .social-btns {
+        margin-top: 2.5rem;
+    }
+    
+    @media (min-width: 576px) {
+        .form-width {
+            width: 400px!important;
+        }
+        .login-container {
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+        }
+    }

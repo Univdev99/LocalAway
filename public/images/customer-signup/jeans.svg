@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="29.001" height="66" viewBox="0 0 29.001 66">
+  <g id="jeans_icon" data-name="jeans icon" transform="translate(0.5 0.5)">
+    <path id="Stroke_1" data-name="Stroke 1" d="M0,5H23V0H0Z" transform="translate(2)" fill="none" stroke="#414042" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1"/>
+    <path id="Stroke_3" data-name="Stroke 3" d="M14,11.8a14.064,14.064,0,0,1-1.935,7.08h0a15.6,15.6,0,0,0-1.935,7.5V59H4.969L2.638,43.02A26,26,0,0,1,2.373,39.7a104.177,104.177,0,0,0-.725-11.267l-1.587-9.9A36.745,36.745,0,0,1,.6,9.834L2.388,0H14" transform="translate(0 6)" fill="none" stroke="#414042" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1"/>
+    <path id="Stroke_4" data-name="Stroke 4" d="M0,4.72V0H11.611L13.4,9.834a36.612,36.612,0,0,1,.537,8.7l-1.589,9.9a103.569,103.569,0,0,0-.72,11.264,26.485,26.485,0,0,1-.271,3.321L9.031,59H3.87V26.375a15.6,15.6,0,0,0-1.935-7.493v0A14.049,14.049,0,0,1,0,11.8" transform="translate(14 6)" fill="none" stroke="#414042" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1"/>
+    <path id="Stroke_5" data-name="Stroke 5" d="M5.944,0S6.993,7.23,0,6.994" transform="translate(1 5)" fill="none" stroke="#414042" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1"/>
+    <path id="Stroke_6" data-name="Stroke 6" d="M.056,0S-.993,7.23,6,6.994" transform="translate(20 5)" fill="none" stroke="#414042" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1"/>
+  </g>
+</svg>

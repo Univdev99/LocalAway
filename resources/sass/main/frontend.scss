@@ -1,0 +1,22 @@
+// Variables
+@import '../variables';
+
+body.Frontend {
+  a {
+    &.header-btn {
+      &:hover {
+        background-color: $orange-custom;
+      }
+    }
+
+    &.btn {
+      &:hover {
+        background-color: $orange-custom;
+      }
+    }
+  }
+
+  .opacty-25 {
+    opacity: .25;
+  }
+}

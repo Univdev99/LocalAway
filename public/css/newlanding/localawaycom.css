@@ -1,0 +1,416 @@
+/* nav css */
+
+@media (min-width: 767.98px) {
+    .collapse {
+        position: absolute!important;
+        right: 60px!important;
+    }
+}
+
+.mail-text {
+    background: none;
+    color: white;
+    border: none;
+    border-bottom: 2px solid #FD5B46;
+    width: 50%;
+    /* margin-right: 2em; */
+}
+
+.mail-text::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: white;
+}
+
+.mail-text:focus {
+    outline: none;
+}
+
+.separator {
+    display: block;
+    width: 150px;
+    height: 6px;
+    box-shadow: inset 0 4px 0 0 #cacaca;
+    margin: 25px auto 24px;
+}
+
+#section-about {
+    padding-bottom: 9em!important;
+}
+
+
+/* Start of quote */
+
+.quotes .quote {
+    min-height: 252px;
+    overflow: hidden;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    box-shadow: 0 40px 65px -24px rgba(0, 0, 0, .25);
+    transition: 1s;
+    position: relative;
+}
+
+@media (min-width: 767.98px) {
+    .quotes .quote-1 {
+        margin-top: 250px;
+    }
+}
+
+.quotes.quotes-1 .quote-1 .image {
+    background-image: url(/images/person_3.jpg);
+    filter: saturate(80%);
+    -webkit-filter: saturate(80%);
+    -moz-filter: saturate(80%);
+    -o-filter: saturate(80%);
+    -ms-filter: saturate(80%);
+    width: 200px;
+    background-position: 65% 0;
+    background-size: cover;
+}
+
+.quotes.quotes-1 .quote-1 .image,
+.quotes.quotes-1 .quote-2 .image,
+.quotes.quotes-2 .quote-1 .image,
+.quotes.quotes-2 .quote-2 .image {
+    position: absolute;
+    left: 0;
+    background-repeat: no-repeat;
+    height: 100%;
+    top: 0;
+}
+
+.quotes .quote .quote-container {
+    margin-left: 170px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 18px;
+    position: relative;
+}
+
+.quotes .quote .quote-container .bar {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.quotes .quote .quote-container .bar::before {
+    display: block;
+    content: "";
+    width: 500%;
+    height: 1000px;
+    position: absolute;
+    transform: translatex(-15px) rotate(13.49573deg) translatey(-7px);
+    transform-origin: 0 0;
+    background: #f8f8f8;
+}
+
+.quotes .quote-mark-container {
+    padding-top: 54px;
+    color: #51b1e7;
+    position: relative;
+    left: -6px;
+}
+
+.quotes .quote-mark-container .quote-mark {
+    font-family: "Superhuman Gotham Medium";
+    font-size: 90px;
+    line-height: 30px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    letter-spacing: -.0225em;
+    chrome-offset: 42px;
+    position: relative;
+    top: 0;
+}
+
+.quotes .quote-mark-container .quote-mark::before {
+    content: "“";
+}
+
+.quotes .quote-body {
+    color: rgba(0, 0, 0, .7);
+    margin-bottom: 24px;
+}
+
+.quotes .quote-body div {
+    font-family: "Avenir LT Std Book", sans-serif;
+    line-height: 24px;
+}
+
+.quotes .attribution div,
+.quotes .quote-body div {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    chrome-offset: 16px;
+    position: relative;
+    top: 2px;
+    letter-spacing: .2px;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+
+}
+.quotes .attribution {
+    color: rgba(27, 27, 27, .8);
+}
+.quotes .quote-2 {
+    margin-bottom: 90px;
+}
+.quotes.quotes-1 .quote-2 .image {
+    background-image: url(/images/person_2.jpg);
+    filter: saturate(65%);
+    -webkit-filter: saturate(65%);
+    -moz-filter: saturate(65%);
+    -o-filter: saturate(65%);
+    -ms-filter: saturate(65%);
+    width: 200px;
+    background-position: 65% 0;
+    background-size: cover;
+}
+.quotes.quotes-1 .quote-1 .image,
+.quotes.quotes-1 .quote-2 .image,
+.quotes.quotes-2 .quote-1 .image,
+.quotes.quotes-2 .quote-2 .image {
+    position: absolute;
+    left: 0;
+    background-repeat: no-repeat;
+    height: 100%;
+    top: 0;
+}
+
+/* End of quote */
+#quiz {
+    background-image: url(/images/newlanding/slider-9.jpg);
+    background-size: cover;
+    background-position: center;
+}
+#watch {
+    background-image: url(/images/newlanding/slider-10.jpg);
+    background-size: cover;
+}
+#watch .row {
+    height: 78vh;
+}
+.text-grey {
+    color: #545454;
+}
+#capsule img {
+    width: 100%;
+}
+.room-info {
+    position: absolute;
+    bottom: 20%;
+    left: 10%;
+}
+.bg-green {
+    background-color: #02BFAF;
+}
+.justify-content-space-evently {
+    justify-content: space-evenly;
+}
+.color-brown {
+    color: #C6A07A!important;
+}
+.font-orange {
+    color: #FD5B46!important;
+}
+.bg-brown {
+    background-color: #C6A07A!important;
+}
+.font-brown {
+    color: #C6A07A!important;
+}
+.bg-orange {
+    background-color: #FD5B46!important;
+}
+.w-60 {
+    width: 60%!important;
+}
+.w-40 {
+    width: 40%!important;
+}
+.color-orange {
+    box-shadow: inset 0 4px 0 0 #FD5B46!important;
+    height: 4px!important;
+}
+.color-green {
+    box-shadow: inset 0 4px 0 0 #02BFAF!important;
+    height: 4px!important;
+}
+.color-white {
+    box-shadow: inset 0 4px 0 0 white!important;
+    height: 4px!important;
+}
+.platform {
+    background-image: url(/images/newlanding/platform.jpg);
+    height: 100vh;
+    background-size: cover;
+}
+p {
+    font-size: large;
+}
+.clothes {
+    background-image: url(/images/newlanding/clothes.jpg);
+    height: 100vh;
+    background-size: cover;
+    background-position: right;
+}
+.package {
+    background-image: url(/images/newlanding/package.jpg);
+    height: 100vh;
+    background-size: cover;
+}
+.partner {
+    background-image: url(/images/newlanding/apple.png);
+    height: 100vh;
+    background-size: cover;
+    /* background-size: contain; */
+    
+    background-repeat-x: no-repeat;
+    background-repeat-y: no-repeat;
+}
+.ai {
+    background-image: url(/images/newlanding/phones.jpg);
+    height: 100vh;
+    background-size: contain;
+    background-repeat-x: no-repeat;
+    background-repeat-y: no-repeat;
+}
+@media (max-width: 991.98px) {
+    .ai {
+        /* background-image: url(/images/newlanding/phones-2.png); */
+    }
+}
+.audienc1e {
+    background-image: url(/images/newlanding/survey.png);
+    height: 100vh;
+    /* background-size: cover; */
+    
+    background-position: center;
+    background-size: contain;
+    background-repeat-y: no-repeat;
+}
+.myquote-2 {
+    width: 40px;
+    position: absolute;
+    top: -30px;
+    left: -60px;
+}
+.myquote-1 {
+    width: 40px;
+    position: absolute;
+    top: 145px;
+    left: 280px;
+}
+#chain {
+    background-image: url("/images/newlanding/chain.jpg");
+}
+#chain .chain-content {
+    background: #ffffff80;
+}
+h1,
+h2,
+h3,
+h4 {
+    font-family: Avenir-Black!important;
+}
+body,
+div,
+input,
+button,
+p {
+    font-family: Poppins-Regular!important;
+}
+.awake {
+    display: none!important;
+}
+.vertical-divider {
+    position: absolute;
+    width: 2px;
+    border: 2px solid #cacaca;
+    height: 250px;
+    right: 0;
+    background-color: #cacaca;
+}
+.logo-image {
+    transition: filter .3s ease;
+    filter: brightness(4);
+}
+.logo-image:hover {
+    filter: brightness(1);
+}
+.modal-dialog {
+    margin: auto;
+    height: 100%;
+    display: flex;
+}
+.modal-content {
+    margin: auto;
+    border-radius: 20px;
+}
+@media (max-width: 991.98px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+}
+@media (max-width: 991.98px) {
+    .mail-text {
+        width: 100%;
+    }
+    
+    .request-btn {
+        width: 100%;
+    }
+}
+.quotion {
+    font-size: 8rem;
+}
+.btn {
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 50px;
+    background-color: #C6A07A;
+    border-color: #C6A07A;
+}
+.btn:hover {
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 50px;
+    background-color: white;
+    border-color: #C6A07A;
+    color: #C6A07A!important;
+}
+.close-btn {
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 50px;
+    background-color: white;
+    border-color: #C6A07A;
+    color: #C6A07A;
+}
+.close-btn:hover {
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 50px;
+    background-color: #C6A07A;
+    border-color: #C6A07A;
+    color: white!important;
+}
+.site-hero-2 {
+    background-size: cover;
+    height: 80vh;
+    min-height: 700px;
+    width: 100%;
+    position: relative;
+}
+.container-fluid {
+    max-width: 100%;
+}
