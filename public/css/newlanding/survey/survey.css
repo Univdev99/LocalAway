@@ -1,0 +1,274 @@
+.wizard-container {
+    height: 100vh;
+    /* border: 1px red solid; */
+    overflow-y: hidden;
+}
+
+.wizard-body {
+    position: relative;
+    transition: top ease .5s
+}
+
+.item {
+    height: 100vh!important;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    transition: opacity cubic-bezier(0.07, 0.85, 1, 1) .25s;
+    opacity: 0;
+    padding-top: 80px;
+    overflow: auto;
+}
+
+.navigation-bar {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 0 2em 2em 0;
+    transition: opacity .5s ease;
+}
+
+.item-show {
+    opacity: 1;
+}
+
+.btn-circle {
+    background-color: #c6a07b;
+    color: white;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    height: 50px;
+    margin: auto;
+    transition: all ease .25s;
+    border: none;
+    width: 150px;
+}
+
+.btn-circle:hover {
+    background-color: white;
+    color: #c6a07b;
+    transition: all ease .25s;
+    border: 2px solid #c6a07b;
+}
+
+.btn-circle:focus {
+    outline: none;
+}
+
+.arrow-btn {
+    border: 1px solid white;
+    background: white;
+    width: 100%;
+    padding: 15px 0px;
+    border-radius: 3px;
+    transition: all 0.5s ease;
+    position: relative;
+    bottom: -25px;
+}
+
+i {
+    margin-left: 20px;
+}
+
+.arrow1 {
+    animation: slide1 1s ease-in-out infinite;
+    margin-left: 9px;
+}
+
+.arrow2 {
+    animation: slide2 1s ease-in-out infinite;
+}
+
+@keyframes slide1 {
+    0%,
+    100% {
+        transform: translate(0, 0);
+    }
+    50% {
+        transform: translate(0, 10px);
+    }
+}
+
+@keyframes slide2 {
+    0%,
+    100% {
+        transform: translate(0, 0);
+    }
+    50% {
+        transform: translate(10px, 0);
+    }
+}
+
+.character {
+    font-size: 1.2em;
+    background-color: white;
+    line-height: 0.8em;
+    width: 1.2em;
+    height: 1.5em;
+    color: #00BFAF;
+    border: 1px solid #00BFAF;
+    border-radius: 4px;
+    margin: inherit;
+    text-align: center;
+}
+
+.character span {
+    vertical-align: middle;
+}
+
+.answer-body {
+    font-size: 1.5em;
+    margin-left: 9px;
+    width: 100%;
+}
+
+.answer {
+    margin-top: 5px;
+    border: 2px solid #00BFAF;
+    padding: 0.3em;
+    background-color: #00bfaf17;
+    border-radius: 7px;
+    color: #00BFAF;
+}
+
+.answer:hover {
+    background: #00BFAF66;
+}
+
+.color-blue {
+    color: #00BFAF;
+}
+
+.answers input[type=checkbox] {
+    display: none;
+}
+
+.answers input:checked+.answer .character span {
+    color: white;
+}
+
+.answer {
+    /* transition: opacity .1s ease; */
+}
+
+.answers input:checked+.answer .character {
+    background-color: #00BFAF;
+}
+
+.answers input:checked+.answer {
+    animation: check-blink 0.5s ease-in-out;
+    animation-direction: alternate;
+}
+
+@keyframes check-blink {
+    0% {
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    40% {
+        opacity: 0;
+    }
+    60% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.ok-button {
+    color: white!important;
+}
+
+#title {
+    transition: opacity .5s ease;
+    position: absolute;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 100%;
+    background: #e8f9f8;
+}
+
+input.text-answer {
+    border: none;
+    width: 100%;
+    /* margin: 20px auto; */
+    /* line-height: 3em; */
+    font-size: 1.5em;
+    padding: 20px 60px;
+    /* border-bottom: 2px solid; */
+    color: #00BFAF;
+}
+
+input.text-answer::placeholder {
+    color: #00BFAF66;
+}
+
+input.text-answer:focus {
+    outline: none!important;
+}
+
+input[type=radio] {
+    display: none!important;
+}
+
+.hidden-text {
+    width: 100%;
+    border: none;
+    background-color: #00bfaf17;
+}
+
+.hidden-text:focus {
+    outline: none;
+}
+
+#myProgress {
+    width: 100%;
+    background-color: #00bfaf17;
+    width: 310px;
+    height: 12px;
+    margin: auto;
+    border: 1px solid #00BFAF;
+    border-radius: 10px;
+}
+
+#myBar {
+    width: 0%;
+    height: 10px;
+    transition: width 1s ease;
+    background-color: #00BFAF;
+    /* border: 1px solid #00a3ff; */
+    margin: auto 0;
+    border-radius: 10px;
+}
+
+.btn {
+    background-color: #c6a07b!important;
+    border-color: #c6a07b!important;
+}
+
+a {
+    cursor: pointer;
+}
+
+.row {
+    margin: 0px!important;
+}
+
+.color-brown {
+    color: #c6a07b;
+}
+
+#pagination {
+    position: absolute;
+    top: -12px;
+    left: 145px;
+    color: #00bfaf;
+}

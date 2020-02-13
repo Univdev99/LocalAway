@@ -1,0 +1,17 @@
+@media (max-width: 991.98px) {
+    .pb_navbar {
+        position: unset!important;
+    }
+    .footer {
+        display: none;
+    }
+    .footer-menu {
+        display: none;
+    }
+    .site-hero {
+        background-size: auto!important;
+    }
+    .answer-input {
+        width: 200px;
+    }
+}

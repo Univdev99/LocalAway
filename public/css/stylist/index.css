@@ -1,0 +1,84 @@
+.dashboard {
+    background-image: url(/images/stylist/dashboard.png);
+    background-color: black;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position-x: right;
+    padding: 9em 1em 0;
+    height: 30em;
+}
+
+.dashboard .notify {
+    background-color: white;
+    border-radius: 1.5em;
+    padding: 2em;
+    max-width: 20em;
+    text-align: center;
+    margin: auto;
+    margin-top: 6em;
+}
+
+.welcome-back {
+    font-size: 1.5em;
+}
+
+.new-client-hint {
+    color: #fa5d47;
+}
+
+.london-fashion-week {
+    background-color: #f6f6f6;
+    padding: 3em;
+}
+
+.london-fashion-week .title {
+    color: #fa5d47;
+    margin-bottom: 0;
+}
+
+.london-fashion-week .big-title {
+    color: black;
+    font-size: 1.5em;
+}
+
+.round-btn {
+    border-radius: 30px!important;
+    background-color: #c6a07a;
+    border-color: #c6a07a;
+    border: 2px solid #c6a07a;
+    color: white;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+  }
+  
+  .round-btn:focus {
+    outline: none;
+  }
+  
+  .round-btn:hover {
+    color: #c6a07a!important;
+    background-color: white;
+    border: 2px solid #c6a07a;
+  }
+  
+  .round-btn:active {
+    background-color: #fa5d47!important;
+    color: white!important;
+    border: 2px solid white!important;
+  }
+
+.london-street-style, .capsule-archive {
+    color: #fa5d47;
+    text-align: center;
+}
+
+.london-style-img {
+    width: 200px;
+    height: 200px;
+}
+
+.capsule-archive-gallery img {
+    margin: 1em;
+    width: 230px;
+    height: 230px;
+}

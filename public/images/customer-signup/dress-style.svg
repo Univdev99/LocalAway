@@ -1,0 +1,18 @@
+<svg id="dress_icon" data-name="dress icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="28" height="56" viewBox="0 0 28 56">
+  <defs>
+    <clipPath id="clip-path">
+      <path id="Clip_8" data-name="Clip 8" d="M0,56H28V0H0Z" fill="none"/>
+    </clipPath>
+  </defs>
+  <path id="Stroke_1" data-name="Stroke 1" d="M1.094,12,0,0H6" transform="translate(3 1)" fill="none" stroke="#414042" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1"/>
+  <path id="Stroke_3" data-name="Stroke 3" d="M14.1,0H20L18.349,18.392A1.979,1.979,0,0,1,16.418,20H1.931A1.979,1.979,0,0,1,0,18.392" transform="translate(5 1)" fill="none" stroke="#414042" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1"/>
+  <path id="Stroke_5" data-name="Stroke 5" d="M10,0,8.392,2.31a4.25,4.25,0,0,1-6.784,0L0,0,.542.194a13.257,13.257,0,0,0,8.916,0Z" transform="translate(9 1)" fill="none" stroke="#414042" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1"/>
+  <path id="Clip_8-2" data-name="Clip 8" d="M0,56H28V0H0Z" fill="none"/>
+  <g id="dress_icon-2" data-name="dress icon" clip-path="url(#clip-path)">
+    <path id="Stroke_7" data-name="Stroke 7" d="M0,4H14V0H0Z" transform="translate(7 21)" fill="none" stroke="#414042" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1"/>
+    <path id="Stroke_9" data-name="Stroke 9" d="M26,30H0L3.792,1.766A2,2,0,0,1,5.778,0H20.222a2,2,0,0,1,1.986,1.766Z" transform="translate(1 25)" fill="none" stroke="#414042" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1"/>
+    <path id="Stroke_10" data-name="Stroke 10" d="M1,16V0" transform="translate(13 25)" fill="none" stroke="#414042" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1"/>
+    <path id="Stroke_11" data-name="Stroke 11" d="M1,12V0" transform="translate(18 25)" fill="none" stroke="#414042" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1"/>
+    <path id="Stroke_12" data-name="Stroke 12" d="M1,12V0" transform="translate(8 25)" fill="none" stroke="#414042" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1"/>
+  </g>
+</svg>
