@@ -16,16 +16,17 @@ $(function() {
         var phone = $('#phone-text').val();
         var person_type = $("input[name='person_type']:checked").val();
         var note = $('#note-text').val();
-        const title = [
-            "Thank you for requesting access",
-            "Congratulations!",
-            "Welcome!",
-        ]
-        const content = [
-            "We’re excited to have you on board! Please check your email for next steps and to learn more about our waitlist. If you’d like to skip the line, you can fill out the survey by clicking on “start survey”. ",
-            "Our waitlist might be 200k, but we’re putting you first. Please check your inbox for next steps, and in the meantime please fill out the survey so we can learn about you!",
-            "Our waitlist might be 200k, but we’re interested in putting you first. Access is $30 per month. Start uploading your clothes today so that our users can find great fashion locally. First tell us more about you.",
-        ]
+        // const title = [
+        //     "Thank you for requesting access",
+        //     "Congratulations!",
+        //     "Welcome!",
+        // ]
+        // const content = [
+        //     "We’re excited to have you on board! Please check your email for next steps and to learn more about our waitlist. If you’d like to skip the line, you can fill out the survey by clicking on “start survey”. ",
+        //     "Our waitlist might be 200k, but we’re putting you first. Please check your inbox for next steps, and in the meantime please fill out the survey so we can learn about you!",
+        //     "Our waitlist might be 200k, but we’re interested in putting you first. Access is $30 per month. Start uploading your clothes today so that our users can find great fashion locally. First tell us more about you.",
+        // ]
+
         $.ajax({
             url: "/save-email",
             method: 'post',
@@ -40,24 +41,31 @@ $(function() {
                 note: note
             },
             success: function(result) {
-                person_id = result['person_id'];
-                localStorage.setItem('person_id', person_id);
-                question_count = result['question_count'];
-                localStorage.setItem('question_count', question_count);
-                if (result['isCreatedOrUpdated'] == "true") {
-                    $("#exampleModalLabel2").text(title[Math.floor(Math.random() * 2)]);
-                    $("#modalcontent2").text(content[Math.floor(Math.random() * 2)]);
-                } else {
-                    $("#exampleModalLabel2").text("Welcome Back!");
-                    $("#modalcontent2").text("Our waitlist might be 200k, but we’re interested in putting you first. Access is $30 per month. Start uploading your clothes today so that our users can find great fashion locally. First tell us more about you.");
-                }
-                $(".spinner-border").css("display", "none");
-                $("#request-btn").css("display", "block");
-                $("#hidden-name").val(name);
-                $("#hidden-email").val(email);
-                $('#exampleModal').modal('toggle');
-                $("#exampleModa2").modal('toggle');
 
+                // if (result['isCreatedOrUpdated'] == "true") {
+                //     $("#exampleModalLabel2").text(title[Math.floor(Math.random() * 2)]);
+                //     $("#modalcontent2").text(content[Math.floor(Math.random() * 2)]);
+                // } else {
+                //     $("#exampleModalLabel2").text("Welcome Back!");
+                //     $("#modalcontent2").text("Our waitlist might be 200k, but we’re interested in putting you first. Access is $30 per month. Start uploading your clothes today so that our users can find great fashion locally. First tell us more about you.");
+                // }
+                $.ajax({
+                    url: "/send-mail",
+                    method: 'get',
+                    data: {
+                        name: name,
+                        email: email,
+                        access_code: result
+                    },
+                    success: function(reponse) {
+                        $(".spinner-border").css("display", "none");
+                        $("#request-btn").css("display", "block");
+                        $("#hidden-name").val(name);
+                        $("#hidden-email").val(email);
+                        $('#exampleModal').modal('toggle');
+                        $("#exampleModa2").modal('toggle');
+                    }
+                });
             }
         });
         return false;
@@ -129,9 +137,10 @@ $(function() {
         } else {
             if (keycode == "13") {
                 if ($(".item:nth-child(" + (current_item + 1) + ")").hasClass("start-part")) {
-                    question_count = Number(localStorage.getItem('question_count'));
+                    $("#start-button").click();
+                } else {
+                    $(".next-button").click();
                 }
-                $(".next-button").click();
                 event.preventDefault();
                 return false;
             } else {
@@ -183,6 +192,10 @@ $(function() {
     // });
 
     $("#start-button").click(function(e) {
+        person_id = Number($('#person_id').attr('val'));
+        localStorage.setItem('person_id', person_id);
+        question_count = Number($('#question_count').attr('val'));
+        localStorage.setItem('question_count', question_count);
         if (question_count == 0) {
             question_count = Number(localStorage.getItem('question_count'));
         }
