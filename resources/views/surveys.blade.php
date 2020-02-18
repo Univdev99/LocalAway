@@ -13,15 +13,17 @@
     <body>
         <div class="container-fluid m-0 p-0">
                 <h2 id="title" class="row justify-content-center font-weight-bold d-none" style="opacity:0;"></h2>
-            <form action="/survey" method="get" class="wizard-container" id='survey-form'>
+            <form action="/survey" method="post" class="wizard-container" id='survey-form'>
             {{ csrf_field() }}
+                <input id="person_id" val="{{ $person_id }}" type="hidden">
+                <input id="question_count" val="{{ count($question_list) }}" type="hidden">
                 <div class="wizard-body" style="top: 0">
                     <div class="item item-show row start-part">
                         <div class="col-lg-4 text-center">
-                            <img src="/images/newlanding/logo.png" alt="logo" width="100">       
+                            <img src="/images/newlanding/logo.png" alt="logo" width="100">
                             <p class="h5 mt-3 text-secondary">Tell us more about your preferences and we’ll send you what you need.</p>
                             <button class="btn-circle my-3 item-button justify-content-center" id="start-button" type="button">Start</button>
-                            <div class="arrow-btn">Press <strong>Enter</strong>   
+                            <div class="arrow-btn">Press <strong>Enter</strong>
                                 <i class="fa fa-long-arrow-down arrow1" aria-hidden="true"></i>
                             </div>
                         </div>
@@ -45,7 +47,7 @@
                                                 <input type="checkbox"  id="{{ $answer['answer_id'] }}" name="{{ $question_item['question_id'] }}">
                                             @elseif ($question_item['question_type'] == 'single')
                                                 <input type="radio"  id="{{ $answer['answer_id'] }}" name="{{ $question_item['question_id'] }}">
-                                            @else    
+                                            @else
                                                 <input type="text" class="text-answer" id="{{ $answer['answer_id'] }}" name="{{ $question_item['question_id'] }}" value="" placeholder = "Type your answer here..." >
                                             @endif
                                             @if ($question_item['question_type'] != 'input')
@@ -67,7 +69,7 @@
                                             @endif
                                         @endforeach
                                     </div>
-                                    <div class="arrow-btn" style="opacity:0;">   
+                                    <div class="arrow-btn" style="opacity:0;">
                                         <a class="btn btn-primary ok-button">OK</a>
                                         Press <strong>Enter</strong>
                                         <i class="fa fa-long-arrow-down arrow1" aria-hidden="true"></i>
@@ -78,14 +80,14 @@
                     @endif
                     <div class="item row end-part">
                         <div class="col-lg-4 text-center">
-                            <img src="/images/newlanding/logo.png" alt="logo" width="100">       
+                            <img src="/images/newlanding/logo.png" alt="logo" width="100">
                             <p class="h5 mt-3 text-secondary">Thank you for your answer.</p>
                             <button type="submit" class="btn-circle my-3 item-button justify-content-center">Submit</a>
                         </div>
                     </div>
                 </div>
             </form>
-            
+
             <div class="navigation-bar d-flex" style="opacity:0;">
                 <div id="myProgress">
                     <div id ="pagination">1/{{ count($question_list) + 1 }}</div>

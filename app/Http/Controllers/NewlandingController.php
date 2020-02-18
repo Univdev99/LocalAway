@@ -9,6 +9,9 @@ use App\Survey_person;
 use App\Question;
 use App\Survey;
 use App\Answer;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Crypt;
+use App\Mail\sendRequestAccessMail;
 
 class NewlandingController extends Controller
 {
@@ -27,21 +30,28 @@ class NewlandingController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index(Request $request)
+    public function survey(Request $request)
     {
-        $array = $this->makeQuestionAnswerArray();
-        return view('surveys', ['question_list' => $array]);        
-    }
+        $expire = $request->input('expires');
+        $token = $request->input('token');
+        $json = json_decode(Crypt::decrypt($token));
 
-    public function survey()
-    {
-        return view('survey');
+        $person = Survey_person::where(['email' => $json->email, 'name' => $json->name])->get();
+        if($expire < time() || count($person) != 1){
+            return view('comsite\mailSent');
+        }
+
+        $array = $this->makeQuestionAnswerArray();
+        return view('surveys',
+            ['question_list' => $array,
+            'person_id' => $person[0]->id,
+        ]);
     }
 
     public function makeQuestionAnswerArray()
     {
         $question_array = [];
-        
+
         foreach( Question::all() as $question)
         {
 
@@ -65,39 +75,8 @@ class NewlandingController extends Controller
 
         return $question_array;
     }
-    
-    // public function checkEmail(Request $request)
-    // {
-    //     $email = $request->input('email');
-    //     $name = $request->input('name');
-    //     $row_number = $request->input('row_number');
 
-    //     $flag=true;
-    //     $sheets = Sheets::spreadsheet(config('sheets.post_spreadsheet_id'))->sheet('Name-Email')->get();
-    //     if($row_number==0)
-    //     {
-    //         $row_number=count($sheets);
-    //     }
-    //     foreach ($sheets AS $data) {
-    //         if(count($data) > 1){
-
-    //             if($data[1]==$email){
-    //                 $flag=false;
-    //             }
-    //         }
-    //     }
-    //     $this->saveName($email, $name, $row_number);
-    //     if($flag==true)
-    //     {
-    //         return "true";
-    //     }
-    //     else
-    //     {
-    //         return "false";
-    //     }
-    // }
-
-    public function saveEmail(Request $request)
+    public function saveRequestInfo(Request $request)
     {
         $name = $request->input('name');
         $email = $request->input('email');
@@ -111,50 +90,24 @@ class NewlandingController extends Controller
         } else {
             $request->merge(['country' => 'Undefined Country']);
         }
+        $access_code = md5($email);
+        $access_code = substr($access_code, 0, 5);
 
-        
         $person = Survey_person::updateOrCreate(['email' => $email],
-            ['name' => $name, 'phone' => $phone, 'person_type' => $person_type, 'location' => $request->input("country"), 'note' => $note]
+            ['name' => $name, 'phone' => $phone, 'person_type' => $person_type, 'location' => $request->input("country"), 'note' => $note, 'access_code' => $access_code]
         );
-        if($person->wasRecentlyCreated)
-        {
-            $isCreatedOrUpdated = "true";
-        }
-        else
-        {
-            $isCreatedOrUpdated = "false";
-        }
-        $questions = Question::all();
-        $result = [
-            'person_id' => $person->id,
-            'isCreatedOrUpdated' => $isCreatedOrUpdated,
-            'question_count' => $questions->count()
-        ];
-        return $result;
-        
-        // $sheets = Sheets::spreadsheet(config('sheets.post_spreadsheet_id'))->sheet('Name-Email')->get();
-        // $count = count($sheets);
-        // $time_now = now()->toDateTimeString();
-        
-        // Sheets::sheet('Name-Email')->range('A'.($count+1))->update([[$time_now,$email,$request->input("country")]]);
-        // return ($count+1);
+
     }
 
-    public function saveName($email, $name, $row_number)
-    {
-        $sheets = Sheets::spreadsheet(config('sheets.post_spreadsheet_id'))
-        ->sheet('Name-Email')->get();
-        Sheets::sheet('Name-Email')->range('D'.$row_number)->update([[$name]]);
-    }
 
-    public function saveInfo(Request $request)
+    public function saveSurveyInfo(Request $request)
     {
         $info = $request->input('info');
         $input_info = $request->input('input_info');
         $person_id = $request->input('person_id');
         $question_id = $request->input('question_id');
         $type = $request->input('type');
-        
+
         $this->deletePastSurvey($person_id, $question_id);
 
         $token = strtok($info, ",");
@@ -178,5 +131,17 @@ class NewlandingController extends Controller
         {
             $survey->delete();
         }
+    }
+
+    public function sendRequestMail(Request $request) {
+        $name = $request->input('name', 'Localaway');
+        $email = $request->input('email', 'localaway@team.com');
+
+
+        $expire_time = time() + 24 * 60 * 60;
+        $json = json_encode(['name'=>$name, 'email'=>$email]);
+        $token = Crypt::encrypt($json);
+        $link = env('APP_URL') . '/survey' . '?expires=' . $expire_time . '&token=' . $token;
+        Mail::to($email)->send(new sendRequestAccessMail($name, $link));
     }
 }
