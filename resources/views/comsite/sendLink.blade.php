@@ -1,6 +1,7 @@
 @component('mail::message')
 Hello **{{$name}}**,<br>
-Thank you for !
+Welcome to Localaway!<br>
+Your access code is **{{$access_code}}**.
 
 Please click the button below to start survey.
 @component('mail::button', ['url' => $link])

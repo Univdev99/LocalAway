@@ -4,10 +4,12 @@
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <title>Localaway </title>
+      <meta name="csrf-token" content="{{ csrf_token() }}">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <link href="/images/favicon-32x32.png" rel="icon" rel="icon" type="image/png" sizes="32x32" />
       <!-- <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=|Roboto+Sans:400,700|Playfair+Display:400,700"> -->
-      <link rel="stylesheet" href="css/bootstrap.min.css">
+      {{-- <link rel="stylesheet" href="css/bootstrap.min.css"> --}}
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
       <link rel="stylesheet" href="css/animate.css">
       <link rel="stylesheet" href="css/owl.carousel.min.css">
       <link rel="stylesheet" href="css/aos.css">
@@ -25,7 +27,7 @@
           font-family: Avenir-Black;
           src: url("/fonts/Avenir-Black.ttf");
       }
-      
+
       @font-face {
           font-family: Poppins-Regular;
           src: url("/fonts/Poppins-Regular.ttf");
@@ -35,33 +37,36 @@
       @yield('css')
     </head>
     <body data-spy="scroll" data-target="#templateux-navbar" data-offset="200" class="Frontend">
-      @include('frontend.sections.header')
-      @include('frontend.sections.hero')
-      @include('frontend.sections.search')
-      @include('frontend.sections.itinerary')
-      @include('frontend.sections.about')
-      @include('frontend.sections.work')
-      @include('frontend.sections.stylists')
-      @include('frontend.sections.blog')
-      @include('frontend.sections.subscribe')
-      @include('frontend.sections.footer')
-      @include('frontend.sections.footer_menu')
-      @yield('content')
-      <script src="js/jquery-3.3.1.min.js"></script>
-      <script src="js/jquery-migrate-3.0.1.min.js"></script>
-      <script src="js/popper.min.js"></script>
-      <script src="js/bootstrap.min.js"></script>
-      <script src="js/owl.carousel.min.js"></script>
-      <script src="js/jquery.stellar.min.js"></script>
-      <script src="js/jquery.fancybox.min.js"></script>
-      <script src="js/jquery.easing.1.3.js"></script>
-      <script src="js/aos.js"></script>
-      <script src="js/bootstrap-datepicker.js"></script> 
-      <script src="js/jquery.timepicker.min.js"></script> 
-      <script src="js/main.js"></script>
-      <script src="js/home.js"></script>
-      @if (config('app.env') == 'local')
-        <script src="http://localhost:35729/livereload.js"></script>
-      @endif
+
+        @include('frontend.access_code')
+        @include('frontend.request_access_code')
+        @include('frontend.sections.header')
+        @include('frontend.sections.hero')
+        @include('frontend.sections.search')
+        @include('frontend.sections.itinerary')
+        @include('frontend.sections.about')
+        @include('frontend.sections.work')
+        @include('frontend.sections.stylists')
+        @include('frontend.sections.blog')
+        @include('frontend.sections.subscribe')
+        @include('frontend.sections.footer')
+        @include('frontend.sections.footer_menu')
+        @yield('content')
+        <script src="js/jquery-3.3.1.min.js"></script>
+        <script src="js/jquery-migrate-3.0.1.min.js"></script>
+        <script src="js/popper.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/owl.carousel.min.js"></script>
+        <script src="js/jquery.stellar.min.js"></script>
+        <script src="js/jquery.fancybox.min.js"></script>
+        <script src="js/jquery.easing.1.3.js"></script>
+        <script src="js/aos.js"></script>
+        <script src="js/bootstrap-datepicker.js"></script>
+        <script src="js/jquery.timepicker.min.js"></script>
+        <script src="js/main.js"></script>
+        <script src="js/home.js"></script>
+        {{-- @if (config('app.env') == 'local')
+            <script src="http://localhost:35729/livereload.js"></script>
+        @endif --}}
     </body>
   </html>
