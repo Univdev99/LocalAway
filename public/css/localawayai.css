@@ -244,7 +244,7 @@ i.form-item {
 /* end */
 
 
-/* 
+/*
 
 /* second carousel */
 
@@ -479,4 +479,30 @@ p {
 .About__team .team-photo {
     border-radius: 50%;
     background-color: lightgray;
+}
+
+.modal-dialog {
+    margin: auto;
+    height: 100%;
+    display: flex;
+}
+
+.font-orange {
+    color: #FD5B46!important;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: Avenir-Black!important;
+}
+
+.modal-content {
+    margin: auto;
+    border-radius: 20px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
 }

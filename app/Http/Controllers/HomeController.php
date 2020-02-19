@@ -49,6 +49,17 @@ class HomeController extends Controller
         ]);
     }
 
+    public function checkAccess(Request $request)
+    {
+        $access_code = $request->input('access_code');
+        if($access_code == 'LOCALAWAY20'){
+            return "true";
+        }
+        else{
+            return "false";
+        }
+    }
+
     public function about()
     {
         $logo = Upload::where('collection' ,'logo')->where('extra',1)->first();

@@ -27,6 +27,7 @@ $(function() {
         //     "Our waitlist might be 200k, but we’re interested in putting you first. Access is $30 per month. Start uploading your clothes today so that our users can find great fashion locally. First tell us more about you.",
         // ]
 
+
         $.ajax({
             url: "/save-email",
             method: 'post',
@@ -51,23 +52,25 @@ $(function() {
                 // }
                 $.ajax({
                     url: "/send-mail",
-                    method: 'get',
+                    method: 'post',
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
                     data: {
                         name: name,
                         email: email,
                         access_code: result
                     },
-                    success: function(reponse) {
-                        $(".spinner-border").css("display", "none");
-                        $("#request-btn").css("display", "block");
-                        $("#hidden-name").val(name);
-                        $("#hidden-email").val(email);
-                        $('#exampleModal').modal('toggle');
-                        $("#exampleModa2").modal('toggle');
-                    }
+                    success: function(response) {}
                 });
             }
         });
+        $(".spinner-border").css("display", "none");
+        $("#request-btn").css("display", "block");
+        $("#hidden-name").val(name);
+        $("#hidden-email").val(email);
+        $('#exampleModal').modal('toggle');
+        $("#exampleModa2").modal('toggle');
         return false;
     });
 

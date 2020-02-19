@@ -97,6 +97,7 @@ class NewlandingController extends Controller
             ['name' => $name, 'phone' => $phone, 'person_type' => $person_type, 'location' => $request->input("country"), 'note' => $note, 'access_code' => $access_code]
         );
 
+        return $access_code;
     }
 
 
@@ -136,12 +137,12 @@ class NewlandingController extends Controller
     public function sendRequestMail(Request $request) {
         $name = $request->input('name', 'Localaway');
         $email = $request->input('email', 'localaway@team.com');
-
+        $access_code = $request->input('access_code');
 
         $expire_time = time() + 24 * 60 * 60;
         $json = json_encode(['name'=>$name, 'email'=>$email]);
         $token = Crypt::encrypt($json);
         $link = env('APP_URL') . '/survey' . '?expires=' . $expire_time . '&token=' . $token;
-        Mail::to($email)->send(new sendRequestAccessMail($name, $link));
+        Mail::to($email)->send(new sendRequestAccessMail($name, $link, $access_code));
     }
 }
