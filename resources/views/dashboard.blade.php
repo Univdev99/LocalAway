@@ -23,7 +23,7 @@
         @foreach($images as $image)
             @if($image->extra==1)
                 <form class = "bg-success" method = "post" action="/admin/file/update/{{$image->id}}?collection={{$collection}}">
-            @else    
+            @else
                 <form method = "post" action="/admin/file/update/{{$image->id}}?collection={{$collection}}">
             @endif
                 <li class = "py-3 text-center">
@@ -65,9 +65,4 @@
 @endsection
 
 @section('page_scripts')
-    <script>
-        $(document).ready(function(){
-
-        })
-    </script>
 @endsection

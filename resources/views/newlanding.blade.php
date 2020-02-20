@@ -42,21 +42,23 @@
         <nav class="navbar navbar-expand-lg navbar-dark pb_navbar pb_scrolled-light px-lg-5 " id="templateux-navbar">
             <div class="container-fluid">
                 <a class="navbar-brand m-auto m-lg-0" href="/newlanding">
-                <img class='logo-image' src="/images/newlanding/white-logo.svg" width="300" alt="">
-                <!-- </a>
-                <div class="site-menu-toggle js-site-menu-toggle  ml-auto"  data-aos="fade" data-toggle="collapse" data-target="#templateux-navbar-nav" aria-controls="templateux-navbar-nav" aria-expanded="false" aria-label="Toggle navigation">
+                    <img class='logo-image' src="/images/newlanding/white-logo.svg" width="300" alt="">
+                </a>
+                {{-- <div class="site-menu-toggle js-site-menu-toggle  ml-auto"  data-aos="fade" data-toggle="collapse" data-target="#templateux-navbar-nav" aria-controls="templateux-navbar-nav" aria-expanded="false" aria-label="Toggle navigation">
                     <span></span>
                     <span></span>
                     <span></span>
-                    </div> -->
+                </div> --}}
                     <!-- END menu-toggle -->
-
+{{--
                 <div class="collapse navbar-collapse" id="templateux-navbar-nav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item "><a class="nav-link text-black font-weight-bold" href="/job">Jobs</a></li>
-                    <!-- <li class="nav-item cta-btn ml-xl-2 ml-lg-2 ml-md-0 ml-sm-0 ml-0 "><a href ="" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" class="nav-link text-white" ><span class="pb_rounded-4 px-4 rounded">Request Access</span></a></li> -->
-                </ul>
-                </div>
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item ">
+                            <a class="nav-link text-black font-weight-bold" href="/job">Jobs</a>
+                        </li>
+                        <!-- <li class="nav-item cta-btn ml-xl-2 ml-lg-2 ml-md-0 ml-sm-0 ml-0 "><a href ="" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" class="nav-link text-white" ><span class="pb_rounded-4 px-4 rounded">Request Access</span></a></li> -->
+                    </ul>
+                </div> --}}
             </div>
         </nav>
 
@@ -164,7 +166,7 @@
                 <img class='d-block d-lg-none w-100' src="/images/newlanding/hero_4.jpg" alt="">
         </section>
 
-        <section class="section" id="section-about" style='background: #F7F7F7;'>
+        {{-- <section class="section" id="section-about" style='background: #F7F7F7;'>
             <div class="container">
             <div class="row justify-content-center">
                 <div class="col-12 text-center align-items-center" data-aos="fade-up">
@@ -424,7 +426,7 @@
                 <a href="/job" class="btn text-white">Join the team</a>
                 </div>
             </div>
-        </section>
+        </section> --}}
 
         <footer class="section footer-section">
             <div class="container-fluid">
