@@ -21,7 +21,7 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 // Route::domain('staging.localaway.com')->group(function () {
 
     Route::group(["domain" => "www.localaway.com"], function () {
-        Route::get('/newlanding', function () {
+        Route::get('/', function () {
             return view('newlanding');
         });
     });
