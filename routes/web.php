@@ -41,10 +41,12 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
     Route::get('/dashboard/hero-image', 'DashboardController@hero');
     Route::get('/dashboard/itinerary-image', 'DashboardController@itinerary');
     Route::get('/dashboard/stylist-image', 'DashboardController@stylist');
+    Route::get('/dashboard/virtual-closet', 'DashboardController@closet');
     Route::get('/dashboard/customers', 'DashboardController@customers');
     Route::get('/dashboard/survey', 'DashboardController@survey');
 
     Route::post('/admin/file/upload', 'FileController@store');
+    Route::post('/admin/file/vcUpload', 'FileController@vcUpload');
     Route::get('/admin/file/delete/{id}', 'FileController@delete');
     Route::get('/admin/file/use/{id}', 'FileController@use');
     Route::post('/admin/file/update/{id}', 'FileController@update');

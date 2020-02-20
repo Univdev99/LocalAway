@@ -177,7 +177,7 @@ return [
         Laravel\Socialite\SocialiteServiceProvider::class,
         Stevebauman\Location\LocationServiceProvider::class,
 
-
+        App\Providers\MenuServiceProvider::class,
 
     ],
 

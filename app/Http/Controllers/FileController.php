@@ -49,7 +49,7 @@ class FileController extends Controller
         Storage::disk('public')->delete('/uploads/' . $upload->filename);
         return redirect('/dashboard/'.$collection.'-image');
     }
-    
+
     public function update(Request $request, $id)
     {
         $collection = $request->get('collection');
@@ -105,5 +105,10 @@ class FileController extends Controller
         // $upload->delete();
         // Storage::disk('public')->delete('/uploads/' . $upload->filename);
         return redirect('/dashboard/'.$collection.'-image');
+    }
+
+    public function vcUpload(Request $request)
+    {
+
     }
 }

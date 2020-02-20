@@ -26,7 +26,7 @@ class DashboardController extends Controller
             if (auth()->user()->id > 2) {
                 return redirect('/');
             }
-            
+
             return $next($request);
         });
     }
@@ -76,6 +76,11 @@ class DashboardController extends Controller
             'images' => $images,
             'collection' => $collection
         ]);
+    }
+
+    public function closet()
+    {
+        return view('dashboard-closet', ['title' => 'upload closet page']);
     }
 
     public function customers()

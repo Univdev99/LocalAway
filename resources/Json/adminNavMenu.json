@@ -1,0 +1,11 @@
+{
+    "menu": [
+        { "url": "/logo-image", "name": "Logo Image", "icon": "" },
+        { "url": "/hero-image", "name": "Hero Image", "icon": "" },
+        { "url": "/itinerary-image", "name": "Itinerary Image", "icon": "" },
+        { "url": "/stylist-image", "name": "Stylist Image", "icon": "" },
+        { "url": "/virtual-closet", "name": "Virtual Closet", "icon": "" },
+        { "url": "/customers", "name": "Customers", "icon": "" },
+        { "url": "/survey", "name": "Survey", "icon": "" }
+    ]
+}
