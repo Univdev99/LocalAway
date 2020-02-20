@@ -41,6 +41,7 @@ class HomeController extends Controller
         $itineraries = Upload::where('collection' ,'itinerary')->orderBy('extra')->get();
         $logo = Upload::where('collection' ,'logo')->where('extra',1)->first();
         $hero = Upload::where('collection' ,'hero')->where('extra',1)->first();
+        // dd($hero);
         return view('home', [
             'stylists' => $stylists,
             'itineraries' => $itineraries,

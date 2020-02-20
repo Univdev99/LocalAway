@@ -21,7 +21,8 @@ class FileController extends Controller
         $title = $request->get('title');
 
         $uploadedFile = $request->file('image');
-        $filename = time().$uploadedFile->getClientOriginalName();
+        // $filename = time().$uploadedFile->getClientOriginalName();
+        $filename = time();
         Storage::disk('public')->putFileAs('uploads', $uploadedFile, $filename);
         $max = Upload::where('collection',$collection)->max('extra');
         if (is_null($max)){
