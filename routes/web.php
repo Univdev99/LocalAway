@@ -20,15 +20,15 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 // Route::domain('staging.localaway.com')->group(function () {
 
-    Route::group(["domain" => "www.localaway.com"], function () {
-        Route::get('/', function () {
+    // Route::group(["domain" => "www.localaway.com"], function () {
+        Route::get('/newlanding', function () {
             return view('newlanding');
         });
-    });
+    // });
 
-    Route::group(["domain" => "www.localaway.ai"], function () {
+    // Route::group(["domain" => "www.localaway.ai"], function () {
         Route::get('/', 'HomeController@index')->name('home');
-    });
+    // });
 
     Route::post('/access-ai', 'HomeController@checkAccess');
     Route::get('about', 'HomeController@about');

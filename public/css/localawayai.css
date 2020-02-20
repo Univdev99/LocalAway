@@ -506,3 +506,8 @@ h4 {
     border-bottom-right-radius: 20px;
     border-bottom-left-radius: 20px;
 }
+
+.btn-modal {
+    padding-top: 10px!important;
+    padding-bottom: 10px!important;
+}
