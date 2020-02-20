@@ -66,12 +66,14 @@
                 <div class="modal-body p-5 mx-5">
                 <form id="request-form" > <!--action='/survey' method='post'-->
                 {{-- @csrf --}}
-                <img class="d-lg-block mx-auto my-4 w-100" src="/images/newlanding/logo.png" style="max-width:60px;" alt="">
-                    <div class="col">
-                    <div class="d-flex" style="flex-direction: column;height: 100%;justify-content: space-between;">
-                        <h3 class="font-weight-bold mb-4 question text-center congrate title font-orange">Welcome to Local Away</h3>
-                        <h5 class="text-center mb-4 font-weight-bold">We are excited to get to know you</h5>
+                    <div class="text-center">
+                        <img class="d-lg-block mx-auto my-4 w-100" src="/images/newlanding/logo.png" style="max-width:60px;" alt="">
                     </div>
+                    <div class="col">
+                        <div class="d-flex" style="flex-direction: column;height: 100%;justify-content: space-between;">
+                            <h3 class="font-weight-bold mb-4 question text-center congrate title font-orange">Welcome to Local Away</h3>
+                            <h5 class="text-center mb-4 font-weight-bold">We are excited to get to know you</h5>
+                        </div>
                     </div>
                     <div class="form-group">
                     <input type="text" class="form-control h-auto" name="name" id="name-text" required placeholder="Full Name">
@@ -150,7 +152,7 @@
                         <input type="email" placeholder='Enter Email' class='text-white mail-text mb-4 mb-lg-0'  autofocus >
                         <button type="submit" class="btn btn-primary text-white py-2 text-uppercase ml-lg-2 request-btn"  id ="first-request-btn">Request Access</button>
                     </form>
-                    <p class="h4 text-white mt-5">Personalized styles delivered, locally or away.</p>
+                    <p class="h4 text-white mt-5">A fashion experience for local communities & travelers.</p>
                     </div>
                 </div>
                 </div>
