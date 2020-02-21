@@ -29695,7 +29695,7 @@ button.bg-secondary:focus {
 }
 
 .bg-success {
-    background-color: #0abb87 !important;
+    background-color: #0abb87;
 }
 
 a.bg-success:hover,
@@ -38660,7 +38660,7 @@ canvas {
 /* Customize website's scrollbar like Mac OS */
 
 
-/* 
+/*
 ::-webkit-scrollbar {
     background-color:#f6f6f6;
     width:14px;

@@ -45,3 +45,7 @@
     direction: ltr;
     cursor: pointer;
 }
+
+.img-selected {
+    background-color: #fa5d47 !important;
+}
