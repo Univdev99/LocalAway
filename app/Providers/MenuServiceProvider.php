@@ -23,7 +23,7 @@ class MenuServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $menuJson = file_get_contents(base_path('resources/json/adminNavMenu.json'));
+        $menuJson = file_get_contents(base_path('resources/Json/adminNavMenu.json'));
         $menuData = json_decode($menuJson);
         \View::share('menuData', $menuData);
     }
