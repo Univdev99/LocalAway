@@ -22,7 +22,7 @@
     @if ($collection == "logo" || $collection == "hero")
         @foreach($images as $image)
             @if($image->extra==1)
-                <form class = "bg-success" method = "post" action="/admin/file/update/{{$image->id}}?collection={{$collection}}">
+                <form class = "img-selected" method = "post" action="/admin/file/update/{{$image->id}}?collection={{$collection}}">
             @else
                 <form method = "post" action="/admin/file/update/{{$image->id}}?collection={{$collection}}">
             @endif
