@@ -6,10 +6,10 @@
         <div class = "row">
           <div class="col">
             <p class='h3 text-black search-title'>@if (isset($title)) {{ $title }} @else Tell us about what  you need @endif</p>
-            <p>Weekly wardrobe? Date night? We’ve got you covered.</p>
+            <p>Apres Ski in the Alps or Tropical Vacation? We’ve got you covered.</p>
           </div>
         </div>
-        
+
         <div class="row">
           <div class="col-lg-10 mb-3 mb-lg-0 ">
             <div class="row">

@@ -6,7 +6,8 @@
 @endsection
 
 @section('content')
-    <form id="fileupload" action="/admin/file/vcUpload" method="POST" enctype="multipart/form-data" class="">
+    <form id="fileupload" action="/admin/file/vcUpload" method="POST" enctype="multipart/form-data">
+    @csrf
         <div class="col-md-9">
             <div class="fileinput fileinput-new" data-provides="fileinput">
                 <span class="btn btn-info btn-file">
@@ -14,7 +15,8 @@
                     <span class="fileinput-new"> Add file... </span>
                     <span class="fileinput-exists"> Change </span>
                     <input type="hidden" value="" name="...">
-                    <input type="file" name=""> </span>
+                    <input type="file" name="product" required>
+                </span>
                 <span class="fileinput-filename"></span> &nbsp;
                 <button type="submit" class="btn btn-success start">
                     <i class="fa fa-upload"></i>
