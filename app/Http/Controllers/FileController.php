@@ -47,79 +47,12 @@ class FileController extends Controller
     {
         $file = $request->file('product');
         $extension = $file->getClientOriginalExtension();
-        if($extension != 'json' || $extension != 'csv'){
-            return redirect('/dashboard/virtual-closet');
-        }
-        else if($extension == 'json'){
-            $json = json_decode($file, true);
-            foreach($json as $product)
-            {
 
-                // $attr = 'e_cat_l1';
-                // foreach($product->attributes->$attr as $index){
-                //     // $e_cat_li
-                // }
-                Vcloset::updateOrCreate([ 'product_id' => $product->id],[
-                    "type" => $product->type,
-                    "availability" => $product->attributes->availability,
-                    "brand" => $product->attributes->brand,
-                    "colour" => $product->attributes->colour,
-                    "condition" => $product->attributes->condition,
-                    "converted_currency" => $product->attributes->converted_currency,
-                    "converted_retailer_price" => $product->attributes->converted_retailer_price,
-                    "converted_sale_price" => $product->attributes->converted_sale_price,
-                    "currency" => $product->attributes->currency,
-                    "e_affiliate_url" => $product->attributes->e_affiliate_url,
-                    "e_brand_formatted" => $product->attributes->e_brand_formatted,
-                    "e_cat_l1" => $product->attributes->e_cat_l1,
-                    "e_cat_l2" => $product->attributes->e_cat_l2,
-                    "e_categories" => $product->attributes->e_categories,
-                    "e_categories_path" => $product->attributes->e_categories_path,
-                    "e_colour" => $product->attributes->e_colour,
-                    "e_country" => $product->attributes->e_country,
-                    "e_delivery_options" => $product->attributes->e_delivery_options,
-                    "e_free_returns" => $product->attributes->e_free_returns,
-                    "e_free_shipping_currency" => $product->attributes->e_free_shipping_currency,
-                    "e_free_shipping_over" => $product->attributes->e_free_shipping_over,
-                    "e_friendly_id" => $product->attributes->e_friendly_id,
-                    "e_friendly_ids" => $product->attributes->e_friendly_ids,
-                    "e_gender" => $product->attributes->e_gender,
-                    "e_gender_list" => $product->attributes->e_gender_list,
-                    "e_image_urls_detail_jpg" => $product->attributes->e_image_urls_detail_jpg,
-                    "e_image_urls_detail_ratio" => $product->attributes->e_image_urls_detail_ratio,
-                    "e_image_urls_detail_webp" => $product->attributes->e_image_urls_detail_webp,
-                    "e_image_urls_og" => $product->attributes->e_image_urls_og,
-                    "e_image_urls_search_jpg" => $product->attributes->e_image_urls_search_jpg,
-                    "e_image_urls_search_webp" => $product->attributes->e_image_urls_search_webp,
-                    "e_is_free_shipping" => $product->attributes->e_is_free_shipping,
-                    "e_item_code" => $product->attributes->e_item_code,
-                    "e_material" => $product->attributes->e_material,
-                    "e_payment_options" => $product->attributes->e_payment_options,
-                    "e_price_USD" => $product->attributes->e_price_USD,
-                    "e_retailer_display_domain" => $product->attributes->e_retailer_display_domain,
-                    "e_retailer_display_name" => $product->attributes->e_retailer_display_name,
-                    "e_retailer_facet_name" => $product->attributes->e_retailer_facet_name,
-                    "e_retailer_name" => $product->attributes->e_retailer_name,
-                    "e_returns_link" => $product->attributes->e_returns_link,
-                    "e_returns_period" => $product->attributes->e_returns_period,
-                    "e_shipping_carrier" => $product->attributes->e_shipping_carrier,
-                    "e_shipping_link" => $product->attributes->e_shipping_link,
-                    "e_subcat" => $product->attributes->e_subcat,
-                    "gender" => $product->attributes->gender,
-                    "hreflang" => $product->attributes->hreflang,
-                    "item_code" => $product->attributes->item_code,
-                    "long_description" => $product->attributes->long_description,
-                    "material" => $product->attributes->material,
-                    "product_name" => $product->attributes->product_name,
-                    "retailer_price" => $product->attributes->retailer_price,
-                    "retailer_url" => $product->attributes->retailer_url,
-                    "sku_code" => $product->attributes->sku_code,
-                    "dated_at" => $product->attributes->dated_at,
-                    "external" => $product->links->external,
-                    "self" => $product->links->self,
-                    "selfRelative" => $product->links->selfRelative
-                ]);
-            }
+        if($extension == "json"){
+            $this->jsonParsing($file);
+            dd("ggg");
+                // Vcloset::updateOrCreate([ 'product_id' => $product->id],$db_array);
+
         }
     }
 
@@ -190,4 +123,85 @@ class FileController extends Controller
     }
 
 
+    public function jsonParsing($file)
+    {
+        $attr_array = [
+            "e_cat_l1",
+            "e_cat_l2",
+            "e_categories",
+            "e_categories_path",
+            "e_country",
+            "e_friendly_ids",
+            "e_gender_list",
+            "e_image_urls_detail_jpg",
+            "e_image_urls_detail_ratio",
+            "e_image_urls_detail_webp",
+            "e_image_urls_search_jpg",
+            "e_image_urls_search_webp",
+            "e_payment_options",
+            "e_subcat",
+            "hreflang"
+        ];
+        $json = json_decode($file, true);
+        dd($json);
+        foreach($json as $product)
+        {
+            $db_array = [
+                "type" => $product->type,
+                "availability" => $product->attributes->availability,
+                "brand" => $product->attributes->brand,
+                "colour" => $product->attributes->colour,
+                "condition" => $product->attributes->condition,
+                "converted_currency" => $product->attributes->converted_currency,
+                "converted_retailer_price" => $product->attributes->converted_retailer_price,
+                "converted_sale_price" => $product->attributes->converted_sale_price,
+                "currency" => $product->attributes->currency,
+                "e_brand_formatted" => $product->attributes->e_brand_formatted,
+                "e_colour" => $product->attributes->e_colour,
+                "e_delivery_options" => $product->attributes->e_delivery_options,
+                "e_free_returns" => $product->attributes->e_free_returns,
+                "e_free_shipping_currency" => $product->attributes->e_free_shipping_currency,
+                "e_free_shipping_over" => $product->attributes->e_free_shipping_over,
+                "e_friendly_id" => $product->attributes->e_friendly_id,
+                "e_gender" => $product->attributes->e_gender,
+                "e_image_urls_og" => $product->attributes->e_image_urls_og,
+                "e_is_free_shipping" => $product->attributes->e_is_free_shipping,
+                "e_item_code" => $product->attributes->e_item_code,
+                "e_material" => $product->attributes->e_material,
+                "e_price_USD" => $product->attributes->e_price_USD,
+                "e_retailer_display_domain" => $product->attributes->e_retailer_display_domain,
+                "e_retailer_display_name" => $product->attributes->e_retailer_display_name,
+                "e_retailer_facet_name" => $product->attributes->e_retailer_facet_name,
+                "e_retailer_name" => $product->attributes->e_retailer_name,
+                "e_returns_link" => $product->attributes->e_returns_link,
+                "e_returns_period" => $product->attributes->e_returns_period,
+                "e_shipping_carrier" => $product->attributes->e_shipping_carrier,
+                "e_shipping_link" => $product->attributes->e_shipping_link,
+                "gender" => $product->attributes->gender,
+                "item_code" => $product->attributes->item_code,
+                "long_description" => $product->attributes->long_description,
+                "material" => $product->attributes->material,
+                "product_name" => $product->attributes->product_name,
+                "retailer_price" => $product->attributes->retailer_price,
+                "retailer_url" => $product->attributes->retailer_url,
+                "sku_code" => $product->attributes->sku_code,
+                "updated_time" => $product->attributes->updated_at,
+                "external" => $product->links->external,
+                "self" => $product->links->self,
+                "selfRelative" => $product->links->selfRelative
+            ];
+            foreach ($attr_array as $array){
+                $pro_str = "";
+                foreach ($product->attributes->$array as $item){
+                    if($pro_str != ""){
+                        $pro_str += ',';
+                    }
+                    $pro_str += $item;
+                }
+
+                $db_array = array_merge($db_array, [$array => $pro_str]);
+            }
+        }
+        dd($db_array);
+    }
 }

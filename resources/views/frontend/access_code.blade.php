@@ -8,7 +8,7 @@
                 </div>
                 <div class="col">
                     <div class="d-flex" style="flex-direction: column;height: 100%;justify-content: space-between;">
-                        <h3 class="font-weight-bold mb-4 question text-center congrate title font-orange">Welcome to Local Away</h3>
+                        <h3 class="font-weight-bold mb-4 question text-center congrate title font-orange">Welcome to Localaway</h3>
                         <h5 class="text-center mb-4 font-weight-bold">Enter your exculsive members <br> only access code to enter</h5>
                     </div>
                 </div>

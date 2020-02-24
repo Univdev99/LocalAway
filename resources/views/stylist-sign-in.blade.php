@@ -16,7 +16,7 @@
         font-family: Avenir-Black;
         src: url("/fonts/Avenir-Black.ttf");
     }
-    
+
     @font-face {
         font-family: Poppins-Regular;
         src: url("/fonts/Poppins-Regular.ttf");
@@ -27,7 +27,7 @@
       <div class="container-fluid ">
           <div class='row' id="logo">
               <a class="logo" href="/">
-                  <img class="d-lg-block" src="/images/logo.png" alt="logo">  
+                  <img class="d-lg-block" src="/images/logo.png" alt="logo">
                   <!-- <img class="d-block d-lg-none" src="/images/orange-logo.jpg" alt="mobile-logo">   -->
               </a>
           </div>
@@ -82,7 +82,7 @@
                                           </span>
                                           <div>
                                               <span onclick="javascript:minusfunction()" class = "signature">-</span>
-                                              <input type="hidden" id="input-hours" name="hours" /> 
+                                              <input type="hidden" id="input-hours" name="hours" />
                                               <span id = "hours-1" class = "hours number">15</span>
                                               <span id = "" class = "plus signature">+</span>
                                           </div>
@@ -210,9 +210,9 @@
                                   <div id="step-3-boutique" class = "mt-5 step-3" style="display: none;">
                                       <h1 class="font-weight-bold mb-5">We’re excited to partner with you! Welcome to the future of a sustainable supply chain.</h1>
                                       <div class="">
-                                          <h5 class = 'text-dark mt-2 mb-4'>Martin, do you want to improve your chances? Send us  your resume and why you want ot be part of Local Away?</h5>
+                                          <h5 class = 'text-dark mt-2 mb-4'>Martin, do you want to improve your chances? Send us  your resume and why you want ot be part of Localaway?</h5>
                                           <span class ='font-weight-bold question'>
-                                              <i class="fas fa-upload"></i>    
+                                              <i class="fas fa-upload"></i>
                                               Upload Resume
                                               <p class='small text-dark ml-4 font-weight-bold'>Acceptable file types:doc,pdf</p>
                                           </span>
@@ -231,7 +231,7 @@
                                                   <textarea rows="3" cols="50" class='w-100' name='boutique-letter'></textarea>
                                               </div>
                                           </span>
-                                      
+
                                           <span class ='font-weight-bold question '>
                                               Website Link, Social Media Pages
                                               <div class="form-group ">
@@ -262,7 +262,7 @@
                                       <h1 class="font-weight-bold mb-5">Find out what you can earn as a local stylist.</h1>
                                       <div class="">
                                           <span class ='font-weight-bold question'>
-                                              <i class="fas fa-upload"></i>    
+                                              <i class="fas fa-upload"></i>
                                               Upload Resume
                                               <p class='small text-dark ml-4 font-weight-bold'>Acceptable file types:doc,pdf</p>
                                           </span>
@@ -335,6 +335,6 @@
       <script type="text/javascript" src="/js/dropzone.js"></script>
       <script src="/js/jquery-3.3.1.min.js"></script>
       <script src="/js/stylist-sign-in.js"></script>
-    
+
   </body>
 </html>

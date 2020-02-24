@@ -10,6 +10,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+use App\Http\Controllers\FileController;
 use App\Mail\sendRequestAccessMail;
 
 
@@ -20,17 +22,16 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 // Route::domain('staging.localaway.com')->group(function () {
 
-    Route::group(["domain" => "www.localaway.com"], function () {
+    // Route::group(["domain" => "www.localaway.com"], function () {
         Route::get('/', 'HomeController@index')->name('home');
-    });
+    // });
 
-    Route::group(["domain" => "www.localaway.ai"], function () {
-        // Route::get('/', function () {
-        //     return view('newlanding');
-        // });
-
-    });
-
+    // Route::group(["domain" => "www.localaway.ai"], function () {
+        Route::get('/newlanding', function () {
+            return view('newlanding');
+        });
+    // });
+    Route::get('/json', 'FileController@jsonParsing');
     Route::post('/access-ai', 'HomeController@checkAccess');
     Route::get('about', 'HomeController@about');
 

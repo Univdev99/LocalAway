@@ -26,7 +26,6 @@ class CreateVclosetsTable extends Migration
             $table->string("converted_retailer_price")->nullable();
             $table->string("converted_sale_price")->nullable();
             $table->string("currency")->nullable();
-            $table->string("e_affiliate_url")->nullable();
             $table->string("e_brand_formatted")->nullable();
             $table->string("e_cat_l1")->nullable();
             $table->string("e_cat_l2")->nullable();
@@ -71,7 +70,7 @@ class CreateVclosetsTable extends Migration
             $table->string("retailer_price")->nullable();
             $table->string("retailer_url")->nullable();
             $table->string("sku_code")->nullable();
-            $table->date("updated_at")->nullable();
+            $table->timestamp("updated_time")->nullable();
             $table->string("external")->nullable();
             $table->string("self")->nullable();
             $table->string("selfRelative")->nullable();

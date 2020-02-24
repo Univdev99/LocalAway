@@ -13,7 +13,7 @@
         <link rel="stylesheet" href="/css/bootstrap-datepicker.css">
         <link rel="stylesheet" href="/css/jquery.timepicker.css">
         <link rel="stylesheet" href="/css/fancybox.min.css">
-        
+
         <link rel="stylesheet" href="/fonts/ionicons/css/ionicons.min.css">
         <link rel="stylesheet" href="/fonts/fontawesome/css/font-awesome.min.css">
 
@@ -27,7 +27,7 @@
                 font-family: Avenir-Black;
                 src: url("/fonts/Avenir-Black.ttf");
             }
-            
+
             @font-face {
                 font-family: Poppins-Regular;
                 src: url("/fonts/Poppins-Regular.ttf");
@@ -66,7 +66,7 @@
               <img class="d-lg-block mx-auto my-5 w-100" src="/images/newlanding/logo.png" style="max-width:80px;" alt="">
                 <div class="col">
                   <div class="d-flex" style="flex-direction: column;height: 100%;justify-content: space-between;">
-                    <h2 class="font-weight-bold mb-4 question text-center congrate title font-orange">Welcome to Local Away</h2>
+                    <h2 class="font-weight-bold mb-4 question text-center congrate title font-orange">Welcome to Localaway</h2>
                     <h5 class="text-center mb-4 font-weight-bold">We are excited to get to know you</h5>
                   </div>
                 </div>
@@ -82,7 +82,7 @@
                 <div class="form-group px-4">
                   <label for="message-text" class="col-form-label">I am a..(Please select one)</label><br>
                   <div class="px-3">
-                    <input id="radio_stylist" type="radio" name="person_type" value="stylist" required> 
+                    <input id="radio_stylist" type="radio" name="person_type" value="stylist" required>
                     <label for="radio_stylist">Brand or Boutique</label><br>
                     <input id="radio_customer" type="radio" name="person_type" value="customer" required>
                     <label for="radio_customer">Customer</label><br>
@@ -98,7 +98,7 @@
                       <span class="sr-only">Loading...</span>
                     </div>
                   </div>
-                  
+
                   <div class="text-center mt-4">
                     <input type="submit" id="request-btn"  class="btn btn-primary mx-auto" value="Request Access"/>
                   </div>
@@ -160,7 +160,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-10 text-center align-items-center" data-aos="fade-up">
-                    <h1>Open Positions</h1> 
+                    <h1>Open Positions</h1>
                     <div class="separator color-orange"></div>
                     <p class="mb-5 m-auto text-left"><strong class="text-dark font-weight-bold">Stylist 1:</strong> Hiring expert stylist to provide fashion advice; choosing and co-ordinating outfits and capsule wardrobes for clients and company.
                         <p class='text-left'>
@@ -222,7 +222,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-md-6 col-sm-6 col-12 post" data-aos="fade-up" data-aos-delay="100">
-                    
+
                     <div class="media media-custom d-block mb-4 h-100">
                         <div class="media-body">
                             <h2 class="mt-0 mb-3 text-white">Discovery & Community</h2>
@@ -231,7 +231,7 @@
                             </p>
                         </div>
                     </div>
-                    
+
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-6 col-12 post" data-aos="fade-up" data-aos-delay="200">
                     <div class="media media-custom d-block mb-4 h-100">
@@ -274,7 +274,7 @@
                     <p class='m-0  font-weight-bold'>Design</p>
                     <p class="font-weight-bold text-black  m-0"><em>&mdash; Jen Furman</em></p>
                     <p class='m-0  font-weight-bold'>Fashion expert and local stylist</p>
-                </div> 
+                </div>
 
                 <div class="testimonial text-center slider-item col-md-4">
                     <div class="author-image mb-3">
@@ -297,8 +297,8 @@
             </div>
         </div>
     </section>
-        
-    
+
+
 
     <footer class="section footer-section">
         <div class="container-fluid">
@@ -322,11 +322,11 @@
               </ul>
             </div>
             <div class="col-lg-3 mb-5 d-flex justify-content-space-evently  align-items-end">
-                <a class="h3 color-brown" href="https://www.instagram.com/localaway/"><span class="fa fa-instagram"></span></a>   
-                <a class="h3 color-brown" href="https://twitter.com/local_away"><span class="fa fa-twitter"></span></a> 
-                <a class="h3 color-brown" href="https://www.facebook.com/localaway/"><span class="fa fa-facebook"></span></a>    
+                <a class="h3 color-brown" href="https://www.instagram.com/localaway/"><span class="fa fa-instagram"></span></a>
+                <a class="h3 color-brown" href="https://twitter.com/local_away"><span class="fa fa-twitter"></span></a>
+                <a class="h3 color-brown" href="https://www.facebook.com/localaway/"><span class="fa fa-facebook"></span></a>
             </div>
-            
+
             <div class="col-lg-5 mb-5 mt-auto">
                 <form class='mt-5 first-form d-lg-flex justify-content-center'>
                   <input type="email" placeholder='Enter Email' class='text-white mail-text mb-4 mb-lg-0'  autofocus >
@@ -335,7 +335,7 @@
             </div>
         </div>
       </footer>
-      
+
     <script src="/js/jquery-3.3.1.min.js"></script>
     <script src="/js/jquery-migrate-3.0.1.min.js"></script>
     <script src="/js/popper.min.js"></script>
@@ -345,8 +345,8 @@
     <script src="/js/jquery.fancybox.min.js"></script>
     <script src="/js/jquery.easing.1.3.js"></script>
     <script src="/js/aos.js"></script>
-    <script src="/js/bootstrap-datepicker.js"></script> 
-    <script src="/js/jquery.timepicker.min.js"></script> 
+    <script src="/js/bootstrap-datepicker.js"></script>
+    <script src="/js/jquery.timepicker.min.js"></script>
     <script src="/js/main.js"></script>
     <script src="/js/survey/survey.js"></script>
 </body>
