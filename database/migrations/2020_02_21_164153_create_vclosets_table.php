@@ -26,7 +26,7 @@ class CreateVclosetsTable extends Migration
             $table->string("converted_retailer_price", 255)->nullable();
             $table->string("converted_sale_price", 255)->nullable();
             $table->string("currency", 255)->nullable();
-            $table->string("e_affiliate_url", 255)->nullable();
+            $table->longText("e_affiliate_url")->nullable();
             $table->string("e_brand_formatted", 255)->nullable();
             $table->string("e_cat_l1", 255)->nullable();
             $table->string("e_cat_l2", 255)->nullable();
