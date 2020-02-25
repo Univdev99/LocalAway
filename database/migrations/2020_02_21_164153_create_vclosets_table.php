@@ -31,7 +31,7 @@ class CreateVclosetsTable extends Migration
             $table->string("e_cat_l1", 255)->nullable();
             $table->string("e_cat_l2", 255)->nullable();
             $table->string("e_categories", 255)->nullable();
-            $table->string("e_categories_path", 255)->nullable();
+            $table->longText("e_categories_path")->nullable();
             $table->string("e_colour", 255)->nullable();
             $table->string("e_country", 255)->nullable();
             $table->string("e_delivery_options", 255)->nullable();

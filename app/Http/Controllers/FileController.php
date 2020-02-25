@@ -50,7 +50,6 @@ class FileController extends Controller
 
         if($extension == "json"){
             $this->jsonParsing($file);
-
         }
         return redirect("/dashboard/virtual-closet");
     }
