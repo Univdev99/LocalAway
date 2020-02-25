@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Vcloset extends Model
 {
+    public $timestamps = false;
     protected $fillable = [
         "product_id",
         "type",
@@ -62,7 +63,10 @@ class Vcloset extends Model
         "retailer_price",
         "retailer_url",
         "sku_code",
-        "dated_at",
+        "updated_at",
+        "updated_at_yday",
+        "updated_at_year",
+        "updated_at_yweek",
         "external",
         "self",
         "selfRelative",

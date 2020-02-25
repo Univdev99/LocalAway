@@ -511,3 +511,7 @@ h4 {
     padding-top: 10px!important;
     padding-bottom: 10px!important;
 }
+
+.site-hero {
+    max-height: 100%!important;
+}

@@ -31,7 +31,7 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
             return view('newlanding');
         });
     // });
-    Route::get('/json', 'FileController@jsonParsing');
+    // Route::get('/json', 'FileController@jsonParsing');
     Route::post('/access-ai', 'HomeController@checkAccess');
     Route::get('about', 'HomeController@about');
 
