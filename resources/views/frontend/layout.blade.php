@@ -38,8 +38,8 @@
     </head>
     <body data-spy="scroll" data-target="#templateux-navbar" data-offset="200" class="Frontend">
 
-        @include('frontend.access_code')
-        @include('frontend.request_access_code')
+        @include('frontend.sections.access_code')
+        @include('frontend.sections.request_access_code')
         @include('frontend.sections.header')
         @include('frontend.sections.hero')
         @include('frontend.sections.search')

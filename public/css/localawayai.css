@@ -515,3 +515,8 @@ h4 {
 .site-hero {
     max-height: 100%!important;
 }
+
+#ai_access_modal,
+#ai_request_access_modal {
+    opacity: 0.9;
+}

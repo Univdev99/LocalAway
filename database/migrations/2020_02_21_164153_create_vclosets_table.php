@@ -38,8 +38,8 @@ class CreateVclosetsTable extends Migration
             $table->boolean("e_free_returns")->nullable();
             $table->string("e_free_shipping_currency", 255)->nullable();
             $table->string("e_free_shipping_over", 255)->nullable();
-            $table->string("e_friendly_id", 255)->nullable();
-            $table->string("e_friendly_ids", 255)->nullable();
+            $table->longText("e_friendly_id")->nullable();
+            $table->longText("e_friendly_ids")->nullable();
             $table->string("e_gender", 255)->nullable();
             $table->string("e_gender_list", 255)->nullable();
             $table->longText("e_image_urls_detail_jpg")->nullable();
