@@ -1,35 +1,7 @@
 @extends('stylist.layout')
 
 @section('css')
-
-
-<style>
-.title {
-    margin-top: 120px;
-}
-div.scrollmenu {
-
-    overflow: auto;
-    white-space: nowrap;
-}
-
-.btn-filter {
-    display: inline-block;
-    color: black;
-    text-align: center;
-    text-decoration: none;
-    padding-left:20px;
-    padding-right:20px;
-    padding-bottom:5px;
-    padding-top:5px;
-    border: 2px solid #03bfb0!important;
-    border-radius: 30px;
-}
-
-.btn-filter.active {
-    background-color: #03bfb0;
-}
-</style>
+    <link rel="stylesheet" href="/css/stylist/grid.css">
 @endsection
 
 @section('content')
@@ -43,7 +15,7 @@ div.scrollmenu {
         </div>
     </div>
 
-    <div class="filter">
+    <div class="filter my-4">
         <div class="row justify-content-center align-items-center">
             <div class="col-md-8 ">
                 @if (count($filter) > 0)
@@ -57,11 +29,73 @@ div.scrollmenu {
     </div>
 
     <div class="container">
-
-
-
+        <div class="row">
+            <div class="col-9" >
+                <div class="container list-box clearfix">
+                    <div class="clearfix">
+                        <ol class="products-list clearfix" id="post-data">
+                            @include('stylist.sections.products')
+                        </ol>
+                        <div class="ajax-load text-center" style="display:none">
+                            <p><img src="http://demo.itsolutionstuff.com/plugin/loader.gif">Loading...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3">
+            </div>
+        </div>
     </div>
+
 </section>
 @endsection
 
+@section('js')
+
+<script type="text/javascript">
+    var page = 1;
+    $(document).ready(function (){
+        loadMoreData(page);
+    });
+    $(".btn-filter").click(function (){
+        if($(this).hasClass("active")){
+            this.className = this.className.replace(" active", "");
+        }else{
+            this.className +=" active";
+        }
+    });
+
+
+    $(window).scroll(function() {
+
+        console.log($(document).height());
+        if (Math.round($(window).scrollTop() + $(window).height()) >= Math.round($(document).height())) {
+            page++;
+            loadMoreData(page);
+        }
+    });
+
+    function loadMoreData(page) {
+        $.ajax({
+                url: '?page=' + page,
+                type: "get",
+                beforeSend: function() {
+                    $('.ajax-load').show();
+                }
+            })
+            .done(function(data) {
+                if (data.html == "") {
+                    $('.ajax-load').html("No more records found");
+                    return;
+                }
+                $('.ajax-load').hide();
+                $("#post-data").append(data.html);
+            })
+            .fail(function(jqXHR, ajaxOptions, thrownError) {
+                // alert('server not responding...');
+            });
+    }
+</script>
+
+@endsection
 

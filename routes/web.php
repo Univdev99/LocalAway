@@ -22,15 +22,15 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 // Route::domain('staging.localaway.com')->group(function () {
 
-    // Route::group(["domain" => "www.localaway.com"], function () {
+    Route::group(["domain" => "www.localaway.com"], function () {
         Route::get('/', 'HomeController@index')->name('home');
-    // });
+    });
 
-    // Route::group(["domain" => "www.localaway.ai"], function () {
+    Route::group(["domain" => "www.localaway.ai"], function () {
         Route::get('/newlanding', function () {
             return view('newlanding');
         });
-    // });
+    });
     // Route::get('/json', 'FileController@jsonParsing');
     Route::post('/access-ai', 'HomeController@checkAccess');
     Route::get('about', 'HomeController@about');
@@ -75,8 +75,6 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
     Route::post('/answer', 'HomeController@showAnswer');
     Route::get('/answer', 'HomeController@index');
 
-
-
     Route::get('/job', function () {
         return view('job');
     });
@@ -106,3 +104,5 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
     Route::post('customer/dislike', 'CustomerController@postDislike');
     Route::post('customer/almost-done', 'CustomerController@postAlmostDone');
     Route::post('customer/finalize', 'CustomerController@postFinalize');
+
+    Route::get('/phpinfo', 'FileController@phpinfo');

@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Product;
 use Illuminate\Support\Facades\Storage;
 
 use Illuminate\Http\Request;
@@ -188,8 +189,13 @@ class StylistController extends Controller
         return view('stylist-thankyou');
     }
 
-    public function closet()
+    public function closet(Request $request)
     {
-        return view('stylist.sections.closet', ['filter'=>Subcategory::all()]);
+        $products = Product::paginate(15);
+        if ($request->ajax()) {
+            $view = view('stylist.sections.products', ['filter' => Subcategory::all(), 'products' => $products])->render();
+            return response()->json(['html'=>$view]);
+        }
+        return view('stylist.sections.closet', ['filter' => [], 'products' => []]);
     }
 }

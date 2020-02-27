@@ -132,8 +132,14 @@ class FileController extends Controller
         $json = json_decode($contents, true);
 
         $db_array = [];
+        // $start = microtime(TRUE);
+        set_time_limit(4000);
+        $cnt = 0;
         foreach($json as $json_index)
         {
+            if($cnt > 100){
+                break;
+            }
             foreach ($json_index as $product => $attr){
                 if($product == "id"){
                     $id = $attr;
@@ -154,10 +160,11 @@ class FileController extends Controller
                                 if ($index == "e_cat_l1"){
                                     $maincat = Maincategory::updateOrCreate(['name' => $category]);
                                 }else if($index == "e_cat_l2"){
+                                    $catname = substr($category, strpos($category,'-',0)+1);
                                     if (isset($maincat)){
-                                        Subcategory::updateOrCreate(['name' => $category],['maincategory_id' => $maincat->id]);
+                                        Subcategory::updateOrCreate(['name' => $catname],['maincategory_id' => $maincat->id]);
                                     }else{
-                                        Subcategory::updateOrCreate(['name' => $category]);
+                                        Subcategory::updateOrCreate(['name' => $catname]);
                                     }
                                 }else{
                                     break;
@@ -182,7 +189,8 @@ class FileController extends Controller
             if(isset($json_index["attributes"]["e_cat_l2"])){
                 if($json_index["attributes"]["e_cat_l2"] != null){
                     foreach ($json_index["attributes"]["e_cat_l2"] as $sub_category){
-                        $sub_cat = Subcategory::where('name', $sub_category)->first();
+                        $catnam = substr($sub_category, strpos($sub_category,'-',0) + 1);
+                        $sub_cat = Subcategory::where('name', $catnam)->first();
                         CategoryMiddle::updateOrCreate(["product_id" => $product_column->id, "subcat_id" => $sub_cat->id]);
                     }
                 }
@@ -195,9 +203,15 @@ class FileController extends Controller
                     }
                 }
             }
-
+            $cnt += 1;
         }
 
+        // $end = microtime(TRUE);
+        // dd("The code took " . ($end - $start) . " seconds to complete.");
+    }
 
+    public function phpinfo()
+    {
+        dd(phpinfo());
     }
 }
