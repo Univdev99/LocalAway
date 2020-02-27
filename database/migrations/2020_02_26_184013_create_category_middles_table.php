@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMiddlesTable extends Migration
+class CreateCategoryMiddlesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,10 @@ class CreateMiddlesTable extends Migration
      */
     public function up()
     {
-        Schema::create('middles', function (Blueprint $table) {
+        Schema::create('category_middles', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer('product_id');
+            $table->integer('subcat_id');
             $table->timestamps();
         });
     }
@@ -26,6 +28,6 @@ class CreateMiddlesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('middles');
+        Schema::dropIfExists('category_middles');
     }
 }

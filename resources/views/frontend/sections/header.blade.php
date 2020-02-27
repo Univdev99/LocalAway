@@ -7,15 +7,15 @@
     </div>
     <div class = "d-lg-flex d-block text-center mb-2">
       <a class="navbar-brand m-auto" href="/">
-        <img class = "d-none d-lg-block" src="/storage/uploads/{{$logo->filename}}" alt="/storage/uploads/{{$logo->filename}}">  
-        <img class = "d-block d-lg-none" src="/images/orange-logo.jpg" alt="mobile-logo">  
+        <img class = "d-none d-lg-block" src="/storage/uploads/{{$logo->filename}}" alt="/storage/uploads/{{$logo->filename}}">
+        <img class = "d-block d-lg-none" src="/images/orange-logo.jpg" alt="mobile-logo">
       </a>
     @section('partner-with-us')
       <a class="header-btn btn-block text-white ml-lg-2" href="/become-stylist">Partner with Us</a>
     @show
     </div>
     <!-- END menu-toggle -->
-    <div class = "d-lg-none d-flex"> 
+    <div class = "d-lg-none d-flex">
       <i class="fas fa-search text-black text-dark"></i>
     </div>
     <div class="collapse navbar-collapse" id="templateux-navbar-nav">
@@ -44,10 +44,10 @@
     </div>
     <div>
       <a class = "text-dark">Sign Up</a>
-    </div>  
+    </div>
     <div>
       <a class = "text-dark">Partner with Us</a>
-    </div>      
+    </div>
   </div> -->
 </nav>
 <!-- END nav -->

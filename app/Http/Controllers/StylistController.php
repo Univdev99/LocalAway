@@ -2,20 +2,27 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Storage;
+
 use Illuminate\Http\Request;
 use App\Upload;
 use App\Stylist;
+use App\Subcategory;
 use App\User;
 use Hash;
+use Illuminate\Support\Facades\View;
 
 class StylistController extends Controller
 {
-    public function index(Request $request)
+    public function __construct()
     {
         $logo = Upload::where('collection' ,'logo')->where('extra',1)->first();
-        return view('stylist.index', [
-          'logo' => $logo
-        ]);
+        View::share('logo', $logo);
+    }
+
+    public function index(Request $request)
+    {
+
+        return view('stylist.sections.index');
     }
 
     public function checkEmailDuplicate(Request $request)
@@ -75,7 +82,7 @@ class StylistController extends Controller
             Storage::disk('public')->putFileAs('uploads/resume', $resume, $filename);
             $stylist->resume = $filename;
         }
-        
+
         $user = new User;
         $user->user_type = 'stylist';
         $names = explode(' ', $stylist_name);
@@ -106,7 +113,7 @@ class StylistController extends Controller
 
         $stylist->user_id = $user->id;
         $stylist->save();
-        
+
         return redirect()->route('stylist.thankyou');
     }
 
@@ -118,7 +125,7 @@ class StylistController extends Controller
         Storage::disk('public')->delete('/uploads/' . $upload->filename);
         return redirect('/dashboard/'.$collection.'-image');
     }
-    
+
     public function update(Request $request, $id)
     {
         $collection = $request->get('collection');
@@ -179,5 +186,10 @@ class StylistController extends Controller
     public function thankyou(Request $request)
     {
         return view('stylist-thankyou');
+    }
+
+    public function closet()
+    {
+        return view('stylist.sections.closet', ['filter'=>Subcategory::all()]);
     }
 }

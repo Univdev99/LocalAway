@@ -3,9 +3,8 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Query\Expression;
 
-class CreateVclosetsTable extends Migration
+class CreateProductsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +13,7 @@ class CreateVclosetsTable extends Migration
      */
     public function up()
     {
-        Schema::create('vclosets', function (Blueprint $table) {
+        Schema::create('products', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string("type", 255)->nullable();
             $table->string("product_id", 255);
@@ -78,8 +77,6 @@ class CreateVclosetsTable extends Migration
             $table->string("external", 255)->nullable();
             $table->string("self", 255)->nullable();
             $table->string("selfRelative", 255)->nullable();
-
-
         });
     }
 
@@ -90,6 +87,6 @@ class CreateVclosetsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('vclosets');
+        Schema::dropIfExists('products');
     }
 }

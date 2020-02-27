@@ -67,6 +67,7 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
     });
 
     Route::get('/stylist/check-email', 'StylistController@checkEmailDuplicate');
+    Route::get('/stylist/closet', 'StylistController@closet');
     Route::post('/stylist-signup', 'StylistController@store');
     Route::get('/become-stylist/thank-you', 'StylistController@thankyou')->name('stylist.thankyou');
     Route::get('/customer/thank-you', 'CustomerController@thankyou')->name('customer.thankyou');

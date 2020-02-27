@@ -1,10 +1,15 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\CategoryMiddle;
+use App\Maincategory;
+use App\Materialcategory;
+use App\Product;
+use App\Subcategory;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Upload;
-use App\Vcloset;
+
 
 class FileController extends Controller
 {
@@ -145,6 +150,19 @@ class FileController extends Controller
                             }else{
                                 $str = implode(",", $content);
                             }
+                            foreach ($content as $category){
+                                if ($index == "e_cat_l1"){
+                                    $maincat = Maincategory::updateOrCreate(['name' => $category]);
+                                }else if($index == "e_cat_l2"){
+                                    if (isset($maincat)){
+                                        Subcategory::updateOrCreate(['name' => $category],['maincategory_id' => $maincat->id]);
+                                    }else{
+                                        Subcategory::updateOrCreate(['name' => $category]);
+                                    }
+                                }else{
+                                    break;
+                                }
+                            }
                         }else{
                             if($index == "updated_at"){
                                 $date = date_create($content);
@@ -159,7 +177,25 @@ class FileController extends Controller
                 }
             }
             // dd($db_array);
-            Vcloset::updateOrCreate([ 'product_id' => $id],$db_array);
+            $product_column = Product::updateOrCreate([ 'product_id' => $id],$db_array);
+
+            if(isset($json_index["attributes"]["e_cat_l2"])){
+                if($json_index["attributes"]["e_cat_l2"] != null){
+                    foreach ($json_index["attributes"]["e_cat_l2"] as $sub_category){
+                        $sub_cat = Subcategory::where('name', $sub_category)->first();
+                        CategoryMiddle::updateOrCreate(["product_id" => $product_column->id, "subcat_id" => $sub_cat->id]);
+                    }
+                }
+            }
+
+            if(isset($json_index["attributes"]["e_categories"])){
+                if($json_index["attributes"]["e_categories"] !=null){
+                    foreach ($json_index["attributes"]["e_categories"] as $material_category){
+                        Materialcategory::updateOrCreate(["product_id" => $product_column->id, "name" => $material_category]);
+                    }
+                }
+            }
+
         }
 
 

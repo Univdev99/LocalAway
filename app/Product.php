@@ -4,12 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Vcloset extends Model
+class Product extends Model
 {
     public $timestamps = false;
     protected $fillable = [
-        "product_id",
         "type",
+        "product_id",
         "availability",
         "brand",
         "colour",

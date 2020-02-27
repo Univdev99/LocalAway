@@ -15,8 +15,8 @@
   </a>
 </li>
 <li class="nav-item ml-xl-2 ml-lg-2 ml-md-0 ml-sm-0 ml-0">
-  <a class="nav-link" href="/sylist/account">
-    <span>Create</span>
+  <a class="nav-link" href="/stylist/closet">
+    <span>Closet</span>
   </a>
 </li>
 
