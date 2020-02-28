@@ -39,6 +39,6 @@
 @endsection
 
 @section('page_scripts')
-<script src="http://keenthemes.com/preview/metronic/theme/assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.js"></script>
+<script src="/js/fileinput.js"></script>
 
 @endsection
