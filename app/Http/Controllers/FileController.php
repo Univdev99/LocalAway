@@ -137,9 +137,6 @@ class FileController extends Controller
         $cnt = 0;
         foreach($json as $json_index)
         {
-            if($cnt > 100){
-                break;
-            }
             foreach ($json_index as $product => $attr){
                 if($product == "id"){
                     $id = $attr;

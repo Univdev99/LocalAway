@@ -26,6 +26,7 @@ div.scrollmenu {
 
 ol {
     padding-inline-start: 0px;
+    list-style: none;
 }
 
 .products-list .product .label-colletions .label {
