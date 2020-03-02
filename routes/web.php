@@ -91,7 +91,9 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 // Route::group(array('domain' => 'localaway.com'), $appRoutes);
 
     Route::group(['middleware' => ['auth-customer']], function () {
-        Route::get('customer/first-time-flow', 'CustomerController@firstTimeFlow')->name('customer.first-time-flow');
+        Route::get('customer/upcoming-boxes', 'CustomerController@upcomingboxes')->name('customer.upcoming-boxes');
+        Route::get('customer/preferences', 'CustomerController@preferences')->name('customer.preferences');
+        Route::get('customer/account', 'CustomerController@account')->name('customer.account');
     });
     Route::get('customer/signup', 'CustomerController@signup')->name('customer.signup');
     Route::post('customer/signup', 'CustomerController@postSignup');

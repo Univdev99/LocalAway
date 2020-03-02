@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Upload;
 use App\User;
 use App\Customer;
+use Illuminate\Support\Facades\View;
 
 class CustomerController extends Controller
 {
@@ -18,15 +19,22 @@ class CustomerController extends Controller
      */
     public function __construct()
     {
+        $logo = Upload::where('collection' ,'logo')->where('extra',1)->first();
+        View::share('logo', $logo);
     }
 
-    public function firstTimeFlow()
+    public function upcomingboxes()
     {
-      $logo = Upload::where('collection' ,'logo')->where('extra',1)->first();
-      return view('customer.first-time.index', [
-        'logo' => $logo
-      ]);
+        return view('customer.upcomingbox');
     }
+
+    public function preferences()
+    {
+        return view('customer.preferences');
+    }
+
+
+
 
     public function signup()
     {
@@ -117,7 +125,7 @@ class CustomerController extends Controller
         $customer->casual_shirts_fit = $casual_shirts_fit;
         $customer->button_up_shirts_fit = $button_up_shirts_fit;
         $customer->shorts_fit = $shorts_fit;
-        
+
         if ($request->hasFile("custom_man_body_type")) {
           $customer->photo = $request->file("custom_man_body_type")->store("uploads/custom-photo", "public");
         }
@@ -254,7 +262,7 @@ class CustomerController extends Controller
     {
       $email = $request->input("email");
       $plan = $request->input("plan");
-     
+
       $user = User::where('email', $email)->first();
       if ($user && $user->customer) {
         $customer = $user->customer;

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Upload;
-
+use Illuminate\Support\Facades\View;
 
 class HomeController extends Controller
 {
@@ -16,6 +16,8 @@ class HomeController extends Controller
     public function __construct()
     {
         // $this->middleware('auth');
+        $logo = Upload::where('collection' ,'logo')->where('extra',1)->first();
+        View::share('logo', $logo);
     }
 
     /**
@@ -31,7 +33,7 @@ class HomeController extends Controller
                 return redirect('/dashboard');
             }
             if ($user_type == 'customer') {
-                return redirect('/customer/first-time-flow');
+                return redirect('/customer/upcoming-boxes');
             } else if ($user_type == 'stylist') {
                 return redirect('/stylist');
             }
@@ -39,13 +41,11 @@ class HomeController extends Controller
 
         $stylists = Upload::where('collection' ,'stylist')->orderBy('extra')->get();
         $itineraries = Upload::where('collection' ,'itinerary')->orderBy('extra')->get();
-        $logo = Upload::where('collection' ,'logo')->where('extra',1)->first();
         $hero = Upload::where('collection' ,'hero')->where('extra',1)->first();
         // dd($hero);
         return view('home', [
             'stylists' => $stylists,
             'itineraries' => $itineraries,
-            'logo' => $logo,
             'hero' => $hero,
         ]);
     }
@@ -65,9 +65,7 @@ class HomeController extends Controller
     {
         $logo = Upload::where('collection' ,'logo')->where('extra',1)->first();
 
-        return view('frontend.about', [
-            'logo' => $logo,
-        ]);
+        return view('frontend.about');
     }
 
     public function showAnswer(Request $request)
@@ -77,7 +75,6 @@ class HomeController extends Controller
         $event = $request->get('event');
         $location = $request->get('location');
         return view('answer', [
-            'logo' => $logo,
             'event' => $event,
             'location' => $location,
             // 'hero' => $hero,

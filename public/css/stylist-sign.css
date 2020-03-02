@@ -85,6 +85,7 @@
     border: none;
     border-bottom: 1px solid #e1e1e1;
     border-radius: 0rem;
+    /* height: 40px; */
 }
 
 .form-control:focus {

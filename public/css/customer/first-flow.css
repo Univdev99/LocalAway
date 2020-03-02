@@ -1,90 +1,90 @@
 .first-row {
-  padding-top: 8em;
+    padding-top: 8em;
 }
 
 .capsule-on-the-way {
-  max-width: 400px;
-  margin: auto;
-  padding-top: 3em;
-  padding-bottom: 3em;
+    max-width: 400px;
+    margin: auto;
+    padding-top: 3em;
+    padding-bottom: 3em;
 }
 
 .marker {
-  width: 10%;
-  position: absolute;
-  left: 53.6%;
-  top: 21.5%;
-  transform: translate(-50%, -100%);
+    width: 10%;
+    position: absolute;
+    left: 53.6%;
+    top: 21.5%;
+    transform: translate(-50%, -100%);
 }
 
 .capsule-on-the-way .title {
-  color: #fd5c48;
-  font-size: 2em;
-  line-height: 1;
+    color: #fd5c48;
+    font-size: 2em;
+    /* line-height: 1; */
 }
 
 .zurich-map {
-  background-image: url('/images/customer/zurich-map.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  min-height: 400px;
+    background-image: url('/images/customer/zurich-map.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 400px;
 }
 
 .section-search {
-  margin: auto;
-  padding: 0 !important;
+    margin: auto;
+    padding: 0 !important;
 }
 
 .check-availabilty {
-  margin-top: 0;
+    margin-top: 0;
 }
 
 .check-availability .search-title {
-  font-size: 1.5em;
+    font-size: 1.5em;
 }
 
 .block-32 {
-  padding: 2em;
-  box-shadow: none;
-  border: 1px solid lightgray;
+    padding: 2em;
+    box-shadow: none;
+    border: 1px solid lightgray;
 }
 
 .section-search .container {
-  padding: 0 !important;
+    padding: 0 !important;
 }
 
 .contact-your-stylist {
-  color: black;
-  font-size: 1.5em;
+    color: black;
+    font-size: 1.5em;
 }
 
 .round-btn {
-  border-radius: 30px!important;
-  background-color: #c6a07a;
-  border-color: #c6a07a;
-  border: 2px solid #c6a07a;
-  color: white;
-  cursor: pointer;
-  padding: 0.5rem 1rem;
+    border-radius: 30px!important;
+    background-color: #c6a07a;
+    border-color: #c6a07a;
+    border: 2px solid #c6a07a;
+    color: white;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
 }
 
 .round-btn:focus {
-  outline: none;
+    outline: none;
 }
 
 .round-btn:hover {
-  color: #c6a07a!important;
-  background-color: white;
-  border: 2px solid #c6a07a;
+    color: #c6a07a!important;
+    background-color: white;
+    border: 2px solid #c6a07a;
 }
 
 .round-btn:active {
-  background-color: #fa5d47!important;
-  color: white!important;
-  border: 2px solid white!important;
+    background-color: #fa5d47!important;
+    color: white!important;
+    border: 2px solid white!important;
 }
 
 .contact-your-stylist-section {
-  background-color: #f4f4f4;
+    background-color: #f4f4f4;
 }

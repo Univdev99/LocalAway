@@ -259,6 +259,10 @@ i.form-item {
     color: #1de8de!important;
 }
 
+.bg-green {
+    background-color: #02BFAF;
+}
+
 
 /* end */
 
@@ -519,4 +523,12 @@ h4 {
 #ai_access_modal,
 #ai_request_access_modal {
     opacity: 0.9;
+}
+
+.color-brown {
+    color: #C6A07A!important;
+}
+
+.first-row {
+    padding-top: 8em;
 }

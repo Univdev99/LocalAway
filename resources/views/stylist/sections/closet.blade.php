@@ -8,8 +8,8 @@
 
 <section class="content">
     <div class="header">
-        <div class="row justify-content-center align-items-center">
-            <div class="col-md text-center title">
+        <div class="row justify-content-center align-items-center first-row">
+            <div class="col-md text-center">
                 <h1 class="heading">Closet</h1>
             </div>
         </div>
@@ -30,7 +30,7 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-9" >
+            <div class="col" >
                 <div class="container list-box clearfix">
                     <div class="clearfix">
                         <ol class="products-list clearfix" id="post-data">
@@ -42,8 +42,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col-3">
-            </div>
+            {{-- <div class="col-3">
+            </div> --}}
         </div>
     </div>
 
