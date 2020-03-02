@@ -20,8 +20,21 @@ div.scrollmenu {
     border-radius: 30px;
 }
 
-.btn-filter.active {
+.active {
     background-color: #03bfb0;
+}
+
+.btn-all {
+    display: inline-block;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    border: 2px solid #006eb9!important;
+    border-radius: 30px;
 }
 
 ol {

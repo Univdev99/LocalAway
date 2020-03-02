@@ -137,6 +137,9 @@ class FileController extends Controller
         $cnt = 0;
         foreach($json as $json_index)
         {
+            if (Product::where('product_id', $json_index["id"])->count() > 0){
+                continue;
+            }
             foreach ($json_index as $product => $attr){
                 if($product == "id"){
                     $id = $attr;

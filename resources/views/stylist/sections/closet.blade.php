@@ -18,12 +18,12 @@
     <div class="filter my-4">
         <div class="row justify-content-center align-items-center">
             <div class="col-md-8 ">
+                <button class="btn-all active" data-btn="all">See All</button>
                 @if (count($filter) > 0)
                     @foreach ($filter as $index)
-                        <button class="btn-filter">{{ $index->name }}</button>
+                        <button class="btn-filter" data-btn="{{ $index->id }}">{{ $index->name }}</button>
                     @endforeach
                 @endif
-
             </div>
         </div>
     </div>
@@ -52,50 +52,7 @@
 
 @section('js')
 
-<script type="text/javascript">
-    var page = 1;
-    $(document).ready(function (){
-        loadMoreData(page);
-    });
-    $(".btn-filter").click(function (){
-        if($(this).hasClass("active")){
-            this.className = this.className.replace(" active", "");
-        }else{
-            this.className +=" active";
-        }
-    });
-
-
-    $(window).scroll(function() {
-
-        console.log($(document).height());
-        if (Math.round($(window).scrollTop() + $(window).height()) >= Math.round($(document).height())) {
-            page++;
-            loadMoreData(page);
-        }
-    });
-
-    function loadMoreData(page) {
-        $.ajax({
-                url: '?page=' + page,
-                type: "get",
-                beforeSend: function() {
-                    $('.ajax-load').show();
-                }
-            })
-            .done(function(data) {
-                if (data.html == "") {
-                    $('.ajax-load').html("No more records found");
-                    return;
-                }
-                $('.ajax-load').hide();
-                $("#post-data").append(data.html);
-            })
-            .fail(function(jqXHR, ajaxOptions, thrownError) {
-                // alert('server not responding...');
-            });
-    }
-</script>
+<script src="/js/closet.js"></script>
 
 @endsection
 

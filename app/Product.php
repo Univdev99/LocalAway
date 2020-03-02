@@ -71,4 +71,9 @@ class Product extends Model
         "self",
         "selfRelative",
     ];
+
+    // public function productCategories()
+    // {
+    //     return $this->haMany()
+    // }
 }

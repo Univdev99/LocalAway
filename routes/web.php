@@ -80,9 +80,7 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
     });
     Route::post('/save-email', 'NewlandingController@saveRequestInfo');
     Route::post('/save-info', 'NewlandingController@saveSurveyInfo');
-
     Route::post('/send-mail', 'NewlandingController@sendRequestMail')->name('com.request-access');
-
     Route::post('/survey', function () {
         return redirect('/');
     });

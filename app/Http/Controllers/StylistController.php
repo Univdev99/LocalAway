@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\CategoryMiddle;
 use App\Product;
 use Illuminate\Support\Facades\Storage;
 
@@ -191,11 +192,24 @@ class StylistController extends Controller
 
     public function closet(Request $request)
     {
-        $products = Product::paginate(15);
+        $filter = $request->input('filter');
+
+        $products = [];
+        if($filter == null){
+            $products = Product::paginate(15);
+        }else{
+            $middle = CategoryMiddle::whereIn('subcat_id', $filter)->with('product')->paginate(15);
+
+            foreach ($middle as $index ) {
+                array_push($products, $index->product);
+            }
+        }
+
         if ($request->ajax()) {
             $view = view('stylist.sections.products', ['filter' => Subcategory::all(), 'products' => $products])->render();
             return response()->json(['html'=>$view]);
         }
         return view('stylist.sections.closet', ['filter' => Subcategory::all(), 'products' => []]);
     }
+
 }
