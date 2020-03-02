@@ -9,7 +9,8 @@ use App\Subcategory;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Upload;
-
+use Exception;
+use PhpParser\Node\Stmt\TryCatch;
 
 class FileController extends Controller
 {
@@ -184,7 +185,15 @@ class FileController extends Controller
                 }
             }
             // dd($db_array);
-            $product_column = Product::updateOrCreate([ 'product_id' => $id],$db_array);
+            try {
+                $product_column = Product::updateOrCreate([ 'product_id' => $id],$db_array);
+            }
+
+              //catch exception
+            catch(Exception $e) {
+                continue;
+            }
+
 
             if(isset($json_index["attributes"]["e_cat_l2"])){
                 if($json_index["attributes"]["e_cat_l2"] != null){

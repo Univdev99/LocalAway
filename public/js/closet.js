@@ -37,7 +37,6 @@ $(".btn-filter").click(function() {
 
 $(window).scroll(function() {
 
-    console.log($(document).height());
     if (Math.round($(window).scrollTop() + $(window).height()) >= Math.round($(document).height())) {
         page++;
         loadMoreData(page);
