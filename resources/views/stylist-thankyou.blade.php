@@ -7,8 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="/images/favicon-32x32.png" rel="icon" rel="icon" type="image/png" sizes="32x32" />
     <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" href="fonts/fontawesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/fonts/fontawesome/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+
     <link rel="stylesheet" type="text/css" href = "/css/stylist-sign.css">
     <!-- Theme Style -->
     <style type="text/css">
@@ -16,7 +17,7 @@
         font-family: Avenir-Black;
         src: url("/fonts/Avenir-Black.ttf");
     }
-    
+
     @font-face {
         font-family: Poppins-Regular;
         src: url("/fonts/Poppins-Regular.ttf");
@@ -41,14 +42,14 @@
                           <div class="d-flex" style="flex-direction: column;height: 100%;justify-content: space-between;">
                             <h1 class="font-weight-bold mb-5 question text-center congrate title">Thank you!</h1>
                             <h4 class='text-center'>We have received your application <br>and will get in touch soon!</h3>
-                            <div class="text-center mt-4">
-                                <a href="/" class="btn circle-btn btn-primary text-white font-weight-bold py-3 px-0 w-100" style="max-width: 200px">
-                                localaway.com
-                                </a>
+                            <div class="clearfix text-center">
+                                <div class="spinner-border" role="status" >
+                                <span class="sr-only">Loading...</span>
+                                </div>
                             </div>
-                            <div class='text-center mt-4'>
+                            {{-- <div class='text-center mt-4'>
                                 <a href= ""  class='text-center small question a-link' id = "step4">View First Time Stylist</a>
-                            </div>
+                            </div> --}}
                           </div>
                       </div>
                   </div>
