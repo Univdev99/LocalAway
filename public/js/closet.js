@@ -5,6 +5,9 @@ $(document).ready(function() {
 
 $(".btn-all").click(function() {
     if ($("button.btn-filter.active").length == 0) {
+        if (!$("button.btn-all").hasClass("active")) {
+            $(".btn-all").addClass("active");
+        }
         return false;
     }
     $("button.btn-filter.active").removeClass("active");
@@ -21,7 +24,7 @@ $(".btn-filter").click(function() {
 
     var filter_data = [];
     var filter_lists = $("button.btn-filter.active");
-    if (filter_lists == null) {
+    if (filter_lists.length == 0) {
         $(".btn-all").click();
     }
     for (i = 0; i < filter_lists.length; i++) {
