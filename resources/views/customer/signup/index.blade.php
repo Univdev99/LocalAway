@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="/css/bootstrap.min.css">
   <link rel="stylesheet" href="fonts/fontawesome/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
-  <link rel="stylesheet" type="text/css" href = "/css/pages/customer-signup.css">
+  <link rel="stylesheet" type="text/css" href = "/css/customer/customer-signup.css">
 
   <!-- Custom Font Style -->
   <style type="text/css">
@@ -19,7 +19,7 @@
       font-family: Avenir-Black;
       src: url("/fonts/Avenir-Black.ttf");
     }
-    
+
     @font-face {
       font-family: Poppins-Regular;
       src: url("/fonts/Poppins-Regular.ttf");
@@ -49,7 +49,7 @@
           </div>
         </div>
       </div>
-      
+
       <div class="col-lg-7 offset-lg-5 p-5">
           <div id="step-1" class="step" step="1" style="_display: none;">
             @include ('customer.signup.step1')
@@ -85,11 +85,11 @@
       </div>
     </div>
   </div>
-  
+
   <script type="text/javascript" src="/js/dropzone.js"></script>
   <script src="/js/jquery-3.3.1.min.js"></script>
   <script src="/js/pages/customer-signup.js"></script>
-<!-- 
+<!--
   <script src="https://www.paypal.com/sdk/js?client-id=sb&currency=CHF" data-sdk-integration-source="button-factory"></script>
   <script>
       paypal.Buttons({
@@ -98,7 +98,7 @@
               color: 'blue',
               layout: 'vertical',
               label: 'paypal',
-              
+
           },
           createOrder: function(data, actions) {
               return actions.order.create({

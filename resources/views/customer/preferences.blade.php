@@ -1,7 +1,7 @@
 @extends('customer.layout')
 
 @section('css')
-    <link rel="stylesheet" type="text/css" href="/css/pages/customer-signup.css">
+    <link rel="stylesheet" type="text/css" href="/css/customer/customer-signup.css">
     <link rel="stylesheet" type="text/css" href="/css/customer/avatar.css">
 @endsection
 @section('content')

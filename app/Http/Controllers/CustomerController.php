@@ -33,7 +33,10 @@ class CustomerController extends Controller
         return view('customer.preferences');
     }
 
-
+    public function account()
+    {
+        return view('customer.account.first-time');
+    }
 
 
     public function signup()
