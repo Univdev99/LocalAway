@@ -88,7 +88,7 @@
 
   <script type="text/javascript" src="/js/dropzone.js"></script>
   <script src="/js/jquery-3.3.1.min.js"></script>
-  <script src="/js/pages/customer-signup.js"></script>
+  <script src="/js/customer/customer-signup.js"></script>
 <!--
   <script src="https://www.paypal.com/sdk/js?client-id=sb&currency=CHF" data-sdk-integration-source="button-factory"></script>
   <script>

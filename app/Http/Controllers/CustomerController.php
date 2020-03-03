@@ -35,7 +35,7 @@ class CustomerController extends Controller
 
     public function account()
     {
-        return view('customer.account.first-time');
+        return view('customer.account');
     }
 
 
