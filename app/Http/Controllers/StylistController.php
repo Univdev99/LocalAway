@@ -32,6 +32,33 @@ class StylistController extends Controller
         return view('stylist.sections.profile');
     }
 
+    public function clients(Request $request)
+    {
+        return view('stylist.sections.clients');
+    }
+
+    public function closet(Request $request)
+    {
+        $filter = $request->input('filter');
+
+        $products = [];
+        if($filter == null){
+            $products = Product::paginate(15);
+        }else{
+            $middle = CategoryMiddle::whereIn('subcat_id', $filter)->with('product')->paginate(15);
+
+            foreach ($middle as $index ) {
+                array_push($products, $index->product);
+            }
+        }
+
+        if ($request->ajax()) {
+            $view = view('stylist.sections.products', ['filter' => Subcategory::all(), 'products' => $products])->render();
+            return response()->json(['html'=>$view]);
+        }
+        return view('stylist.sections.closet', ['filter' => Subcategory::all(), 'products' => []]);
+    }
+
     public function checkEmailDuplicate(Request $request)
     {
         $email = $request->input('email');
@@ -193,28 +220,6 @@ class StylistController extends Controller
     public function thankyou(Request $request)
     {
         return view('stylist-thankyou');
-    }
-
-    public function closet(Request $request)
-    {
-        $filter = $request->input('filter');
-
-        $products = [];
-        if($filter == null){
-            $products = Product::paginate(15);
-        }else{
-            $middle = CategoryMiddle::whereIn('subcat_id', $filter)->with('product')->paginate(15);
-
-            foreach ($middle as $index ) {
-                array_push($products, $index->product);
-            }
-        }
-
-        if ($request->ajax()) {
-            $view = view('stylist.sections.products', ['filter' => Subcategory::all(), 'products' => $products])->render();
-            return response()->json(['html'=>$view]);
-        }
-        return view('stylist.sections.closet', ['filter' => Subcategory::all(), 'products' => []]);
     }
 
 }

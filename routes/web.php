@@ -22,15 +22,15 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 // Route::domain('staging.localaway.com')->group(function () {
 
-    Route::group(["domain" => "www.localaway.com"], function () {
+    // Route::group(["domain" => "www.localaway.com"], function () {
         Route::get('/', 'HomeController@index')->name('home');
-    });
+    // });
 
-    Route::group(["domain" => "www.localaway.ai"], function () {
-        Route::get('/', function () {
+    // Route::group(["domain" => "www.localaway.ai"], function () {
+        Route::get('/newlanding', function () {
             return view('newlanding');
         });
-    });
+    // });
     // Route::get('/json', 'FileController@jsonParsing');
     Route::post('/access-ai', 'HomeController@checkAccess');
     Route::get('about', 'HomeController@about');
@@ -66,6 +66,7 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
         Route::get('/stylist', 'StylistController@index');
         Route::get('/stylist/profile', 'StylistController@profile');
         Route::get('/stylist/closet', 'StylistController@closet');
+        Route::get('/stylist/clients', 'StylistController@clients');
     });
 
     Route::get('/stylist/check-email', 'StylistController@checkEmailDuplicate');
