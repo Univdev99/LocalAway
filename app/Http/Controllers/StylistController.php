@@ -27,6 +27,11 @@ class StylistController extends Controller
         return view('stylist.sections.index');
     }
 
+    public function profile(Request $request)
+    {
+        return view('stylist.sections.profile');
+    }
+
     public function checkEmailDuplicate(Request $request)
     {
         $email = $request->input('email');

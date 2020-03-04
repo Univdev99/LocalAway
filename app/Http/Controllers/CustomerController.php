@@ -25,17 +25,17 @@ class CustomerController extends Controller
 
     public function upcomingboxes()
     {
-        return view('customer.upcomingbox');
+        return view('customer.section.upcomingbox');
     }
 
     public function preferences()
     {
-        return view('customer.preferences');
+        return view('customer.section.preferences');
     }
 
     public function account()
     {
-        return view('customer.account');
+        return view('customer.section.account');
     }
 
 

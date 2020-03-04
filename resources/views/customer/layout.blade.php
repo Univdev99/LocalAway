@@ -36,7 +36,7 @@
       @yield('css')
     </head>
     <body data-spy="scroll" data-target="#templateux-navbar" data-offset="200" class="Frontend About">
-        @include('customer.header')
+        @include('customer.section.header')
 
         @yield('content')
 
