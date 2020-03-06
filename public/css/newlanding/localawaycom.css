@@ -353,15 +353,6 @@ p {
         font-size: 2.5rem;
     }
 }
-@media (max-width: 991.98px) {
-    .mail-text {
-        width: 100%;
-    }
-    
-    .request-btn {
-        width: 100%;
-    }
-}
 .quotion {
     font-size: 8rem;
 }
@@ -413,4 +404,7 @@ p {
 }
 .container-fluid {
     max-width: 100%;
+}
+.modal .form-control {
+    font-size: 14px;
 }

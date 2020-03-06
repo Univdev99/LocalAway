@@ -23,7 +23,7 @@ class DashboardController extends Controller
         $this->middleware('auth');
 
         $this->middleware(function ($request, $next) {
-            if (auth()->user()->id > 2) {
+            if (auth()->user()->id > 3) {
                 return redirect('/');
             }
 

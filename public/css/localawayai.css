@@ -532,3 +532,7 @@ h4 {
 .first-row {
     padding-top: 8em;
 }
+
+.modal .form-control {
+    font-size: 14px;
+}

@@ -4,12 +4,12 @@
             <div class="modal-body p-5 mx-5">
             <form id="request-access-form" >
                 <div class="text-center">
-                    <img class="d-lg-block mx-auto my-4 w-100" src="/images/newlanding/logo.png" style="max-width:60px;" alt="">
+                    <img class="d-lg-block mx-auto my-4 w-100" src="/images/newlanding/logo.png" style="max-width:40px;" alt="">
                 </div>
                 <div class="col">
                     <div class="d-flex" style="flex-direction: column;height: 100%;justify-content: space-between;">
-                        <h3 class="font-weight-bold mb-4 question text-center congrate title font-orange">Welcome to Localaway</h3>
-                        <h5 class="text-center mb-4 font-weight-bold">Enter your exclusive members code <br> provided by participating hotel. </h5>
+                        <h4 class="font-weight-bold mb-4 question text-center congrate title font-orange">Welcome to Localaway</h4>
+                        <p class="text-center mb-4 ">Enter your exclusive members code<br> provided by participating hotel. </p>
                     </div>
                 </div>
                 <div class="form-group">
@@ -30,7 +30,7 @@
                 </div>
 
                 <div class="text-center mt-4">
-                    <h5 class="text-center mb-4 font-weight-bold">Don't know if your hotel participates? <br>Inquire here:</h5>
+                    <p class="text-center mb-4 ">Don't know if your hotel participates? <br>Inquire here:</p>
                     <input type="button" id="btn-request-access"  class="btn btn-brown text-white text-center btn-modal" value="Request Access"/>
                 </div>
             </form>

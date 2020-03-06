@@ -69,12 +69,12 @@
                 <form id="request-form" > <!--action='/survey' method='post'-->
                 {{-- @csrf --}}
                     <div class="text-center">
-                        <img class="d-lg-block mx-auto my-4 w-100" src="/images/newlanding/logo.png" style="max-width:60px;" alt="">
+                        <img class="d-lg-block mx-auto my-4 w-100" src="/images/newlanding/logo.png" style="max-width:40px;" alt="">
                     </div>
                     <div class="col">
                         <div class="d-flex" style="flex-direction: column;height: 100%;justify-content: space-between;">
-                            <h3 class="font-weight-bold mb-4 question text-center congrate title font-orange">Welcome to Localaway</h3>
-                            <h5 class="text-center mb-4 font-weight-bold">We are excited to get to know you</h5>
+                            <h4 class="font-weight-bold mb-4 question text-center congrate title font-orange">Welcome to Localaway</h4>
+                            <p class="text-center mb-4">We are excited to get to know you</p>
                         </div>
                     </div>
                     <div class="form-group">

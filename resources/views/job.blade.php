@@ -63,7 +63,9 @@
             <div class="modal-body p-5 mx-5">
               <form id="request-form">
               @csrf
-              <img class="d-lg-block mx-auto my-5 w-100" src="/images/newlanding/logo.png" style="max-width:80px;" alt="">
+                <div class="text-center">
+                    <img class="d-lg-block mx-auto my-5 w-100" src="/images/newlanding/logo.png" style="max-width:80px;" alt="">
+                </div>
                 <div class="col">
                   <div class="d-flex" style="flex-direction: column;height: 100%;justify-content: space-between;">
                     <h2 class="font-weight-bold mb-4 question text-center congrate title font-orange">Welcome to Localaway</h2>
