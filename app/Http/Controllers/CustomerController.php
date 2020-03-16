@@ -25,26 +25,41 @@ class CustomerController extends Controller
 
     public function upcomingboxes()
     {
-        return view('customer.section.upcomingbox');
+        return view('com.customer.section.upcomingbox');
     }
 
     public function preferences()
     {
-        return view('customer.section.preferences');
+        return view('com.customer.section.preferences');
     }
 
     public function account()
     {
-        return view('customer.section.account');
+        return view('com.customer.section.account');
     }
 
 
     public function signup()
     {
-      return view('customer.signup.index');
+      return view('com.customer.signup.account');
     }
 
-    public function postSignup(Request $request)
+    public function basic()
+    {
+      return view('com.customer.signup.basic');
+    }
+
+    public function sizing()
+    {
+      return view('com.customer.signup.sizing');
+    }
+
+    public function style()
+    {
+      return view('com.customer.signup.style');
+    }
+
+    public function saveAccount(Request $request)
     {
       $first_name = $request->input('first_name');
       $last_name = $request->input('last_name');
@@ -76,6 +91,8 @@ class CustomerController extends Controller
       $customer->receive_alert = $receive_alert == "on" ? 1 : 0;
       $customer->hear_us = $hear_us;
       $customer->save();
+
+      return redirect()->route('customer.signup.basic');
     }
 
     public function postGeneral(Request $request)
@@ -276,6 +293,6 @@ class CustomerController extends Controller
 
     public function thankyou(Request $request)
     {
-      return view('customer-thankyou');
+      return view('com.customer.customer-thankyou');
     }
 }

@@ -24,17 +24,17 @@ class StylistController extends Controller
     public function index(Request $request)
     {
 
-        return view('stylist.sections.index');
+        return view('com.stylist.sections.index');
     }
 
     public function profile(Request $request)
     {
-        return view('stylist.sections.profile');
+        return view('com.stylist.sections.profile');
     }
 
     public function clients(Request $request)
     {
-        return view('stylist.sections.clients');
+        return view('com.stylist.sections.clients');
     }
 
     public function closet(Request $request)
@@ -53,10 +53,10 @@ class StylistController extends Controller
         }
 
         if ($request->ajax()) {
-            $view = view('stylist.sections.products', ['filter' => Subcategory::all(), 'products' => $products])->render();
+            $view = view('com.stylist.sections.products', ['filter' => Subcategory::all(), 'products' => $products])->render();
             return response()->json(['html'=>$view]);
         }
-        return view('stylist.sections.closet', ['filter' => Subcategory::all(), 'products' => []]);
+        return view('com.stylist.sections.closet', ['filter' => Subcategory::all(), 'products' => []]);
     }
 
     public function checkEmailDuplicate(Request $request)
@@ -148,7 +148,7 @@ class StylistController extends Controller
         $stylist->user_id = $user->id;
         $stylist->save();
 
-        return redirect()->route('stylist.thankyou');
+        return redirect()->route('com.stylist.thankyou');
     }
 
     public function delete(Request $request, $id)

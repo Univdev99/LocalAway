@@ -38,11 +38,11 @@ class NewlandingController extends Controller
 
         $person = Survey_person::where(['email' => $json->email, 'name' => $json->name])->get();
         if($expire < time() || count($person) != 1){
-            return view('comsite\mailSent');
+            return view('ai.mailSent');
         }
 
         $array = $this->makeQuestionAnswerArray();
-        return view('surveys',
+        return view('ai.surveys',
             ['question_list' => $array,
             'person_id' => $person[0]->id,
         ]);

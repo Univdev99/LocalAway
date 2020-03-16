@@ -43,7 +43,7 @@ class HomeController extends Controller
         $itineraries = Upload::where('collection' ,'itinerary')->orderBy('extra')->get();
         $hero = Upload::where('collection' ,'hero')->where('extra',1)->first();
         // dd($hero);
-        return view('home', [
+        return view('com.home', [
             'stylists' => $stylists,
             'itineraries' => $itineraries,
             'hero' => $hero,
@@ -74,7 +74,7 @@ class HomeController extends Controller
         // $hero = Upload::where('collection' ,'hero')->where('extra',1)->first();
         $event = $request->get('event');
         $location = $request->get('location');
-        return view('answer', [
+        return view('com.answer', [
             'event' => $event,
             'location' => $location,
             // 'hero' => $hero,

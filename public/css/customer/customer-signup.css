@@ -56,7 +56,6 @@
     border-color: #c6a07a;
     border: 2px solid #c6a07a;
     color: white;
-    cursor: pointer;
     padding: 0.5rem 1rem;
 }
 
@@ -313,8 +312,8 @@ p {
 }
 
 .my-form-row {
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 
 .my-form-row label {
@@ -540,4 +539,54 @@ select.form-control {
 
 .credit-card {
     margin: 2rem 2.5rem;
+}
+
+.back-btn {
+    background-color: white;
+    color: #3CCDC1;
+    border-color: #3CCDC1;
+    padding-right: 30px!important;
+    padding-left: 30px!important;
+}
+
+.next-btn {
+    padding-right: 30px!important;
+    padding-left: 30px!important;
+    padding-top: 5px!important;
+    padding-bottom: 5px!important;
+}
+
+.range-btn {
+    background-color: white;
+    color: black!important;
+    border: 1px solid #84e0d9;
+    font-size: 12px;
+    border-radius: 30px!important;
+    padding-left: 30px;
+    padding-top: 10px;
+    padding-right: 30px;
+    padding-bottom: 10px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.range-btn:active {
+    background-color: #84e0d9;
+    color: black!important;
+}
+
+.range-btn:focus {
+    outline: none;
+}
+
+.range-btn:hover {
+    color: black!important;
+}
+
+.datepicker {
+    margin: auto;
+}
+
+#trip-date {
+    border: none;
 }

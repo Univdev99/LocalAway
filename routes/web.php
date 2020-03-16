@@ -28,7 +28,7 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
     // Route::group(["domain" => "www.localaway.ai"], function () {
         Route::get('/newlanding', function () {
-            return view('newlanding');
+            return view('ai.newlanding');
         });
     // });
     // Route::get('/json', 'FileController@jsonParsing');
@@ -38,6 +38,12 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
     Route::get('/dashboard','DashboardController@index');
 
     Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/terms_of_service', function() {
+        return view('');
+    });
+    Route::get('/privacy_policy', function () {
+        return view('');
+    });
 
     Route::get('/dashboard/logo-image', 'DashboardController@index');
     Route::get('/dashboard/hero-image', 'DashboardController@hero');
@@ -72,14 +78,14 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
     Route::get('/stylist/check-email', 'StylistController@checkEmailDuplicate');
 
     Route::post('/stylist-signup', 'StylistController@store');
-    Route::get('/stylist/thank-you', 'StylistController@thankyou')->name('stylist.thankyou');
-    Route::get('/customer/thank-you', 'CustomerController@thankyou')->name('customer.thankyou');
+    Route::get('/stylist/thank-you', 'StylistController@thankyou')->name('com.stylist.thankyou');
+    Route::get('/customer/thank-you', 'CustomerController@thankyou')->name('com.customer.thankyou');
 
     Route::post('/answer', 'HomeController@showAnswer');
     Route::get('/answer', 'HomeController@index');
 
     Route::get('/job', function () {
-        return view('job');
+        return view('ai.job');
     });
     Route::post('/save-email', 'NewlandingController@saveRequestInfo');
     Route::post('/save-info', 'NewlandingController@saveSurveyInfo');
@@ -94,12 +100,21 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 // Route::group(array('domain' => 'localaway.com'), $appRoutes);
 
     Route::group(['middleware' => ['auth-customer']], function () {
-        Route::get('customer/upcoming-boxes', 'CustomerController@upcomingboxes')->name('customer.upcoming-boxes');
-        Route::get('customer/preferences', 'CustomerController@preferences')->name('customer.preferences');
-        Route::get('customer/account', 'CustomerController@account')->name('customer.account');
+        Route::get('customer/upcoming-boxes', 'CustomerController@upcomingboxes')->name('com.customer.upcoming-boxes');
+        Route::get('customer/preferences', 'CustomerController@preferences')->name('com.customer.preferences');
+        Route::get('customer/account', 'CustomerController@account')->name('com.customer.account');
     });
-    Route::get('customer/signup', 'CustomerController@signup')->name('customer.signup');
-    Route::post('customer/signup', 'CustomerController@postSignup');
+    Route::get('customer/signup/account', 'CustomerController@signup')->name('customer.signup.account');
+    Route::get('customer/signup/basic', 'CustomerController@basic')->name('customer.signup.basic');
+    Route::get('customer/signup/sizing', 'CustomerController@sizing')->name('customer.signup.sizing');
+    Route::get('customer/signup/style', 'CustomerController@style')->name('customer.signup.style');
+
+    Route::post('customer/signup/account', 'CustomerController@saveAccount')->name('customer.signup.account.save');
+    Route::post('customer/signup/basic', 'CustomerController@saveBasic')->name('customer.signup.basic.save');
+    Route::post('customer/signup/sizing', 'CustomerController@saveSizing')->name('customer.signup.sizing.save');
+    Route::post('customer/signup/style', 'CustomerController@saveStyle')->name('customer.signup.style.save');
+
+
     Route::post('customer/general', 'CustomerController@postGeneral');
     Route::post('customer/women', 'CustomerController@postWomen');
     Route::post('customer/men', 'CustomerController@postMen');

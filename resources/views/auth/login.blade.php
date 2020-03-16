@@ -21,28 +21,28 @@
         <link href="{{ asset('css/login.css') }}" rel="stylesheet">
     </head>
     <body>
-        
+
         <div class="login-container container">
             <div class="row justify-content-center">
                 <div class="form-width">
                     <div class="card">
                         <div class="p-4  bg-white m-auto text-center">
-                            <img class = "d-block text-center" src="/images/logo.png" alt="mobile-logo">  
+                            <img class = "d-block text-center" src="/images/logo.png" alt="mobile-logo">
                         </div>
                         <div class="p-2  bg-white m-auto text-center">
                             <span class = "h3 color-orange">Dress Local.</span>
                         </div>
-                        
+
                         <div class="card-body">
                             <form method="POST" action="{{ route('login') }}">
                                 @csrf
-                                
+
                                 <div class="form-group ">
                                     <label for="email" class="ml-2 text-secondary small">{{ __('Email ID or Phone No.') }}</label>
-                                    
+
                                     <div class="">
                                         <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-                                        
+
                                         @error('email')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -50,13 +50,13 @@
                                         @enderror
                                     </div>
                                 </div>
-                                
+
                                 <div class="form-group">
                                     <label for="password" class="ml-2 text-secondary small">{{ __('Password') }}</label>
-                                    
+
                                     <div class="">
                                         <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-                                        
+
                                         @error('password')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -64,19 +64,19 @@
                                         @enderror
                                     </div>
                                 </div>
-                                
+
                                 <div class="form-group row">
                                     <div class="col">
                                         <div class="form-check ml-2">
                                             <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-                                            
+
                                             <label class="form-check-label " for="remember">
                                                 {{ __('Remember Me') }}
                                             </label>
                                         </div>
                                     </div>
                                 </div>
-                                
+
                                 <div class="form-group mb-0">
                                     <div class="row d-flex justify-content-center">
                                         <button type="submit" class="btn circle-btn btn-primary">
@@ -102,17 +102,17 @@
                                     <path d="M56.281 156.37c-2.756-8.123-4.351-16.827-4.351-25.82 0-8.994 1.595-17.697 4.206-25.82l-.073-1.73L15.26 71.312l-1.335.635C5.077 89.644 0 109.517 0 130.55s5.077 40.905 13.925 58.602l42.356-32.782" fill="#FBBC05"/>
                                     <path d="M130.55 50.479c24.514 0 41.05 10.589 50.479 19.438l36.844-35.974C195.245 12.91 165.798 0 130.55 0 79.49 0 35.393 29.301 13.925 71.947l42.211 32.783c10.59-31.477 39.891-54.251 74.414-54.251" fill="#EB4335"/>
                                 </svg>
-                                <a href="{{ url('/auth/redirect/google') }}" class = "align-middle text-dark" >Google</a> 
+                                <a href="{{ url('/auth/redirect/google') }}" class = "align-middle text-dark" >Google</a>
                             </div>
                             <!-- <div class="btn btn-primary circle-btn  text-dark text-center facebook-btn">
                                 <img src="images/facebook.png" alt="" style = "width:20px;">
-                                <a href="{{ url('/auth/redirect/facebook') }}" class = "align-middle text-white" >Facebook</a> 
+                                <a href="{{ url('/auth/redirect/facebook') }}" class = "align-middle text-white" >Facebook</a>
                             </div> -->
                         </div>
                     </div>
                     <div class="mt-3 ">
                         <p class = "text-center" >Don't have an account?
-                            <a class="" href="{{ route('customer.signup') }}">{{ __('Sign Up') }}</a>
+                            <a class="" href="{{ route('customer.signup.account') }}">{{ __('Sign Up') }}</a>
                         </p>
                     </div>
                 </div>

@@ -35,7 +35,7 @@ class sendRequestAccessMail extends Mailable
     {
         return $this
             ->subject('Request Access')
-            ->markdown('comsite.sendLink')
+            ->markdown('ai.sendLink')
             ->with([
                 'name' => $this->name,
                 'link' => $this->url,

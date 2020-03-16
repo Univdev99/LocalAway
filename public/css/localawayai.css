@@ -37,6 +37,7 @@ a.nav-link {
 
 .section-search {
     margin-top: -180px;
+    width: fit-content;
 }
 
 .checkbox label:after,
@@ -122,9 +123,6 @@ a.nav-link {
     }
     .check-availabilty {
         margin-top: 0px;
-    }
-    .block-32 {
-        padding: 45px;
     }
 }
 
@@ -535,4 +533,26 @@ h4 {
 
 .modal .form-control {
     font-size: 14px;
+}
+
+.block-32 {
+    padding: 0px!important;
+}
+
+.block-padding {
+    padding: 50px!important;
+}
+
+.search_head {
+    padding-top: 50px!important;
+    padding-left: 50px;
+    font-weight: bold;
+}
+
+.progress-value {
+    height: 5px;
+    width: 145px;
+    background-color: #38ccc4;
+    position: absolute;
+    margin-left: 50px;
 }

@@ -40,7 +40,7 @@ class DashboardController extends Controller
     {
         $images = Upload::where('collection', 'logo')->get();
         $collection = 'logo';
-        return view('dashboard', [
+        return view('com.admin.dashboard', [
             'title' => 'logo image edit page',
             'images' => $images,
             'collection' => $collection
@@ -51,7 +51,7 @@ class DashboardController extends Controller
     {
         $images = Upload::where('collection', 'hero')->get();
         $collection = 'hero';
-        return view('dashboard', [
+        return view('com.admin.dashboard', [
             'title' => 'hero image edit page',
             'images' => $images,
             'collection' => $collection
@@ -61,7 +61,7 @@ class DashboardController extends Controller
     {
         $images = Upload::where('collection', 'itinerary')->orderby('extra')->get();
         $collection = 'itinerary';
-        return view('dashboard', [
+        return view('com.admin.dashboard', [
             'title' => 'itinerary image edit page',
             'images' => $images,
             'collection' => $collection
@@ -71,7 +71,7 @@ class DashboardController extends Controller
     {
         $images = Upload::where('collection', 'stylist')->orderby('extra')->get();
         $collection = 'stylist';
-        return view('dashboard', [
+        return view('com.admin.dashboard', [
             'title' => 'stylist image edit page',
             'images' => $images,
             'collection' => $collection
@@ -80,12 +80,12 @@ class DashboardController extends Controller
 
     public function closet()
     {
-        return view('dashboard-closet', ['title' => 'upload closet page']);
+        return view('com.admin.dashboard-closet', ['title' => 'upload closet page']);
     }
 
     public function customers()
     {
-        return view('dashboard-customer', [
+        return view('com.admin.dashboard-customer', [
             'customers' => Customer::all(),
             'title' => 'customer dashboard'
         ]);
@@ -122,7 +122,7 @@ class DashboardController extends Controller
             }
             $table[$person->id] = $row;
         }
-        return view('dashboard-survey', [
+        return view('com.admin.dashboard-survey', [
             'header' => Question::all(),
             'person' => Survey_person::all(),
             'list' => $table,
