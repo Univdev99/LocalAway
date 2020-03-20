@@ -1,4 +1,4 @@
-<section class="section-search m-auto" >
+<section class="section-search m-auto" style="display:none;">
 
     <div class="check-availabilty" id="next">
 
@@ -37,7 +37,7 @@
                         </div>
                         </div>
                     </div> --}}
-                    <div class="col-4">
+                    <div class="col-lg-4 col-md-6 col-sm-12">
                         <div class="field-icon-wrap">
                         <div class="icon"><span class="ion-ios-arrow-down"></span></div>
                         <div class = "picker-wrapper">
@@ -50,13 +50,13 @@
                         </div>
                         </div>
                     </div>
-                    <div class="col-4">
+                    <div class="col-lg-4 col-md-6 col-sm-12">
                         <div class="field-icon-wrap">
                         <i class="far fa-calendar-alt form-item"></i>
                         <input type="text" id="event_date" class="form-control pl-5" placeholder="Date">
                         </div>
                     </div>
-                    <div class="col-4">
+                    <div class="col-lg-4 col-md-6 col-sm-12">
                         <a href="{{ route('customer.signup.account') }}" class="btn text-white btn-brown float-right">Let's Go!</a>
                     </div>
             </div>

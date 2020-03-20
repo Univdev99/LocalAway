@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1274" height="55" viewBox="0 0 1274 55">
+  <g id="Group_4" data-name="Group 4" transform="translate(-323 -230)">
+    <g id="Group_5" data-name="Group 5" transform="translate(323 230)">
+      <text id="Basics" transform="translate(0 49)" fill="#333" font-size="16" font-family="Poppins-Regular, Poppins"><tspan x="0" y="0">Basics</tspan></text>
+      <text id="Sizing" transform="translate(601 49)" fill="#c6a07a" font-size="16" font-family="Poppins-Regular, Poppins"><tspan x="0" y="0">Sizing</tspan></text>
+      <text id="Style" transform="translate(1235 49)" fill="#c6a07a" font-size="16" font-family="Poppins-Regular, Poppins"><tspan x="0" y="0">Style</tspan></text>
+      <g id="Oval" transform="translate(12)" fill="#fd5c48" stroke="#c6a07a" stroke-miterlimit="10" stroke-width="1">
+        <circle cx="13.5" cy="13.5" r="13.5" stroke="none"/>
+        <circle cx="13.5" cy="13.5" r="13" fill="none"/>
+      </g>
+      <g id="Oval_Copy_3" data-name="Oval Copy 3" transform="translate(12)" fill="none" stroke="#02bfaf" stroke-miterlimit="10" stroke-width="1">
+        <circle cx="13.5" cy="13.5" r="13.5" stroke="none"/>
+        <circle cx="13.5" cy="13.5" r="13" fill="none"/>
+      </g>
+      <path id="Line" d="M.5.5H611" transform="translate(56.5 13)" fill="none" stroke="#c6a07a" stroke-linecap="square" stroke-miterlimit="10" stroke-width="1"/>
+      <path id="Line_Copy" data-name="Line Copy" d="M.5.5h571" transform="translate(666.5 13)" fill="none" stroke="#c6a07a" stroke-linecap="square" stroke-miterlimit="10" stroke-width="1"/>
+      <g id="Oval_Copy_2" data-name="Oval Copy 2" transform="translate(610)" fill="#fff" stroke="#02bfaf" stroke-miterlimit="10" stroke-width="1">
+        <circle cx="13.5" cy="13.5" r="13.5" stroke="none"/>
+        <circle cx="13.5" cy="13.5" r="13" fill="none"/>
+      </g>
+      <g id="Oval_Copy_4" data-name="Oval Copy 4" transform="translate(1241)" fill="#fff" stroke="#02bfaf" stroke-miterlimit="10" stroke-width="1">
+        <circle cx="13.5" cy="13.5" r="13.5" stroke="none"/>
+        <circle cx="13.5" cy="13.5" r="13" fill="none"/>
+      </g>
+    </g>
+  </g>
+</svg>

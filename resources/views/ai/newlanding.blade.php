@@ -154,7 +154,7 @@
                         <input type="email" placeholder='Enter Email' class='text-white mail-text mb-4 mb-lg-0'  autofocus >
                         <button type="submit" class="btn btn-primary text-white py-2 text-uppercase ml-lg-2 request-btn"  id ="first-request-btn">Request Access</button>
                     </form>
-                    <p class="h4 text-white mt-5">A fashion experience for local communities & travelers.</p>
+                    <p class="h4 text-white mt-5">A fashion experience to support local communities.</p>
                     </div>
                 </div>
                 </div>

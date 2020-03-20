@@ -34,18 +34,19 @@ class NewlandingController extends Controller
     {
         $expire = $request->input('expires');
         $token = $request->input('token');
-        $json = json_decode(Crypt::decrypt($token));
+        // $json = json_decode(Crypt::decrypt($token));
 
-        $person = Survey_person::where(['email' => $json->email, 'name' => $json->name])->get();
-        if($expire < time() || count($person) != 1){
-            return view('ai.mailSent');
-        }
+        // $person = Survey_person::where(['email' => $json->email, 'name' => $json->name])->get();
+        // if($expire < time() || count($person) != 1){
+        //     return view('ai.mailSent');
+        // }
 
         $array = $this->makeQuestionAnswerArray();
-        return view('ai.surveys',
-            ['question_list' => $array,
-            'person_id' => $person[0]->id,
-        ]);
+        // return view('ai.surveys',
+        //     ['question_list' => $array,
+        //     'person_id' => $person[0]->id,
+        // ]);
+        return view('ai.surveys', ['question_list' => $array, 'person_id' => 0]);
     }
 
     public function makeQuestionAnswerArray()

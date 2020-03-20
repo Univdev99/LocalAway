@@ -27,18 +27,16 @@
   </style>
   @yield('css')
 </head>
-<body>
-  <div class="container-fluid ">
+<body class="signup-body">
 
-        @include('com.customer.section.header')
+
+        @include('com.frontend.sections.header')
 
         @yield('content')
 
         @include('com.frontend.sections.footer')
         @include('com.frontend.sections.footer_menu')
 
-
-  </div>
 
   <script type="text/javascript" src="/js/dropzone.js"></script>
   <script src="/js/jquery-3.3.1.min.js"></script>

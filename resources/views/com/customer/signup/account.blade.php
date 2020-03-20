@@ -6,7 +6,7 @@
 
 @section('content')
 <div class="container">
-<form id="step1" method="POST" action="{{route('customer.signup.account.save')}}">
+<form id="account-form" method="POST" action="{{route('customer.signup.account.save')}}">
     @csrf
     <div class="row first-row">
         <div class="col-12">

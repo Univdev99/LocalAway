@@ -346,7 +346,7 @@ $(function() {
         return month[index];
     }
 
-    $('.datepicker').datepicker({
+    $('.checkDate').datepicker({
         format: 'mm-dd-yyyy',
         startDate: '+10d',
         todayHighlight: true

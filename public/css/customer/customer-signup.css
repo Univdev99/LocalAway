@@ -357,24 +357,34 @@ p {
     filter: brightness(0);
 }
 
-.woman-body-type {
-    height: 170px;
+.img-wrap {
+    padding: 20px 30px;
+    margin-bottom: 20px;
 }
 
-.women-body-type-upload {
+.body-type-upload {
     width: 80px;
 }
 
-.men-body-type {
-    height: 170px;
+.img-content {
+    height: 150px;
 }
 
-.men-body-type-upload {
-    width: 80px;
+.img-content-small {
+    height: 100px;
+}
+
+.body-focus {
+    border: 2px solid #3bcdc0;
+    border-radius: 25px;
 }
 
 .green {
     color: #3bcdc2;
+}
+
+.btn-selected {
+    background-color: #3bcdc2!important;
 }
 
 a.green:hover {
@@ -556,7 +566,7 @@ select.form-control {
     padding-bottom: 5px!important;
 }
 
-.range-btn {
+.select-btn {
     background-color: white;
     color: black!important;
     border: 1px solid #84e0d9;
@@ -570,16 +580,16 @@ select.form-control {
     margin: 10px;
 }
 
-.range-btn:active {
+.select-btn:active {
     background-color: #84e0d9;
     color: black!important;
 }
 
-.range-btn:focus {
+.select-btn:focus {
     outline: none;
 }
 
-.range-btn:hover {
+.select-btn:hover {
     color: black!important;
 }
 
@@ -589,4 +599,56 @@ select.form-control {
 
 #trip-date {
     border: none;
+}
+
+.color-brown {
+    color: #C6A07A!important;
+}
+
+.pant-setting {
+    border-bottom: 2px solid lightgray;
+}
+
+.item {
+    display: none;
+    transition: opacity cubic-bezier(0.07, 0.85, 1, 1) .25s;
+    overflow: auto;
+}
+
+.form-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.wizard-body {
+    position: relative;
+    transition: top ease .5s
+}
+
+.item-show {
+    display: flex;
+    flex-grow: 1;
+}
+
+.container {
+    flex-grow: 1;
+}
+
+.signup-body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+input[type=radio] {
+    display: none!important;
+}
+
+input:checked+.select-btn {
+    background-color: #00BFAF;
+}
+
+.text-danger {
+    color: red;
 }

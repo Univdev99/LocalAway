@@ -28,7 +28,7 @@
 </head>
 <body>
   <div class="container-fluid ">
-      {{-- <div class="col-5 side-image d-lg-block d-none p-0">
+      <div class="col-5 side-image d-lg-block d-none p-0">
         <div class="back-image" step="step-1"></div>
         <div class="back-image" step="step-2" style="display:none;"></div>
         <div class="back-image" step="step-3" style="display:none;"></div>
@@ -47,16 +47,16 @@
               <p class="px-3">Feel ready and prepared for any trip or event</p>
             </div>
         </div>
-      </div> --}}
+      </div>
 
         @include('com.customer.section.header')
 
         <div class="col-lg-6 offset-lg-3 p-5">
           <div id="step-1" class="step" step="1" style="_display: none;">
-            @include('com.customer.signup.step1')
+            @include('com.customer.sign.step1')
           </div>
 
-          <div id="step-2" class="step" step="2" style="display: none;">
+          {{-- <div id="step-2" class="step" step="2" style="display: none;">
             @include('com.customer.signup.step2')
           </div>
 
@@ -82,7 +82,7 @@
 
           <div id="step-6" class="step" step="6" style="display: none;">
             @include ('com.customer.signup.step6')
-          </div>
+          </div> --}}
       </div>
 
         @include('com.frontend.sections.footer')

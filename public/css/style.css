@@ -125,7 +125,7 @@ textarea.form-control {
 
 .site-hero {
     background-size: cover;
-    height: 100vh;
+    /* height: 100vh; */
     max-height: 843px;
     width: 100%;
     position: relative;
@@ -174,7 +174,7 @@ textarea.form-control {
 }
 
 .site-hero-inner .heading {
-    font-size: 80px;
+    font-size: 70px;
     font-family: "Playfair Display", times, serif;
     color: #fff;
     line-height: 1;
@@ -183,7 +183,7 @@ textarea.form-control {
 
 @media (max-width: 991.98px) {
     .site-hero-inner .heading {
-        font-size: 40px;
+        font-size: 50px;
     }
 }
 
