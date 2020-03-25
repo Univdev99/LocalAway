@@ -22,15 +22,15 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 // Route::domain('staging.localaway.com')->group(function () {
 
-    // Route::group(["domain" => "www.localaway.com"], function () {
+    Route::group(["domain" => "www.localaway.com"], function () {
         Route::get('/', 'HomeController@index')->name('home');
-    // });
+    });
 
-    // Route::group(["domain" => "www.localaway.ai"], function () {
+    Route::group(["domain" => "www.localaway.ai"], function () {
         Route::get('/newlanding', function () {
             return view('ai.newlanding');
         });
-    // });
+    });
     // Route::get('/json', 'FileController@jsonParsing');
     Route::post('/access-ai', 'HomeController@checkAccess');
     Route::get('about', 'HomeController@about');
@@ -104,23 +104,23 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
         Route::get('customer/preferences', 'CustomerController@preferences')->name('com.customer.preferences');
         Route::get('customer/account', 'CustomerController@account')->name('com.customer.account');
     });
-    Route::get('customer/signup/account', 'CustomerController@signup')->name('customer.signup.account');
-    Route::get('customer/signup/basic', 'CustomerController@basic')->name('customer.signup.basic');
-    Route::get('customer/signup/sizing', 'CustomerController@sizing')->name('customer.signup.sizing');
-    Route::get('customer/signup/style', 'CustomerController@style')->name('customer.signup.style');
+    Route::get('/customer/signup/account', 'CustomerController@signup')->name('customer.signup.account');
+    Route::get('/customer/signup/basic', 'CustomerController@basic')->name('customer.signup.basic');
+    Route::get('/customer/signup/sizing', 'CustomerController@sizing')->name('customer.signup.sizing');
+    Route::get('/customer/signup/style', 'CustomerController@style')->name('customer.signup.style');
 
-    Route::post('customer/signup/account', 'CustomerController@saveAccount')->name('customer.signup.account.save');
-    Route::post('customer/signup/basic', 'CustomerController@saveBasic')->name('customer.signup.basic.save');
-    Route::post('customer/signup/sizing', 'CustomerController@saveSizing')->name('customer.signup.sizing.save');
-    Route::post('customer/signup/style', 'CustomerController@saveStyle')->name('customer.signup.style.save');
+    Route::post('/customer/signup/account', 'CustomerController@saveAccount')->name('customer.signup.account.save');
+    Route::post('/customer/signup/basic', 'CustomerController@saveBasic')->name('customer.signup.basic.save');
+    Route::post('/customer/signup/sizing', 'CustomerController@saveSizing')->name('customer.signup.sizing.save');
+    Route::post('/customer/signup/style', 'CustomerController@saveStyle')->name('customer.signup.style.save');
 
 
-    Route::post('customer/general', 'CustomerController@postGeneral');
-    Route::post('customer/women', 'CustomerController@postWomen');
-    Route::post('customer/men', 'CustomerController@postMen');
-    Route::post('customer/neutral', 'CustomerController@postNeutral');
-    Route::post('customer/dislike', 'CustomerController@postDislike');
-    Route::post('customer/almost-done', 'CustomerController@postAlmostDone');
-    Route::post('customer/finalize', 'CustomerController@postFinalize');
+    Route::post('/customer/general', 'CustomerController@postGeneral');
+    Route::post('/customer/women', 'CustomerController@postWomen');
+    Route::post('/customer/men', 'CustomerController@postMen');
+    Route::post('/customer/neutral', 'CustomerController@postNeutral');
+    Route::post('/customer/dislike', 'CustomerController@postDislike');
+    Route::post('/customer/almost-done', 'CustomerController@postAlmostDone');
+    Route::post('/customer/finalize', 'CustomerController@postFinalize');
 
     Route::get('/phpinfo', 'FileController@phpinfo');

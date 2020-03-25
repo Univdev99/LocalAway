@@ -6,13 +6,14 @@
 
 @section('content')
 
-<div class="container">
-    <form id="sizing" method="POST" action="{{route('customer.signup.style.save')}}" enctype="multipart/form-data">
-        <div class="step-show m-4">
-            <img src="/images/customer-signup/progress-style.svg" class="w-100"/>
-        </div>
-
-        <div class="row item item-show">
+<div class="container signup-container">
+    <div class="step-show m-4">
+        <img src="/images/customer-signup/progress-style.svg" class="w-100"/>
+    </div>
+    <form id="style" method="POST" action="{{route('customer.signup.style.save')}}" enctype="multipart/form-data">
+        @csrf
+        <input name="gender" value="{{$gender}}" type="hidden">
+        <div class="row item item-show first-row">
             <div class="m-auto text-center">
                     <p class="mt-3">Describe your personal style?</p>
                 <div class="row">
@@ -20,49 +21,56 @@
                         <div class="img-wrap">
                             <img class="img-content" src="/images/customer-signup/women-style-edgy.svg" />
                         </div>
-                        <button class="select-btn">Edgy</button>
+                        <input type="radio" id="style1" name="style" value="Edgy" />
+                        <label for="style1" class="select-btn">Edgy</label>
                     </div>
 
                     <div class="d-block flex-wrap m-4 text-center">
                         <div class="img-wrap">
                             <img class="img-content" src="/images/customer-signup/women-style-casual.svg" />
                         </div>
-                        <button class="select-btn">Casual</button>
+                        <input type="radio" id="style2" name="style" value="Casual" checked/>
+                        <label for="style2" class="select-btn">Casual</label>
                     </div>
 
                     <div class="d-block flex-wrap m-4 text-center">
                         <div class="img-wrap">
                             <img class="img-content" src="/images/customer-signup/women-style-classic.svg" />
                         </div>
-                        <button class="select-btn">Classic</button>
+                        <input type="radio" id="style3" name="style" value="Classic" />
+                        <label for="style3" class="select-btn">Classic</label>
                     </div>
 
                     <div class="d-block flex-wrap m-4 text-center">
                         <div class="img-wrap">
                             <img class="img-content" src="/images/customer-signup/women-style-retro.svg" />
                         </div>
-                        <button class="select-btn">Retro</button>
+                        <input type="radio" id="style4" name="style" value="Retro" />
+                        <label for="style4" class="select-btn">Retro</label>
                     </div>
+
                 </div>
             </div>
         </div>
-        <div class="row item">
+        <div class="row item dislike">
             <div class="m-auto">
                 <div class="my-form-row">
-
                     <p>Which colors would you NEVER wear? Select all that apply.</p>
                 </div>
 
                 <div class="dislike-color-palette">
                     <div class="dislike-color">
                     <div style="background-color:#673AB7">
+                        <input type="checkbox" class="color-check" name="dislike-color" value=#673AB7>
                         <span class="checkmark">
                         <i class="fas fa-check check-sign"></i>
                         </span>
+
                     </div>
                     </div>
                     <div class="dislike-color">
                     <div style="background-color:#00BCD4">
+                        <input type="checkbox" class="color-check" name="dislike-color" value=#00BCD4>
                         <span class="checkmark">
                         <i class="fas fa-check check-sign"></i>
                         </span>
@@ -70,6 +78,7 @@
                     </div>
                     <div class="dislike-color">
                     <div style="background-color:#CDDC39">
+                        <input type="checkbox" class="color-check" name="dislike-color" value=#CDDC39>
                         <span class="checkmark">
                         <i class="fas fa-check check-sign"></i>
                         </span>
@@ -77,6 +86,7 @@
                     </div>
                     <div class="dislike-color">
                     <div style="background-color:#FFFFFF;border:1px solid lightgrey;">
+                        <input type="checkbox" class="color-check" name="dislike-color" value="#FFFFFF">
                         <span class="checkmark">
                         <i class="fas fa-check check-sign"></i>
                         </span>
@@ -84,6 +94,7 @@
                     </div>
                     <div class="dislike-color">
                     <div style="background-color:#000000">
+                        <input type="checkbox" class="color-check" name="dislike-color" value=#000000>
                         <span class="checkmark">
                         <i class="fas fa-check check-sign"></i>
                         </span>
@@ -92,6 +103,7 @@
 
                     <div class="dislike-color">
                     <div style="background-color:#9C27B0">
+                        <input type="checkbox" class="color-check" name="dislike-color" value=#9C27B0>
                         <span class="checkmark">
                         <i class="fas fa-check check-sign"></i>
                         </span>
@@ -99,6 +111,7 @@
                     </div>
                     <div class="dislike-color">
                     <div style="background-color:#03A9F4">
+                        <input type="checkbox" class="color-check" name="dislike-color" value=#03A9F4>
                         <span class="checkmark">
                         <i class="fas fa-check check-sign"></i>
                         </span>
@@ -106,6 +119,7 @@
                     </div>
                     <div class="dislike-color">
                     <div style="background-color:#8BC34A">
+                        <input type="checkbox" class="color-check" name="dislike-color" value=#8BC34A>
                         <span class="checkmark">
                         <i class="fas fa-check check-sign"></i>
                         </span>
@@ -113,6 +127,7 @@
                     </div>
                     <div class="dislike-color">
                     <div style="background-color:#FF9800">
+                        <input type="checkbox" class="color-check" name="dislike-color" value=#FF9800>
                         <span class="checkmark">
                         <i class="fas fa-check check-sign"></i>
                         </span>
@@ -120,6 +135,7 @@
                     </div>
                     <div class="dislike-color">
                     <div style="background-color:#795548">
+                        <input type="checkbox" class="color-check" name="dislike-color" value=#795548>
                         <span class="checkmark">
                         <i class="fas fa-check check-sign"></i>
                         </span>
@@ -128,6 +144,7 @@
 
                     <div class="dislike-color">
                     <div style="background-color:#E91E63">
+                        <input type="checkbox" class="color-check" name="dislike-color" value=#E91E63>
                         <span class="checkmark">
                         <i class="fas fa-check check-sign"></i>
                         </span>
@@ -135,6 +152,7 @@
                     </div>
                     <div class="dislike-color">
                     <div style="background-color:#5677FC">
+                        <input type="checkbox" class="color-check" name="dislike-color" value=#5677FC>
                         <span class="checkmark">
                         <i class="fas fa-check check-sign"></i>
                         </span>
@@ -142,6 +160,7 @@
                     </div>
                     <div class="dislike-color">
                     <div style="background-color:#259B24">
+                        <input type="checkbox" class="color-check" name="dislike-color" value=#259B24>
                         <span class="checkmark">
                         <i class="fas fa-check check-sign"></i>
                         </span>
@@ -149,6 +168,7 @@
                     </div>
                     <div class="dislike-color">
                     <div style="background-color:#FFC107">
+                        <input type="checkbox" class="color-check" name="dislike-color" value=#FFC107>
                         <span class="checkmark">
                         <i class="fas fa-check check-sign"></i>
                         </span>
@@ -156,6 +176,7 @@
                     </div>
                     <div class="dislike-color">
                     <div style="background-color:#9E9E9E">
+                        <input type="checkbox" class="color-check" name="dislike-color" value=#9E9E9E>
                         <span class="checkmark">
                         <i class="fas fa-check check-sign"></i>
                         </span>
@@ -164,6 +185,7 @@
 
                     <div class="dislike-color">
                     <div style="background-color:#E51C23">
+                        <input type="checkbox" class="color-check" name="dislike-color" value=#E51C23>
                         <span class="checkmark">
                         <i class="fas fa-check check-sign"></i>
                         </span>
@@ -171,6 +193,7 @@
                     </div>
                     <div class="dislike-color">
                     <div style="background-color:#3F51B5">
+                        <input type="checkbox" class="color-check" name="dislike-color" value=#3F51B5>
                         <span class="checkmark">
                         <i class="fas fa-check check-sign"></i>
                         </span>
@@ -178,6 +201,7 @@
                     </div>
                     <div class="dislike-color">
                     <div style="background-color:#009688">
+                        <input type="checkbox" class="color-check" name="dislike-color" value=#009688>
                         <span class="checkmark">
                         <i class="fas fa-check check-sign"></i>
                         </span>
@@ -185,6 +209,7 @@
                     </div>
                     <div class="dislike-color">
                     <div style="background-color:#FFEB3B">
+                        <input type="checkbox" class="color-check" name="dislike-color" value=#FFEB3B>
                         <span class="checkmark">
                         <i class="fas fa-check check-sign"></i>
                         </span>
@@ -192,6 +217,7 @@
                     </div>
                     <div class="dislike-color">
                     <div style="background-color:#607D8B">
+                        <input type="checkbox" class="color-check" name="dislike-color" value=#607D8B>
                         <span class="checkmark">
                         <i class="fas fa-check check-sign"></i>
                         </span>
@@ -202,24 +228,35 @@
             </div>
         </div>
 
-        <div class="row item">
+        <div class="row item dislike">
             <div class="col-xl-6 col-lg-7 col-md-10 text-center mx-auto">
                 <div class="my-form-row">
                     <p class="mt-3">Casual Shirts?</p>
 
                     <div class="row justify-content-center">
-                        <button class="select-btn">Faux Leather</button>
-                        <button class="select-btn">Polyester</button>
-                        <button class="select-btn">Faux Fur</button>
-                        <button class="select-btn">Gold</button>
-                        <button class="select-btn">Nickel</button>
-                        <button class="select-btn">Silver</button>
+                        <input type="radio" id="style-casual1" name="style-casual" value="Faux Leather" checked/>
+                        <label for="style-casual1" class="select-btn">Faux Leather</label>
+
+                        <input type="radio" id="style-casual2" name="style-casual" value="Polyester"/>
+                        <label for="style-casual2" class="select-btn">Polyester</label>
+
+                        <input type="radio" id="style-casual3" name="style-casual" value="Faux Fur"/>
+                        <label for="style-casual3" class="select-btn">Faux Fur</label>
+
+                        <input type="radio" id="style-casual4" name="style-casual" value="Gold"/>
+                        <label for="style-casual4" class="select-btn">Gold</label>
+
+                        <input type="radio" id="style-casual5" name="style-casual" value="Nickel"/>
+                        <label for="style-casual5" class="select-btn">Nickel</label>
+
+                        <input type="radio" id="style-casual6" name="style-casual" value="Silver"/>
+                        <label for="style-casual6" class="select-btn">Silver</label>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="row item">
+        <div class="row item dislike">
             <div class="col m-auto">
                 <div class="my-form-row text-center">
                     <p>Which patterns would you never wear? Select all that apply.</p>
@@ -229,46 +266,51 @@
                             <div class="m-0 p-0">
                                 <img class="img-content" src="/images/customer-signup/geometric.png" value="geometric">
                             </div>
-                            <button class="select-btn">Geometric</button>
+                            <input type="radio" id="style-pattern1" name="style-pattern" value="Geometric" checked/>
+                            <label for="style-pattern1" class="select-btn">Geometric</label>
                         </div>
                         <div class="col">
-                        <div class="m-0 p-0">
-                            <img class="img-content" src="/images/customer-signup/animal_prints.png" value="animal_prints">
-                        </div>
-                        <button class="select-btn">Animal Prints</button>
-
+                            <div class="m-0 p-0">
+                                <img class="img-content" src="/images/customer-signup/animal_prints.png" value="animal_prints">
+                            </div>
+                            <input type="radio" id="style-pattern2" name="style-pattern" value="Animal Prints" />
+                            <label for="style-pattern2" class="select-btn">Animal Prints</label>
                         </div>
                         <div class="col">
                             <div class="m-0 p-0">
                                 <img class="img-content" src="/images/customer-signup/houndstooth.png" value="houndstooth">
                             </div>
-                            <button class="select-btn">Houndstooth</button>
+                            <input type="radio" id="style-pattern3" name="style-pattern" value="Houndstooth" />
+                            <label for="style-pattern3" class="select-btn">Houndstooth</label>
 
                         </div>
                         <div class="col">
                             <div class="m-0 p-0">
                                 <img class="img-content" src="/images/customer-signup/camoflauge.png" value="camoflauge">
                             </div>
-                            <button class="select-btn">Camoflauge</button>
+                            <input type="radio" id="style-pattern4" name="style-pattern" value="Camoflauge" />
+                            <label for="style-pattern4" class="select-btn">Camoflauge</label>
                         </div>
                         <div class="col">
                             <div class="m-0 p-0">
                                 <img class="img-content" src="/images/customer-signup/florals.png" value="florals">
                             </div>
-                            <button class="select-btn">Florals</button>
+                            <input type="radio" id="style-pattern5" name="style-pattern" value="Florals" />
+                            <label for="style-pattern5" class="select-btn">Florals</label>
                         </div>
                         <div class="col">
                             <div class="m-0 p-0">
                                 <img class="img-content" src="/images/customer-signup/plaid.png" value="plaid">
                             </div>
-                            <button class="select-btn">Plaid</button>
+                            <input type="radio" id="style-pattern6" name="style-pattern" value="Plaid" />
+                            <label for="style-pattern6" class="select-btn">Plaid</label>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="row item end-part">
+        <div class="row item item-submit end-part">
             <div class="col-8 offset-2 text-center">
               <h5 class="sub-page-title">You're almost done!</h5>
             </div>
@@ -279,7 +321,7 @@
 
                 <label class="radio-container mb-2">
                   Adventure - put me into play clothes based on a special event
-                  <input type="radio" name="capsule" value="adventure">
+                  <input type="radio" name="capsule" value="adventure" required>
                   <span class="checkmark">
                     <i class="fas fa-check check-sign"></i>
                   </span>
@@ -325,7 +367,7 @@
 
                 <label class="radio-container mb-2">
                   Single item
-                  <input type="radio" name="spend" value="single">
+                  <input type="radio" name="spend" value="single" required>
                   <span class="checkmark">
                     <i class="fas fa-check check-sign"></i>
                   </span>
@@ -397,11 +439,17 @@
 
                 <label for="step5-notes">Notes</label>
                 <br/>
-                <textarea class="additional-note" id="step5-notes" name="notes" ></textarea>
+                <textarea class="additional-note" id="notes" name="notes" ></textarea>
                 <!-- <input id="step5-notes" class="form-control" /> -->
               </div>
             </div>
           </div>
+        <div class="row submit-btns m-4">
+            <div class="col-6 offset-3 text-center">
+                <input class="round-btn back-btn mr-5 float-left" type="button" value="Back"/>
+                <input class="round-btn next-btn float-right" type="button" value="Next"/>
+            </div>
+        </div>
     </form>
 </div>
 @endsection

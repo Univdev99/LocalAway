@@ -44,9 +44,11 @@ class CustomerController extends Controller
       return view('com.customer.signup.account');
     }
 
-    public function saveBasic()
+    public function saveBasic(Request $request)
     {
+        $gender = $request->input("basic-gender");
 
+        return $gender;
     }
 
     public function basic()
@@ -54,24 +56,41 @@ class CustomerController extends Controller
       return view('com.customer.signup.basic');
     }
 
-    public function saveSizing()
+    public function saveMenSizing(Request $request)
     {
-
+        return redirect()->route('customer.signup.style.men');
     }
 
-    public function sizing()
+    public function sizing(Request $request)
     {
-      return view('com.customer.signup.sizing');
+        $gender = $request->input("gender");
+        if($gender == "male"){
+            return view('com.customer.signup.sizing-men')->with('gender', $gender);
+        }
+        return view('com.customer.signup.sizing-women')->with('gender', $gender);
     }
 
-    public function saveStyle()
+    public function saveSizing(Request $request)
     {
-
+        $gender = $request->input("gender");
+        if($gender == "male"){
+            return redirect()->route('customer.signup.style', ['gender' => $gender]);
+        }
+        return redirect()->route('customer.signup.style', ['gender' => $gender]);
     }
 
-    public function style()
+    public function style(Request $request)
     {
-      return view('com.customer.signup.style');
+        $gender = $request->input('gender');
+        if($gender == "male"){
+            return view('com.customer.signup.style-men')->with('gender', $gender);
+        }
+        return view('com.customer.signup.style-women')->with('gender', $gender);
+    }
+
+    public function saveStyle(Request $request)
+    {
+        dd("Hello");
     }
 
     public function saveAccount(Request $request)

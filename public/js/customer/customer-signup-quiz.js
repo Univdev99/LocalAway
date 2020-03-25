@@ -11,8 +11,17 @@ $(function() {
         }
     }
 
+    function validSubmitBtn() {
+        if ($('.item-show').hasClass('item-submit')) {
+            $('.next-btn').prop('type', 'submit');
+        } else {
+            $('.next-btn').prop('type', 'button');
+        }
+    }
     $('.next-btn').click(function() {
-
+        if ($('.item-show').hasClass('item-submit')) {
+            return;
+        }
 
         let cur_pos = 1;
         while (!$(".item:nth-child(" + cur_pos + ")").hasClass('item-show')) {
@@ -23,32 +32,50 @@ $(function() {
         if (is_checked) {
             if (!$(".item:nth-child(" + cur_pos + ")").hasClass("end-part")) {
                 $(".item:nth-child(" + cur_pos + ")").removeClass("item-show");
-                $(".item:nth-child(" + (cur_pos + 1) + ")").addClass("item-show");
+                if ($(".item:nth-child(" + cur_pos + ")").hasClass("item-select")) {
+                    $(".item:nth-child(" + cur_pos + ") input[type=radio]").each(function() {
+                        if ($(this)[0].checked) {
+                            var next_index = $(this).attr('data-next');
+                            $(".item:nth-child(" + (cur_pos + Number(next_index)) + ")").addClass("item-show item-selected");
+                            $(".item:nth-child(" + (cur_pos + Number(next_index)) + ")").attr("data-before", next_index);
+                        }
+                    });
+                } else {
+                    $(".item:nth-child(" + (cur_pos + 1) + ")").addClass("item-show");
+                }
             } else {
-                // const param = {}
+                const param = {}
+                var item_cnt = $(".item").length;
 
-                // $("form#step1").serializeArray().forEach(function(data) {
-                //     param[data.name] = data.value;
-                // })
+                for (var i = 1; i <= item_cnt; i++) {
+                    if (checkEmpty(".item:nth-child(" + i + ")")) {
+                        $(".item:nth-child(" + i + ") input").each(function() {
+                            if ($(this).prop('type') == "text" || ($(this).prop('type') == "radio" && $(this).prop("checked"))) {
+                                param[$(this).attr('name')] = $(this).val();
+                            }
 
-                // if (result) {
-                //     $.ajax({
-                //             url: '/customer/signup',
-                //             type: 'post',
-                //             data: param
-                //         })
-                //         .then(function() {
+                        });
+                    }
+                }
 
-                //         });
-                // }
-                // $("#basic-form").submit();
-
-
+                $.ajax({
+                        url: '/customer/signup/basic',
+                        type: 'post',
+                        data: param,
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        },
+                    })
+                    .then(function(res) {
+                        window.location = '/customer/signup/sizing?gender=' + res;
+                    });
             }
         }
 
         validBackBtnShow();
+        validSubmitBtn();
 
+        return false;
     });
 
     $(".back-btn").click(function() {
@@ -57,22 +84,34 @@ $(function() {
             cur_pos++;
         }
 
-        if (!$(".item:nth-child(" + cur_pos + ")").hasClass(".first-row")) {
-            $(".item:nth-child(" + cur_pos + ")").removeClass("item-show");
-            $(".item:nth-child(" + (cur_pos - 1) + ")").addClass("item-show");
+        var jq_cur = ".item:nth-child(" + cur_pos + ")";
+        if (!$(jq_cur).hasClass(".first-row")) {
+            $(jq_cur).removeClass("item-show");
+            $(jq_cur + " label").removeClass("text-danger");
+
+            if ($(jq_cur).hasClass("item-selected")) {
+                var before_index = $(jq_cur).attr('data-before');
+                $(".item:nth-child(" + (cur_pos - Number(before_index)) + ")").addClass("item-show");
+            } else {
+                $(".item:nth-child(" + (cur_pos - 1) + ")").addClass("item-show");
+            }
         }
 
         validBackBtnShow();
+        validSubmitBtn();
 
     });
 
     function checkEmpty(item) {
         let flag = false;
-        $(item + " input[type=checkbox]").each(function() {
-            if ($(this)[0].checked) {
-                flag = true;
-            }
-        });
+        // $(item + " input[type=checkbox]").each(function() {
+        //     if ($(this)[0].checked) {
+        //         flag = true;
+        //     }
+        // });
+        if ($(item).hasClass("dislike")) {
+            flag = true;
+        }
 
         $(item + " input[type=radio]").each(function() {
             if ($(this)[0].checked) {
@@ -81,11 +120,12 @@ $(function() {
         });
 
         $(item + " input[type=text]").each(function() {
-            if (($(this).val() != "") && $(this).hasClass("text-answer")) {
+            if (($(this).val() != "")) {
                 flag = true;
             } else {
-                var temp = $(this).attr('id');
-                $("label[for='" + $(this).attr("id") + "'").addClass("text-danger");
+                // var temp = $(this).attr('id');
+                $(item + " label[for='" + $(this).attr("id") + "'").addClass("text-danger");
+                flag = false;
             }
         });
         if ($(item + " input").length == 0) {
@@ -125,20 +165,21 @@ $(function() {
         $(".progress-value").css({ width: (progress * 100 / 6) + '%' });
     }
 
-    $(".gender-image").click(function() {
+    $(".img-div").click(function() {
 
-        $(".gender-image").removeClass("selected");
-        $(".gender-input").attr("checked", false);
-        $(this).parents(".gender-option")
-            .find(".gender-image")
+        $(".img-div").removeClass("selected");
+        $(".img-radio").attr("checked", false);
+        $(this).parents(".img-selector")
+            .find(".img-div")
             .addClass("selected");
-        $(this).parents(".gender-option")
-            .find(".gender-input")
-            .attr("checked", true);
+        $(this).parents(".img-selector").find(".img-radio").prop("checked", true);
     });
 
+
     $(".dislike-color").click(function() {
-        $(this).toggleClass("selected")
+        $(this).toggleClass("selected");
+        var checkBox = $(this).find(".color-check");
+        checkBox.prop("checked", !checkBox.prop("checked"));
     })
 
     $(".pattern-tile").click(function() {
@@ -183,4 +224,13 @@ $(function() {
         startDate: '+10d',
         todayHighlight: true
     });
+
+    jQuery(document).delegate('[for]', 'click', function(e) {
+        var targetEl = jQuery('#' + jQuery(this).attr('for'));
+        if (targetEl.is('div.your-custom-dropdown-class')) { //if targetEl is one of your dropdowns
+            e.preventDefault();
+            targetEl.trigger('click'); //open the drop down
+        }
+    });
+
 })
