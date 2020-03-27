@@ -62,7 +62,7 @@
                 <div class="dislike-color-palette">
                     <div class="dislike-color">
                     <div style="background-color:#673AB7">
-                        <input type="checkbox" class="color-check" name="dislike-color" value=#673AB7>
+                        <input type="checkbox" class="color-check" name="dislike-color[]" value=#673AB7>
                         <span class="checkmark">
                         <i class="fas fa-check check-sign"></i>
                         </span>
@@ -71,7 +71,7 @@
                     </div>
                     <div class="dislike-color">
                     <div style="background-color:#00BCD4">
-                        <input type="checkbox" class="color-check" name="dislike-color" value=#00BCD4>
+                        <input type="checkbox" class="color-check" name="dislike-color[]" value=#00BCD4>
                         <span class="checkmark">
                         <i class="fas fa-check check-sign"></i>
                         </span>
@@ -79,7 +79,7 @@
                     </div>
                     <div class="dislike-color">
                     <div style="background-color:#CDDC39">
-                        <input type="checkbox" class="color-check" name="dislike-color" value=#CDDC39>
+                        <input type="checkbox" class="color-check" name="dislike-color[]" value=#CDDC39>
                         <span class="checkmark">
                         <i class="fas fa-check check-sign"></i>
                         </span>
@@ -87,7 +87,7 @@
                     </div>
                     <div class="dislike-color">
                     <div style="background-color:#FFFFFF;border:1px solid lightgrey;">
-                        <input type="checkbox" class="color-check" name="dislike-color" value="#FFFFFF">
+                        <input type="checkbox" class="color-check" name="dislike-color[]" value="#FFFFFF">
                         <span class="checkmark">
                         <i class="fas fa-check check-sign"></i>
                         </span>
@@ -95,7 +95,7 @@
                     </div>
                     <div class="dislike-color">
                     <div style="background-color:#000000">
-                        <input type="checkbox" class="color-check" name="dislike-color" value=#000000>
+                        <input type="checkbox" class="color-check" name="dislike-color[]" value=#000000>
                         <span class="checkmark">
                         <i class="fas fa-check check-sign"></i>
                         </span>
@@ -104,7 +104,7 @@
 
                     <div class="dislike-color">
                     <div style="background-color:#9C27B0">
-                        <input type="checkbox" class="color-check" name="dislike-color" value=#9C27B0>
+                        <input type="checkbox" class="color-check" name="dislike-color[]" value=#9C27B0>
                         <span class="checkmark">
                         <i class="fas fa-check check-sign"></i>
                         </span>
@@ -112,7 +112,7 @@
                     </div>
                     <div class="dislike-color">
                     <div style="background-color:#03A9F4">
-                        <input type="checkbox" class="color-check" name="dislike-color" value=#03A9F4>
+                        <input type="checkbox" class="color-check" name="dislike-color[]" value=#03A9F4>
                         <span class="checkmark">
                         <i class="fas fa-check check-sign"></i>
                         </span>
@@ -120,7 +120,7 @@
                     </div>
                     <div class="dislike-color">
                     <div style="background-color:#8BC34A">
-                        <input type="checkbox" class="color-check" name="dislike-color" value=#8BC34A>
+                        <input type="checkbox" class="color-check" name="dislike-color[]" value=#8BC34A>
                         <span class="checkmark">
                         <i class="fas fa-check check-sign"></i>
                         </span>
@@ -128,7 +128,7 @@
                     </div>
                     <div class="dislike-color">
                     <div style="background-color:#FF9800">
-                        <input type="checkbox" class="color-check" name="dislike-color" value=#FF9800>
+                        <input type="checkbox" class="color-check" name="dislike-color[]" value=#FF9800>
                         <span class="checkmark">
                         <i class="fas fa-check check-sign"></i>
                         </span>
@@ -136,7 +136,7 @@
                     </div>
                     <div class="dislike-color">
                     <div style="background-color:#795548">
-                        <input type="checkbox" class="color-check" name="dislike-color" value=#795548>
+                        <input type="checkbox" class="color-check" name="dislike-color[]" value=#795548>
                         <span class="checkmark">
                         <i class="fas fa-check check-sign"></i>
                         </span>
@@ -145,7 +145,7 @@
 
                     <div class="dislike-color">
                     <div style="background-color:#E91E63">
-                        <input type="checkbox" class="color-check" name="dislike-color" value=#E91E63>
+                        <input type="checkbox" class="color-check" name="dislike-color[]" value=#E91E63>
                         <span class="checkmark">
                         <i class="fas fa-check check-sign"></i>
                         </span>
@@ -153,7 +153,7 @@
                     </div>
                     <div class="dislike-color">
                     <div style="background-color:#5677FC">
-                        <input type="checkbox" class="color-check" name="dislike-color" value=#5677FC>
+                        <input type="checkbox" class="color-check" name="dislike-color[]" value=#5677FC>
                         <span class="checkmark">
                         <i class="fas fa-check check-sign"></i>
                         </span>
@@ -161,7 +161,7 @@
                     </div>
                     <div class="dislike-color">
                     <div style="background-color:#259B24">
-                        <input type="checkbox" class="color-check" name="dislike-color" value=#259B24>
+                        <input type="checkbox" class="color-check" name="dislike-color[]" value=#259B24>
                         <span class="checkmark">
                         <i class="fas fa-check check-sign"></i>
                         </span>
@@ -169,7 +169,7 @@
                     </div>
                     <div class="dislike-color">
                     <div style="background-color:#FFC107">
-                        <input type="checkbox" class="color-check" name="dislike-color" value=#FFC107>
+                        <input type="checkbox" class="color-check" name="dislike-color[]" value=#FFC107>
                         <span class="checkmark">
                         <i class="fas fa-check check-sign"></i>
                         </span>
@@ -177,7 +177,7 @@
                     </div>
                     <div class="dislike-color">
                     <div style="background-color:#9E9E9E">
-                        <input type="checkbox" class="color-check" name="dislike-color" value=#9E9E9E>
+                        <input type="checkbox" class="color-check" name="dislike-color[]" value=#9E9E9E>
                         <span class="checkmark">
                         <i class="fas fa-check check-sign"></i>
                         </span>
@@ -186,7 +186,7 @@
 
                     <div class="dislike-color">
                     <div style="background-color:#E51C23">
-                        <input type="checkbox" class="color-check" name="dislike-color" value=#E51C23>
+                        <input type="checkbox" class="color-check" name="dislike-color[]" value=#E51C23>
                         <span class="checkmark">
                         <i class="fas fa-check check-sign"></i>
                         </span>
@@ -194,7 +194,7 @@
                     </div>
                     <div class="dislike-color">
                     <div style="background-color:#3F51B5">
-                        <input type="checkbox" class="color-check" name="dislike-color" value=#3F51B5>
+                        <input type="checkbox" class="color-check" name="dislike-color[]" value=#3F51B5>
                         <span class="checkmark">
                         <i class="fas fa-check check-sign"></i>
                         </span>
@@ -202,7 +202,7 @@
                     </div>
                     <div class="dislike-color">
                     <div style="background-color:#009688">
-                        <input type="checkbox" class="color-check" name="dislike-color" value=#009688>
+                        <input type="checkbox" class="color-check" name="dislike-color[]" value=#009688>
                         <span class="checkmark">
                         <i class="fas fa-check check-sign"></i>
                         </span>
@@ -210,7 +210,7 @@
                     </div>
                     <div class="dislike-color">
                     <div style="background-color:#FFEB3B">
-                        <input type="checkbox" class="color-check" name="dislike-color" value=#FFEB3B>
+                        <input type="checkbox" class="color-check" name="dislike-color[]" value=#FFEB3B>
                         <span class="checkmark">
                         <i class="fas fa-check check-sign"></i>
                         </span>
@@ -218,7 +218,7 @@
                     </div>
                     <div class="dislike-color">
                     <div style="background-color:#607D8B">
-                        <input type="checkbox" class="color-check" name="dislike-color" value=#607D8B>
+                        <input type="checkbox" class="color-check" name="dislike-color[]" value=#607D8B>
                         <span class="checkmark">
                         <i class="fas fa-check check-sign"></i>
                         </span>
@@ -235,22 +235,22 @@
                     <p class="mt-3">Any materials you don't like?</p>
 
                     <div class="row justify-content-center">
-                        <input type="radio" id="style-casual1" name="dislike-casual" value="Faux Leather" checked/>
+                        <input type="checkbox" id="style-casual1" name="dislike-casual[]" value="Faux Leather" checked/>
                         <label for="style-casual1" class="select-btn">Faux Leather</label>
 
-                        <input type="radio" id="style-casual2" name="dislike-casual" value="Polyester"/>
+                        <input type="checkbox" id="style-casual2" name="dislike-casual[]" value="Polyester"/>
                         <label for="style-casual2" class="select-btn">Polyester</label>
 
-                        <input type="radio" id="style-casual3" name="dislike-casual" value="Faux Fur"/>
+                        <input type="checkbox" id="style-casual3" name="dislike-casual[]" value="Faux Fur"/>
                         <label for="style-casual3" class="select-btn">Faux Fur</label>
 
-                        <input type="radio" id="style-casual4" name="dislike-casual" value="Gold"/>
+                        <input type="checkbox" id="style-casual4" name="dislike-casual[]" value="Gold"/>
                         <label for="style-casual4" class="select-btn">Gold</label>
 
-                        <input type="radio" id="style-casual5" name="dislike-casual" value="Nickel"/>
+                        <input type="checkbox" id="style-casual5" name="dislike-casual[]" value="Nickel"/>
                         <label for="style-casual5" class="select-btn">Nickel</label>
 
-                        <input type="radio" id="style-casual6" name="dislike-casual" value="Silver"/>
+                        <input type="checkbox" id="style-casual6" name="dislike-casual[]" value="Silver"/>
                         <label for="style-casual6" class="select-btn">Silver</label>
                     </div>
                 </div>
@@ -267,21 +267,21 @@
                             <div class="m-0 p-0">
                                 <img class="img-content" src="/images/customer-signup/geometric.png" value="geometric">
                             </div>
-                            <input type="radio" id="style-pattern1" name="dislike-pattern" value="Geometric" checked/>
+                            <input type="checkbox" id="style-pattern1" name="dislike-pattern[]" value="Geometric" checked/>
                             <label for="style-pattern1" class="select-btn">Geometric</label>
                         </div>
                         <div class="col">
                             <div class="m-0 p-0">
                                 <img class="img-content" src="/images/customer-signup/animal_prints.png" value="animal_prints">
                             </div>
-                            <input type="radio" id="style-pattern2" name="dislike-pattern" value="Animal Prints" />
+                            <input type="checkbox" id="style-pattern2" name="dislike-pattern[]" value="Animal Prints" />
                             <label for="style-pattern2" class="select-btn">Animal Prints</label>
                         </div>
                         <div class="col">
                             <div class="m-0 p-0">
                                 <img class="img-content" src="/images/customer-signup/houndstooth.png" value="houndstooth">
                             </div>
-                            <input type="radio" id="style-pattern3" name="dislike-pattern" value="Houndstooth" />
+                            <input type="checkbox" id="style-pattern3" name="dislike-pattern[]" value="Houndstooth" />
                             <label for="style-pattern3" class="select-btn">Houndstooth</label>
 
                         </div>
@@ -289,21 +289,21 @@
                             <div class="m-0 p-0">
                                 <img class="img-content" src="/images/customer-signup/camoflauge.png" value="camoflauge">
                             </div>
-                            <input type="radio" id="style-pattern4" name="dislike-pattern" value="Camoflauge" />
+                            <input type="checkbox" id="style-pattern4" name="dislike-pattern[]" value="Camoflauge" />
                             <label for="style-pattern4" class="select-btn">Camoflauge</label>
                         </div>
                         <div class="col">
                             <div class="m-0 p-0">
                                 <img class="img-content" src="/images/customer-signup/florals.png" value="florals">
                             </div>
-                            <input type="radio" id="style-pattern5" name="dislike-pattern" value="Florals" />
+                            <input type="checkbox" id="style-pattern5" name="dislike-pattern[]" value="Florals" />
                             <label for="style-pattern5" class="select-btn">Florals</label>
                         </div>
                         <div class="col">
                             <div class="m-0 p-0">
                                 <img class="img-content" src="/images/customer-signup/plaid.png" value="plaid">
                             </div>
-                            <input type="radio" id="style-pattern6" name="dislike-pattern" value="Plaid" />
+                            <input type="checkbox" id="style-pattern6" name="dislike-pattern[]" value="Plaid" />
                             <label for="style-pattern6" class="select-btn">Plaid</label>
                         </div>
                     </div>
