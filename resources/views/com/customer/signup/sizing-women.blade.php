@@ -13,6 +13,7 @@
     <form id="sizing" method="POST" action="{{route('customer.signup.sizing.save')}}" enctype="multipart/form-data">
         @csrf
         <input name="gender" value="{{$gender}}" type="hidden">
+        <input type="hidden" name="email" value="{{$email}}"/>
         <div class="row item first-row item-show">
             <div class="m-auto text-center">
                 <p class="mt-3">What is your body type?</p>
@@ -21,7 +22,7 @@
                         <div class="img-wrap img-div selected">
                             <img class="img-content" src="/images/customer-signup/body-women/type1.svg" />
                         </div>
-                        <input type="radio" class="img-radio" name="body-women" value="Hourglass" checked/>
+                        <input type="radio" class="img-radio" name="body-type" value="Hourglass" checked/>
                         <label>Hourglass</label>
                     </div>
 
@@ -29,7 +30,7 @@
                         <div class="img-wrap img-div">
                             <img class="img-content" src="/images/customer-signup/body-women/type2.svg" />
                         </div>
-                        <input type="radio" class="img-radio" name="body-women" value="Round"/>
+                        <input type="radio" class="img-radio" name="body-type" value="Round"/>
                         <label>Round</label>
                     </div>
 
@@ -37,7 +38,7 @@
                         <div class="img-wrap img-div">
                             <img class="img-content" src="/images/customer-signup/body-women/type3.svg" />
                         </div>
-                        <input type="radio" class="img-radio" name="body-women" value="inverted_triangle"/>
+                        <input type="radio" class="img-radio" name="body-type" value="inverted_triangle"/>
                         <label>Inverted triangle</label>
                     </div>
 
@@ -45,7 +46,7 @@
                         <div class="img-wrap img-div">
                             <img class="img-content" src="/images/customer-signup/body-women/type4.svg" />
                         </div>
-                        <input type="radio" class="img-radio" name="body-women" value="pear"/>
+                        <input type="radio" class="img-radio" name="body-type" value="pear"/>
                         <label>Pear</label>
                     </div>
 
@@ -53,7 +54,7 @@
                         <div class="img-wrap img-div">
                             <img class="img-content" src="/images/customer-signup/body-women/type5.svg" />
                         </div>
-                        <input type="radio" class="img-radio" name="body-women" value="rectangle"/>
+                        <input type="radio" class="img-radio" name="body-type" value="rectangle"/>
                         <label>Rectangle</label>
                     </div>
                 </div>
@@ -68,22 +69,22 @@
                 </div>
 
                 <div class="row justify-content-center my-3">
-                    <input type="radio" id="women-casual1" name="women-casual" value="S" />
+                    <input type="radio" id="women-casual1" name="casual-size" value="S" />
                     <label for="women-casual1" class="select-btn">S</label>
 
-                    <input type="radio" id="women-casual2" name="women-casual" value="M" />
+                    <input type="radio" id="women-casual2" name="casual-size" value="M" />
                     <label for="women-casual2" class="select-btn">M</label>
 
-                    <input type="radio" id="women-casual3" name="women-casual" value="L" checked/>
+                    <input type="radio" id="women-casual3" name="casual-size" value="L" checked/>
                     <label for="women-casual3" class="select-btn">L</label>
 
-                    <input type="radio" id="women-casual4" name="women-casual" value="XL" />
+                    <input type="radio" id="women-casual4" name="casual-size" value="XL" />
                     <label for="women-casual4" class="select-btn">XL</label>
 
-                    <input type="radio" id="women-casual5" name="women-casual" value="XXL" />
+                    <input type="radio" id="women-casual5" name="casual-size" value="XXL" />
                     <label for="women-casual5" class="select-btn">XXL</label>
                 </div>
-                    <select name="women-casual-fit" class="afit-select" required>
+                    <select name="casual-fit" class="afit-select" required>
                         <option value="none" placeholder="How do you like the fit?" hidden>How do you like the fit?</option>
                         <option value="smaller">Smaller</option>
                         <option value="normal">Normal</option>
@@ -102,15 +103,15 @@
                     <div class="row justify-content-center my-3">
                         @for ($i = 0; $i <= 18; $i+=2)
                             @if ($i == 0)
-                                <input type="radio" id={{ "women-blouse" . $i }} name="women-blouse" value={{$i}} checked/>
+                                <input type="radio" id={{ "women-blouse" . $i }} name="blouse-size" value={{$i}} checked/>
                             @else
-                                <input type="radio" id={{ "women-blouse" . $i }} name="women-blouse" value={{$i}}/>
+                                <input type="radio" id={{ "women-blouse" . $i }} name="blouse-size" value={{$i}}/>
                             @endif
                             <label for={{ "women-blouse" . $i}} class="select-btn">{{ $i }}</label>
                         @endfor
                     </div>
 
-                    <select name="women-blouse-fit" class="afit-select">
+                    <select name="blouse-fit" class="afit-select" required>
                         <option value="none" placeholder="How do you like the fit?" hidden>How do you like the fit?</option>
                         <option value="smaller">Smaller</option>
                         <option value="normal">Normal</option>
@@ -183,43 +184,43 @@
 
                     <div class="row ml-3 pant-setting">
                         <h5 class="text-center my-auto color-brown"> Waist </h5>
-                        <input type="radio" id="women-waist1" name="women-waist" value="High Rise" />
+                        <input type="radio" id="women-waist1" name="pant-waist-fit" value="High Rise" />
                         <label for="women-waist1" class="select-btn">High Rise</label>
 
-                        <input type="radio" id="women-waist2" name="women-waist" value="Natural" checked/>
+                        <input type="radio" id="women-waist2" name="pant-waist-fit" value="Natural" checked/>
                         <label for="women-waist2" class="select-btn">Natural</label>
 
-                        <input type="radio" id="women-waist3" name="women-waist" value="Medium Rise" />
+                        <input type="radio" id="women-waist3" name="pant-waist-fit" value="Medium Rise" />
                         <label for="women-waist3" class="select-btn">Medium Rise</label>
 
-                        <input type="radio" id="women-waist4" name="women-waist" value="Low Rise" />
+                        <input type="radio" id="women-waist4" name="pant-waist-fit" value="Low Rise" />
                         <label for="women-waist4" class="select-btn">Low Rise</label>
                     </div>
 
                     <div class="row ml-3 pant-setting">
                         <h5 class="text-center my-auto color-brown"> Rise </h5>
-                        <input type="radio" id="women-rise1" name="women-rise" value="Straight" />
+                        <input type="radio" id="women-rise1" name="pant-rise" value="Straight" />
                         <label for="women-rise1" class="select-btn">Straight</label>
 
-                        <input type="radio" id="women-rise2" name="women-rise" value="Tapered" checked/>
+                        <input type="radio" id="women-rise2" name="pant-rise" value="Tapered" checked/>
                         <label for="women-rise2" class="select-btn">Tapered</label>
 
-                        <input type="radio" id="women-rise3" name="women-rise" value="Bootcut" />
+                        <input type="radio" id="women-rise3" name="pant-rise" value="Bootcut" />
                         <label for="women-rise3" class="select-btn">Bootcut</label>
                     </div>
 
                     <div class="row ml-3 pant-setting">
                         <h5 class="text-center my-auto color-brown"> Fit </h5>
-                        <input type="radio" id="women-fit1" name="women-fit" value="Relaxed" />
+                        <input type="radio" id="women-fit1" name="pant-fit" value="Relaxed" />
                         <label for="women-fit1" class="select-btn">Relaxed</label>
 
-                        <input type="radio" id="women-fit2" name="women-fit" value="CLassic" checked/>
+                        <input type="radio" id="women-fit2" name="pant-fit" value="CLassic" checked/>
                         <label for="women-fit2" class="select-btn">Classic</label>
 
-                        <input type="radio" id="women-fit3" name="women-fit" value="Slim" />
+                        <input type="radio" id="women-fit3" name="pant-fit" value="Slim" />
                         <label for="women-fit3" class="select-btn">Slim</label>
 
-                        <input type="radio" id="women-fit4" name="women-fit" value="Skinny" />
+                        <input type="radio" id="women-fit4" name="pant-fit" value="Skinny" />
                         <label for="women-fit4" class="select-btn">Skinny</label>
                     </div>
                 </div>
@@ -237,9 +238,9 @@
                     <div class="row justify-content-center">
                         @for ($i = 0; $i <= 18; $i+=2)
                             @if ($i == 0)
-                                <input type="radio" id={{ "women-pant" . ($i) }} name="women-pant" value={{$i}} checked/>
+                                <input type="radio" id={{ "women-pant" . ($i) }} name="pant-size" value={{$i}} checked/>
                             @else
-                                <input type="radio" id={{ "women-pant" . ($i) }} name="women-pant" value={{$i}}/>
+                                <input type="radio" id={{ "women-pant" . ($i) }} name="pant-size" value={{$i}}/>
                             @endif
                             <label for={{ "women-pant" . ($i)}} class="select-btn">{{ $i }}</label>
                         @endfor

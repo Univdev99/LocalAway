@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Upload;
 use App\User;
 use App\Customer;
+use App\Plan;
 use Illuminate\Support\Facades\View;
 
 class CustomerController extends Controller
@@ -38,59 +39,9 @@ class CustomerController extends Controller
         return view('com.customer.section.account');
     }
 
-
     public function signup()
     {
       return view('com.customer.signup.account');
-    }
-
-    public function saveBasic(Request $request)
-    {
-        $gender = $request->input("basic-gender");
-
-        return $gender;
-    }
-
-    public function basic()
-    {
-      return view('com.customer.signup.basic');
-    }
-
-    public function saveMenSizing(Request $request)
-    {
-        return redirect()->route('customer.signup.style.men');
-    }
-
-    public function sizing(Request $request)
-    {
-        $gender = $request->input("gender");
-        if($gender == "male"){
-            return view('com.customer.signup.sizing-men')->with('gender', $gender);
-        }
-        return view('com.customer.signup.sizing-women')->with('gender', $gender);
-    }
-
-    public function saveSizing(Request $request)
-    {
-        $gender = $request->input("gender");
-        if($gender == "male"){
-            return redirect()->route('customer.signup.style', ['gender' => $gender]);
-        }
-        return redirect()->route('customer.signup.style', ['gender' => $gender]);
-    }
-
-    public function style(Request $request)
-    {
-        $gender = $request->input('gender');
-        if($gender == "male"){
-            return view('com.customer.signup.style-men')->with('gender', $gender);
-        }
-        return view('com.customer.signup.style-women')->with('gender', $gender);
-    }
-
-    public function saveStyle(Request $request)
-    {
-        dd("Hello");
     }
 
     public function saveAccount(Request $request)
@@ -102,7 +53,6 @@ class CustomerController extends Controller
       $phone_number = $request->input('phone_number');
       $password = $request->input('password');
       $receive_alert = $request->input('receive_alert', 'off');
-      $hear_us = $request->input('hear_us');
       $email = str_replace(' ', '', $email);
 
       $duplicate = User::where('email', $email)->first();
@@ -123,194 +73,173 @@ class CustomerController extends Controller
       $customer = new Customer;
       $customer->user_id = $user->id;
       $customer->receive_alert = $receive_alert == "on" ? 1 : 0;
-      $customer->hear_us = $hear_us;
       $customer->save();
 
-      return redirect()->route('customer.signup.basic');
+      return redirect()->route('customer.signup.basic', ['email' => $email]);
     }
 
-    // public function postGeneral(Request $request)
-    // {
-    //   $email = $request->input("email");
-    //   $dress = $request->input('dress');
-    //   $gender = $request->input('gender');
-    //   $metric = $request->input('metric');
-    //   $feet = $request->input('height_feet');
-    //   $inch = $request->input('height_inch');
+    public function basic(Request $request)
+    {
+        $email = $request->input('email');
+        return view('com.customer.signup.basic')->with('email', $email);
+    }
 
-    //   $user = User::where('email', $email)->first();
-    //   if ($user && $user->customer) {
-    //     $customer = $user->customer;
-    //     $customer->dress = $dress;
-    //     $customer->gender = $gender;
-    //     $customer->metric = $metric == 'yes';
-    //     $customer->height_feet = $feet;
-    //     $customer->height_inch = $inch;
-    //     $customer->save();
-    //   }
-    // }
+    public function saveBasic(Request $request)
+    {
+        $email = $request->input("email");
+        $gender = $request->input("basic-gender");
+        $user = User::where('email', $email)->first();
+        if (!$user || !$user->customer) {
+            return response('No registered email', 400);
+        }
+        $customer = $user->customer;
+        $customer->gender = $gender;
+        $customer->height_feet = $request->input('height-feet');
+        $customer->height_inch = $request->input('height-inch');
+        $customer->age_range = $request->input('basic-age');
+        $date = $request->input('capsule-date');
+        $customer->capsule_date = date_create_from_format("m/d/Y",$date);
+        $ship_type = $request->input('basic-ship');
+        $customer->ship_type = $ship_type;
+        $customer->street_address = $request->input('street-address');
+        $customer->city = $request->input('city');
+        $customer->state = $request->input('state');
+        $customer->zip_code = $request->input('zip-code');
+        $customer->events = $request->input('basic-event');
 
-    // public function postMen(Request $request)
-    // {
-    //   $email = $request->input("email");
-    //   $men_body_type = $request->input("men_body_type");
-    //   $casual_shirts = $request->input("men_casual_shirts");
-    //   $button_up_shirts = $request->input("men_button_up_shirts");
-    //   $waist = $request->input("men_waist");
-    //   $inseams = $request->input("men_inseams");
-    //   $jeans = $request->input("men_jeans");
-    //   $shorts = $request->input("men_shorts");
-    //   $shoe = $request->input("men_shoe");
-    //   $casual_shirts_fit = $request->input("men_casual_shirts_fit");
-    //   $button_up_shirts_fit = $request->input("men_button_up_shirts_fit");
-    //   $shorts_fit = $request->input("men_shorts_fit");
+        if($ship_type == 'hotel')
+        {
+            $customer->reservation_name = $request->input('reservation-name');
+            $customer->hotel_name = $request->input('hotel-name');
+            $customer->checkin = date_create_from_format("m/d/Y", $request->input('check-in'));
+            $customer->checkout = date_create_from_format("m/d/Y", $request->input('check-out'));
+        }else if($ship_type == 'airbnb'){
+            $customer->reservation_name = $request->input('reservation-name');
+            $customer->checkin = date_create_from_format("m/d/Y", $request->input('check-in'));
+            $customer->checkout = date_create_from_format("m/d/Y", $request->input('check-out'));
+        }
 
-    //   $user = User::where('email', $email)->first();
-    //   if ($user && $user->customer) {
-    //     $customer = $user->customer;
-    //     $customer->men_body_type = $men_body_type;
-    //     $customer->casual_shirts = $casual_shirts;
-    //     $customer->button_up_shirts = $button_up_shirts;
-    //     $customer->waist = $waist;
-    //     $customer->inseams = $inseams;
-    //     $customer->jeans = $jeans;
-    //     $customer->shorts = $shorts;
-    //     $customer->shoe = $shoe;
-    //     $customer->casual_shirts_fit = $casual_shirts_fit;
-    //     $customer->button_up_shirts_fit = $button_up_shirts_fit;
-    //     $customer->shorts_fit = $shorts_fit;
+        $customer->save();
+        return ['gender' => $gender, 'email' => $email];
+    }
 
-    //     if ($request->hasFile("custom_man_body_type")) {
-    //       $customer->photo = $request->file("custom_man_body_type")->store("uploads/custom-photo", "public");
-    //     }
-    //     $customer->save();
-    //   }
-    // }
+    public function sizing(Request $request)
+    {
+        $gender = $request->input("gender");
+        $email = $request->input("email");
+        if($gender == "male"){
+            return view('com.customer.signup.sizing-men', ['gender'=> $gender, 'email'=> $email]);
+        }
+        return view('com.customer.signup.sizing-women', ['gender' => $gender, 'email' => $email]);
+    }
 
-    // public function postWomen(Request $request)
-    // {
-    //   $email = $request->input("email");
-    //   $mother = $request->input("mother_or_pregnant");
-    //   $women_body_type = $request->input("women_body_type");
-    //   $casual_shirts = $request->input("women_casual_shirts");
-    //   $button_up_shirts = $request->input("women_button_up_shirts");
-    //   $bra = $request->input("bra_size");
-    //   $waist = $request->input("women_waist");
-    //   $inseams = $request->input("women_inseams");
-    //   $jeans = $request->input("women_jeans");
-    //   $skirt = $request->input("skirt");
-    //   $dress_style = $request->input("dress_style");
-    //   $shorts = $request->input("women_shorts");
-    //   $shoe = $request->input("women_shoe");
-    //   $casual_shirts_fit = $request->input("women_casual_shirts_fit");
-    //   $button_up_shirts_fit = $request->input("women_button_up_shirts_fit");
-    //   $shorts_fit = $request->input("women_shorts_fit");
+    public function saveSizing(Request $request)
+    {
+        $gender = $request->input("gender");
+        $email = $request->input("email");
 
-    //   $user = User::where('email', $email)->first();
-    //   if ($user && $user->customer) {
-    //     $customer = $user->customer;
-    //     $customer->mother = $mother == "yes" ? 1 : 0;
-    //     $customer->women_body_type = $women_body_type;
-    //     $customer->casual_shirts = $casual_shirts;
-    //     $customer->button_up_shirts = $button_up_shirts;
-    //     $customer->bra = $bra;
-    //     $customer->waist = $waist;
-    //     $customer->inseams = $inseams;
-    //     $customer->jeans = $jeans;
-    //     $customer->skirt = $skirt;
-    //     $customer->dress_style = $dress_style;
-    //     $customer->shorts = $shorts;
-    //     $customer->shoe = $shoe;
-    //     $customer->casual_shirts_fit = $casual_shirts_fit;
-    //     $customer->button_up_shirts_fit = $button_up_shirts_fit;
-    //     $customer->shorts_fit = $shorts_fit;
+        $user = User::where('email', $email)->first();
+        if (!$user || !$user->customer) {
+            return redirect()->route('landingPage');
+        }
+        $customer = $user->customer;
+        $customer->body_type = $request->input('body_type');
+        $customer->casual_shirt_size = $request->input('casual-size');
+        $customer->pant_waist_fit = $request->input('pant-waist-fit');
+        $customer->pant_fit = $request->input('pant-fit');
+        $customer->shoe_size = $request->input('shoe-size');
+        if($gender == "male"){
+            $customer->dress_shirt_size = $request->input('dress-shirt-size');
+            $customer->dress_shirt_collar_fit = $request->input('dress-shirt-collar-fit');
+            $customer->dress_shirt_shoulder_fit = $request->input('dress-shirt-shoulder-fit');
+            $customer->waist_size = $request->input('waist-size');
+            $customer->shorts_length = $request->input('shorts-length');
+            $customer->save();
+            return redirect()->route('customer.signup.style', ['gender' => $gender, 'email' => $email]);
+        }
 
-    //     if ($request->hasFile("custom_woman_body_type")) {
-    //       $customer->photo = $request->file("custom_woman_body_type")->store("uploads/custom-photo", "public");
-    //     }
-    //     $customer->save();
-    //   }
-    // }
+        $customer->casual_fit = $request->input('casual-fit');
+        $customer->buttonup_blouse_size = $request->input('blouse-size');
+        $customer->buttonup_blouse_fit = $request->input('blouse-fit');
+        $customer->bra_size = $request->input('women-bra');
+        $customer->bra_cup = $request->input('women-cup');
+        $customer->pant_rise = $request->input('pant-rise');
+        $customer->pant_size = $request->input('pant-size');
+        $customer->skirt_size = $request->input('women-short');
+        $customer->dress_style = $request->input('women-dress');
+        $customer->save();
+        return redirect()->route('customer.signup.style', ['gender' => $gender, 'email' => $email]);
+    }
 
-    // public function postNeutral(Request $request)
-    // {
-    //   $email = $request->input("email");
-    //   $casual_shirts = $request->input("casual_shirts");
-    //   $button_up_shirts = $request->input("button_up_shirts");
-    //   $waist = $request->input("waist");
-    //   $inseams = $request->input("inseams");
-    //   $jeans = $request->input("jeans");
-    //   $shorts = $request->input("shorts");
+    public function style(Request $request)
+    {
+        $gender = $request->input('gender');
+        $email = $request->input('email');
+        if($gender == "male"){
+            return view('com.customer.signup.style-men', ['gender' => $gender, 'email' => $email]);
+        }
+        return view('com.customer.signup.style-women', ['gender' => $gender, 'email' => $email]);
+    }
 
-    //   $casual_shirts_fit = $request->input("casual_shirts_fit");
-    //   $button_up_shirts_fit = $request->input("button_up_shirts_fit");
-    //   $shorts_fit = $request->input("shorts_fit");
+    public function saveStyle(Request $request)
+    {
+        $this->dislike($request);
+        $this->almostDone($request);
+        $email = $request->input('email');
+        return redirect()->route('customer.signup.payment', ['email' => $email]);
+    }
 
-    //   $user = User::where('email', $email)->first();
-    //   if ($user && $user->customer) {
-    //     $customer = $user->customer;
-    //     $customer->casual_shirts = $casual_shirts;
-    //     $customer->button_up_shirts = $button_up_shirts;
-    //     $customer->waist = $waist;
-    //     $customer->inseams = $inseams;
-    //     $customer->jeans = $jeans;
-    //     $customer->shorts = $shorts;
-    //     $customer->casual_shirts_fit = $casual_shirts_fit;
-    //     $customer->button_up_shirts_fit = $button_up_shirts_fit;
-    //     $customer->shorts_fit = $shorts_fit;
-    //     $customer->save();
-    //   }
-    // }
+    public function dislike(Request $request)
+    {
+      $email = $request->input("email");
+      $style = $request->input("style");
+      $materials = $request->input("dislike-casual");
+      $patterns = $request->input("dislike-pattern");
+      $colors = $request->input("dislike-color");
 
-    // public function postDislike(Request $request)
-    // {
-    //   $email = $request->input("email");
-    //   $materials = $request->input("materials");
-    //   $patterns = $request->input("patterns");
-    //   $colors = $request->input("colors");
+      $user = User::where('email', $email)->first();
+      if ($user && $user->customer) {
+        $customer = $user->customer;
+        $customer->style = $style;
+        if ($materials) {
+          $customer->dislike_material = implode(",", $materials);
+        }
 
-    //   $user = User::where('email', $email)->first();
-    //   if ($user && $user->customer) {
-    //     $customer = $user->customer;
-    //     if ($materials) {
-    //       $customer->dislike_material = implode(",", $materials);
-    //     }
+        if ($patterns) {
+          $customer->dislike_pattern = implode(",", $patterns);
+        }
 
-    //     if ($patterns) {
-    //       $customer->dislike_pattern = implode(",", $patterns);
-    //     }
+        if ($colors) {
+          $customer->dislike_color = implode("|", $colors);
+        }
+        $customer->save();
+      }
+    }
 
-    //     if ($colors) {
-    //       $customer->dislike_color = implode("|", $colors);
-    //     }
-    //     $customer->save();
-    //   }
-    // }
+    public function almostDone(Request $request)
+    {
+      $email = $request->input("email");
+      $capsule = $request->input("capsule");
+      $spend = $request->input("spend");
+      $instagram = $request->input("instagram");
+      $twitter = $request->input("twitter");
+      $pinterest = $request->input("pinterest");
+      $linkedin = $request->input("linkedin");
+      $notes = $request->input("notes");
 
-    // public function postAlmostDone(Request $request)
-    // {
-    //   $email = $request->input("email");
-    //   $capsule = $request->input("capsule");
-    //   $spend = $request->input("spend");
-    //   $instagram = $request->input("instagram");
-    //   $twitter = $request->input("twitter");
-    //   $pinterest = $request->input("pinterest");
-    //   $linkedin = $request->input("linkedin");
-    //   $notes = $request->input("notes");
-
-    //   $user = User::where('email', $email)->first();
-    //   if ($user && $user->customer) {
-    //     $customer = $user->customer;
-    //     $customer->capsule = $capsule;
-    //     $customer->capsule_spend = $spend;
-    //     $customer->instagram = $instagram;
-    //     $customer->twitter = $twitter;
-    //     $customer->pinterest = $pinterest;
-    //     $customer->linkedin = $linkedin;
-    //     $customer->notes = $notes;
-    //     $customer->save();
-    //   }
-    // }
+      $user = User::where('email', $email)->first();
+      if ($user && $user->customer) {
+        $customer = $user->customer;
+        $customer->capsule = $capsule;
+        $customer->capsule_spend = $spend;
+        $customer->instagram = $instagram;
+        $customer->twitter = $twitter;
+        $customer->pinterest = $pinterest;
+        $customer->linkedin = $linkedin;
+        $customer->notes = $notes;
+        $customer->save();
+      }
+    }
 
     // public function postFinalize(Request $request)
     // {
@@ -324,6 +253,13 @@ class CustomerController extends Controller
     //     $customer->save();
     //   }
     // }
+
+    public function payment(Request $request)
+    {
+        // $plan = Plan::first();
+        // $intent = $request->user()->createSetupIntent();
+        return view('com.customer.signup.payment');
+    }
 
     public function thankyou(Request $request)
     {

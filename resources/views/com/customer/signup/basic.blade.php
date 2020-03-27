@@ -17,6 +17,7 @@
         <div class="col-12 mt-3">
             <div class="my-form-row text-center">
                 <p >First the basics</p>
+                <input type="hidden" name="email" value="{{$email}}"/>
                 <div class="d-flex flex-wrap justify-content-center">
                     <div class="mx-5 img-selector">
                         <div class="gender-image img-div">
@@ -49,12 +50,12 @@
             <div class="row justify-content-center">
                 <div class="my-form-row mx-4 text-left">
                     <label for="step2-feet">*Feet</label>
-                    <input id="step2-feet" name="height_feet" class="form-control text-answer" type="text" required/>
+                    <input id="step2-feet" name="height-feet" class="form-control text-answer" type="text" required/>
                 </div>
 
                 <div class="my-form-row mx-4 text-left">
                     <label for="step2-inches">*Inches</label>
-                    <input id="step2-inches" name="height_inch" class="form-control  text-answer" type="text" required/>
+                    <input id="step2-inches" name="height-inch" class="form-control  text-answer" type="text" required/>
                 </div>
             </div>
             </div>
@@ -101,7 +102,7 @@
             <div id="calendar"></div>
 
             <label for="trip-date" class="text-left">*Date</label>
-            <input id="trip-date" class="form-control text-center mx-auto text-answer" type="text" placeholder="Please set date." required/>
+            <input id="trip-date" class="form-control text-center mx-auto text-answer" name="capsule-date" type="text" placeholder="Please set date." required/>
         </div>
     </div>
 
@@ -139,13 +140,13 @@
                 <p>Ship my items to</p>
 
                 <div class="row justify-content-center">
-                    <input type="radio" id="ship-1" name="basic-ship" data-next="1" value="Hotel" checked/>
+                    <input type="radio" id="ship-1" name="basic-ship" data-next="1" value="hotel" checked/>
                     <label for="ship-1" class="select-btn">Hotel</label>
 
-                    <input type="radio" id="ship-2" name="basic-ship" data-next="2" value="Airbnb"/>
+                    <input type="radio" id="ship-2" name="basic-ship" data-next="2" value="airbnb"/>
                     <label for="ship-2" class="select-btn">Airbnb</label>
 
-                    <input type="radio" id="ship-3" name="basic-ship" data-next="3" value="Home"/>
+                    <input type="radio" id="ship-3" name="basic-ship" data-next="3" value="home"/>
                     <label for="ship-3" class="select-btn">Home</label>
                 </div>
             </div>

@@ -657,3 +657,7 @@ input:checked+.select-btn {
 .text-danger {
     color: red;
 }
+
+hr.divider {
+    border-top: 3px solid #bbb;
+}

@@ -70,7 +70,7 @@
   <div class="col-12">
     <div class="my-form-row">
       <p class="question">Question 2</p>
-      
+
       <img src="/images/customer-signup/casual-shirt.svg" />
       <p class="mt-3">Casual Shirts?</p>
 
@@ -126,7 +126,7 @@
   <div class="col-12">
     <div class="my-form-row">
       <p class="question">Question 3</p>
-      
+
       <img src="/images/customer-signup/button-up-shirt.svg" />
       <p class="mt-3">Button-Up Shirts?</p>
 
@@ -182,7 +182,7 @@
   <div class="col-12">
     <div class="my-form-row">
       <p class="question">Question 4</p>
-      
+
       <img src="/images/customer-signup/waist.svg" />
       <p class="mt-3">Waist?</p>
 
@@ -231,7 +231,7 @@
   <div class="col-12">
     <div class="my-form-row">
       <p class="question">Question 5</p>
-      
+
       <img src="/images/customer-signup/inseams.svg" />
       <p class="mt-3">Inseams?</p>
 
@@ -280,7 +280,7 @@
   <div class="col-12">
     <div class="my-form-row">
       <p class="question">Question 6</p>
-      
+
       <img src="/images/customer-signup/jeans.svg" />
       <p class="mt-3">How do you like to jeans to fit?</p>
 
@@ -338,7 +338,7 @@
   <div class="col-12">
     <div class="my-form-row">
       <p class="question">Question 7</p>
-      
+
       <img src="/images/customer-signup/shorts.svg" />
       <p class="mt-3">How do you prefer shorts?</p>
 
@@ -395,7 +395,7 @@
   <div class="col-12">
     <div class="my-form-row">
       <p class="question">Question 8</p>
-      
+
       <img src="/images/customer-signup/men-shoe.svg" />
       <p class="mt-3">Shoe size?</p>
 

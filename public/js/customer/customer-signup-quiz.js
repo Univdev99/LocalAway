@@ -50,7 +50,7 @@ $(function() {
                 for (var i = 1; i <= item_cnt; i++) {
                     if (checkEmpty(".item:nth-child(" + i + ")")) {
                         $(".item:nth-child(" + i + ") input").each(function() {
-                            if ($(this).prop('type') == "text" || ($(this).prop('type') == "radio" && $(this).prop("checked"))) {
+                            if ($(this).prop('type') == "text" || ($(this).prop('type') == "radio" && $(this).prop("checked")) || $(this).prop('type') == "hidden") {
                                 param[$(this).attr('name')] = $(this).val();
                             }
 
@@ -67,7 +67,11 @@ $(function() {
                         },
                     })
                     .then(function(res) {
-                        window.location = '/customer/signup/sizing?gender=' + res;
+                        if (res['gender'] == 'male' || res['gender'] == 'female' || !res['email']) {
+                            window.location = '/customer/signup/sizing?gender=' + res['gender'] + '&email=' + res['email'];
+                        } else {
+                            window.location = '/';
+                        }
                     });
             }
         }
@@ -197,7 +201,7 @@ $(function() {
 
     $('#calendar').on('changeDate', function(event) {
         var date = event.date;
-        var str = getMonthString(date.getMonth()) + ' ' + date.getDate() + 'th, ' + date.getFullYear();
+        var str = date.getMonth() + '/' + date.getDate() + '/' + date.getFullYear();
         $('#trip-date').val(str);
     });
 
@@ -220,7 +224,7 @@ $(function() {
     }
 
     $('.checkDate').datepicker({
-        format: 'mm-dd-yyyy',
+        format: 'mm/dd/yyyy',
         startDate: '+10d',
         todayHighlight: true
     });

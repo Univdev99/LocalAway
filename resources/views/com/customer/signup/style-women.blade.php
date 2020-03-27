@@ -13,6 +13,7 @@
     <form id="style" method="POST" action="{{route('customer.signup.style.save')}}" enctype="multipart/form-data">
         @csrf
         <input name="gender" value="{{$gender}}" type="hidden">
+        <input type="hidden" name="email" value="{{$email}}"/>
         <div class="row item item-show first-row">
             <div class="m-auto text-center">
                     <p class="mt-3">Describe your personal style?</p>
@@ -231,25 +232,25 @@
         <div class="row item dislike">
             <div class="col-xl-6 col-lg-7 col-md-10 text-center mx-auto">
                 <div class="my-form-row">
-                    <p class="mt-3">Casual Shirts?</p>
+                    <p class="mt-3">Any materials you don't like?</p>
 
                     <div class="row justify-content-center">
-                        <input type="radio" id="style-casual1" name="style-casual" value="Faux Leather" checked/>
+                        <input type="radio" id="style-casual1" name="dislike-casual" value="Faux Leather" checked/>
                         <label for="style-casual1" class="select-btn">Faux Leather</label>
 
-                        <input type="radio" id="style-casual2" name="style-casual" value="Polyester"/>
+                        <input type="radio" id="style-casual2" name="dislike-casual" value="Polyester"/>
                         <label for="style-casual2" class="select-btn">Polyester</label>
 
-                        <input type="radio" id="style-casual3" name="style-casual" value="Faux Fur"/>
+                        <input type="radio" id="style-casual3" name="dislike-casual" value="Faux Fur"/>
                         <label for="style-casual3" class="select-btn">Faux Fur</label>
 
-                        <input type="radio" id="style-casual4" name="style-casual" value="Gold"/>
+                        <input type="radio" id="style-casual4" name="dislike-casual" value="Gold"/>
                         <label for="style-casual4" class="select-btn">Gold</label>
 
-                        <input type="radio" id="style-casual5" name="style-casual" value="Nickel"/>
+                        <input type="radio" id="style-casual5" name="dislike-casual" value="Nickel"/>
                         <label for="style-casual5" class="select-btn">Nickel</label>
 
-                        <input type="radio" id="style-casual6" name="style-casual" value="Silver"/>
+                        <input type="radio" id="style-casual6" name="dislike-casual" value="Silver"/>
                         <label for="style-casual6" class="select-btn">Silver</label>
                     </div>
                 </div>
@@ -266,21 +267,21 @@
                             <div class="m-0 p-0">
                                 <img class="img-content" src="/images/customer-signup/geometric.png" value="geometric">
                             </div>
-                            <input type="radio" id="style-pattern1" name="style-pattern" value="Geometric" checked/>
+                            <input type="radio" id="style-pattern1" name="dislike-pattern" value="Geometric" checked/>
                             <label for="style-pattern1" class="select-btn">Geometric</label>
                         </div>
                         <div class="col">
                             <div class="m-0 p-0">
                                 <img class="img-content" src="/images/customer-signup/animal_prints.png" value="animal_prints">
                             </div>
-                            <input type="radio" id="style-pattern2" name="style-pattern" value="Animal Prints" />
+                            <input type="radio" id="style-pattern2" name="dislike-pattern" value="Animal Prints" />
                             <label for="style-pattern2" class="select-btn">Animal Prints</label>
                         </div>
                         <div class="col">
                             <div class="m-0 p-0">
                                 <img class="img-content" src="/images/customer-signup/houndstooth.png" value="houndstooth">
                             </div>
-                            <input type="radio" id="style-pattern3" name="style-pattern" value="Houndstooth" />
+                            <input type="radio" id="style-pattern3" name="dislike-pattern" value="Houndstooth" />
                             <label for="style-pattern3" class="select-btn">Houndstooth</label>
 
                         </div>
@@ -288,21 +289,21 @@
                             <div class="m-0 p-0">
                                 <img class="img-content" src="/images/customer-signup/camoflauge.png" value="camoflauge">
                             </div>
-                            <input type="radio" id="style-pattern4" name="style-pattern" value="Camoflauge" />
+                            <input type="radio" id="style-pattern4" name="dislike-pattern" value="Camoflauge" />
                             <label for="style-pattern4" class="select-btn">Camoflauge</label>
                         </div>
                         <div class="col">
                             <div class="m-0 p-0">
                                 <img class="img-content" src="/images/customer-signup/florals.png" value="florals">
                             </div>
-                            <input type="radio" id="style-pattern5" name="style-pattern" value="Florals" />
+                            <input type="radio" id="style-pattern5" name="dislike-pattern" value="Florals" />
                             <label for="style-pattern5" class="select-btn">Florals</label>
                         </div>
                         <div class="col">
                             <div class="m-0 p-0">
                                 <img class="img-content" src="/images/customer-signup/plaid.png" value="plaid">
                             </div>
-                            <input type="radio" id="style-pattern6" name="style-pattern" value="Plaid" />
+                            <input type="radio" id="style-pattern6" name="dislike-pattern" value="Plaid" />
                             <label for="style-pattern6" class="select-btn">Plaid</label>
                         </div>
                     </div>

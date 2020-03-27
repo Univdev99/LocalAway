@@ -23,7 +23,7 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 // Route::domain('staging.localaway.com')->group(function () {
 
     Route::group(["domain" => "www.localaway.com"], function () {
-        Route::get('/', 'HomeController@index')->name('home');
+        Route::get('/', 'HomeController@index')->name('landingPage');
     });
 
     Route::group(["domain" => "www.localaway.ai"], function () {
@@ -108,19 +108,13 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
     Route::get('/customer/signup/basic', 'CustomerController@basic')->name('customer.signup.basic');
     Route::get('/customer/signup/sizing', 'CustomerController@sizing')->name('customer.signup.sizing');
     Route::get('/customer/signup/style', 'CustomerController@style')->name('customer.signup.style');
+    Route::get('/customer/signup/payment', 'CustomerController@payment')->name('customer.signup.payment');
 
     Route::post('/customer/signup/account', 'CustomerController@saveAccount')->name('customer.signup.account.save');
     Route::post('/customer/signup/basic', 'CustomerController@saveBasic')->name('customer.signup.basic.save');
     Route::post('/customer/signup/sizing', 'CustomerController@saveSizing')->name('customer.signup.sizing.save');
     Route::post('/customer/signup/style', 'CustomerController@saveStyle')->name('customer.signup.style.save');
 
-
-    Route::post('/customer/general', 'CustomerController@postGeneral');
-    Route::post('/customer/women', 'CustomerController@postWomen');
-    Route::post('/customer/men', 'CustomerController@postMen');
-    Route::post('/customer/neutral', 'CustomerController@postNeutral');
-    Route::post('/customer/dislike', 'CustomerController@postDislike');
-    Route::post('/customer/almost-done', 'CustomerController@postAlmostDone');
-    Route::post('/customer/finalize', 'CustomerController@postFinalize');
+    Route::post('/subscription', 'SubscriptionController@create')->name('subscription.create');
 
     Route::get('/phpinfo', 'FileController@phpinfo');

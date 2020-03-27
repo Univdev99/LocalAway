@@ -13,6 +13,7 @@
     <form id="sizing" method="POST" action="{{route('customer.signup.sizing.save')}}" enctype="multipart/form-data">
         @csrf
         <input name="gender" value="{{$gender}}" type="hidden">
+        <input type="hidden" name="email" value="{{$email}}"/>
         <div class="row item first-row item-show">
             <div class="m-auto text-center">
                 <p class="mt-3">What is your body type?</p>
@@ -21,7 +22,7 @@
                         <div class="img-wrap img-div selected">
                             <img class="img-content" src="/images/customer-signup/body-men/type1.svg" />
                         </div>
-                        <input type="radio" class="img-radio" name="body-men" value="slender" checked/>
+                        <input type="radio" class="img-radio" name="body-type" value="slender" checked/>
                         <label>Slender</label>
                     </div>
 
@@ -29,7 +30,7 @@
                         <div class="img-wrap img-div">
                             <img class="img-content" src="/images/customer-signup/body-men/type2.svg" />
                         </div>
-                        <input type="radio" class="img-radio" name="body-men" value="athletic"/>
+                        <input type="radio" class="img-radio" name="body-type" value="athletic"/>
                         <label>Athletic</label>
                     </div>
 
@@ -37,7 +38,7 @@
                         <div class="img-wrap img-div">
                             <img class="img-content" src="/images/customer-signup/body-men/type3.svg" />
                         </div>
-                        <input type="radio" class="img-radio" name="body-men" value="husky"/>
+                        <input type="radio" class="img-radio" name="body-type" value="husky"/>
                         <label>Husky</label>
                     </div>
                 </div>
@@ -53,19 +54,19 @@
                     </div>
 
                     <div class="row justify-content-center">
-                        <input type="radio" id="men-casual1" name="men-casual" value="S" />
+                        <input type="radio" id="men-casual1" name="casual-size" value="S" />
                         <label for="men-casual1" class="select-btn">S</label>
 
-                        <input type="radio" id="men-casual2" name="men-casual" value="M" />
+                        <input type="radio" id="men-casual2" name="casual-size" value="M" />
                         <label for="men-casual2" class="select-btn">M</label>
 
-                        <input type="radio" id="men-casual3" name="men-casual" value="L" checked/>
+                        <input type="radio" id="men-casual3" name="casual-size" value="L" checked/>
                         <label for="men-casual3" class="select-btn">L</label>
 
-                        <input type="radio" id="men-casual4" name="men-casual" value="XL" />
+                        <input type="radio" id="men-casual4" name="casual-size" value="XL" />
                         <label for="men-casual4" class="select-btn">XL</label>
 
-                        <input type="radio" id="men-casual5" name="men-casual" value="XXL" />
+                        <input type="radio" id="men-casual5" name="casual-size" value="XXL" />
                         <label for="men-casual5" class="select-btn">XXL</label>
                     </div>
                 </div>
@@ -81,26 +82,26 @@
                     </div>
 
                     <div class="row justify-content-center">
-                        <input type="radio" id="men-shirt1" name="men-shirt" value="S" />
+                        <input type="radio" id="men-shirt1" name="dress-shirt-size" value="S" />
                         <label for="men-shirt1" class="select-btn">S</label>
 
-                        <input type="radio" id="men-shirt2" name="men-shirt" value="M" />
+                        <input type="radio" id="men-shirt2" name="dress-shirt-size" value="M" />
                         <label for="men-shirt2" class="select-btn">M</label>
 
-                        <input type="radio" id="men-shirt3" name="men-shirt" value="L" checked/>
+                        <input type="radio" id="men-shirt3" name="dress-shirt-size" value="L" checked/>
                         <label for="men-shirt3" class="select-btn">L</label>
 
-                        <input type="radio" id="men-shirt4" name="men-shirt" value="XL" />
+                        <input type="radio" id="men-shirt4" name="dress-shirt-size" value="XL" />
                         <label for="men-shirt4" class="select-btn">XL</label>
 
-                        <input type="radio" id="men-shirt5" name="men-shirt" value="XXL" />
+                        <input type="radio" id="men-shirt5" name="dress-shirt-size" value="XXL" />
                         <label for="men-shirt5" class="select-btn">XXL</label>
                     </div>
 
                     <div class="row p-4">
                         <div class="col-6">
                             <p class="text-left pl-2">Shirt Collar</p>
-                            <select name="men-shirt-collar-fit" class="afit-select" required>
+                            <select name="dress-shirt-collar-fit" class="afit-select" required>
                                 <option value="none" placeholder="How do you like the fit?" hidden>How do you like the fit?</option>
                                 <option value="smaller">Smaller</option>
                                 <option value="normal">Normal</option>
@@ -109,7 +110,7 @@
                         </div>
                         <div class="col-6">
                             <p class="text-left p1-2">Shirt Shoulder</p>
-                            <select name="men-shirt-shoulder-fit" class="fit-select" required>
+                            <select name="dress-shirt-shoulder-fit" class="fit-select" required>
                                 <option value="none" placeholder="How do you like the fit?" hidden>How do you like the fit?</option>
                                 <option value="smaller">Smaller</option>
                                 <option value="normal">Normal</option>
@@ -131,31 +132,31 @@
 
                     <div class="row ml-3 pant-setting">
                         <h5 class="text-center my-auto color-brown"> Waist </h5>
-                        <input type="radio" id="men-pant1" name="men-pant" value="High Rise" />
+                        <input type="radio" id="men-pant1" name="pant-waist-fit" value="High Rise" />
                         <label for="men-pant1" class="select-btn">High Rise</label>
 
-                        <input type="radio" id="men-pant2" name="men-pant" value="Natural" checked/>
+                        <input type="radio" id="men-pant2" name="pant-waist-fit" value="Natural" checked/>
                         <label for="men-pant2" class="select-btn">Natural</label>
 
-                        <input type="radio" id="men-pant3" name="men-pant" value="Medium Rise" />
+                        <input type="radio" id="men-pant3" name="pant-waist-fit" value="Medium Rise" />
                         <label for="men-pant3" class="select-btn">Medium Rise</label>
 
-                        <input type="radio" id="men-pant4" name="men-pant" value="Low Rise" />
+                        <input type="radio" id="men-pant4" name="pant-waist-fit" value="Low Rise" />
                         <label for="men-pant4" class="select-btn">Low Rise</label>
                     </div>
 
                     <div class="row ml-3 pant-setting">
                         <h5 class="text-center my-auto color-brown"> Fit </h5>
-                        <input type="radio" id="men-fit1" name="men-fit" value="Relaxed" />
+                        <input type="radio" id="men-fit1" name="pant-fit" value="Relaxed" />
                         <label for="men-fit1" class="select-btn">Relaxed</label>
 
-                        <input type="radio" id="men-fit2" name="men-fit" value="CLassic" checked/>
+                        <input type="radio" id="men-fit2" name="pant-fit" value="CLassic" checked/>
                         <label for="men-fit2" class="select-btn">Classic</label>
 
-                        <input type="radio" id="men-fit3" name="men-fit" value="Slim" />
+                        <input type="radio" id="men-fit3" name="pant-fit" value="Slim" />
                         <label for="men-fit3" class="select-btn">Slim</label>
 
-                        <input type="radio" id="men-fit4" name="men-fit" value="Skinny" />
+                        <input type="radio" id="men-fit4" name="pant-fit" value="Skinny" />
                         <label for="men-fit4" class="select-btn">Skinny</label>
                     </div>
                 </div>
@@ -173,9 +174,9 @@
                     <div class="row justify-content-center">
                         @for ($i = 31; $i <= 45; $i++)
                             @if ($i == 31)
-                                <input type="radio" id={{ "men-waist" . ($i - 30) }} name="men-waist" value={{$i}} checked/>
+                                <input type="radio" id={{ "men-waist" . ($i - 30) }} name="waist-size" value={{$i}} checked/>
                             @else
-                                <input type="radio" id={{ "men-waist" . ($i - 30) }} name="men-waist" value={{$i}}/>
+                                <input type="radio" id={{ "men-waist" . ($i - 30) }} name="waist-size" value={{$i}}/>
                             @endif
                             <label for={{ "men-waist" . ($i - 30)}} class="select-btn">{{ $i }}</label>
                         @endfor
@@ -193,16 +194,16 @@
                     </div>
 
                     <div class="row justify-content-center">
-                        <input type="radio" id="men-short1" name="men-short" value="At the knee" />
+                        <input type="radio" id="men-short1" name="shorts-length" value="At the knee" />
                         <label for="men-short1" class="select-btn">At the knee</label>
 
-                        <input type="radio" id="men-short2" name="men-short" value="Above the knee" checked/>
+                        <input type="radio" id="men-short2" name="shorts-length" value="Above the knee" checked/>
                         <label for="men-short2" class="select-btn">Above the knee</label>
 
-                        <input type="radio" id="men-short3" name="men-short" value="Lower thigh" />
+                        <input type="radio" id="men-short3" name="shorts-length" value="Lower thigh" />
                         <label for="men-short3" class="select-btn">Lower thigh</label>
 
-                        <input type="radio" id="men-short4" name="men-short" value="No shorts" />
+                        <input type="radio" id="men-short4" name="shorts-length" value="No shorts" />
                         <label for="men-short4" class="select-btn">No shorts</label>
                     </div>
                 </div>
@@ -220,9 +221,9 @@
                     <div class="row justify-content-center">
                         @for ($i = 7; $i <= 14.5; $i+=0.5)
                             @if ($i == 7)
-                                <input type="radio" id={{ "men-shoe" . (($i - 7) * 2) }} name="men-shoe" value={{$i}} checked/>
+                                <input type="radio" id={{ "men-shoe" . (($i - 7) * 2) }} name="shoe-size" value={{$i}} checked/>
                             @else
-                                <input type="radio" id={{ "men-shoe" . (($i - 7) * 2) }} name="men-shoe" value={{$i}}/>
+                                <input type="radio" id={{ "men-shoe" . (($i - 7) * 2) }} name="shoe-size" value={{$i}}/>
                             @endif
                             <label for={{ "men-shoe" . (($i - 7) * 2)}} class="select-btn">{{ $i }}</label>
                         @endfor

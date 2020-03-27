@@ -78,7 +78,7 @@
             <div class="my-form-row">
             <label class="radio-container">
                 By checking this I agree to <a href="/terms_of_policy"><u>Terms of Service</u></a> and <a href="/privacy_policy"><u>Privacy Policy</u></a>
-                <input type="checkbox" id="step1-receive-alert" name="term_service" unchecked required>
+                <input type="checkbox" id="step1-receive-alert" name="term_service" checked required>
                 <span class="checkmark">
                 <i class="fas fa-check check-sign"></i>
                 </span>
@@ -86,10 +86,11 @@
             </div>
         </div>
 
-        <div class="col-12">
-            <div class="my-form-row text-center">
-            <input class="round-btn next-btn" type="submit" value="Next">
-            </div>
+
+    </div>
+    <div class="row item-show item-submit">
+        <div class="my-form-row text-center mx-auto">
+            <input class="round-btn next-btn float-none" type="submit" value="Next"/>
         </div>
     </div>
 </form>
