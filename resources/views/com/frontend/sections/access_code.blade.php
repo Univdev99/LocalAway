@@ -4,7 +4,7 @@
             <div class="modal-body p-5 mx-5">
             <form id="request-access-form" >
                 <div class="text-center">
-                    <img class="d-lg-block mx-auto my-4 w-100" src="/images/newlanding/logo.png" style="max-width:40px;" alt="">
+                    <img class="d-lg-block mx-auto my-4 w-100" src="/images/Shape_green.svg" style="max-width:40px;" alt="">
                 </div>
                 <div class="col">
                     <div class="d-flex" style="flex-direction: column;height: 100%;justify-content: space-between;">
