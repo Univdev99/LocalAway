@@ -1,9 +1,8 @@
-<section class="section" id="orange">
-  <div class="row">
-    <div class="col-md-6 back-orange d-flex justify-content-center">
+  <div class="row" style="height:400px;">
+    <div class="col-md-6 d-flex justify-content-center" style="background-color: #02BFAF;">
       <div class="row align-items-center">
         <div class="col-12 col-sm-4 col-md-12 col-lg-4 text-center">
-          <img src="images/subscribe.jpg" alt="" class='sub-logo'>
+          <img src="images/Shape.svg" alt="" class='sub-logo'>
         </div>
         <div class="col-12 col-sm-8 col-md-12 col-lg-8 text-center text-lg-left">
           <p id='news' class = "text-white">Sign up for news</p>
@@ -19,22 +18,17 @@
     </div>
     <div class="col-md-6 text-center sign-info p-5">
       <div class = "">
-        <span class = "h5 font-weight-bold text-black d-block">Investors</span>
-        <a href = "mailto:info@localaway" class = "color-orange">info@localaway</a>
-      </div>
-      <div class = "pt-5">
-        <span class = "h5 font-weight-bold text-black d-block">Support</span>
-        <a href = "mailto:hello@localaway" class = "color-orange">hello@localaway</a>
+        <span class = "h5 font-weight-bold text-black d-block">Get Support</span>
+        <a href = "mailto:info@localaway" style="color: #02BFAF;">hello@localaway.com</a>
       </div>
       <div class = "pt-5">
         <span class = "h5 font-weight-bold text-black d-block">Follow us</span>
         <span class = "h5 font-weight-bold text-black d-block">Connect on 
-          <a href = "https://www.facebook.com/localaway/" class = "color-orange">facebook, </a>
-          <a href = "https://twitter.com/local_away" class = "color-orange">twitter</a>
+          <a href = "https://www.facebook.com/localaway/" style="color: #02BFAF;">facebook, </a>
+          <a href = "https://twitter.com/local_away" style="color: #02BFAF;">twitter</a>
           or
-          <a href = "https://www.instagram.com/localaway/" class = "color-orange">instagram</a>
+          <a href = "https://www.instagram.com/localaway/" style="color: #02BFAF;">instagram</a>
         </span>
       </div>
     </div>
   </div>
-</section>

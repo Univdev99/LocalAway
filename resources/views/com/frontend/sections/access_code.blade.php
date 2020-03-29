@@ -30,7 +30,7 @@
                 </div>
 
                 <div class="text-center mt-4">
-                    <p class="text-center mb-4 ">Don't have a code? <br>Inquire here:</p>
+                    <p class="text-center mb-4 ">Don't have a code?</p>
                     <input type="button" id="btn-request-access"  class="btn btn-brown text-white text-center btn-modal" value="Request Access"/>
                 </div>
             </form>

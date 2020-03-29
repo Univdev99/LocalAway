@@ -257,6 +257,7 @@ class CustomerController extends Controller
     public function payment(Request $request)
     {
         // $plan = Plan::first();
+        $email = $request->input('email');
         // $intent = $request->user()->createSetupIntent();
         return view('com.customer.signup.payment');
     }

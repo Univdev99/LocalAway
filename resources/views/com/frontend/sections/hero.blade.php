@@ -27,45 +27,52 @@
             </div>
 
             <div class="row">
-                    {{-- <div class="col-lg-4 mb-3 mb-lg-0 px-0 pr-lg-3">
-                        <div class="field-icon-wrap">
-                        <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                        <div class = "picker-wrapper">
-                            <i class="far fa-calendar-alt form-item"></i>
-                            <select name="event" id="evnet" class="form-control pl-5">
-                            <option class='text-black font-weight-bold' placeholder="Event Type" value="" hidden>Event Type</option>
-                            <option value="holiday-party">Holiday Party</option>
-                            <option value="new-year-eve">New Year's Eve</option>
-                            <option value="work-to-happy-hour">Work to Happy Hour</option>
-                            <option value="meeting">Meeting</option>
-                            <option value="date-night">Date Night</option>
-                            <option value="winter-weeekend">Winter Weekend</option>
-                            </select>
-                        </div>
-                        </div>
-                    </div> --}}
-                    <div class="col-lg-4 col-md-4 col-sm-12">
-                        <div class="field-icon-wrap">
-                        <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                        <div class = "picker-wrapper">
-                            <i class="fas fa-map-marker-alt form-item"></i>
-                            <select name="location" id="adults" class="form-control pl-5">
-                            <option class='text-black' placeholder="" value="" hidden>Location</option>
-                            <option value="zurich-ch">Zurich, CH</option>
-                            <option value="austin-us">Austin, US</option>
-                            </select>
-                        </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-12">
-                        <div class="field-icon-wrap">
+                {{-- <div class="col-lg-4 mb-3 mb-lg-0 px-0 pr-lg-3">
+                    <div class="field-icon-wrap">
+                    <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                    <div class = "picker-wrapper">
                         <i class="far fa-calendar-alt form-item"></i>
-                        <input type="text" id="event_date" class="form-control pl-5" placeholder="Date">
-                        </div>
+                        <select name="event" id="evnet" class="form-control pl-5">
+                        <option class='text-black font-weight-bold' placeholder="Event Type" value="" hidden>Event Type</option>
+                        <option value="holiday-party">Holiday Party</option>
+                        <option value="new-year-eve">New Year's Eve</option>
+                        <option value="work-to-happy-hour">Work to Happy Hour</option>
+                        <option value="meeting">Meeting</option>
+                        <option value="date-night">Date Night</option>
+                        <option value="winter-weeekend">Winter Weekend</option>
+                        </select>
                     </div>
-                    <div class="col-lg-4 col-md-4 col-sm-12 text-center">
-                        <a href="{{ route('customer.signup.account') }}" class="btn text-white btn-brown">Let's Go!</a>
                     </div>
+                </div> --}}
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <div class="field-icon-wrap">
+                    <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                    <div class = "picker-wrapper">
+                        <i class="fas fa-map-marker-alt form-item"></i>
+                        <select name="location" id="adults" class="form-control pl-5">
+                        <option class='text-black' placeholder="" value="" hidden>What location?</option>
+                        <option value="sanfrancisco-us">San Francisco, US</option>
+                        <option value="zurich-ch">Zurich, CH</option>
+                        <option value="austin-us">Austin, US</option>
+                        <option value="other">Other</option>
+                        </select>
+                    </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <div class="field-icon-wrap">
+                    <i class="far fa-calendar-alt form-item"></i>
+                    <input type="text" id="event_date" class="form-control pl-5" placeholder="Date">
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12 text-center">
+                    <a href="{{ route('customer.signup.account') }}" class="btn text-white btn-brown">Let's Go!</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-md-8 col-sm-12">
+                    <small>(more destinations coming soon)</small>
+                </div>   
             </div>
 
             <div class="row pt-3 d-none">

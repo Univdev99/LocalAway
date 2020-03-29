@@ -27,7 +27,7 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
     });
 
     Route::group(["domain" => "www.localaway.ai"], function () {
-        Route::get('/newlanding', function () {
+        Route::get('/', function () {
             return view('ai.newlanding');
         });
     });

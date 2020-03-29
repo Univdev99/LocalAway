@@ -49,7 +49,8 @@
                 <img class = "mb-4" width="100px"  qq-max-size="100" qq-server-scale="" src="/storage/uploads/{{$image->filename}}">
                 @csrf
                 <input type="text" name="title" value="{{$image->title}}" />
-                <button type="submit" class="btn btn-primary">Update title</button>
+                <textarea name="description">{{$image->description}}</textarea>
+                <button type="submit" class="btn btn-primary">Update</button>
                 <a class="btn btn-danger" href  = "/admin/file/delete/{{$image->id}}?collection={{$collection}}">Delete</a>
                 <a class="btn btn-outline-primary" href = "/admin/file/move-up/{{$image->id}}?collection={{$collection}}">Move Up</a>
                 <a class="btn btn-outline-secondary" href = "/admin/file/move-down/{{$image->id}}?collection={{$collection}}">Move Down</a>

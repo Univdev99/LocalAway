@@ -65,7 +65,7 @@ class HomeController extends Controller
     {
         $logo = Upload::where('collection' ,'logo')->where('extra',1)->first();
 
-        return view('frontend.about');
+        return view('com.frontend.about');
     }
 
     public function showAnswer(Request $request)

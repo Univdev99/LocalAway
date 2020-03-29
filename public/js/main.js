@@ -99,55 +99,76 @@
     });
 
     // owl carousel
-    var major2Carousel = $('.js-carousel-2');
-    major2Carousel.owlCarousel({
+    var $major2Carousel = $('.js-carousel-2');
+
+    $major2Carousel.children().each( function( index ) {
+    $(this).attr( 'data-position', index ); // NB: .attr() instead of .data()
+    });
+
+    $major2Carousel.owlCarousel({
+        center: true,
         loop: true,
-        autoplay: false,
-        stagePadding: 7,
-        margin: 20,
+        dots: false,
+        items: 2,
         animateOut: 'fadeOut',
         animateIn: 'fadeIn',
-        nav: true,
-        autoplayHoverPause: true,
-        autoHeight: true,
-        items: 6,
-        navText: ["<span class='ion-chevron-left'></span>", "<span class='ion-chevron-right'></span>"],
-        responsive: {
-            0: {
-                items: 1,
-                nav: false
-            },
-            800: {
-                items: 2,
-                nav: false
-            },
-            900: {
-                items: 3,
-                dots: true,
-                nav: true,
-                loop: false
-            },
-            1200: {
-                items: 4,
-                dots: true,
-                nav: true,
-                loop: false
-            },
-            1500: {
-                items: 5,
-                dots: true,
-                nav: true,
-                loop: false
-            },
-            1800: {
-                items: 6,
-                dots: true,
-                nav: true,
-                loop: false
-            }
-
-        }
+        margin: 300
     });
+
+    $(document).on('click', '.owl-item>div', function() {
+    // see https://owlcarousel2.github.io/OwlCarousel2/docs/api-events.html#to-owl-carousel
+        var $speed = 300;  // in ms
+        $major2Carousel.trigger('to.owl.carousel', [$(this).data( 'position' ), $speed] );
+    });
+    // major2Carousel.owlCarousel({
+    //     loop: true,
+    //     autoplay: false,
+    //     stagePadding: 7,
+    //     margin: 20,
+    //     center: true,
+    //     animateOut: 'fadeOut',
+    //     animateIn: 'fadeIn',
+    //     nav: true,
+    //     autoplayHoverPause: true,
+    //     autoHeight: true,
+    //     items: 6,
+    //     navText: ["<span class='ion-chevron-left'></span>", "<span class='ion-chevron-right'></span>"],
+    //     responsive: {
+    //         0: {
+    //             items: 1,
+    //             nav: false
+    //         },
+    //         800: {
+    //             items: 2,
+    //             nav: false
+    //         },
+    //         900: {
+    //             items: 3,
+    //             dots: true,
+    //             nav: true,
+    //             loop: false
+    //         },
+    //         1200: {
+    //             items: 4,
+    //             dots: true,
+    //             nav: true,
+    //             loop: false
+    //         },
+    //         1500: {
+    //             items: 5,
+    //             dots: true,
+    //             nav: true,
+    //             loop: false
+    //         },
+    //         1800: {
+    //             items: 6,
+    //             dots: true,
+    //             nav: true,
+    //             loop: false
+    //         }
+
+    //     }
+    // });
 
     var siteStellar = function() {
         $(window).stellar({

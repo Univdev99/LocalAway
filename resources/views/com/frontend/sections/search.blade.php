@@ -43,9 +43,11 @@
                         <div class = "picker-wrapper">
                             <i class="fas fa-map-marker-alt form-item"></i>
                             <select name="location" id="adults" class="form-control pl-5">
-                            <option class='text-black' placeholder="" value="" hidden>Location</option>
+                            <option class='text-black' placeholder="" value="" hidden>What location?</option>
+                            <option value="sanfrancisco-us">San Francisco, US</option>
                             <option value="zurich-ch">Zurich, CH</option>
                             <option value="austin-us">Austin, US</option>
+                            <option value="other">Other</option>
                             </select>
                         </div>
                         </div>

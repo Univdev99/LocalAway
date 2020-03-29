@@ -74,6 +74,9 @@ class FileController extends Controller
         $collection = $request->get('collection');
         $update = Upload::find($id);
         $update->title = $request->get('title');
+        if ($collection == 'itinerary') {
+            $update->description = $request->get('description');
+        }
         $update->save();
         // $upload->delete();
         // Storage::disk('public')->delete('/uploads/' . $upload->filename);

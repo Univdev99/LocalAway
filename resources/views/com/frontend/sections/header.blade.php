@@ -11,7 +11,6 @@
         <img class = "d-block d-lg-none" src="/images/orange-logo.jpg" alt="mobile-logo">
       </a>
     @section('partner-with-us')
-      <a class="header-btn btn-block text-white ml-lg-2" href="/become-stylist">Partner with Us</a>
     @show
     </div>
     <!-- END menu-toggle -->
@@ -21,19 +20,24 @@
     <div class="collapse navbar-collapse" id="templateux-navbar-nav">
       <ul class="navbar-nav ml-auto">
       @section('menu')
+        
+        <a class="header-btn text-white ml-lg-2 d-none d-lg-flex" href="/become-stylist">Partner with Us</a>
+        <a class="header-btn text-white ml-lg-2 d-none d-lg-flex" href="/login">Sign In</a>
+        
         <li class="nav-item mb-link"><a class="nav-link" href="/become-stylist">Partner with Us</a></li>
         @guest
-        <li class="nav-item ml-xl-2 ml-lg-2 ml-md-0 ml-sm-0 ml-0">
+        <li class="nav-item mb-link"><a class="nav-link" href="/login">Sign In</a></li>
+        <!-- <li class="nav-item ml-xl-2 ml-lg-2 ml-md-0 ml-sm-0 ml-0">
             <a class="nav-link" href="/login">
                 <span>Sign In</span>
             </a>
-        </li>
+        </li> -->
         @endguest
-        <li class="nav-item ml-xl-2 ml-lg-2 ml-md-0 ml-sm-0 ml-0">
+        <!-- <li class="nav-item ml-xl-2 ml-lg-2 ml-md-0 ml-sm-0 ml-0">
             <a class="nav-link" href="/about">
                 <span>About</span>
             </a>
-        </li>
+        </li> -->
       @show
       </ul>
     </div>

@@ -20,6 +20,7 @@ class CreateUploadsTable extends Migration
             $table->string('filename');
             $table->string('title');
             $table->string('collection');
+            $table->text('description');
             $table->softDeletes();
             $table->timestamps();
         });
