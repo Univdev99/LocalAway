@@ -13,51 +13,157 @@
     </div>
     <div class="row">
         <div class="col-6">
-            <h5> Shipping Details:</h5>
-            <hr class="divider">
-            <p> How would you like to pay?<br>Only $20 due now for styling fee.</p>
+            <div class="d-flex justify-content-between">
+                <span style="font-size:20px;"> Shipping Details:</span>
+                <a href="#" style="font-size: smaller; color:#02BFAF; text-decoration: underline; line-height: 35px;">Edit</a>
+            </div>
+
+            <hr class="divider mt-0">
+            <small>{{ $user->first_name }} {{ $user->last_name }}</small><small class="float-right">Delivery Expected by:</small></br>
+            <small>{{ $user->email }}</small><small class="float-right">{{ $user->customer->capsule_date->format('F jS') }}</small></br>
+            <small>{{ $user->customer->street_address }}</small></br>
+            <small>{{ $user->customer->zip_code }} {{ $user->customer->city }}</small></br>
+            <small>{{ $user->customer->state }}</small></br>
+            
+            <input type="hidden" value="{{ $user->email }}" id="user_email">
+            <p style="font-size:20px;" class="mt-3"> How would you like to pay?<br>Only $20 due now for styling fee.</p>
+
             <label class="radio-container mb-2">
                 Credit Card
-                <input type="radio" name="pay_type" value="credit" checked>
+                <input type="radio" name="pay_type" value="credit" @if($payment_method == 'stripe') checked @endif>
                 <span class="checkmark">
                   <i class="fas fa-check check-sign"></i>
                 </span>
             </label>
-            {{-- <div class="card">
-                <form action="{{ route('subscription.create') }}" method="post" id="payment-form">
-                    @csrf
-                    <div class="form-group">
-                        <div class="card-header">
-                            <label for="card-element">
-                                Enter your credit card information
-                            </label>
-                        </div>
-                        <div class="card-body">
-                            <div id="card-element">
-                            <!-- A Stripe Element will be inserted here. -->
-                            </div>
-                            <!-- Used to display form errors. -->
-                            <div id="card-errors" role="alert"></div>
-                            <input type="hidden" name="plan" value="{{ $plan->id }}" />
+
+            <div id="stripe-form" class="p-3 @if($payment_method != 'stripe') d-none @endif">
+            
+            {!! Form::open(['url' => route('customer.signup.payment.stripe'), 'data-parsley-validate', 'id' => 'payment-form']) !!}
+                @if ($message = Session::get('success'))
+                <div class="alert alert-success alert-block">
+                  <button type="button" class="close" data-dismiss="alert">×</button> 
+                        <strong>{{ $message }}</strong>
+                </div>
+                @endif
+                
+                <div class="form-group" id="cc-group">
+                    <span class="text-danger">*</span><label for="card-number" style="font-size:12px;">Credit Card Number</label>
+                    {!! Form::text(null, null, [
+                        'class'                         => 'form-control',
+                        'required'                      => 'required',
+                        'data-stripe'                   => 'number',
+                        'data-parsley-type'             => 'number',
+                        'maxlength'                     => '16',
+                        'data-parsley-trigger'          => 'change focusout',
+                        'data-parsley-class-handler'    => '#cc-group',
+                        'id'                            => 'card-number',
+                        ]) !!}
+                </div>
+                <div class="form-group">
+                    <span class="text-danger">*</span><label for="expiration-month" style="font-size:12px;">Expiration Date</label>
+                    <div class="d-flex">
+                    <div class="col-md-6">
+                        <div class="form-group" id="exp-m-group">
+                            {!! Form::selectMonth(null, null, [
+                                'class'                 => 'form-control',
+                                'required'              => 'required',
+                                'data-stripe'           => 'exp-month'
+                            ], '%m') !!}
                         </div>
                     </div>
-                    <div class="card-footer">
-                        <button id="card-button" class="btn btn-primary" type="submit" data-secret="{{ $intent->client_secret }}" disabled>Pay</button>
+                    <div class="col-md-6">
+                        <div class="form-group" id="exp-y-group">
+                            {!! Form::selectYear(null, date('Y'), date('Y') + 10, null, [
+                                'class'             => 'form-control',
+                                'required'          => 'required',
+                                'data-stripe'       => 'exp-year'
+                                ]) !!}
+                        </div>
                     </div>
-                </form>
-            </div> --}}
-              <label class="radio-container mb-2">
+                    </div>
+                </div>
+                <div class="form-group" id="ccv-group">
+                    <span class="text-danger">*</span><label for="cvv" style="font-size:12px;">CVV</label>
+                    {!! Form::text(null, null, [
+                        'class'                         => 'form-control',
+                        'required'                      => 'required',
+                        'data-stripe'                   => 'cvc',
+                        'data-parsley-type'             => 'number',
+                        'data-parsley-trigger'          => 'change focusout',
+                        'maxlength'                     => '4',
+                        'data-parsley-class-handler'    => '#ccv-group',
+                        'id'                            => 'cvv',
+                        ]) !!}
+                </div>
+                <div class="form-group mt-5 text-center">
+                    <input id="submitBtn" type="submit" class="btn text-white text-center btn-order" data-secret="{{ $intent->client_secret }}" value="Complete Order: $20.00" />
+                </div>
+                <div class="row">
+                <div class="col-md-12">
+                    <span class="payment-errors" style="color: red;margin-top:10px;"></span>
+                </div>
+                </div>
+              {!! Form::close() !!}
+            </div>
+
+            <label class="radio-container mb-2">
                 PayPal
                 <input type="radio" name="pay_type" value="paypal" >
                 <span class="checkmark">
-                  <i class="fas fa-check check-sign"></i>
+                    <i class="fas fa-check check-sign"></i>
                 </span>
-              </label>
+            </label>
         </div>
         <div class="col-5 offset-1">
-            <h5> Your order:</h5>
-            <hr class="divider">
-
+            <span style="font-size:20px;"> Your Order:</span>
+            <hr class="divider mt-1">
+            <div>
+                <img src="/images/Bitmap.png" style="width: 100%;">
+            </div>
+            <div class='row'>
+				<div class="col-6">
+					<p><small>Styling Fee for Trip Capsule</br>Waived if any items purchased</small></p>
+					<p style="font-size: 9px;">Includes: </br>Hand-selected items from a local stylist </br>Customized map for local shopping</p>
+				</div>
+				<div class="col-6">
+					<p class="float-right"><small>$20</small></p>
+				</div>
+			</div>
+			<div class='row mt-3'>
+				<div class="col-6">
+					<small>Subtotal</small>
+				</div>
+				<div class="col-6">
+					<small class="float-right">$20</small>
+				</div>
+			</div>
+			<div class='row mt-1'>
+				<div class="col-6">
+					<small>Shipping & Returns</small>
+				</div>
+				<div class="col-6">
+					<small class="float-right">FREE</small>
+				</div>
+			</div>
+			<div class='row mt-1'>
+				<div class="col-6">
+					<small>Taxes</small>
+				</div>
+				<div class="col-6">
+					<small class="float-right">FREE</small>
+				</div>
+			</div>
+			<div class='row mt-1'>
+				<div class="col-6">
+					<small>Total Due</small>
+				</div>
+				<div class="col-6">
+					<small class="float-right">$20</small>
+				</div>
+			</div>
+			<div class="form-group mt-5 text-center">
+				<input id="gift-code" type="text" class="input-giftcode" placeholder="ENTER GIFT CODE" />
+			</div>
         </div>
     </div>
 </div>
@@ -65,97 +171,56 @@
 @endsection
 
 @section('js')
-<script src="https://js.stripe.com/v3/"></script>
 <script>
-    // Custom styling can be passed to options when creating an Element.
-    // (Note that this demo uses a wider set of styles than the guide below.)
+        window.ParsleyConfig = {
+            errorsWrapper: '<div></div>',
+            errorTemplate: '<div class="alert alert-danger parsley border-0 bg-white text-danger" role="alert"></div>',
+            errorClass: 'has-error',
+            successClass: 'has-success'
+        };
 
-    var style = {
-        base: {
-            color: '#32325d',
-            lineHeight: '18px',
-            fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
-            fontSmoothing: 'antialiased',
-            fontSize: '16px',
-            '::placeholder': {
-                color: '#aab7c4'
-            }
-        },
-        invalid: {
-            color: '#fa755a',
-            iconColor: '#fa755a'
+        $('input[type=radio][name=pay_type]').change(function() {
+        if (this.value == 'credit') {
+            $("#stripe-form").removeClass('d-none');
         }
-    };
-
-    const stripe = Stripe('{{ env("STRIPE_KEY") }}', { locale: 'en' }); // Create a Stripe client.
-    const elements = stripe.elements(); // Create an instance of Elements.
-    const cardElement = elements.create('card', { style: style }); // Create an instance of the card Element.
-    const cardButton = document.getElementById('card-button');
-    const clientSecret = cardButton.dataset.secret;
-
-    cardElement.mount('#card-element'); // Add an instance of the card Element into the `card-element` <div>.
-
-    cardElement.on('change', function(event) {
-        if (event.complete) {
-            $("#card-button").removeAttr('disabled');
-        } else if (event.error) {
-            // show validation to customer
+        else {
+            $("#stripe-form").addClass('d-none');
         }
     });
-
-    // Handle real-time validation errors from the card Element.
-    cardElement.addEventListener('change', function(event) {
-        var displayError = document.getElementById('card-errors');
-        if (event.error) {
-            displayError.textContent = event.error.message;
-        } else {
-            displayError.textContent = '';
-        }
-    });
-
-    // Handle form submission.
-    var form = document.getElementById('payment-form');
-
-    form.addEventListener('submit', function(event) {
-        event.preventDefault();
-
-        stripe
-        .handleCardSetup(clientSecret, cardElement, {
-            payment_method_data: {
-                // billing_details: { name: cardHolderName.value }
-            }
-        })
-        .then(function(result) {
-            // console.log(result);
-            if (result.error) {
-                // Inform the user if there was an error.
-                var errorElement = document.getElementById('card-errors');
-                errorElement.textContent = result.error.message;
-            } else {
-                console.log(result);
-                // Send the token to your server.
-
-                stripeTokenHandler(result.setupIntent.payment_method);
-            }
-        }).catch(function(e) {
-            console.log(e);
+    </script>
+    
+    <script src="http://parsleyjs.org/dist/parsley.js"></script>
+    
+    <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+    <script>
+        Stripe.setPublishableKey("<?php echo env('STRIPE_KEY') ?>");
+        jQuery(function($) {
+            $('#payment-form').submit(function(event) {
+                var $form = $(this);
+                $form.parsley().subscribe('parsley:form:validate', function(formInstance) {
+                    formInstance.submitEvent.preventDefault();
+                    alert();
+                    return false;
+                });
+                $form.find('#submitBtn').prop('disabled', true);
+                Stripe.card.createToken($form, stripeResponseHandler);
+                return false;
+            });
         });
-
-    });
-
-    // Submit the form with the token ID.
-    function stripeTokenHandler(paymentMethod) {
-        // Insert the token ID into the form so it gets submitted to the server
-        var form = document.getElementById('payment-form');
-        var hiddenInput = document.createElement('input');
-        hiddenInput.setAttribute('type', 'hidden');
-        hiddenInput.setAttribute('name', 'paymentMethod');
-        hiddenInput.setAttribute('value', paymentMethod);
-        form.appendChild(hiddenInput);
-
-
-        // Submit the form
-        form.submit();
-    }
-</script>
+        function stripeResponseHandler(status, response) {
+            var $form = $('#payment-form');
+            if (response.error) {
+                $form.find('.payment-errors').text(response.error.message);
+                $form.find('.payment-errors').addClass('alert alert-danger');
+                $form.find('#submitBtn').prop('disabled', false);
+                $('#submitBtn').button('reset');
+            } else {
+                var token = response.id;
+                $form.append($('<input type="hidden" name="stripeToken" />').val(token));
+                $form.append($('<input type="hidden" name="email" />').val($("#user_email").val()));
+                $form.get(0).submit();
+            }
+        };
+    </script>
+    
 @endsection

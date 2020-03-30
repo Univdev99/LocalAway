@@ -258,8 +258,10 @@ class CustomerController extends Controller
     {
         // $plan = Plan::first();
         $email = $request->input('email');
-        // $intent = $request->user()->createSetupIntent();
-        return view('com.customer.signup.payment');
+        $user = User::with('customer')->where('email', $email)->first();
+        $intent = $user->createSetupIntent();
+        $payment_method =$request->session()->get('payment_method');
+        return view('com.customer.signup.payment', ['user' => $user, 'intent' => $intent, 'payment_method' => $payment_method ]);
     }
 
     public function thankyou(Request $request)

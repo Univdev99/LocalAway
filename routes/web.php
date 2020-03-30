@@ -109,12 +109,11 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
     Route::get('/customer/signup/sizing', 'CustomerController@sizing')->name('customer.signup.sizing');
     Route::get('/customer/signup/style', 'CustomerController@style')->name('customer.signup.style');
     Route::get('/customer/signup/payment', 'CustomerController@payment')->name('customer.signup.payment');
+    Route::post('/customer/signup/payment/stripe', 'StripeController@store')->name('customer.signup.payment.stripe');
 
     Route::post('/customer/signup/account', 'CustomerController@saveAccount')->name('customer.signup.account.save');
     Route::post('/customer/signup/basic', 'CustomerController@saveBasic')->name('customer.signup.basic.save');
     Route::post('/customer/signup/sizing', 'CustomerController@saveSizing')->name('customer.signup.sizing.save');
     Route::post('/customer/signup/style', 'CustomerController@saveStyle')->name('customer.signup.style.save');
-
-    Route::post('/subscription', 'SubscriptionController@create')->name('subscription.create');
 
     Route::get('/phpinfo', 'FileController@phpinfo');
