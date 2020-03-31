@@ -2,7 +2,7 @@
     <div class="col-md-6 d-flex justify-content-center" style="background-color: #02BFAF;">
       <div class="row align-items-center">
         <div class="col-12 col-sm-4 col-md-12 col-lg-4 text-center">
-          <img src="images/Shape.svg" alt="" class='sub-logo'>
+          <img src="images/subscribe.png" alt="">
         </div>
         <div class="col-12 col-sm-8 col-md-12 col-lg-8 text-center text-lg-left">
           <p id='news' class = "text-white">Sign up for news</p>

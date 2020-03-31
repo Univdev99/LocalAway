@@ -65,7 +65,7 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
     Route::get('/auth/callback/{provider}', 'SocialController@callback');
 
     Route::get('/become-stylist', function () {
-        return view('stylist-sign-in');
+        return view('com.stylist.stylist-sign-in');
     });
 
     Route::group(['middleware' => ['auth-stylist']], function () {

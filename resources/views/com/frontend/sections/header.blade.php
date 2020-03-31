@@ -8,7 +8,7 @@
     <div class = "d-lg-flex d-block text-center mb-2">
       <a class="navbar-brand m-auto" href="/">
         <img class = "d-none d-lg-block" src="/storage/uploads/{{$logo->filename}}" alt="/storage/uploads/{{$logo->filename}}">
-        <img class = "d-block d-lg-none" src="/images/orange-logo.jpg" alt="mobile-logo">
+        <img class = "d-block d-lg-none" src="/images/green-logo.png" style="width:42px;" alt="mobile-logo">
       </a>
     @section('partner-with-us')
     @show
