@@ -7,7 +7,7 @@
                 <hr>
               </div>
               <div class="col-lg-6 col-sm-12">
-                <h1 class = "text-center" style="color: #c6a07b;">LocalAway Process</h1>
+                <h1 class = "text-center section-title">LocalAway Process</h1>
               </div>
               <div class="col-lg-3 divider-d-none">
                 <hr>
@@ -22,7 +22,7 @@
                     <h1 class = "font-weight-bold color-orange my-auto mx-0" style="color: #02BFAF;">1</h1>
                   </div>
                   <div  class = "text-center">
-                    <span class='font-avenir'>What is the occassion and what should your photos reflect? From business to beaches we can help you have fun in something new or feel comfortable in any culture & climate.
+                    <span class='font-avenir'>What is the occassion and what should your photos reflect? From work from home to hiking trails we can help you have fun.
                     </span>
                   </div>
               </div>
@@ -40,13 +40,13 @@
               </div>
               <div class="col-lg-4 col-md-12">
                 <p class='font-weight-bold mt-2 text-black text-center' style="height:60px;">
-                  Sit back, relax, and enjoy your
+                  Sit back, relax, and enjoy your local fashion.
                 </p>
                   <div class = "d-flex text-center justify-content-center">
                     <h1 class = "font-weight-bold color-orange my-auto mx-0" style="color: #02BFAF;">3</h1>
                   </div>
                   <div  class = "text-center">
-                    <span class='font-avenir'>Our expert stylists will curate the perfect outfit for you, delivered to your hotel, bnb, or doorstep at home. 
+                    <span class='font-avenir'>Our expert stylists will curate the perfect outfit recommendations for you, or you can browse hand-picked items. 
                     </span>
                   </div>
               </div>

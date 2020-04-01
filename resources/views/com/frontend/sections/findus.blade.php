@@ -6,7 +6,7 @@
             </div>
 
             <div class="col-lg-6 col-sm-10">
-              <h1 class = "text-center" style="color: #c6a07b;">Find us on Instagram</h1>
+              <h1 class = "text-center section-title">Find us on Instagram</h1>
             </div>
             <div class="col-lg-3 col-sm-1 divider-d-none">
               <hr>
@@ -15,7 +15,7 @@
           <div class="text-center">
             <small style="color: #c6a07b;">#shoplocal</small>
           </div>
-          <div>
+          <div class="mt-4">
             <img class='' src="/images/ig.png" width="100%" alt="">
           </div>
           <!-- <div class="js-carousel-1 owl-carousel mb-5" data-aos="fade-up" data-aos-delay="200">

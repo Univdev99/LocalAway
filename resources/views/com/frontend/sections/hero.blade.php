@@ -21,12 +21,15 @@
         <div class="block-padding">
             <div class="row">
                 <div class="col">
-                    <p class='h3 text-black search-title font-weight-bold'>@if (isset($title)) {{ $title }} @else Locally packed & personalized for any occation. @endif</p>
-                    <p>Wandering or Work event? We have you covered, just tell us when you need it by.</p>
+                    <p class='h3 text-black search-title font-weight-bold'>@if (isset($title)) {{ $title }} @else Get personalized discovery box from global boutiques @endif</p>
+                    <p>Citizen of the world or supporter of local fashion in your hometown? We have you covered.</p>
                 </div>
             </div>
 
             <div class="row">
+                <div class="col text-center">
+                    <a href="{{ route('customer.signup.account') }}" class="btn text-white w-50" style="background-color: #FD5C48; ">Start your style quiz</a>
+                </div>
                 {{-- <div class="col-lg-4 mb-3 mb-lg-0 px-0 pr-lg-3">
                     <div class="field-icon-wrap">
                     <div class="icon"><span class="ion-ios-arrow-down"></span></div>
@@ -44,6 +47,7 @@
                     </div>
                     </div>
                 </div> --}}
+                {{--
                 <div class="col-lg-4 col-md-4 col-sm-12">
                     <div class="field-icon-wrap">
                     <div class="icon"><span class="ion-ios-arrow-down"></span></div>
@@ -68,13 +72,15 @@
                 <div class="col-lg-4 col-md-4 col-sm-12 text-center">
                     <a href="{{ route('customer.signup.account') }}" class="btn text-white btn-brown">Let's Go!</a>
                 </div>
+                --}}
             </div>
+            {{--
             <div class="row">
                 <div class="col-lg-8 col-md-8 col-sm-12">
                     <small>(more destinations coming soon)</small>
                 </div>   
             </div>
-
+            --}}
             <div class="row pt-3 d-none">
             <div class="col d-flex">
                 <div class="checkbox">

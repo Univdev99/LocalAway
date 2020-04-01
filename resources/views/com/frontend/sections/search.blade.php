@@ -14,8 +14,8 @@
         <div class="block-padding">
             <div class="row">
                 <div class="col">
-                    <p class='h3 text-black search-title font-weight-bold'>@if (isset($title)) {{ $title }} @else Locally packed & personalized for any occation. @endif</p>
-                    <p>Wandering or Work event? We have you covered, just tell us when you need it by.</p>
+                    <p class='h3 text-black search-title font-weight-bold'>@if (isset($title)) {{ $title }} @else Get personalized discovery box from global boutiques @endif</p>
+                    <p>Citizen of the world or supporter of local fashion in your hometown? We have you covered.</p>
                 </div>
             </div>
 
