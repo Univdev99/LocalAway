@@ -350,7 +350,7 @@ h2,
 h3,
 h4,
 .font-avenir {
-    font-family: Avenir-Black!important;
+    font-family: Avenir !important;
 }
 
 body,
