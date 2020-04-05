@@ -35,33 +35,18 @@
               </div>
           </div>
           <div class="row flex-grow-1">
-              <div class="col-lg-7 my-auto">
+              <div class="col-lg-12 my-auto">
                   <div class="row">
                       <div class="col">
                           <div class="d-flex" style="flex-direction: column;height: 100%;justify-content: space-between;">
                             <h1 class="font-weight-bold mb-5 question text-center congrate title">Thank you!</h1>
-                            <h4 class='text-center'>We have received your account information.</h3>
+                            <h4 class='text-center'>We have received your payment and information.<br> A person stylist will contact you soon!</h3>
                             <div class="text-center mt-4">
                                 <a href="/" class="btn circle-btn btn-primary text-white font-weight-bold py-3 px-0 w-100" style="max-width: 200px">
-                                localAway.ai
+                                    Home Page
                                 </a>
                             </div>
-                            <div class='text-center mt-4'>
-                                <a href= ""  class='text-center small question a-link' id = "step4">View First Time Stylist</a>
-                            </div>
                           </div>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-5 back-image d-lg-block d-none" style="background-image: url('/images/stylist-sign-4.jpg')">
-                  <div class="row mt-5">
-                      <div class="col p-0" id="myProgress">
-                          <div id="myBar" class="w-100"></div>
-                      </div>
-                  </div>
-                  <div class="row ">
-                      <div class="col">
-                          <h1 id = "title">Your Box is on<br/>the Way!</h1>
                       </div>
                   </div>
               </div>

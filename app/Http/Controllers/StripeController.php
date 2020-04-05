@@ -21,20 +21,21 @@ class StripeController extends Controller
         $token = $input['stripeToken'];
         $email = $input['email'];
         $user = User::where('email', $input['email'])->first();
-        
+
         try{
             Stripe::setApiKey(Config::get('services.stripe.secret'));
             $customer = Customer::create(array(
                 'email' => $email,
                 'source' => $token
             ));
-        
+
             $charge = Charge::create(array(
                 'customer' => $customer->id,
                 'amount' => 1999,
                 'currency' => 'usd'
             ));
-            return  back()->with('success', 'Charge successful!')->with('payment_method', 'stripe');
+            // return  back()->with('success', 'Charge successful!')->with('payment_method', 'stripe');
+            return redirect()->route('customer.signup.thankyou');
 
         } catch (Exception $ex) {
             return back()->with('success', $ex->getMessage())->with('payment_method', 'stripe');

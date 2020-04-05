@@ -219,7 +219,7 @@ class StylistController extends Controller
 
     public function thankyou(Request $request)
     {
-        return view('stylist-thankyou');
+        return view('com.stylist.stylist-thankyou');
     }
 
 }

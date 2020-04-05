@@ -32,6 +32,11 @@
           font-family: Poppins-Regular;
           src: url("/fonts/Poppins-Regular.ttf");
       }
+
+      @font-face {
+          font-family: Barista-Script;
+          src: url("/fonts/Barista-Script.otf");
+      }
       </style>
 
       @yield('css')

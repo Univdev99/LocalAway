@@ -19,12 +19,12 @@
             </div>
 
             <hr class="divider mt-0">
-            <small>{{ $user->first_name }} {{ $user->last_name }}</small><small class="float-right">Delivery Expected by:</small></br>
-            <small>{{ $user->email }}</small><small class="float-right">{{ $user->customer->capsule_date->format('F jS') }}</small></br>
-            <small>{{ $user->customer->street_address }}</small></br>
-            <small>{{ $user->customer->zip_code }} {{ $user->customer->city }}</small></br>
-            <small>{{ $user->customer->state }}</small></br>
-            
+            <small>{{ $user->first_name }} {{ $user->last_name }}</small><small class="float-right">Delivery Expected by:</small><br>
+            <small>{{ $user->email }}</small><small class="float-right">{{ $user->customer->capsule_date->format('F jS') }}</small><br>
+            <small>{{ $user->customer->street_address }}</small><br>
+            <small>{{ $user->customer->zip_code }} {{ $user->customer->city }}</small><br>
+            <small>{{ $user->customer->state }}</small><br>
+
             <input type="hidden" value="{{ $user->email }}" id="user_email">
             <p style="font-size:20px;" class="mt-3"> How would you like to pay?<br>Only $20 due now for styling fee.</p>
 
@@ -37,15 +37,15 @@
             </label>
 
             <div id="stripe-form" class="p-3 @if($payment_method != 'stripe') d-none @endif">
-            
+
             {!! Form::open(['url' => route('customer.signup.payment.stripe'), 'data-parsley-validate', 'id' => 'payment-form']) !!}
                 @if ($message = Session::get('success'))
                 <div class="alert alert-success alert-block">
-                  <button type="button" class="close" data-dismiss="alert">×</button> 
+                  <button type="button" class="close" data-dismiss="alert">×</button>
                         <strong>{{ $message }}</strong>
                 </div>
                 @endif
-                
+
                 <div class="form-group" id="cc-group">
                     <span class="text-danger">*</span><label for="card-number" style="font-size:12px;">Credit Card Number</label>
                     {!! Form::text(null, null, [
@@ -122,8 +122,8 @@
             </div>
             <div class='row'>
 				<div class="col-6">
-					<p><small>Styling Fee for Trip Capsule</br>Waived if any items purchased</small></p>
-					<p style="font-size: 9px;">Includes: </br>Hand-selected items from a local stylist </br>Customized map for local shopping</p>
+					<p><small>Styling Fee for Trip Capsule<br>Waived if any items purchased</small></p>
+					<p style="font-size: 9px;">Includes: <br>Hand-selected items from a local stylist <br>Customized map for local shopping</p>
 				</div>
 				<div class="col-6">
 					<p class="float-right"><small>$20</small></p>
@@ -188,9 +188,9 @@
         }
     });
     </script>
-    
+
     <script src="/js/parsley.js"></script>
-    
+
     <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
     <script>
         Stripe.setPublishableKey("<?php echo env('STRIPE_KEY') ?>");
@@ -199,7 +199,7 @@
                 var $form = $(this);
                 $form.parsley().subscribe('parsley:form:validate', function(formInstance) {
                     formInstance.submitEvent.preventDefault();
-                    alert();
+                    // alert();
                     return false;
                 });
                 $form.find('#submitBtn').prop('disabled', true);
@@ -222,5 +222,5 @@
             }
         };
     </script>
-    
+
 @endsection
