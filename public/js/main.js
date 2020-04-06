@@ -101,8 +101,8 @@
     // owl carousel
     var $major2Carousel = $('.js-carousel-2');
 
-    $major2Carousel.children().each( function( index ) {
-    $(this).attr( 'data-position', index ); // NB: .attr() instead of .data()
+    $major2Carousel.children().each(function(index) {
+        $(this).attr('data-position', index); // NB: .attr() instead of .data()
     });
 
     $major2Carousel.owlCarousel({
@@ -112,13 +112,29 @@
         items: 2,
         animateOut: 'fadeOut',
         animateIn: 'fadeIn',
-        margin: 300
+        responsive: {
+            0: {
+                margin: 100
+            },
+            600: {
+                margin: 150
+            },
+            900: {
+                margin: 200
+            },
+            1200: {
+                margin: 250
+            },
+            1500: {
+                margin: 300
+            },
+        }
     });
 
     $(document).on('click', '.owl-item>div', function() {
-    // see https://owlcarousel2.github.io/OwlCarousel2/docs/api-events.html#to-owl-carousel
-        var $speed = 300;  // in ms
-        $major2Carousel.trigger('to.owl.carousel', [$(this).data( 'position' ), $speed] );
+        // see https://owlcarousel2.github.io/OwlCarousel2/docs/api-events.html#to-owl-carousel
+        var $speed = 300; // in ms
+        $major2Carousel.trigger('to.owl.carousel', [$(this).data('position'), $speed]);
     });
     // major2Carousel.owlCarousel({
     //     loop: true,

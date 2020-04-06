@@ -31,7 +31,7 @@
             @endforeach
           </div>  -->
           <div class=" text-center">
-            <i class="fab fa-instagram" style="color: #c6a07b;"></i></br>
+            <i class="fab fa-instagram" style="color: #c6a07b;"></i><br>
             <small style="color: #c6a07b;">@localaway</small>
           </div>
         </div>

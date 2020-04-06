@@ -1,4 +1,4 @@
-<section class="site-hero first-row" style="background-image: url(/storage/uploads/{{$hero->filename}}) ; background-repeat: round;" data-stellar-background-ratio="0.5" id="section-home">
+<section class="site-hero first-row" style="background-image: url(/storage/uploads/{{$hero->filename}}) ;" data-stellar-background-ratio="0.5" id="section-home">
     <div class="container">
         <div class="row site-hero-inner justify-content-center align-items-center">
             <div class="col-md text-center" data-aos="fade-up">
@@ -78,7 +78,7 @@
             <div class="row">
                 <div class="col-lg-8 col-md-8 col-sm-12">
                     <small>(more destinations coming soon)</small>
-                </div>   
+                </div>
             </div>
             --}}
             <div class="row pt-3 d-none">
