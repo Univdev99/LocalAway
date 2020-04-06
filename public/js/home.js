@@ -1,7 +1,8 @@
 "use strict";
 $(document).ready(function() {
-    $("#ai_access_modal").modal({ backdrop: 'static', keyboard: false });
-
+    if (sessionStorage.getItem('access_permission') != 'true') {
+        $("#ai_access_modal").modal({ backdrop: 'static', keyboard: false });
+    }
     $('#request-access-form').submit(function() {
         $(".spinner-border").css("display", "inline-block");
         $("#btn-access-submit").css("display", "none");
@@ -23,6 +24,7 @@ $(document).ready(function() {
                 } else {
                     $("#access_code_error").show();
                 }
+                sessionStorage.setItem('access_permission', "true");
             }
         });
         return false;
@@ -31,6 +33,12 @@ $(document).ready(function() {
     $('#btn-request-access').click(function() {
         $("#ai_access_modal").modal("hide");
         $("#ai_request_access_modal").modal({ backdrop: 'static', keyboard: false });
+
+    });
+
+    $('#btn-access-back').click(function() {
+        $("#ai_request_access_modal").modal("hide");
+        $("#ai_access_modal").modal({ backdrop: 'static', keyboard: false });
 
     });
 

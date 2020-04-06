@@ -1,5 +1,5 @@
-  <div class="row" style="height:400px;">
-    <div class="col-md-6 d-flex justify-content-center" style="background-color: #02BFAF;">
+  <div class="row">
+    <div class="col-md-6 d-flex justify-content-center p-5" style="background-color: #02BFAF;">
       <div class="row align-items-center">
         <div class="col-12 col-sm-4 col-md-12 col-lg-4 text-center">
           <img src="images/subscribe.png" alt="">
@@ -23,7 +23,7 @@
       </div>
       <div class = "pt-5">
         <span class = "h5 font-weight-bold text-black d-block">Follow us</span>
-        <span class = "h5 font-weight-bold text-black d-block">Connect on 
+        <span class = "h5 font-weight-bold text-black d-block">Connect on
           <a href = "https://www.facebook.com/localaway/" style="color: #02BFAF;">facebook, </a>
           <a href = "https://twitter.com/local_away" style="color: #02BFAF;">twitter</a>
           or

@@ -1,7 +1,7 @@
 <div class="modal fade" id="ai_access_modal" role="dialog" aria-labelledby="aiModalLabel">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content w-auto">
-            <div class="modal-body p-5 mx-5">
+            <div class="modal-body p-5">
             <form id="request-access-form" >
                 <div class="text-center">
                     <img class="d-lg-block mx-auto my-4 w-100" src="/images/green-logo.png" style="max-width:40px;" alt="">

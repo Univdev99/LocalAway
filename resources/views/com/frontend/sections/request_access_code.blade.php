@@ -1,7 +1,7 @@
 <div class="modal fade" id="ai_request_access_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content w-auto">
-        <div class="modal-body p-5 mx-5">
+        <div class="modal-body p-5">
         <form id="request_send_form" > <!--action='/survey' method='post'-->
         {{-- @csrf --}}
             <div class="text-center">
@@ -28,7 +28,7 @@
                 <input id="radio_stylist" type="radio" name="person_type" value="stylist" required>
                 <label for="radio_stylist">Brand or Boutique</label><br>
                 <input id="radio_customer" type="radio" name="person_type" value="customer" required>
-                <label for="radio_customer">Potential Customer</label><br>
+                <label for="radio_customer">Customer</label><br>
             </div>
             </div>
 
@@ -45,6 +45,7 @@
             <div class="text-center mt-4">
                 <input type="submit" id="btn-request-send"  class="btn btn-brown text-white text-center btn-modal" value="Request Access"/>
             </div>
+            <button id="btn-access-back"><i class="fa fa-arrow-left"></i></button>
             <!-- </div> -->
         </form>
         </div>

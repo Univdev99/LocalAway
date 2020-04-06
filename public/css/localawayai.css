@@ -553,3 +553,11 @@ h4 {
     color: #c6a07b;
     font-family: Barista-Script !important;
 }
+
+#btn-access-back {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    background-color: transparent;
+    border: none;
+}
