@@ -42,14 +42,16 @@
                           <div class="d-flex" style="flex-direction: column;height: 100%;justify-content: space-between;">
                             <h1 class="font-weight-bold mb-5 question text-center congrate title">Thank you!</h1>
                             <h4 class='text-center'>We have received your application <br>and will get in touch soon!</h3>
-                            <div class="clearfix text-center">
+                            {{-- <div class="clearfix text-center">
                                 <div class="spinner-border" role="status" >
                                 <span class="sr-only">Loading...</span>
                                 </div>
-                            </div>
-                            {{-- <div class='text-center mt-4'>
-                                <a href= ""  class='text-center small question a-link' id = "step4">View First Time Stylist</a>
                             </div> --}}
+                            <div class="text-center mt-4">
+                                <a href="/" class="btn circle-btn btn-primary text-white font-weight-bold py-3 px-0 w-100" style="max-width: 200px">
+                                    Home Page
+                                </a>
+                            </div>
                           </div>
                       </div>
                   </div>

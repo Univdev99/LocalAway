@@ -31,7 +31,6 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
             return view('ai.newlanding');
         });
     });
-    // Route::get('/json', 'FileController@jsonParsing');
     Route::post('/access-ai', 'HomeController@checkAccess');
     Route::get('about', 'HomeController@about');
 
@@ -64,7 +63,7 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
     Route::get('/auth/redirect/{provider}', 'SocialController@redirect');
     Route::get('/auth/callback/{provider}', 'SocialController@callback');
 
-    Route::get('/become-stylist', function () {
+    Route::get('/stylist/signup', function () {
         return view('com.stylist.stylist-sign-in');
     });
 
@@ -77,7 +76,7 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
     Route::get('/stylist/check-email', 'StylistController@checkEmailDuplicate');
 
-    Route::post('/stylist-signup', 'StylistController@store');
+    Route::post('/stylist/signup', 'StylistController@store');
     Route::get('/stylist/thank-you', 'StylistController@thankyou')->name('com.stylist.thankyou');
 
 

@@ -12,92 +12,71 @@ $(document).ready(function() {
         $(".hours").html(parseInt(hours) + 1);
     });
 
-    $("#step1").click(function() {
-        $("#step-1").css("display", "none");
-        if ($("#boutique").prop("checked")) {
+    // $("#step1").click(function() {
+    //     $("#step-1").css("display", "none");
+    //     if ($("#boutique").prop("checked")) {
 
-            $("#step-2-boutique").css("display", "block");
-        } else {
-            $("#step-2-independent").css("display", "block");
-        }
-        $(".back-image").css("background-image", "url('/images/stylist-sign-2.jpg')");
-        $("#logo").get(0).scrollIntoView();
-        $('#title').text(function(i) {
-            return 'Become part of the LocaAway Family';
-        });
-        moveProcess(50);
-    });
+    //         $("#step-2-boutique").css("display", "block");
+    //     } else {
+    //         $("#step-2-independent").css("display", "block");
+    //     }
+    //     $(".back-image").css("background-image", "url('/images/stylist-sign-2.jpg')");
+    //     $("#logo").get(0).scrollIntoView();
+    //     $('#title').text(function(i) {
+    //         return 'Become part of the LocalAway Family';
+    //     });
+    //     moveProcess(50);
+    // });
 
     $(".step2").click(function() {
-        if ($(this).attr("mode") === "boutique") {
-            if (!$("#boutique-location").val()) {
-                $("#boutique-location").focus();
-                return;
-            }
-    
-            if (!$("#boutique-name").val()) {
-                $("#boutique-name").focus();
-                return;
-            }
+        if (!$("#boutique-location").val()) {
+            $("#boutique-location").focus();
+            return;
+        }
 
-            if (!$("#boutique-password").val()) {
-                $("#boutique-password").focus();
-                return;
-            }
-
-            if (!$("#boutique-password-confirm").val()) {
-                $("#boutique-password-confirm").focus();
-                return;
-            }
-
-            if ($("#boutique-password").val() != $("#boutique-password-confirm").val()) {
-                $("#boutique-password").focus();
-                return;
-            }
-        } else {
-            if (!$("#otherlocation").val()) {
-                $("#otherlocation").focus();
-                return;
-            }
-    
-            if (!$("#stylist-name").val()) {
-                $("#stylist-name").focus();
-                return;
-            }
-
-            if (!$("#stylist-password").val()) {
-                $("#stylist-password").focus();
-                return;
-            }
-
-            if (!$("#stylist-password-confirm").val()) {
-                $("#stylist-password-confirm").focus();
-                return;
-            }
-
-            if ($("#stylist-password").val() != $("#stylist-password-confirm").val()) {
-                $("#stylist-password").focus();
-                return;
-            }
+        if (!$("#boutique-name").val()) {
+            $("#boutique-name").focus();
+            return;
         }
 
         if (!validate_email()) {
             return;
         }
 
-        let email = $(this).attr("mode") === "boutique" ? $("#boutique-email").val() : $("#stylist-email").val();
+        if (!$("#boutique-password").val()) {
+            $("#boutique-password").focus();
+            return;
+        }
+
+        if (!$("#boutique-password-confirm").val()) {
+            $("#boutique-password-confirm").focus();
+            return;
+        }
+
+        if ($("#boutique-password").val() != $("#boutique-password-confirm").val()) {
+            $("#boutique-password").focus();
+            $("#boutique-password-confirm").focus();
+            return;
+        }
+
+        if (!$("#boutique-phone").val()) {
+            $("#boutique-phone").focus();
+            return;
+        }
+
+        if (!$("#boutique-notes").val()) {
+            $("#boutique-notes").focus();
+            return;
+        }
+
+        let email = $("#boutique-email").val()
         let mode = $(this).attr("mode")
 
         $.get("/stylist/check-email", { email })
-            .done(function (res) {
+            .done(function(res) {
                 if (res == 'ok') {
                     $(".step-2").css("display", "none");
-                    if ($("#boutique").prop("checked")) {
-            
-                        $("#step-3-boutique").css("display", "block");
-                    } else {
-                        $("#step-3-independent").css("display", "block");
-                    }
+                    $("#step-3-boutique").css("display", "block");
                     $(".back-image").css("background-image", "url('/images/stylist-sign-3.jpg')");
                     $("#logo").get(0).scrollIntoView()
                     $('#title').text(function(i) {
@@ -105,16 +84,10 @@ $(document).ready(function() {
                     });
                     moveProcess(75);
                 } else {
-                    if (mode === "boutique") {
-                        $("#boutique-email").focus()
-                    } else {
-                        $("#stylist-email").focus()
-                    }
+                    $("#boutique-email").focus()
                 }
             })
-            .fail(function () {
-                
-            })
+            .fail(function() {})
     });
 
     $(".step3").click(function() {
@@ -170,19 +143,11 @@ function moveProcess(val) {
 }
 
 function validate_email() {
-    if ($("#boutique").prop("checked")) {
-        var mail_input = $("#boutique-email").val();
-    } else {
-        var mail_input = $("#stylist-email").val();
-    }
+    var mail_input = $("#boutique-email").val();
     var pattern = /^([a-zA-A0-9_.-])+@([a-zA-Z0-9_.-])+([a-zA-Z])+/;
     var is_email_valid = false;
     if (mail_input.match(pattern) == null) {
-        if ($("#boutique").prop("checked")) {
-            $("#boutique-email").focus();
-        } else {
-            $("#stylist-email").focus();
-        }
+        $("#boutique-email").focus();
     } else {
         is_email_valid = true;
     }
@@ -223,15 +188,8 @@ function isUrlValid(url) {
 }
 
 function isAgree() {
-    if ($("#boutique").prop("checked")) {
-        if (!$("#boutique-agree").prop("checked")) {
-            return false;
-        }
-        return true;
-    } else {
-        if (!$("#stylist-agree").prop("checked")) {
-            return false;
-        }
-        return true;
+    if (!$("#boutique-agree").prop("checked")) {
+        return false;
     }
+    return true;
 }

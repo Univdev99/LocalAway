@@ -20,11 +20,11 @@
     <div class="collapse navbar-collapse" id="templateux-navbar-nav">
       <ul class="navbar-nav ml-auto">
       @section('menu')
-        
-        <a class="header-btn text-white ml-lg-2 d-none d-lg-flex" href="/become-stylist">Partner with Us</a>
+
+        <a class="header-btn text-white ml-lg-2 d-none d-lg-flex" href="/stylist/signup">Partner with Us</a>
         <a class="header-btn text-white ml-lg-2 d-none d-lg-flex" href="/login">Sign In</a>
-        
-        <li class="nav-item mb-link"><a class="nav-link" href="/become-stylist">Partner with Us</a></li>
+
+        <li class="nav-item mb-link"><a class="nav-link" href="/stylist/signup">Partner with Us</a></li>
         @guest
         <li class="nav-item mb-link"><a class="nav-link" href="/login">Sign In</a></li>
         <!-- <li class="nav-item ml-xl-2 ml-lg-2 ml-md-0 ml-sm-0 ml-0">

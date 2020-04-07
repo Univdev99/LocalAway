@@ -79,43 +79,26 @@ class StylistController extends Controller
         //     'title' => $request->get('qqfilename'),
         // ]);
 
-        $duplicated = User::where('email', $request->get('stylist-email'))->first();
+        $duplicated = User::where('email', $request->get('boutique-email'))->first();
         if ($duplicated) {
             return response('duplicated email', 400);
         }
 
-        $stylist_type = $request->get('stylist-type');
         $hours = $request->get('hours');
         $linkedin = $request->get('linkedin');
 
-        if  ($stylist_type=="boutique"){
-            $location = $request->get('boutique_location');
-            $stylist_name = $request->get('boutique-name');
-            $stylist_email = $request->get('boutique-email');
-            $letter = $request->get('boutique-letter');
-            $link1 = $request->get('boutique-link1');
-            $link2 = $request->get('boutique-link2');
-            $link3 = $request->get('boutique-link3');
-            $resume = $request->file('boutique-resume');
-        }else{
-            // if($request->get('stylist_location')=="other"){
-                $location = $request->get('other_location');
-            // }else{
-            //     $location = $request->get('stylist_location');
-            // }
-            $stylist_name = $request->get('stylist-name');
-            $stylist_email = $request->get('stylist-email');
-            $letter = $request->get('stylist-letter');
-            $link1 = $request->get('stylist-link1');
-            $link2 = $request->get('stylist-link2');
-            $link3 = $request->get('stylist-link3');
-            $resume = $request->file('stylist-resume');
-        }
-        if($resume!=null){
-            $filename = time().$resume->getClientOriginalName();
-            Storage::disk('public')->putFileAs('uploads/resume', $resume, $filename);
-            $stylist->resume = $filename;
-        }
+        $location = $request->get('boutique_location');
+        $stylist_name = $request->get('boutique-name');
+        $stylist_email = $request->get('boutique-email');
+        $stylist_pwd = $request->get('boutique->password');
+        $stylist_phone = $request->get('boutique-phone');
+        $stylist_notes = $request->get('boutique->notes');
+        $letter = $request->get('boutique-letter');
+        $link1 = $request->get('boutique-link1');
+        $link2 = $request->get('boutique-link2');
+        $link3 = $request->get('boutique-link3');
+        $resume = $request->file('boutique-resume');
+
 
         $user = new User;
         $user->user_type = 'stylist';
@@ -128,13 +111,12 @@ class StylistController extends Controller
             $user->last_name = $names[1];
         }
         $user->birthday = '';
-        $user->phone_number = '';
+        $user->phone_number = $stylist_phone;
         $user->email = $stylist_email;
-        $user->password = Hash::make($request->get('password'));
+        $user->password = $stylist_pwd;
         $user->save();
 
         $stylist = new Stylist;
-        $stylist->stylist_type = $stylist_type;
         $stylist->location = $location;
         $stylist->work_hour = $hours;
         $stylist->stylist_name = $stylist_name;
@@ -144,6 +126,12 @@ class StylistController extends Controller
         $stylist->relevant_link1 = $link1;
         $stylist->relevant_link2 = $link2;
         $stylist->relevant_link3 = $link3;
+
+        if($resume!=null){
+            $filename = time().$resume->getClientOriginalName();
+            Storage::disk('public')->putFileAs('uploads/resume', $resume, $filename);
+            $stylist->resume = $filename;
+        }
 
         $stylist->user_id = $user->id;
         $stylist->save();

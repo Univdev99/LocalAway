@@ -15,38 +15,38 @@
             </div>
             <div class="row mt-5">
               <div class="col-lg-4 col-md-12">
-                <p class='mt-2 text-black text-center font-avenir' style="height:60px;">
-                  What is the fashion story you want to tell?
+                <p class='process-header' style="height:60px;">
+                    What is the fashion story you want to discover?
                 </p>
-                  <div class = "d-flex text-center justify-content-center">
+                  <div class = "d-flex text-center justify-content-center my-4">
                     <h1 class = "font-weight-bold color-orange my-auto mx-0" style="color: #02BFAF;">1</h1>
                   </div>
                   <div  class = "text-center">
-                    <span style="font-family: Helvetica !important;">What is the occassion and what should your photos reflect? From work from home to hiking trails we can help you have fun.
+                    <span style="font-family: Helvetica !important;">See what is available from local retailer, or sign up for a personalized “discovery box” based on your preferences.
                     </span>
                   </div>
               </div>
               <div class="col-lg-4 col-md-12">
-                <p class='font-weight-bold mt-2 text-black text-center font-avenir' style="height:60px;">
-                  It's all about you.
+                <p class='process-header' style="height:60px;">
+                    Provide feedback to your stylist.
                 </p>
-                  <div class = "d-flex text-center justify-content-center">
+                  <div class = "d-flex text-center justify-content-center my-4">
                     <h1 class = "font-weight-bold color-orange my-auto mx-0" style="color: #02BFAF;">2</h1>
                   </div>
                   <div  class = "text-center">
-                    <span style="font-family: Helvetica !important;">The more detail, the better! However if you prefer to chat with a stylist, we have that as an option too.
+                    <span style="font-family: Helvetica !important;">Send your stylist a note to improve each experience.
                     </span>
                   </div>
               </div>
               <div class="col-lg-4 col-md-12">
-                <p class='mt-2 text-black text-center font-avenir' style="height:60px;">
-                  Sit back, relax, and enjoy your local fashion.
+                <p class='process-header' style="height:60px;">
+                    Keep what you love, return the rest.
                 </p>
-                  <div class = "d-flex text-center justify-content-center">
+                  <div class = "d-flex text-center justify-content-center my-4">
                     <h1 class = "font-weight-bold color-orange my-auto mx-0" style="color: #02BFAF;">3</h1>
                   </div>
-                  <div  class = "text-center">
-                    <span style="font-family: Helvetica !important;">Our expert stylists will curate the perfect outfit recommendations for you, or you can browse hand-picked items. 
+                  <div  class = "text-center ">
+                    <span style="font-family: Helvetica !important;">Styling fee is waived if you keep anything over the $20 mark. You will only be charged for what you keep.
                     </span>
                   </div>
               </div>
