@@ -11,7 +11,7 @@ use App\Stylist;
 use App\Subcategory;
 use Stevebauman\Location\Location;
 use App\User;
-use Hash;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\View;
 
 class StylistController extends Controller
@@ -104,9 +104,9 @@ class StylistController extends Controller
         $location = $request->get('boutique_location');
         $stylist_name = $request->get('boutique-name');
         $stylist_email = $request->get('boutique-email');
-        $stylist_pwd = $request->get('boutique->password');
+        $stylist_pwd = $request->input('boutique-password');
         $stylist_phone = $request->get('boutique-phone');
-        $stylist_notes = $request->get('boutique->notes');
+        $stylist_notes = $request->get('boutique-notes');
         $letter = $request->get('boutique-letter');
         $link1 = $request->get('boutique-link1');
         $link2 = $request->get('boutique-link2');
@@ -126,7 +126,7 @@ class StylistController extends Controller
         $user->birthday = '';
         $user->phone_number = $stylist_phone;
         $user->email = $stylist_email;
-        $user->password = $stylist_pwd;
+        $user->password = Hash::make($stylist_pwd);
         $user->save();
 
         $stylist = new Stylist;
