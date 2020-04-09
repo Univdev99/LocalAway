@@ -111,9 +111,11 @@
                         </div>
                     </div>
                     <div class="mt-3 ">
-                        <p class = "text-center" >Don't have an account?
-                            <a class="" href="{{ route('customer.signup.account') }}">{{ __('Sign Up') }}</a>
-                        </p>
+                        <p class = "text-center" >Don't have an account?</p>
+                    </div>
+                    <div class="d-inline-block">
+                        <a class="float-left" href="{{ route('com.stylist.signup') }}">{{ __('Sign up as new partner') }}</a>
+                        <a class="float-right" href="{{ route('customer.signup.account') }}">{{ __('Sign up as new customer') }}</a>
                     </div>
                 </div>
             </div>

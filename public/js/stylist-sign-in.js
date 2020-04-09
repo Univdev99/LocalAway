@@ -1,11 +1,12 @@
 $(document).ready(function() {
 
-    $(window).keydown(function(event) {
-        if (event.keyCode == 13) {
-            event.preventDefault();
-            return false;
-        }
-    });
+    // $(window).keydown(function(event) {
+    //     if (event.keyCode == 13) {
+    //         event.preventDefault();
+    //         return false;
+    //     }
+    // });
+    moveProcess(30);
 
     $(".plus").click(function() {
         hours = $(".hours").html();
@@ -27,6 +28,7 @@ $(document).ready(function() {
     //     });
     //     moveProcess(50);
     // });
+
 
     $(".step2").click(function() {
         if (!$("#boutique-location").val()) {
@@ -70,7 +72,6 @@ $(document).ready(function() {
         }
 
         let email = $("#boutique-email").val()
-        let mode = $(this).attr("mode")
 
         $.get("/stylist/check-email", { email })
             .done(function(res) {
@@ -80,9 +81,9 @@ $(document).ready(function() {
                     $(".back-image").css("background-image", "url('/images/stylist-sign-3.jpg')");
                     $("#logo").get(0).scrollIntoView()
                     $('#title').text(function(i) {
-                        return 'Enjoy some freedom as your own boss';
+                        return 'Enjoy the freedom to sell globally.';
                     });
-                    moveProcess(75);
+                    moveProcess(70);
                 } else {
                     $("#boutique-email").focus()
                 }
@@ -134,6 +135,9 @@ $(document).ready(function() {
 
 function minusfunction() {
     hours = $(".hours").html();
+    if (hours == "0") {
+        return;
+    }
     $(".hours").html(parseInt(hours) - 1);
 }
 

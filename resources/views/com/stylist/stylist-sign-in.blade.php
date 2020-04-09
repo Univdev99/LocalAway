@@ -36,7 +36,7 @@
                   <div class="row">
                       <div class="col-10 col-lg-8 offset-lg-2 offset-1 my-4">
                           <div class="d-flex" style="flex-direction: column;height: 100%;justify-content: space-between;">
-                              <form id="stylist-signup" action="/stylist-signup" method="post" enctype="multipart/form-data">
+                              <form id="stylist-signup" action="/stylist/signup" method="post" enctype="multipart/form-data">
                                   @csrf
                                   {{-- <div id="step-1">
                                       <h1 class="font-weight-bold mb-5 title">Are you representing a retail brand, boutique or are an independant stylist?</h1>
@@ -72,13 +72,18 @@
                                           </span>
 
                                           <div class="form-group mt-4">
+                                            <label for="boutique-name" class="mt-4 text-secondary small">{{ __('Name') }}</label>
+                                            <input id="boutique-name" type="text" class="form-control border-none kt-portlet--border-bottom-danger" name="boutique_name" value="">
+                                         </div>
+                                          <div class="form-group mt-4">
                                               <label for="boutique-location" class="mt-4 text-secondary small">{{ __('Location') }}</label>
-                                              <input id="boutique-location" type="text" class="form-control border-none kt-portlet--border-bottom-danger" name="boutique_location" value="">
+                                              <input id="boutique-location" type="text" class="form-control border-none kt-portlet--border-bottom-danger" name="boutique_location" value="{{$location}}">
                                           </div>
+
                                       </div>
                                       <div class="mt-5">
                                           <span class ='font-weight-bold question'>Question 2
-                                              <h5 class='text-dark mt-4'>How mny items would you like to sell through your e-store here?</h5>
+                                              <h5 class='text-dark mt-4'>How many items would you like to sell through your e-store here?</h5>
                                           </span>
                                           <div>
                                               <span onclick="javascript:minusfunction()" class="signature">-</span>
@@ -92,27 +97,33 @@
                                               <h5 class='text-dark mt-4'>What is the best way to get in touch?</h5>
                                           </span>
                                           <div class="form-group mt-4">
-                                              <label for="boutique-name" class="mt-4 text-secondary small">{{ __('Name') }}</label>
-                                              <input id="boutique-name" type="text" class="form-control border-none kt-portlet--border-bottom-danger" name="boutique-name" value="">
-                                          </div>
-                                          <div class="form-group mt-4">
                                               <label for="boutique-email" class="mt-4 text-secondary small">{{ __('Email') }}</label>
                                               <input id="boutique-email" type="email" class="form-control border-none kt-portlet--border-bottom-danger" name="boutique-email" value="" >
+                                                @error('email')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
                                           </div>
                                           <div class="form-group mt-4">
-                                              <label for="boutique-password" class="mt-4 text-secondary small">{{ __('password') }}</label>
+                                              <label for="boutique-password" class="mt-4 text-secondary small">{{ __('Password') }}</label>
                                               <input id="boutique-password" type="password" class="form-control border-none kt-portlet--border-bottom-danger" name="boutique-password" value="" >
+                                                @error('email')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
                                           </div>
                                           <div class="form-group mt-4">
-                                              <label for="boutique-password-confirm" class="mt-4 text-secondary small">{{ __('password-confirm') }}</label>
+                                              <label for="boutique-password-confirm" class="mt-4 text-secondary small">{{ __('Password Confirm') }}</label>
                                               <input id="boutique-password-confirm" type="password" class="form-control border-none kt-portlet--border-bottom-danger" value="" >
                                           </div>
                                           <div class="form-group mt-4">
-                                              <label for="boutique-phone" class="mt-4 text-secondary small">{{ __('phone') }}</label>
+                                              <label for="boutique-phone" class="mt-4 text-secondary small">{{ __('Phone') }}</label>
                                               <input id="boutique-phone" type="number" class="form-control border-none kt-portlet--border-bottom-danger" name="boutique-phone" value="" >
                                           </div>
                                           <div class="form-group mt-4">
-                                              <label for="boutique-notes" class="mt-4 text-secondary small">{{ __('notes') }}</label>
+                                              <label for="boutique-notes" class="mt-4 text-secondary small">{{ __('Notes') }}</label>
                                               <input id="boutique-notes" type="text" class="form-control border-none kt-portlet--border-bottom-danger" name="boutique-notes" value="" >
                                           </div>
                                       </div>

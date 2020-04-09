@@ -19,16 +19,15 @@
             </div>
 
         </div> --}}
-        <div class="col-12 col-sm-6 text-center">
+        <div class="col-12 text-center">
             <div class="capsule-on-the-way">
-            <p>Hi {{ auth()->user()->first_name }}</p>
-            <p class='title'>Upcoming boxes <br> Party in Zurich <br> capsule is on the way!</p>
-            {{-- <img class="w-100" src="/images/customer/capsule-on-the-way.png" alt=""> --}}
+                <h2>Your box is on the way!</h2>
+
             </div>
         </div>
-        <div class="col-12 col-sm-6 zurich-map">
+        {{-- <div class="col-12 col-sm-6 zurich-map">
             <img src="/images/customer/marker.png" class="marker" alt="">
-        </div>
+        </div> --}}
     </div>
   </div>
 @endsection

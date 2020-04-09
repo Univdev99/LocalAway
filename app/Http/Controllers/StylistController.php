@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Upload;
 use App\Stylist;
 use App\Subcategory;
+use Stevebauman\Location\Location;
 use App\User;
 use Hash;
 use Illuminate\Support\Facades\View;
@@ -19,6 +20,19 @@ class StylistController extends Controller
     {
         $logo = Upload::where('collection' ,'logo')->where('extra',1)->first();
         View::share('logo', $logo);
+    }
+
+    public function signup(Request $request)
+    {
+        $location = new Location();
+        $position = $location->get($request->ip());
+        if ($position) {
+            $location = $position->countryName.", ".$position->cityName;
+        } else {
+            $location = 'Undefined Country';
+        }
+
+        return view('com.stylist.stylist-sign-in', ['location' => $location]);
     }
 
     public function index(Request $request)
@@ -99,7 +113,6 @@ class StylistController extends Controller
         $link3 = $request->get('boutique-link3');
         $resume = $request->file('boutique-resume');
 
-
         $user = new User;
         $user->user_type = 'stylist';
         $names = explode(' ', $stylist_name);
@@ -117,6 +130,7 @@ class StylistController extends Controller
         $user->save();
 
         $stylist = new Stylist;
+        $stylist->stylist_type = "boutique";
         $stylist->location = $location;
         $stylist->work_hour = $hours;
         $stylist->stylist_name = $stylist_name;

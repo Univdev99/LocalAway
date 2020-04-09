@@ -488,20 +488,24 @@ textarea.form-control {
     letter-spacing: .2em;
     font-size: 14px;
 }
-.owl-item > div {
+
+.owl-item>div {
     cursor: pointer;
     margin: 1% -14%;
     transition: margin 0.4s ease;
-  }
-  .owl-item.center > div {
+}
+
+.owl-item.center>div {
     cursor: auto;
     margin: 1% -20%;
     position: relative;
-  }
-  /* .owl-item:not(.center) > div:hover {
+}
+
+
+/* .owl-item:not(.center) > div:hover {
     opacity: .75;
   }
-  
+
 .owl-carousel .owl-item {
     opacity: .4;
 }
@@ -513,20 +517,21 @@ textarea.form-control {
 .owl-carousel .owl-item img {
     width: 100% !important;
 }
+
 .owl-carousel .owl-item.active.center {
     opacity: 1;
 }
-.owl-item > div > .carousel-description {
+
+.owl-item>div>.carousel-description {
     display: none;
 }
 
-.owl-item.active.center > div > .carousel-description {
+.owl-item.active.center>div>.carousel-description {
     display: block;
     position: absolute;
     bottom: 20px;
     left: 20px;
-    background-color: black;
-    opacity: 0.5;
+    background-color: rgba(0, 0, 0, 0.4);
     width: 60%;
     height: 51%;
     padding-top: 10px;
@@ -541,6 +546,7 @@ hr.carousel-line {
     float: left;
     margin-top: 5px;
 }
+
 .owl-carousel .owl-nav {
     position: absolute;
     top: 50%;
@@ -2013,4 +2019,3 @@ hr.carousel-line {
         top: 13px;
     }
 }
-
