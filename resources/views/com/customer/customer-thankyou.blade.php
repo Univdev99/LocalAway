@@ -42,7 +42,7 @@
                             <h1 class="font-weight-bold mb-5 question text-center congrate title">Thank you!</h1>
                             <h4 class='text-center'>We have received your payment and information.<br> A person stylist will contact you soon!</h3>
                             <div class="text-center mt-4">
-                                <a href="/" class="btn circle-btn btn-primary text-white font-weight-bold py-3 px-0 w-100" style="max-width: 200px">
+                                <a href="{{ route('customer.signin')}}" class="btn circle-btn btn-primary text-white font-weight-bold py-3 px-0 w-100" style="max-width: 200px">
                                     Home Page
                                 </a>
                             </div>

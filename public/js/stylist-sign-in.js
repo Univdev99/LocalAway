@@ -31,6 +31,8 @@ $(document).ready(function() {
 
 
     $(".step2").click(function() {
+        $(".email-alert").hide();
+        $(".pwd-alert").hide();
         if (!$("#boutique-location").val()) {
             $("#boutique-location").focus();
             return;
@@ -57,7 +59,7 @@ $(document).ready(function() {
 
         if ($("#boutique-password").val() != $("#boutique-password-confirm").val()) {
             $("#boutique-password").focus();
-            $("#boutique-password-confirm").focus();
+            $(".pwd-alert").show();
             return;
         }
 
@@ -66,10 +68,6 @@ $(document).ready(function() {
             return;
         }
 
-        if (!$("#boutique-notes").val()) {
-            $("#boutique-notes").focus();
-            return;
-        }
 
         let email = $("#boutique-email").val()
 
@@ -85,7 +83,7 @@ $(document).ready(function() {
                     });
                     moveProcess(70);
                 } else {
-                    $("#boutique-email").focus()
+                    $(".email-alert").show();
                 }
             })
             .fail(function() {})
@@ -152,6 +150,7 @@ function validate_email() {
     var is_email_valid = false;
     if (mail_input.match(pattern) == null) {
         $("#boutique-email").focus();
+
     } else {
         is_email_valid = true;
     }

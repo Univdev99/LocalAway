@@ -73,11 +73,11 @@
 
                                           <div class="form-group mt-4">
                                             <label for="boutique-name" class="mt-4 text-secondary small">{{ __('Name') }}</label>
-                                            <input id="boutique-name" type="text" class="form-control border-none kt-portlet--border-bottom-danger" name="boutique_name" value="">
+                                            <input id="boutique-name" type="text" class="form-control border-none kt-portlet--border-bottom-danger" name="boutique-name" value="">
                                          </div>
                                           <div class="form-group mt-4">
                                               <label for="boutique-location" class="mt-4 text-secondary small">{{ __('Location') }}</label>
-                                              <input id="boutique-location" type="text" class="form-control border-none kt-portlet--border-bottom-danger" name="boutique_location" value="{{$location}}">
+                                              <input id="boutique-location" type="text" class="form-control border-none kt-portlet--border-bottom-danger" name="boutique-location" value="{{$location}}">
                                           </div>
 
                                       </div>
@@ -99,20 +99,16 @@
                                           <div class="form-group mt-4">
                                               <label for="boutique-email" class="mt-4 text-secondary small">{{ __('Email') }}</label>
                                               <input id="boutique-email" type="email" class="form-control border-none kt-portlet--border-bottom-danger" name="boutique-email" value="" >
-                                                @error('email')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                @enderror
+                                                <span class="invalid-feedback email-alert" role="alert">
+                                                    <strong>The email has already been taken.</strong>
+                                                </span>
                                           </div>
                                           <div class="form-group mt-4">
                                               <label for="boutique-password" class="mt-4 text-secondary small">{{ __('Password') }}</label>
                                               <input id="boutique-password" type="password" class="form-control border-none kt-portlet--border-bottom-danger" name="boutique-password" value="" >
-                                                @error('email')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                @enderror
+                                                <span class="invalid-feedback pwd-alert" role="alert">
+                                                    <strong>The password confirmation does not match.</strong>
+                                                </span>
                                           </div>
                                           <div class="form-group mt-4">
                                               <label for="boutique-password-confirm" class="mt-4 text-secondary small">{{ __('Password Confirm') }}</label>

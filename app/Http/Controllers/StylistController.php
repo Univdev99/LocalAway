@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\View;
 
 class StylistController extends Controller
 {
+    public $email;
+
     public function __construct()
     {
         $logo = Upload::where('collection' ,'logo')->where('extra',1)->first();
@@ -98,24 +100,24 @@ class StylistController extends Controller
             return response('duplicated email', 400);
         }
 
-        $hours = $request->get('hours');
-        $linkedin = $request->get('linkedin');
+        $hours = $request->input('hours');
+        $linkedin = $request->input('linkedin');
 
-        $location = $request->get('boutique_location');
-        $stylist_name = $request->get('boutique-name');
-        $stylist_email = $request->get('boutique-email');
-        $stylist_pwd = $request->input('boutique-password');
-        $stylist_phone = $request->get('boutique-phone');
-        $stylist_notes = $request->get('boutique-notes');
-        $letter = $request->get('boutique-letter');
-        $link1 = $request->get('boutique-link1');
-        $link2 = $request->get('boutique-link2');
-        $link3 = $request->get('boutique-link3');
+        $location = $request->input('boutique-location');
+        $name = $request->input('boutique-name');
+        $email = $request->input('boutique-email');
+        $pwd = $request->input('boutique-password');
+        $phone = $request->input('boutique-phone');
+        $notes = $request->input('boutique-notes');
+        $letter = $request->input('boutique-letter');
+        $link1 = $request->input('boutique-link1');
+        $link2 = $request->input('boutique-link2');
+        $link3 = $request->input('boutique-link3');
         $resume = $request->file('boutique-resume');
 
         $user = new User;
         $user->user_type = 'stylist';
-        $names = explode(' ', $stylist_name);
+        $names = explode(' ', $name);
         if (count($names) > 0) {
             $user->first_name = $names[0];
             $user->last_name = '';
@@ -124,17 +126,17 @@ class StylistController extends Controller
             $user->last_name = $names[1];
         }
         $user->birthday = '';
-        $user->phone_number = $stylist_phone;
-        $user->email = $stylist_email;
-        $user->password = Hash::make($stylist_pwd);
+        $user->phone_number = $phone;
+        $user->email = $email;
+        $user->password = Hash::make($pwd);
         $user->save();
 
         $stylist = new Stylist;
         $stylist->stylist_type = "boutique";
         $stylist->location = $location;
         $stylist->work_hour = $hours;
-        $stylist->stylist_name = $stylist_name;
-        $stylist->stylist_email = $stylist_email;
+        $stylist->stylist_name = $name;
+        $stylist->notes = $notes;
         $stylist->coverletter = $letter;
         $stylist->linkedin = $linkedin;
         $stylist->relevant_link1 = $link1;
@@ -149,6 +151,7 @@ class StylistController extends Controller
 
         $stylist->user_id = $user->id;
         $stylist->save();
+        session(['boutique_email' => $email]);
 
         return redirect()->route('com.stylist.thankyou');
     }
@@ -219,9 +222,16 @@ class StylistController extends Controller
         return redirect('/dashboard/'.$collection.'-image');
     }
 
-    public function thankyou(Request $request)
+    public function thankyou()
     {
         return view('com.stylist.stylist-thankyou');
     }
 
+    public function signin()
+    {
+        $email = session('boutique_email');
+        $user = User::where('email', $email)->first();
+        auth()->login($user);
+        return redirect('/');
+    }
 }

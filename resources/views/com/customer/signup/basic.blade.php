@@ -17,7 +17,6 @@
         <div class="col-12 mt-3">
             <div class="my-form-row text-center">
                 <p >First the basics</p>
-                <input type="hidden" name="email" value="{{$email}}"/>
                 <div class="d-flex flex-wrap justify-content-center">
                     <div class="mx-5 img-selector">
                         <div class="gender-image img-div">
@@ -50,12 +49,12 @@
             <div class="row justify-content-center">
                 <div class="my-form-row mx-4 text-left">
                     <label for="step2-feet">*Feet</label>
-                    <input id="step2-feet" name="height-feet" class="form-control text-answer" type="text" required/>
+                    <input id="step2-feet" name="height-feet" class="form-control text-answer" type="number" required/>
                 </div>
 
                 <div class="my-form-row mx-4 text-left">
                     <label for="step2-inches">*Inches</label>
-                    <input id="step2-inches" name="height-inch" class="form-control  text-answer" type="text" required/>
+                    <input id="step2-inches" name="height-inch" class="form-control  text-answer" type="number" required/>
                 </div>
             </div>
             </div>
@@ -98,7 +97,7 @@
 
     <div class="item">
         <div class="my-form-row text-center mx-auto">
-            <p>What date do you need your capsule by?<br></p>
+            <p>What date do you need your capsule by?<br></p><input type="button" id="basic-asap" class="round-btn p-2" value="ASAP"/>
             <div id="calendar"></div>
 
             <label for="trip-date" class="text-left">*Date</label>
@@ -113,19 +112,19 @@
 
                 <div class="row justify-content-center">
                     <input type="radio" id="event-1" name="basic-event" value="Professional"/>
-                    <label for="event-1" class="select-btn">Professional</label>
+                    <label for="event-1" class="select-btn">Lounging at home</label>
 
                     <input type="radio" id="event-2" name="basic-event" value="Happy Hour" checked/>
-                    <label for="event-2" class="select-btn">Happy Hour</label>
+                    <label for="event-2" class="select-btn">Zoom meeting</label>
 
                     <input type="radio" id="event-3" name="basic-event" value="Wedding Guest"/>
-                    <label for="event-3" class="select-btn">Wedding Guest</label>
+                    <label for="event-3" class="select-btn">Exercising</label>
 
                     <input type="radio" id="event-4" name="basic-event" value="Sightseeing"/>
-                    <label for="event-4" class="select-btn">Sightseeing</label>
+                    <label for="event-4" class="select-btn">Dress up</label>
 
                     <input type="radio" id="event-5" name="basic-event" value="Sunday Brunch"/>
-                    <label for="event-5" class="select-btn">Sunday Brunch</label>
+                    <label for="event-5" class="select-btn">Cozy</label>
 
                     <input type="radio" id="event-6" name="basic-event" value="Surprise Me"/>
                     <label for="event-6" class="select-btn">Surprise Me</label>
@@ -272,7 +271,7 @@
 
     <div class="row item end-part">
         <div class="col-12">
-            <h5 class="sub-page-title text-center">Home Address</h5>
+            <h5 class="sub-page-title text-center">Address</h5>
         </div>
 
         <div class="col-6 offset-3">

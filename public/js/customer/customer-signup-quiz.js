@@ -19,6 +19,14 @@ $(function() {
         }
     }
     $('.next-btn').click(function() {
+        if($('#step1-policy-alert').length && !$('#step1-policy-alert').prop('checked')){
+            $('.policy-alert').show();
+            return false;
+        }
+        else{
+            $('.policy-alert').hide();
+        }
+
         if ($('.item-show').hasClass('item-submit')) {
             return;
         }
@@ -50,7 +58,7 @@ $(function() {
                 for (var i = 1; i <= item_cnt; i++) {
                     if (checkEmpty(".item:nth-child(" + i + ")")) {
                         $(".item:nth-child(" + i + ") input").each(function() {
-                            if ($(this).prop('type') == "text" || ($(this).prop('type') == "radio" && $(this).prop("checked")) || $(this).prop('type') == "hidden") {
+                            if ($(this).prop('type') == "text" || $(this).prop('type') == "number" || ($(this).prop('type') == "radio" && $(this).prop("checked")) || $(this).prop('type') == "hidden") {
                                 param[$(this).attr('name')] = $(this).val();
                             }
 
@@ -66,12 +74,8 @@ $(function() {
                             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                         },
                     })
-                    .then(function(res) {
-                        if (res['gender'] == 'male' || res['gender'] == 'female' || !res['email']) {
-                            window.location = '/customer/signup/sizing?gender=' + res['gender'] + '&email=' + res['email'];
-                        } else {
-                            window.location = '/';
-                        }
+                    .then(function() {
+                        window.location = '/customer/signup/sizing';
                     });
             }
         }
@@ -123,7 +127,7 @@ $(function() {
             }
         });
 
-        $(item + " input[type=text]").each(function() {
+        $(item + " input[type=text], " + item + " input[type=number]").each(function() {
             if (($(this).val() != "")) {
                 flag = true;
             } else {
@@ -237,4 +241,23 @@ $(function() {
         }
     });
 
+
+    $('#step1-receive-alert').click(function(){
+        if(!$('#step1-phone-number').val()){
+            $('.phone-alert').show();
+        }
+        else{
+            $('.phone-alert').hide();
+        }
+    });
+
+    $('#basic-asap').click(function (){
+        Date.prototype.addDays = function(days) {
+            var date = new Date(this.valueOf());
+            date.setDate(date.getDate() + days);
+            return date;
+        }
+        var today = new Date();
+        $('#calendar').datepicker("setDate", today.addDays(10) );
+    });
 })

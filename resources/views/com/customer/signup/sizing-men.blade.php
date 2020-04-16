@@ -12,8 +12,6 @@
     </div>
     <form id="sizing" method="POST" action="{{route('customer.signup.sizing.save')}}" enctype="multipart/form-data">
         @csrf
-        <input name="gender" value="{{$gender}}" type="hidden">
-        <input type="hidden" name="email" value="{{$email}}"/>
         <div class="row item first-row item-show">
             <div class="m-auto text-center">
                 <p class="mt-3">What is your body type?</p>

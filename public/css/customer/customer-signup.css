@@ -580,11 +580,6 @@ select.form-control {
     margin: 10px;
 }
 
-.select-btn:active {
-    background-color: #84e0d9;
-    color: black!important;
-}
-
 .select-btn:focus {
     outline: none;
     color: black!important;
@@ -592,6 +587,11 @@ select.form-control {
 
 .select-btn:hover {
     color: #c6a07a!important;
+}
+
+.select-btn:active {
+    background-color: #84e0d9;
+    color: white!important;
 }
 
 .datepicker {
@@ -695,4 +695,8 @@ hr.divider {
  
  .input-giftcode:-ms-input-placeholder {  
     text-align: center; 
+ }
+
+ #trip-date{
+     width: auto;
  }

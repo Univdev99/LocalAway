@@ -29,25 +29,28 @@
 
         <div class="col-12">
             <div class="my-form-row">
-            <label for="step1-email">*Email</label>
-            <input type="email" id="step1-email" name="email" class="form-control" required />
+                <label for="step1-email">*Email</label>
+                <input type="email" id="step1-email" name="email" class="form-control @error('email') is-invalid @enderror" required />
+                @error('email')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
             </div>
         </div>
 
         <div class="col-12">
             <div class="my-form-row">
-            <label for="step1-birthday">*Birthday</label>
-            <input id="step1-birthday" name="birthday" class="form-control" required />
+                <label for="step1-password">*Create Password</label>
+                <input id="step1-password" name="password" type="password" class="form-control @error('password') is-invalid @enderror" required />
+                @error('password')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
             </div>
         </div>
-
-        <div class="col-12">
-            <div class="my-form-row">
-            <label for="step1-password">*Create Password</label>
-            <input id="step1-password" name="password" type="password" class="form-control" required />
-            </div>
-        </div>
-
+            
         <div class="col-12">
             <div class="my-form-row">
             <label for="step1-confirm-password">*Confirm your Password</label>
@@ -64,25 +67,31 @@
 
         <div class="col-12">
             <div class="my-form-row">
-            <label class="radio-container">
-                I want to receive text alerts about my shipments
-                <input type="checkbox" id="step1-receive-alert" name="receive_alert" unchecked>
-                <span class="checkmark">
-                <i class="fas fa-check check-sign"></i>
+                <label class="radio-container">
+                    I want to receive text alerts about my shipments
+                    <input type="checkbox" id="step1-receive-alert" name="receive_alert" unchecked>
+                    <span class="checkmark">
+                    <i class="fas fa-check check-sign"></i>
+                    </span>
+                </label>
+                <span class="invalid-feedback phone-alert px-5" role="alert">
+                    <strong>Enter phone number to access this option.</strong>
                 </span>
-            </label>
             </div>
         </div>
 
         <div class="col-12">
             <div class="my-form-row">
-            <label class="radio-container">
-                By checking this I agree to <a href="/terms_of_policy"><u>Terms of Service</u></a> and <a href="/privacy_policy"><u>Privacy Policy</u></a>
-                <input type="checkbox" id="step1-receive-alert" name="term_service" checked required>
-                <span class="checkmark">
-                <i class="fas fa-check check-sign"></i>
+                <label class="radio-container">
+                    By checking this I agree to <a href="/terms_of_policy"><u>Terms of Service</u></a> and <a href="/privacy_policy"><u>Privacy Policy</u></a>
+                    <input type="checkbox" id="step1-policy-alert" name="term_service" checked>
+                    <span class="checkmark">
+                        <i class="fas fa-check check-sign"></i>
+                    </span>
+                </label>
+                <span class="invalid-feedback policy-alert px-5" role="alert">
+                    <strong>Please check this box if you want to proceed.</strong>
                 </span>
-            </label>
             </div>
         </div>
 

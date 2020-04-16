@@ -12,8 +12,6 @@
     </div>
     <form id="sizing" method="POST" action="{{route('customer.signup.sizing.save')}}" enctype="multipart/form-data">
         @csrf
-        <input name="gender" value="{{$gender}}" type="hidden">
-        <input type="hidden" name="email" value="{{$email}}"/>
         <div class="row item first-row item-show">
             <div class="m-auto text-center">
                 <p class="mt-3">What is your body type?</p>
@@ -261,8 +259,8 @@
                         <input type="radio" id="women-short1" name="women-short" value="Mini" />
                         <label for="women-short1" class="select-btn">Mini</label>
 
-                        <input type="radio" id="women-short2" name="women-short" value="Kee" checked/>
-                        <label for="women-short2" class="select-btn">Kee</label>
+                        <input type="radio" id="women-short2" name="women-short" value="Knee" checked/>
+                        <label for="women-short2" class="select-btn">Knee</label>
 
                         <input type="radio" id="women-short3" name="women-short" value="Maxi" />
                         <label for="women-short3" class="select-btn">Maxi</label>

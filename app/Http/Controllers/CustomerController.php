@@ -49,7 +49,6 @@ class CustomerController extends Controller
       $first_name = $request->input('first_name');
       $last_name = $request->input('last_name');
       $email = $request->input('email');
-      $birthday = $request->input('birthday');
       $phone_number = $request->input('phone_number');
       $password = $request->input('password');
       $receive_alert = $request->input('receive_alert', 'off');
@@ -64,7 +63,7 @@ class CustomerController extends Controller
       $user->first_name = $first_name;
       $user->last_name = $last_name;
       $user->email = $email;
-      $user->birthday = $birthday;
+      $user->birthday = '';
       $user->phone_number = $phone_number;
       $user->user_type = 'customer';
       $user->password = Hash::make($password);
@@ -75,18 +74,18 @@ class CustomerController extends Controller
       $customer->receive_alert = $receive_alert == "on" ? 1 : 0;
       $customer->save();
 
-      return redirect()->route('customer.signup.basic', ['email' => $email]);
+      session(['customer_email' => $email]);
+      return redirect()->route('customer.signup.basic');
     }
 
     public function basic(Request $request)
     {
-        $email = $request->input('email');
-        return view('com.customer.signup.basic')->with('email', $email);
+        return view('com.customer.signup.basic');
     }
 
     public function saveBasic(Request $request)
     {
-        $email = $request->input("email");
+        $email = session('customer_email');
         $gender = $request->input("basic-gender");
         $user = User::where('email', $email)->first();
         if (!$user || !$user->customer) {
@@ -120,23 +119,23 @@ class CustomerController extends Controller
         }
 
         $customer->save();
-        return ['gender' => $gender, 'email' => $email];
+        session(['gender' => $gender]);
     }
 
     public function sizing(Request $request)
     {
-        $gender = $request->input("gender");
-        $email = $request->input("email");
+        $gender = session('gender');
+        $email = session('customer_email');
         if($gender == "male"){
-            return view('com.customer.signup.sizing-men', ['gender'=> $gender, 'email'=> $email]);
+            return view('com.customer.signup.sizing-men');
         }
-        return view('com.customer.signup.sizing-women', ['gender' => $gender, 'email' => $email]);
+        return view('com.customer.signup.sizing-women');
     }
 
     public function saveSizing(Request $request)
     {
-        $gender = $request->input("gender");
-        $email = $request->input("email");
+        $gender = session('gender');
+        $email = session('customer_email');
 
         $user = User::where('email', $email)->first();
         if (!$user || !$user->customer) {
@@ -155,7 +154,7 @@ class CustomerController extends Controller
             $customer->waist_size = $request->input('waist-size');
             $customer->shorts_length = $request->input('shorts-length');
             $customer->save();
-            return redirect()->route('customer.signup.style', ['gender' => $gender, 'email' => $email]);
+            return redirect()->route('customer.signup.style');
         }
 
         $customer->casual_fit = $request->input('casual-fit');
@@ -168,30 +167,29 @@ class CustomerController extends Controller
         $customer->skirt_size = $request->input('women-short');
         $customer->dress_style = $request->input('women-dress');
         $customer->save();
-        return redirect()->route('customer.signup.style', ['gender' => $gender, 'email' => $email]);
+        return redirect()->route('customer.signup.style');
     }
 
     public function style(Request $request)
     {
-        $gender = $request->input('gender');
-        $email = $request->input('email');
+        $gender = session('gender');
+        $email = session('customer_email');
         if($gender == "male"){
-            return view('com.customer.signup.style-men', ['gender' => $gender, 'email' => $email]);
+            return view('com.customer.signup.style-men');
         }
-        return view('com.customer.signup.style-women', ['gender' => $gender, 'email' => $email]);
+        return view('com.customer.signup.style-women');
     }
 
     public function saveStyle(Request $request)
     {
         $this->dislike($request);
         $this->almostDone($request);
-        $email = $request->input('email');
-        return redirect()->route('customer.signup.payment', ['email' => $email]);
+        return redirect()->route('customer.signup.payment');
     }
 
     public function dislike(Request $request)
     {
-      $email = $request->input("email");
+      $email = session('customer_email');
       $style = $request->input("style");
       $materials = $request->input("dislike-casual");
       $patterns = $request->input("dislike-pattern");
@@ -218,7 +216,7 @@ class CustomerController extends Controller
 
     public function almostDone(Request $request)
     {
-      $email = $request->input("email");
+      $email = session('customer_email');
       $capsule = $request->input("capsule");
       $spend = $request->input("spend");
       $instagram = $request->input("instagram");
@@ -257,7 +255,7 @@ class CustomerController extends Controller
     public function payment(Request $request)
     {
         // $plan = Plan::first();
-        $email = $request->input('email');
+        $email = session('customer_email');
         $user = User::with('customer')->where('email', $email)->first();
         $intent = $user->createSetupIntent();
         $payment_method =$request->session()->get('payment_method');
@@ -267,5 +265,13 @@ class CustomerController extends Controller
     public function thankyou(Request $request)
     {
       return view('com.customer.customer-thankyou');
+    }
+
+    public function signin()
+    {
+      $email = session('customer_email');
+      $user = User::with('customer')->where('email', $email)->first();
+      auth()->login($user);
+      return redirect('/');
     }
 }

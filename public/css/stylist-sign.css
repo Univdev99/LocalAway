@@ -3,6 +3,7 @@
     height: 100vh;
     top: 0;
     background-position: center;
+    background-size: cover;
 }
 
 .radio-container {
