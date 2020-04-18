@@ -28,7 +28,7 @@
 
             <div class="row">
                 <div class="col text-center">
-                    <a href="{{ route('customer.signup.account') }}" class="btn text-white w-50" style="background-color: #FD5C48; ">Start your style quiz</a>
+                    <a href="{{ route('customer.signup.account') }}" class="btn text-white btn-quiz" style="background-color: #FD5C48; ">Start your style quiz</a>
                 </div>
                 {{-- <div class="col-lg-4 mb-3 mb-lg-0 px-0 pr-lg-3">
                     <div class="field-icon-wrap">

@@ -1,8 +1,7 @@
 @extends('com.customer.layout')
 
 @section('content')
-<div>
-    <div class="row first-row">
+    <div class="row first-row adjust-content">
         <div class="col-12 col-md-12 d-flex py-5 bg-green">
             @include('com.frontend.sections.search', ['animate' => false, 'title' => 'Tell us about what\'s next'])
           </div>
@@ -29,5 +28,4 @@
             <img src="/images/customer/marker.png" class="marker" alt="">
         </div> --}}
     </div>
-  </div>
 @endsection

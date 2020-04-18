@@ -22,29 +22,30 @@
         </div>
 
         <div class="name text-center my-auto">
-            <h4> {{auth()->user()->first_name}} {{auth()->user()->last_name}}</h4>
+            {{-- <h4> {{auth()->user()->first_name}} {{auth()->user()->last_name}}</h4> --}}
+            <h4> Customer Localaway</h4>
         </div>
     </div>
     <div class="row">
-        <div class="col-6">
+        <div class="col-md-6 col-sm-12">
             <div class="my-form-row">
                 <label for="gender">Gender</label>
-                <input id="gender" name="gender" class="form-control" />
+                <input id="gender" name="gender" class="form-control" value="{{$gender}}"/>
                 <label for="email">Email</label>
-                <input id="email" name="email" class="form-control" />
+                <input id="email" name="email" class="form-control" value="{{auth()->user()->email}}"/>
                 <label for="destination">Destination</label>
-                <input id="destination" name="destination" class="form-control" />
+                <input id="destination" name="destination" class="form-control" value="{{$destination}}"/>
                 <label for="phone-number">Phone</label>
-                <input id="phone-number" class="form-control" name="phone-number" type="tel">
+                <input id="phone-number" class="form-control" name="phone-number" type="tel" value="{{auth()->user()->phone_number}}">
                 <label for="budget">Budget</label>
-                <input id="budget" name="budget" class="form-control" />
+                <input id="budget" name="budget" class="form-control"/>
                 <label for="notes">Notes</label>
-                <textarea id="notes" name="notes" class="form-control" style="width: 100%; height: 8em;resize:none;"></textarea>
+                <textarea id="notes" name="notes" class="form-control" style="width: 100%; height: 8em;resize:none;" value="{{$notes}}"></textarea>
                 <label for="age">Age</label>
-                <input id="age" name="age" class="form-control" type="number"/>
+                <input id="age" name="age" class="form-control" type="text" value="{{$age}}"/>
             </div>
         </div>
-        <div class="col-6 m-auto text-center">
+        <div class="col-md-6 col-sm-12 text-center p-5 m-auto">
             <h5>Finish the <a href="/" class=""><u>Style Quiz</u></a> to complete your <br> preferences and start an order.</h5>
         </div>
     </div>

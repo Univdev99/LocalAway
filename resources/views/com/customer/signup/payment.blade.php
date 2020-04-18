@@ -64,7 +64,7 @@
                     <div class="d-flex">
                     <div class="col-md-6">
                         <div class="form-group" id="exp-m-group">
-                            {!! Form::selectMonth(null, null, [
+                            {!! Form::selectMonth(null, date('n'), [
                                 'class'                 => 'form-control',
                                 'required'              => 'required',
                                 'data-stripe'           => 'exp-month'
@@ -199,7 +199,7 @@
                 var $form = $(this);
                 $form.parsley().subscribe('parsley:form:validate', function(formInstance) {
                     formInstance.submitEvent.preventDefault();
-                    // alert();
+                    alert("again");
                     return false;
                 });
                 $form.find('#submitBtn').prop('disabled', true);

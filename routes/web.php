@@ -22,15 +22,15 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 // Route::domain('staging.localaway.com')->group(function () {
 
-    Route::group(["domain" => "www.localaway.com"], function () {
+    // Route::group(["domain" => "www.localaway.com"], function () {
         Route::get('/', 'HomeController@index')->name('landingPage');
-    });
+    // });
 
-    Route::group(["domain" => "www.localaway.ai"], function () {
-        Route::get('/', function () {
-            return view('ai.newlanding');
-        });
-    });
+    // Route::group(["domain" => "www.localaway.ai"], function () {
+    //     Route::get('/', function () {
+    //         return view('ai.newlanding');
+    //     });
+    // });
     Route::post('/access-ai', 'HomeController@checkAccess');
     Route::get('about', 'HomeController@about');
 
@@ -115,7 +115,6 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
     Route::post('/customer/signup/style', 'CustomerController@saveStyle')->name('customer.signup.style.save');
 
     Route::get('/customer/signup/thank-you', 'CustomerController@thankyou')->name('customer.signup.thankyou');
-    Route::get('/customer/signin', 'CustomerController@signin')->name('customer.signin');
 
     Route::get('/phpinfo', 'FileController@phpinfo');
 

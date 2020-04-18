@@ -4,7 +4,7 @@
 }
 
 .kt-avatar.kt-avatar--outline .kt-avatar__holder {
-    border: 3px solid #fff;
+    border: 3px solid lightgray;
     -webkit-box-shadow: 0 0 13px 0 rgba(0, 0, 0, .1);
     box-shadow: 0 0 13px 0 rgba(0, 0, 0, .1);
 }

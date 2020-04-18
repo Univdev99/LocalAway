@@ -568,3 +568,26 @@ h4 {
     font-family: Avenir-Black ! important;
     font-size: 18px;
 }
+
+.adjust-y {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.adjust-content {
+    display: block;
+    flex-grow: 1;
+}
+
+@media (max-width: 991.98px) {
+    .btn-quiz {
+        width: 100%;
+    }
+}
+
+@media (min-width: 991.98px) {
+   .btn-quiz {
+       width: 50%;
+   } 
+}

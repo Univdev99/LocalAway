@@ -31,7 +31,14 @@ class CustomerController extends Controller
 
     public function preferences()
     {
-        return view('com.customer.section.preferences');
+      $user_id = auth()->user()->id;
+      $customer = Customer::where('user_id', $user_id)->first();
+      return view('com.customer.section.preferences', [
+        'gender' => $customer->gender,
+        'destination' => $customer->street_address,
+        'notes' => $customer->notes,
+        'age' => $customer->age_range
+      ]);
     }
 
     public function account()
@@ -46,36 +53,37 @@ class CustomerController extends Controller
 
     public function saveAccount(Request $request)
     {
-      $first_name = $request->input('first_name');
-      $last_name = $request->input('last_name');
-      $email = $request->input('email');
-      $phone_number = $request->input('phone_number');
-      $password = $request->input('password');
-      $receive_alert = $request->input('receive_alert', 'off');
-      $email = str_replace(' ', '', $email);
+        $first_name = $request->input('first_name');
+        $last_name = $request->input('last_name');
+        $email = $request->input('email');
+        $phone_number = $request->input('phone_number');
+        $password = $request->input('password');
+        $receive_alert = $request->input('receive_alert', 'off');
+        $email = str_replace(' ', '', $email);
 
-      $duplicate = User::where('email', $email)->first();
-      if ($duplicate) {
-        return response('duplicated email', 400);
-      }
+        $duplicate = User::where('email', $email)->first();
+        if ($duplicate) {
+          return response('duplicated email', 400);
+        }
 
-      $user = new User;
-      $user->first_name = $first_name;
-      $user->last_name = $last_name;
-      $user->email = $email;
-      $user->birthday = '';
-      $user->phone_number = $phone_number;
-      $user->user_type = 'customer';
-      $user->password = Hash::make($password);
-      $user->save();
+        $user = new User;
+        $user->first_name = $first_name;
+        $user->last_name = $last_name;
+        $user->email = $email;
+        $user->birthday = '';
+        $user->phone_number = $phone_number;
+        $user->user_type = 'customer';
+        $user->password = Hash::make($password);
+        $user->save();
 
-      $customer = new Customer;
-      $customer->user_id = $user->id;
-      $customer->receive_alert = $receive_alert == "on" ? 1 : 0;
-      $customer->save();
+        $customer = new Customer;
+        $customer->user_id = $user->id;
+        $customer->receive_alert = $receive_alert == "on" ? 1 : 0;
+        $customer->save();
 
-      session(['customer_email' => $email]);
-      return redirect()->route('customer.signup.basic');
+        $user = User::with('customer')->where('email', $email)->first();
+        auth()->login($user);
+        return redirect()->route('customer.signup.basic');
     }
 
     public function basic(Request $request)
@@ -85,7 +93,7 @@ class CustomerController extends Controller
 
     public function saveBasic(Request $request)
     {
-        $email = session('customer_email');
+        $email = auth()->user()->email;
         $gender = $request->input("basic-gender");
         $user = User::where('email', $email)->first();
         if (!$user || !$user->customer) {
@@ -125,7 +133,7 @@ class CustomerController extends Controller
     public function sizing(Request $request)
     {
         $gender = session('gender');
-        $email = session('customer_email');
+        $email = auth()->user()->email;
         if($gender == "male"){
             return view('com.customer.signup.sizing-men');
         }
@@ -135,7 +143,7 @@ class CustomerController extends Controller
     public function saveSizing(Request $request)
     {
         $gender = session('gender');
-        $email = session('customer_email');
+        $email = auth()->user()->email;
 
         $user = User::where('email', $email)->first();
         if (!$user || !$user->customer) {
@@ -173,7 +181,7 @@ class CustomerController extends Controller
     public function style(Request $request)
     {
         $gender = session('gender');
-        $email = session('customer_email');
+        $email = auth()->user()->email;
         if($gender == "male"){
             return view('com.customer.signup.style-men');
         }
@@ -189,7 +197,7 @@ class CustomerController extends Controller
 
     public function dislike(Request $request)
     {
-      $email = session('customer_email');
+      $email = auth()->user()->email;
       $style = $request->input("style");
       $materials = $request->input("dislike-casual");
       $patterns = $request->input("dislike-pattern");
@@ -216,7 +224,7 @@ class CustomerController extends Controller
 
     public function almostDone(Request $request)
     {
-      $email = session('customer_email');
+      $email = auth()->user()->email;
       $capsule = $request->input("capsule");
       $spend = $request->input("spend");
       $instagram = $request->input("instagram");
@@ -255,7 +263,7 @@ class CustomerController extends Controller
     public function payment(Request $request)
     {
         // $plan = Plan::first();
-        $email = session('customer_email');
+        $email = auth()->user()->email;
         $user = User::with('customer')->where('email', $email)->first();
         $intent = $user->createSetupIntent();
         $payment_method =$request->session()->get('payment_method');
@@ -265,13 +273,5 @@ class CustomerController extends Controller
     public function thankyou(Request $request)
     {
       return view('com.customer.customer-thankyou');
-    }
-
-    public function signin()
-    {
-      $email = session('customer_email');
-      $user = User::with('customer')->where('email', $email)->first();
-      auth()->login($user);
-      return redirect('/');
     }
 }
