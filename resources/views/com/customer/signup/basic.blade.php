@@ -271,7 +271,7 @@
 
     <div class="row item end-part">
         <div class="col-12">
-            <h5 class="sub-page-title text-center">Address</h5>
+            <h5 class="sub-page-title text-center">Shipping Address</h5>
         </div>
 
         <div class="col-6 offset-3">

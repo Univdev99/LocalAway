@@ -48,7 +48,7 @@
                                 </div>
                             </div> --}}
                             <div class="text-center mt-4">
-                                <a href="{{route('com.stylist.signin')}}" class="btn circle-btn btn-primary text-white font-weight-bold py-3 px-0 w-100" style="max-width: 200px">
+                                <a href="/" class="btn circle-btn btn-primary text-white font-weight-bold py-3 px-0 w-100" style="max-width: 200px">
                                     Home Page
                                 </a>
                             </div>

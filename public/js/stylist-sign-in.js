@@ -6,7 +6,7 @@ $(document).ready(function() {
     //         return false;
     //     }
     // });
-    moveProcess(30);
+    moveProcess(50);
 
     $(".plus").click(function() {
         hours = $(".hours").html();
@@ -30,89 +30,85 @@ $(document).ready(function() {
     // });
 
 
-    $(".step2").click(function() {
-        $(".email-alert").hide();
-        $(".pwd-alert").hide();
-        if (!$("#boutique-location").val()) {
-            $("#boutique-location").focus();
-            return;
-        }
+    // $("#stylist-signup").submit(function() {
+  
+    //     if (!$("#boutique-location").val()) {
+    //         $("#boutique-location").focus();
+    //         return;
+    //     }
 
-        if (!$("#boutique-name").val()) {
-            $("#boutique-name").focus();
-            return;
-        }
+    //     if (!$("#boutique-name").val()) {
+    //         $("#boutique-name").focus();
+    //         return;
+    //     }
 
-        if (!validate_email()) {
-            return;
-        }
+    //     if (!validate_email()) {
+    //         return;
+    //     }
 
-        if (!$("#boutique-password").val()) {
-            $("#boutique-password").focus();
-            return;
-        }
+    //     if (!$("#boutique-password").val()) {
+    //         $("#boutique-password").focus();
+    //         return;
+    //     }
 
-        if (!$("#boutique-password-confirm").val()) {
-            $("#boutique-password-confirm").focus();
-            return;
-        }
-
-        if ($("#boutique-password").val() != $("#boutique-password-confirm").val()) {
-            $("#boutique-password").focus();
-            $(".pwd-alert").show();
-            return;
-        }
-
-        if (!$("#boutique-phone").val()) {
-            $("#boutique-phone").focus();
-            return;
-        }
+    //     if (!$("#boutique-password-confirm").val()) {
+    //         $("#boutique-password-confirm").focus();
+    //         return;
+    //     }
 
 
-        let email = $("#boutique-email").val()
 
-        $.get("/stylist/check-email", { email })
-            .done(function(res) {
-                if (res == 'ok') {
-                    $(".step-2").css("display", "none");
-                    $("#step-3-boutique").css("display", "block");
-                    $(".back-image").css("background-image", "url('/images/stylist-sign-3.jpg')");
-                    $("#logo").get(0).scrollIntoView()
-                    $('#title').text(function(i) {
-                        return 'Enjoy the freedom to sell globally.';
-                    });
-                    moveProcess(70);
-                } else {
-                    $(".email-alert").show();
-                }
-            })
-            .fail(function() {})
-    });
+    //     if (!$("#boutique-phone").val()) {
+    //         $("#boutique-phone").focus();
+    //         return;
+    //     }
 
-    $(".step3").click(function() {
-        if ($("#boutique").prop("checked")) {
-            for (let index = 1; index < 4; index++) {
-                if (!isUrlValid($("#boutique-link" + index).val())) {
-                    $("#boutique-link" + index).focus();
-                    return false;
-                }
-            }
-        } else {
-            if (!isUrlValid($("#linkedin").val())) {
-                $("#linkedin").focus();
-                return false;
-            }
-            for (let index = 1; index < 4; index++) {
-                if (!isUrlValid($("#stylist-link" + index).val())) {
-                    $("#boutique-link" + index).focus();
-                    return false;
-                }
-            }
-        }
-        if (!isAgree()) {
-            return false;
-        }
-    });
+
+    //     let email = $("#boutique-email").val()
+
+        // $.get("/stylist/check-email", { email })
+        //     .done(function(res) {
+        //         if (res == 'ok') {
+        //             // $(".step-2").css("display", "none");
+        //             // $("#step-3-boutique").css("display", "block");
+        //             // $(".back-image").css("background-image", "url('/images/stylist-sign-3.jpg')");
+        //             // $("#logo").get(0).scrollIntoView()
+        //             // $('#title').text(function(i) {
+        //             //     return 'Enjoy the freedom to sell globally.';
+        //             // });
+        //             moveProcess(100);
+        //         } else {
+        //             $(".email-alert").show();
+        //             return false;
+        //         }
+        //     })
+        //     .fail(function() {})
+    // });
+
+    // $(".step3").click(function() {
+    //     if ($("#boutique").prop("checked")) {
+    //         for (let index = 1; index < 4; index++) {
+    //             if (!isUrlValid($("#boutique-link" + index).val())) {
+    //                 $("#boutique-link" + index).focus();
+    //                 return false;
+    //             }
+    //         }
+    //     } else {
+    //         if (!isUrlValid($("#linkedin").val())) {
+    //             $("#linkedin").focus();
+    //             return false;
+    //         }
+    //         for (let index = 1; index < 4; index++) {
+    //             if (!isUrlValid($("#stylist-link" + index).val())) {
+    //                 $("#boutique-link" + index).focus();
+    //                 return false;
+    //             }
+    //         }
+    //     }
+    //     if (!isAgree()) {
+    //         return false;
+    //     }
+    // });
 
     $("#stylist-signup").submit(function() {
         const hours = $(".hours").html();

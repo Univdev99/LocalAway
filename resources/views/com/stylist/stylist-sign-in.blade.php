@@ -38,32 +38,6 @@
                           <div class="d-flex" style="flex-direction: column;height: 100%;justify-content: space-between;">
                               <form id="stylist-signup" action="/stylist/signup" method="post" enctype="multipart/form-data">
                                   @csrf
-                                  {{-- <div id="step-1">
-                                      <h1 class="font-weight-bold mb-5 title">Are you representing a retail brand, boutique or are an independant stylist?</h1>
-                                      <label class="radio-container mb-4">
-                                          Boutique/Brand
-                                          <input type="radio" value="boutique" name="stylist-type" id="boutique" checked>
-                                          <span class="checkmark">
-                                              <i class="fas fa-check  check-sign"></i>
-                                          </span>
-                                      </label>
-                                      <label class="radio-container">
-                                          Independent
-                                          <input type="radio" value="independent" name="stylist-type" id="independent">
-                                          <span class="checkmark">
-                                              <i class="fas fa-check  check-sign"></i>
-                                          </span>
-                                      </label>
-                                      <div class="d-flex justify-content-end" style="margin-top: 7em;">
-                                          <div>
-                                            <a class="btn circle-btn btn-primary text-white font-weight-bold py-3 mb-4" id="step1">
-                                            Next Section
-                                            </a>
-                                            <span class="d-block opacity-25">I'm already part of the team! Sign in ...</span>
-                                          </div>
-                                      </div>
-                                  </div> --}}
-
                                   <div id="step-2-boutique" class="mt-5 step-2">
                                       <h1 class="font-weight-bold mb-5 title">We're excited to partner with you!<br>Welcome to the future of sustainable supply chain.</h1>
                                       <div class="">
@@ -72,12 +46,12 @@
                                           </span>
 
                                           <div class="form-group mt-4">
-                                            <label for="boutique-name" class="mt-4 text-secondary small">{{ __('Name') }}</label>
-                                            <input id="boutique-name" type="text" class="form-control border-none kt-portlet--border-bottom-danger" name="boutique-name" value="">
+                                            <label for="name" class="mt-4 text-secondary small">{{ __('Name') }}</label>
+                                            <input id="name" type="text" class="form-control border-none kt-portlet--border-bottom-danger" name="name" value="{{ old('name') }}" required>
                                          </div>
                                           <div class="form-group mt-4">
-                                              <label for="boutique-location" class="mt-4 text-secondary small">{{ __('Location') }}</label>
-                                              <input id="boutique-location" type="text" class="form-control border-none kt-portlet--border-bottom-danger" name="boutique-location" value="{{$location}}">
+                                              <label for="location" class="mt-4 text-secondary small">{{ __('Location') }}</label>
+                                              <input id="location" type="text" class="form-control border-none kt-portlet--border-bottom-danger" name="location" value="{{$location}}" readonly required>
                                           </div>
 
                                       </div>
@@ -97,40 +71,65 @@
                                               <h5 class='text-dark mt-4'>What is the best way to get in touch?</h5>
                                           </span>
                                           <div class="form-group mt-4">
-                                              <label for="boutique-email" class="mt-4 text-secondary small">{{ __('Email') }}</label>
-                                              <input id="boutique-email" type="email" class="form-control border-none kt-portlet--border-bottom-danger" name="boutique-email" value="" >
-                                                <span class="invalid-feedback email-alert" role="alert">
-                                                    <strong>The email has already been taken.</strong>
+                                              <label for="email" class="mt-4 text-secondary small">{{ __('Email') }}</label>
+                                              <input id="email" type="email" class="form-control border-none kt-portlet--border-bottom-danger @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required>
+                                                @error('email')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
                                                 </span>
+                                                @enderror
                                           </div>
                                           <div class="form-group mt-4">
-                                              <label for="boutique-password" class="mt-4 text-secondary small">{{ __('Password') }}</label>
-                                              <input id="boutique-password" type="password" class="form-control border-none kt-portlet--border-bottom-danger" name="boutique-password" value="" >
-                                                <span class="invalid-feedback pwd-alert" role="alert">
-                                                    <strong>The password confirmation does not match.</strong>
-                                                </span>
+                                              <label for="password" class="mt-4 text-secondary small">{{ __('Password') }}</label>
+                                              <input id="password" type="password" class="form-control border-none kt-portlet--border-bottom-danger @error('password') is-invalid @enderror" name="password" value="" required>
+                                                @error('password')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
                                           </div>
                                           <div class="form-group mt-4">
-                                              <label for="boutique-password-confirm" class="mt-4 text-secondary small">{{ __('Password Confirm') }}</label>
-                                              <input id="boutique-password-confirm" type="password" class="form-control border-none kt-portlet--border-bottom-danger" value="" >
+                                              <label for="password_confirmation" class="mt-4 text-secondary small">{{ __('Password Confirm') }}</label>
+                                              <input id="password_confirmation" type="password" class="form-control border-none kt-portlet--border-bottom-danger" name="password_confirmation" value="" required>
                                           </div>
                                           <div class="form-group mt-4">
-                                              <label for="boutique-phone" class="mt-4 text-secondary small">{{ __('Phone') }}</label>
-                                              <input id="boutique-phone" type="number" class="form-control border-none kt-portlet--border-bottom-danger" name="boutique-phone" value="" >
+                                              <label for="phone" class="mt-4 text-secondary small">{{ __('Phone') }}</label>
+                                              <input id="phone" type="number" class="form-control border-none kt-portlet--border-bottom-danger" name="phone" value="{{ old('phone') }}" required>
                                           </div>
                                           <div class="form-group mt-4">
-                                              <label for="boutique-notes" class="mt-4 text-secondary small">{{ __('Notes') }}</label>
-                                              <input id="boutique-notes" type="text" class="form-control border-none kt-portlet--border-bottom-danger" name="boutique-notes" value="" >
+                                              <label for="notes" class="mt-4 text-secondary small">{{ __('Notes') }}</label>
+                                              <input id="notes" type="text" class="form-control border-none kt-portlet--border-bottom-danger" name="notes" value="{{ old('notes') }}">
                                           </div>
                                       </div>
-                                      <div class="text-right" style="margin-top: 7em;">
-                                          <a class="btn circle-btn btn-primary text-white font-weight-bold py-3 step2" mode="boutique">
-                                          Next Section
-                                          </a>
-                                      </div>
+                                      <div class="mt-4">
+
+                                        <span class ='font-weight-bold question '>
+                                            Website Link, Social Media Pages
+                                            <div class="form-group ">
+                                                <label for="name" class=" text-secondary small">{{ __('URL') }}</label>
+                                                <input id="link1" type="text" class="url form-control border-none kt-portlet--border-bottom-danger" name="link1" value="{{ old('link1') }}">
+                                                <label for="name" class="text-secondary small">{{ __('URL') }}</label>
+                                                <input id="link2" type="text" class="url form-control border-none kt-portlet--border-bottom-danger" name="link2" value="{{ old('link2') }}">
+                                                <label for="name" class=" text-secondary small">{{ __('URL') }}</label>
+                                                <input id="link3" type="text" class="url form-control border-none kt-portlet--border-bottom-danger" name="link3" value="{{ old('link3') }}">
+                                            </div>
+                                        </span>
+                                    </div>
+                                    <div class='mt-5'>
+                                        <label class="radio-container">
+                                            <h5 class='text-dark px-2 mt-2 mb-4'>Please agree to our guidelines so that we can reach you.</h5>
+                                            <input id="agree" type="checkbox" name="radio" checked required>
+                                            <span class="checkmark">
+                                                <i class="fas fa-check check-sign "></i>
+                                            </span>
+                                        </label>
+                                    </div>
+                                    <div class="text-right" style="margin-top: 7em;">
+                                        <input class="btn circle-btn btn-primary text-white font-weight-bold py-3 step3" type="submit" value="Submit" />
+                                    </div>
                                   </div>
 
-                                  <div id="step-3-boutique" class="mt-5 step-3" style="display: none;">
+                                  {{-- <div id="step-3-boutique" class="mt-5 step-3" style="display: none;">
                                       <h1 class="font-weight-bold mb-5">We’re excited to partner with you! Welcome to the future of a sustainable supply chain.</h1>
                                       <div class="">
                                           <h5 class='text-dark mt-2 mb-4'>Martin, do you want to improve your chances? Send us  your resume and why you want ot be part of LocalAway?</h5>
@@ -179,7 +178,7 @@
                                       <div class="text-right" style="margin-top: 7em;">
                                           <input class="btn circle-btn btn-primary text-white font-weight-bold py-3 step3" type="submit" value="Submit" />
                                       </div>
-                                  </div>
+                                  </div> --}}
                               </form>
                           </div>
                       </div>

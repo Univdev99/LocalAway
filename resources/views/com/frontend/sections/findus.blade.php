@@ -15,21 +15,9 @@
           <div class="text-center">
             <small style="color: #c6a07b;">#shoplocal</small>
           </div>
-          <div class="mt-4">
-            <img class='' src="/images/ig.png" width="100%" alt="">
+          <div class="m-auto text-center">
+            <iframe src="https://snapwidget.com/embed/816686" class="snapwidget-widget" allowtransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden;  width:960px; height:160px"></iframe>
           </div>
-          <!-- <div class="js-carousel-1 owl-carousel mb-5" data-aos="fade-up" data-aos-delay="200">
-            @foreach($stylists as $stylist)
-            <div class="testimonial text-center slider-item">
-                <div class="author-image mb-3">
-                  <div class="img-container">
-                    <img src="/storage/uploads/{{$stylist->filename}}" alt="{{$stylist->title}}" class="mx-auto">
-                    <p class = "h4 mt-2 text-left text-black"> {{$stylist->title}}</p>
-                  </div>
-                </div>
-            </div>
-            @endforeach
-          </div>  -->
           <div class=" text-center">
             <i class="fab fa-instagram" style="color: #c6a07b;"></i><br>
             <small style="color: #c6a07b;">@localaway</small>
