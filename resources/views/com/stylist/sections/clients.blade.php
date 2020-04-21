@@ -8,7 +8,7 @@
 @section('content')
 <div class="container first-row">
     <div class="col-avatar">
-        <div class="kt-avatar kt-avatar--outline kt-avatar--circle m-4" id="kt_user_avatar_3">
+        <div class="kt-avatar kt-avatar--outline kt-avatar--circle" id="kt_user_avatar_3">
             <div class="kt-avatar__holder"></div>
             <label class="kt-avatar__upload" data-toggle="kt-tooltip" title="" data-original-title="Change avatar">
                 <i class="fa fa-pen"></i>
@@ -24,7 +24,7 @@
         <a href="/" class=""><u>www.boutique.com</u></a>
     </div>
     <div class="col-avatar">
-        <div class="kt-avatar kt-avatar--outline kt-avatar--circle m-4" id="kt_user_avatar_3">
+        <div class="kt-avatar kt-avatar--outline kt-avatar--circle" id="kt_user_avatar_3">
             <div class="kt-avatar__holder"></div>
             <label class="kt-avatar__upload" data-toggle="kt-tooltip" title="" data-original-title="Change avatar">
                 <i class="fa fa-pen"></i>
@@ -40,7 +40,7 @@
         <a href="/" class=""><u>www.boutique.com</u></a>
     </div>
     <div class="col-avatar">
-        <div class="kt-avatar kt-avatar--outline kt-avatar--circle m-4" id="kt_user_avatar_3">
+        <div class="kt-avatar kt-avatar--outline kt-avatar--circle" id="kt_user_avatar_3">
             <div class="kt-avatar__holder"></div>
             <label class="kt-avatar__upload" data-toggle="kt-tooltip" title="" data-original-title="Change avatar">
                 <i class="fa fa-pen"></i>
@@ -56,7 +56,7 @@
         <a href="/" class=""><u>www.boutique.com</u></a>
     </div>
     <div class="col-avatar">
-        <div class="kt-avatar kt-avatar--outline kt-avatar--circle m-4" id="kt_user_avatar_3">
+        <div class="kt-avatar kt-avatar--outline kt-avatar--circle" id="kt_user_avatar_3">
             <div class="kt-avatar__holder"></div>
             <label class="kt-avatar__upload" data-toggle="kt-tooltip" title="" data-original-title="Change avatar">
                 <i class="fa fa-pen"></i>
@@ -72,7 +72,7 @@
         <a href="/" class=""><u>www.boutique.com</u></a>
     </div>
     <div class="col-avatar">
-        <div class="kt-avatar kt-avatar--outline kt-avatar--circle m-4" id="kt_user_avatar_3">
+        <div class="kt-avatar kt-avatar--outline kt-avatar--circle" id="kt_user_avatar_3">
             <div class="kt-avatar__holder"></div>
             <label class="kt-avatar__upload" data-toggle="kt-tooltip" title="" data-original-title="Change avatar">
                 <i class="fa fa-pen"></i>
@@ -88,7 +88,7 @@
         <a href="/" class=""><u>www.boutique.com</u></a>
     </div>
     <div class="col-avatar">
-        <div class="kt-avatar kt-avatar--outline kt-avatar--circle m-4" id="kt_user_avatar_3">
+        <div class="kt-avatar kt-avatar--outline kt-avatar--circle" id="kt_user_avatar_3">
             <div class="kt-avatar__holder"></div>
             <label class="kt-avatar__upload" data-toggle="kt-tooltip" title="" data-original-title="Change avatar">
                 <i class="fa fa-pen"></i>
@@ -104,7 +104,7 @@
         <a href="/" class=""><u>www.boutique.com</u></a>
     </div>
     <div class="col-avatar">
-        <div class="kt-avatar kt-avatar--outline kt-avatar--circle m-4" id="kt_user_avatar_3">
+        <div class="kt-avatar kt-avatar--outline kt-avatar--circle" id="kt_user_avatar_3">
             <div class="kt-avatar__holder"></div>
             <label class="kt-avatar__upload" data-toggle="kt-tooltip" title="" data-original-title="Change avatar">
                 <i class="fa fa-pen"></i>
@@ -120,7 +120,7 @@
         <a href="/" class=""><u>www.boutique.com</u></a>
     </div>
     <div class="col-avatar">
-        <div class="kt-avatar kt-avatar--outline kt-avatar--circle m-4" id="kt_user_avatar_3">
+        <div class="kt-avatar kt-avatar--outline kt-avatar--circle" id="kt_user_avatar_3">
             <div class="kt-avatar__holder"></div>
             <label class="kt-avatar__upload" data-toggle="kt-tooltip" title="" data-original-title="Change avatar">
                 <i class="fa fa-pen"></i>

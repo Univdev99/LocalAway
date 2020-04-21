@@ -33,6 +33,9 @@ class CustomerController extends Controller
     {
       $user_id = auth()->user()->id;
       $customer = Customer::where('user_id', $user_id)->first();
+      if(!$customer){
+        return redirect()->route('customer.signup.basic');
+      }
       return view('com.customer.section.preferences', [
         'gender' => $customer->gender,
         'destination' => $customer->street_address,
@@ -53,6 +56,13 @@ class CustomerController extends Controller
 
     public function saveAccount(Request $request)
     {
+        $request->validate([
+          'first_name' => ['required', 'string', 'max:255'],
+          'last_name' => ['required', 'string', 'max:255'],
+          'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+          'password' => ['required', 'string', 'min:6', 'confirmed'],
+        ]);
+
         $first_name = $request->input('first_name');
         $last_name = $request->input('last_name');
         $email = $request->input('email');
@@ -60,11 +70,6 @@ class CustomerController extends Controller
         $password = $request->input('password');
         $receive_alert = $request->input('receive_alert', 'off');
         $email = str_replace(' ', '', $email);
-
-        $duplicate = User::where('email', $email)->first();
-        if ($duplicate) {
-          return response('duplicated email', 400);
-        }
 
         $user = new User;
         $user->first_name = $first_name;

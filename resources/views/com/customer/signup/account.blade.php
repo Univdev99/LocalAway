@@ -16,21 +16,31 @@
         <div class="col-6 col-lg-6">
             <div class="my-form-row">
             <label for="step1-first-name">*First name</label>
-            <input id="step1-first-name" name="first_name" class="form-control" required />
+            <input id="step1-first-name" name="first_name" class="form-control" value="{{ old('first_name') }}" required />
+            @error('first_name')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
             </div>
         </div>
 
         <div class="col-6 col-lg-6">
             <div class="my-form-row">
             <label for="step1-last-name">*Last name</label>
-            <input id="step1-last-name" name="last_name" class="form-control" required />
+            <input id="step1-last-name" name="last_name" class="form-control" value="{{ old('last_name') }}" required />
+            @error('last_name')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
             </div>
         </div>
 
         <div class="col-12">
             <div class="my-form-row">
                 <label for="step1-email">*Email</label>
-                <input type="email" id="step1-email" name="email" class="form-control @error('email') is-invalid @enderror" required />
+                <input type="email" id="step1-email" name="email" class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}" required />
                 @error('email')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -54,14 +64,14 @@
         <div class="col-12">
             <div class="my-form-row">
             <label for="step1-confirm-password">*Confirm your Password</label>
-            <input id="step1-confirm-password" type="password" class="form-control" required />
+            <input id="step1-confirm-password" name="password_confirmation" type="password" class="form-control" required />
             </div>
         </div>
 
         <div class="col-12 col-lg-6">
             <div class="my-form-row">
             <label for="step1-phone-number">*Phone Number</label>
-            <input id="step1-phone-number" class="form-control" name="phone_number" required>
+            <input id="step1-phone-number" class="form-control" name="phone_number" value="{{ old('phone_number') }}" required>
             </div>
         </div>
 

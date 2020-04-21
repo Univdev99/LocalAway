@@ -51,7 +51,7 @@
                                          </div>
                                           <div class="form-group mt-4">
                                               <label for="location" class="mt-4 text-secondary small">{{ __('Location') }}</label>
-                                              <input id="location" type="text" class="form-control border-none kt-portlet--border-bottom-danger" name="location" value="{{$location}}" readonly required>
+                                              <input id="location" type="text" class="form-control border-none kt-portlet--border-bottom-danger" name="location" value=" @if(old('location')) {{ old('location') }} @else {{$location}} @endif" required>
                                           </div>
 
                                       </div>
