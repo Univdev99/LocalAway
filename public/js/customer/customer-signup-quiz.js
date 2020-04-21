@@ -205,7 +205,7 @@ $(function() {
 
     $('#calendar').on('changeDate', function(event) {
         var date = event.date;
-        var str = date.getMonth() + '/' + date.getDate() + '/' + date.getFullYear();
+        var str = date.toLocaleDateString();
         $('#trip-date').val(str);
     });
 
@@ -258,6 +258,7 @@ $(function() {
             return date;
         }
         var today = new Date();
-        $('#calendar').datepicker("setDate", today.addDays(10) );
+        var d = today.addDays(10);
+        $('#calendar').datepicker("setDate",  new Date(d.getFullYear(), d.getMonth(), d.getDate()));
     });
 })

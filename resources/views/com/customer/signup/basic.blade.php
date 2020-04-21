@@ -97,7 +97,10 @@
 
     <div class="item">
         <div class="my-form-row text-center mx-auto">
-            <p>What date do you need your capsule by?<br></p><input type="button" id="basic-asap" class="round-btn p-2" value="ASAP"/>
+            <div class="row">
+                <p class="my-auto mx-1">What date do you need your capsule by?<br></p>
+                <input type="button" id="basic-asap" class="round-btn p-2" value="ASAP"/>
+            </div>
             <div id="calendar"></div>
 
             <label for="trip-date" class="text-left">*Date</label>

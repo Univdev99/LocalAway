@@ -652,6 +652,7 @@ input[type=checkbox] {
 
 input:checked+.select-btn {
     background-color: #00BFAF;
+    color: white!important;
 }
 
 .text-danger {
