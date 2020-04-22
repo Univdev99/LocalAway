@@ -23,7 +23,7 @@
 
 .kt-avatar.kt-avatar--circle .kt-avatar__upload {
     right: 0;
-    top: 5px;
+    top: 85px;
 }
 
 .kt-avatar .kt-avatar__upload {
@@ -43,7 +43,7 @@
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    background-color: #fff;
+    background-color: #fd5a45;
     -webkit-box-shadow: 0 0 13px 0 rgba(0, 0, 0, .1);
     box-shadow: 0 0 13px 0 rgba(0, 0, 0, .1);
     -webkit-transition: all .3s;
@@ -51,7 +51,7 @@
 }
 
 .kt-avatar .kt-avatar__upload i {
-    color: #366cf3;
+    color: white;
     font-size: .9rem;
 }
 

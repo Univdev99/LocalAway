@@ -200,7 +200,7 @@ $(function() {
         todayHighlight: true,
         inline: true,
         sideBySide: true,
-        startDate: '+10d'
+        startDate: '+9d'
     });
 
     $('#calendar').on('changeDate', function(event) {
@@ -229,7 +229,7 @@ $(function() {
 
     $('.checkDate').datepicker({
         format: 'mm/dd/yyyy',
-        startDate: '+10d',
+        startDate: '+9d',
         todayHighlight: true
     });
 

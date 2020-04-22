@@ -13,7 +13,7 @@
         <div class="kt-avatar kt-avatar--outline kt-avatar--circle mx-4 mb-3" id="kt_user_avatar_3">
             <div class="kt-avatar__holder"></div>
             <label class="kt-avatar__upload" data-toggle="kt-tooltip" title="" data-original-title="Change avatar">
-                <i class="fa fa-pen"></i>
+                <i class="fa fa-plus"></i>
                 <input type="file" name="profile_avatar" accept=".png, .jpg, .jpeg">
             </label>
             <span class="kt-avatar__cancel" data-toggle="kt-tooltip" title="" data-original-title="Cancel avatar">

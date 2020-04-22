@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
+use Stevebauman\Location\Location;
 
 use App\Upload;
 use App\User;
@@ -93,7 +94,14 @@ class CustomerController extends Controller
 
     public function basic(Request $request)
     {
-        return view('com.customer.signup.basic');
+      $location = new Location();
+      $position = $location->get($request->ip());
+      if ($position) {
+          $location = $position->countryName.", ".$position->cityName;
+      } else {
+          $location = 'Undefined Country';
+      }
+        return view('com.customer.signup.basic', ['location' => $location]);
     }
 
     public function saveBasic(Request $request)

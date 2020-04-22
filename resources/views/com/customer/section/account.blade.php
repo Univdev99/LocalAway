@@ -60,7 +60,51 @@
                         </div>
                     </div>
                     <div class="col-12 mt-4">
+                        <h3 class="my-2"> Shipping Address</h3>
+                        <button class="btn btn-block text-white btn-brown my-2 px-0 btn-shipping">Add Address</button>
+                        <div class="row shipping-group" style="display:none;">
+                            <div class="col-12">
+                                <label for="shipping-name">Name</label>
+                                <input id="shipping-name" name="shipping-name" class="form-control"/>
+                            </div>
+                            <div class="col-12">
+                                <label for="shipping-address1">Street Address1</label>
+                                <input id="shipping-address1" name="shipping-address1" class="form-control"/>
+                            </div>
+                            <div class="col-12">
+                                <label for="shipping-address2">Street Address2</label>
+                                <input id="shipping-address2" name="shipping-address2" class="form-control"/>
+                            </div>
+                            <div class="col-5">
+                                <label for="shipping-city">City</label>
+                                <input id="shipping-city" name="shipping-city" class="form-control"/>
+                            </div>
+                            <div class="col-4">
+                                <label for="shipping-state">State</label>
+                                <input id="shipping-state" name="shipping-state" class="form-control" />
+                            </div>
+                            <div class="col-3">
+                                <label for="shipping-code">Zip Code</label>
+                                <input id="shipping-code" name="shipping-code" class="form-control"/>
+                            </div>
+                            <div class="col-12">
+                                <label for="shipping-country">Country</label>
+                                <input id="shipping-country" name="shipping-country" class="form-control"/>
+                            </div>
+                            <div class="col-12">
+                                <label for="shipping-phone">Phone</label>
+                                <input id="shipping-phone" name="shipping-phone" class="form-control" type="tel"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 mt-4">
                         <h3 class="my-2"> Billing Address</h3>
+                        <div class="checkbox checkbox-info checkbox-circle check-billing">
+                            <input id="check-billing" class="styled" type="checkbox">
+                            <label for="check-billing">
+                                Same as Shipping
+                            </label>
+                        </div>
                         <button class="btn btn-block text-white btn-brown mt-2 px-0 btn-billing">Add Address</button>
                         <div class="row billing-group" style="display:none;">
                             <div class="col-12">
@@ -97,51 +141,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 mt-4">
-                        <h3 class="my-2"> Shipping Address</h3>
-                        <div class="checkbox checkbox-info checkbox-circle check-billing">
-                            <input id="check-billing" class="styled" type="checkbox">
-                            <label for="check-billing">
-                                Same as Billing
-                            </label>
-                        </div>
-                        <button class="btn btn-block text-white btn-brown my-2 px-0 btn-shipping">Add Address</button>
-                        <div class="row shipping-group" style="display:none;">
-                            <div class="col-12">
-                                <label for="shipping-name">Name</label>
-                                <input id="shipping-name" name="shipping-name" class="form-control"/>
-                            </div>
-                            <div class="col-12">
-                                <label for="shipping-address1">Street Address1</label>
-                                <input id="shipping-address1" name="shipping-address1" class="form-control"/>
-                            </div>
-                            <div class="col-12">
-                                <label for="shipping-address2">Street Address2</label>
-                                <input id="shipping-address2" name="shipping-address2" class="form-control"/>
-                            </div>
-                            <div class="col-5">
-                                <label for="shipping-city">City</label>
-                                <input id="shipping-city" name="shipping-city" class="form-control"/>
-                            </div>
-                            <div class="col-4">
-                                <label for="shipping-state">State</label>
-                                <input id="shipping-state" name="shipping-state" class="form-control" />
-                            </div>
-                            <div class="col-3">
-                                <label for="shipping-code">Zip Code</label>
-                                <input id="shipping-code" name="shipping-code" class="form-control"/>
-                            </div>
-                            <div class="col-12">
-                                <label for="shipping-country">Country</label>
-                                <input id="shipping-country" name="shipping-country" class="form-control"/>
-                            </div>
-                            <div class="col-12">
-                                <label for="shipping-phone">Phone</label>
-                                <input id="shipping-phone" name="shipping-phone" class="form-control" type="tel"/>
-                            </div>
-                        </div>
-                        <h5 class="my-5 "><u><a href="#">Contact us</a></u> with questions</h5>
-                    </div>
+                    
+                    <h5 class="my-5 "><u><a href="#">Contact us</a></u> with questions</h5>
                 </div>
             </div>
         </div>
