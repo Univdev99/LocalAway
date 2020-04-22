@@ -26,7 +26,7 @@
             <small>{{ $user->customer->state }}</small><br>
 
             <input type="hidden" value="{{ $user->email }}" id="user_email">
-            <p style="font-size:20px;" class="mt-3"> How would you like to pay?<br>Only $20 due now for styling fee.</p>
+            <p style="font-size:20px;" class="mt-3"> How would you like to pay?<br>Only $19 due now for styling fee.</p>
 
             <label class="radio-container mb-2">
                 Credit Card
@@ -96,7 +96,7 @@
                         ]) !!}
                 </div>
                 <div class="form-group mt-5 text-center">
-                    <input id="submitBtn" type="submit" class="btn text-white text-center btn-order" data-secret="{{ $intent->client_secret }}" value="Complete Order: $20.00" />
+                    <input id="submitBtn" type="submit" class="btn text-white text-center btn-order" data-secret="{{ $intent->client_secret }}" value="Complete Order: $19.00" />
                 </div>
                 <div class="row">
                 <div class="col-md-12">
@@ -122,11 +122,11 @@
             </div>
             <div class='row'>
 				<div class="col-6">
-					<p><small>Styling Fee for Trip Capsule<br>Waived if any items purchased</small></p>
-					<p style="font-size: 9px;">Includes: <br>Hand-selected items from a local stylist <br>Customized map for local shopping</p>
+					<p><small>Styling Fee for Capsule<br>Waived if any items purchased</small></p>Includes Hand-selected items from local stylist
+					<p style="font-size: 9px;">Includes: <br>Hand-selected items from local stylist </p>
 				</div>
 				<div class="col-6">
-					<p class="float-right"><small>$20</small></p>
+					<p class="float-right"><small>$19</small></p>
 				</div>
 			</div>
 			<div class='row mt-3'>
@@ -134,7 +134,7 @@
 					<small>Subtotal</small>
 				</div>
 				<div class="col-6">
-					<small class="float-right">$20</small>
+					<small class="float-right">$19</small>
 				</div>
 			</div>
 			<div class='row mt-1'>
@@ -158,7 +158,7 @@
 					<small>Total Due</small>
 				</div>
 				<div class="col-6">
-					<small class="float-right">$20</small>
+					<small class="float-right">$19</small>
 				</div>
 			</div>
 			<div class="form-group mt-5 text-center">

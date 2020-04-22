@@ -19,7 +19,7 @@
             </span>
         </div>
         <div class="name text-center my-auto">
-            <h5> {{auth()->user()->first_name}} {{auth()->user()->last_name}}</h5>
+            <h5> client</h5>
         </div>
         <a href="/" class=""><u>www.boutique.com</u></a>
     </div>
@@ -35,7 +35,7 @@
             </span>
         </div>
         <div class="name text-center my-auto">
-            <h5> {{auth()->user()->first_name}} {{auth()->user()->last_name}}</h5>
+            <h5> client</h5>
         </div>
         <a href="/" class=""><u>www.boutique.com</u></a>
     </div>
@@ -51,7 +51,7 @@
             </span>
         </div>
         <div class="name text-center my-auto">
-            <h5> {{auth()->user()->first_name}} {{auth()->user()->last_name}}</h5>
+            <h5> client</h5>
         </div>
         <a href="/" class=""><u>www.boutique.com</u></a>
     </div>
@@ -67,7 +67,7 @@
             </span>
         </div>
         <div class="name text-center my-auto">
-            <h5> {{auth()->user()->first_name}} {{auth()->user()->last_name}}</h5>
+            <h5> client</h5>
         </div>
         <a href="/" class=""><u>www.boutique.com</u></a>
     </div>
@@ -83,7 +83,7 @@
             </span>
         </div>
         <div class="name text-center my-auto">
-            <h5> {{auth()->user()->first_name}} {{auth()->user()->last_name}}</h5>
+            <h5> client</h5>
         </div>
         <a href="/" class=""><u>www.boutique.com</u></a>
     </div>
@@ -99,7 +99,7 @@
             </span>
         </div>
         <div class="name text-center my-auto">
-            <h5> {{auth()->user()->first_name}} {{auth()->user()->last_name}}</h5>
+            <h5> client</h5>
         </div>
         <a href="/" class=""><u>www.boutique.com</u></a>
     </div>
@@ -115,7 +115,7 @@
             </span>
         </div>
         <div class="name text-center my-auto">
-            <h5> {{auth()->user()->first_name}} {{auth()->user()->last_name}}</h5>
+            <h5> client</h5>
         </div>
         <a href="/" class=""><u>www.boutique.com</u></a>
     </div>
@@ -131,7 +131,7 @@
             </span>
         </div>
         <div class="name text-center my-auto">
-            <h5> {{auth()->user()->first_name}} {{auth()->user()->last_name}}</h5>
+            <h5> client</h5>
         </div>
         <a href="/" class=""><u>www.boutique.com</u></a>
     </div>

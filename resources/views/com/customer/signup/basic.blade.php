@@ -135,8 +135,25 @@
             </div>
         </div>
     </div>
-
     <div class="row item item-select">
+        <div class="col-xl-6 col-lg-7 col-md-10 text-center mx-auto">
+            <div class="my-form-row">
+                <p>I want to try local styles from this city.</p>
+
+                <div class="row justify-content-center">
+                    <input type="radio" id="ship-1" name="basic-ship" data-next="1" value="hotel" checked/>
+                    <label for="ship-1" class="select-btn">Hotel</label>
+
+                    <input type="radio" id="ship-2" name="basic-ship" data-next="2" value="airbnb"/>
+                    <label for="ship-2" class="select-btn">Airbnb</label>
+
+                    <input type="radio" id="ship-3" name="basic-ship" data-next="3" value="home"/>
+                    <label for="ship-3" class="select-btn">Home</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{-- <div class="row item item-select">
         <div class="col-xl-6 col-lg-7 col-md-10 text-center mx-auto">
             <div class="my-form-row">
                 <p>Ship my items to</p>
@@ -153,9 +170,9 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
-    <div class="row item end-part" >
+    {{-- <div class="row item end-part" >
         <div class="col-12">
             <h5 class="sub-page-title text-center">Hotel Details</h5>
         </div>
@@ -270,7 +287,7 @@
             <input id="basic-check-out" type="text" class="form-control checkDate" name="check-out" required readonly=""/>
             </div>
         </div>
-    </div>
+    </div> --}}
 
     <div class="row item end-part">
         <div class="col-12">
