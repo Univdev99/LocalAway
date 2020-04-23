@@ -114,6 +114,6 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
     Route::get('/customer/signup/thank-you', 'CustomerController@thankyou')->name('customer.signup.thankyou');
 
-    Route::get('/phpinfo', 'FileController@phpinfo');
+    // Route::get('/phpinfo', 'FileController@phpinfo');
 
 

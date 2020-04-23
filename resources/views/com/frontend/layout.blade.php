@@ -68,6 +68,7 @@
         <script src="js/jquery.timepicker.min.js"></script>
         <script src="js/main.js"></script>
         <script src="js/home.js"></script>
+        <script src="https://apps.elfsight.com/p/platform.js" defer></script>
         {{-- @if (config('app.env') == 'local')
             <script src="http://localhost:35729/livereload.js"></script>
         @endif --}}

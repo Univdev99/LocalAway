@@ -591,3 +591,7 @@ h4 {
        width: 50%;
    } 
 }
+
+.instagram-layout .eapps-widget>a:last-child {
+    filter:opacity(0);
+}

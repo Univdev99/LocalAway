@@ -237,11 +237,6 @@ class FileController extends Controller
         // dd("The code took " . ($end - $start) . " seconds to complete.");
     }
 
-    public function phpinfo()
-    {
-        dd(phpinfo());
-    }
-
     /**
      * Resize image given a height and width and return raw image data.
      *
@@ -343,4 +338,40 @@ class FileController extends Controller
 
         return $destination;
     }
+
+    // public function get_instagram($username)
+    // {
+    //     $profileUrl = "https://www.instagram.com/$username/?__a=1";
+
+    //     $iterationUrl = $profileUrl;
+    //     $tryNext = true;
+    //     $limit = 100;
+    //     $found = 0;
+    //     while ($tryNext) {
+    //         $tryNext = false;
+    //         $response = file_get_contents($iterationUrl);
+    //         if ($response === false) {
+    //             break;
+    //         }
+    //         $data = json_decode($response, true);
+    //         if ($data === null) {
+    //             break;
+    //         }
+    //         $media = $data['graphql']['user']['edge_owner_to_timeline_media'];
+    //         $found += count($media['edges']);
+    //         dump($media['edges']);
+    //         if ($media['page_info']['has_next_page'] && $found < $limit) {
+    //             $iterationUrl = $profileUrl . '&max_id=' . $media['page_info']['end_cursor'];
+    //             $tryNext = true;
+    //         }
+    //     }
+    //     dd("End");
+    // }
+    
+    // public function phpinfo()
+    // {
+    //     $username = "localaway";
+    //     $images = $this->get_instagram($username);
+    //     dd($images);
+    // }
 }
