@@ -323,7 +323,7 @@ p {
 }
 
 .my-form-row input {
-    padding: 0;
+    /* padding: 0; */
 }
 
 .my-form-row select {

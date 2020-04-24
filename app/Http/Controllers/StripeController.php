@@ -16,7 +16,7 @@ class StripeController extends Controller
     //
     public function store(Request $request)
     {
-        $amount = 20;
+        $amount = 19;
         $input = $request->all();
         $token = $input['stripeToken'];
         $email = $input['email'];
@@ -31,14 +31,14 @@ class StripeController extends Controller
 
             $charge = Charge::create(array(
                 'customer' => $customer->id,
-                'amount' => 1999,
+                'amount' => $amount,
                 'currency' => 'usd'
             ));
             // return  back()->with('success', 'Charge successful!')->with('payment_method', 'stripe');
             return redirect()->route('customer.signup.thankyou');
 
         } catch (Exception $ex) {
-            return back()->with('success', $ex->getMessage())->with('payment_method', 'stripe');
+            return back()->with('stripe-message', $ex->getMessage())->with('payment_method', 'stripe');
         }
     }
 

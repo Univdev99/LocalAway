@@ -245,9 +245,11 @@ $(function() {
     $('#step1-receive-alert').click(function(){
         if(!$('#step1-phone-number').val()){
             $('.phone-alert').show();
+            return false;
         }
         else{
             $('.phone-alert').hide();
+            return true;
         }
     });
 

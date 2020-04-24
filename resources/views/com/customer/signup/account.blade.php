@@ -71,7 +71,7 @@
         <div class="col-12 col-lg-6">
             <div class="my-form-row">
             <label for="step1-phone-number">*Phone Number</label>
-            <input id="step1-phone-number" class="form-control" name="phone_number" value="{{ old('phone_number') }}" required>
+            <input id="step1-phone-number" class="form-control" name="phone_number" type="number" value="{{ old('phone_number') }}" required>
             </div>
         </div>
 

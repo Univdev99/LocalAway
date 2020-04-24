@@ -46,11 +46,11 @@
                                           </span>
 
                                           <div class="form-group mt-4">
-                                            <label for="name" class="mt-4 text-secondary small">{{ __('Name') }}</label>
+                                            <label for="name" class="mt-1 text-secondary small">{{ __('Name') }}</label>
                                             <input id="name" type="text" class="form-control border-none kt-portlet--border-bottom-danger" name="name" value="{{ old('name') }}" required>
                                          </div>
                                           <div class="form-group mt-4">
-                                              <label for="location" class="mt-4 text-secondary small">{{ __('Location') }}</label>
+                                              <label for="location" class="mt-1 text-secondary small">{{ __('Location') }}</label>
                                               <input id="location" type="text" class="form-control border-none kt-portlet--border-bottom-danger" name="location" value=" @if(old('location')) {{ old('location') }} @else {{$location}} @endif" required>
                                           </div>
 
@@ -70,8 +70,23 @@
                                           <span class ='font-weight-bold question'>Question 3
                                               <h5 class='text-dark mt-4'>What is the best way to get in touch?</h5>
                                           </span>
+                                          <div class="form-group mt-4 row">
+                                            <div class="col-sm-6">
+                                                <div class="my-form-row">
+                                                    <label for="first-name" class="mt-1 text-secondary small">{{ __('First name') }}</label>
+                                                    <input id="first-name" name="first_name" class="form-control" value="{{ old('first_name') }}" required />
+                                                </div>
+                                            </div>
+                                    
+                                            <div class="col-sm-6">
+                                                <div class="my-form-row">
+                                                    <label for="last-name" class="mt-1 text-secondary small">{{ __('Last name') }}</label>
+                                                    <input id="last-name" name="last_name" class="form-control" value="{{ old('last_name') }}" required />
+                                                </div>
+                                            </div>
+                                          </div>
                                           <div class="form-group mt-4">
-                                              <label for="email" class="mt-4 text-secondary small">{{ __('Email') }}</label>
+                                              <label for="email" class="mt-1 text-secondary small">{{ __('Email') }}</label>
                                               <input id="email" type="email" class="form-control border-none kt-portlet--border-bottom-danger @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required>
                                                 @error('email')
                                                 <span class="invalid-feedback" role="alert">
@@ -80,7 +95,7 @@
                                                 @enderror
                                           </div>
                                           <div class="form-group mt-4">
-                                              <label for="password" class="mt-4 text-secondary small">{{ __('Password') }}</label>
+                                              <label for="password" class="mt-1 text-secondary small">{{ __('Password') }}</label>
                                               <input id="password" type="password" class="form-control border-none kt-portlet--border-bottom-danger @error('password') is-invalid @enderror" name="password" value="" required>
                                                 @error('password')
                                                     <span class="invalid-feedback" role="alert">
@@ -89,20 +104,19 @@
                                                 @enderror
                                           </div>
                                           <div class="form-group mt-4">
-                                              <label for="password_confirmation" class="mt-4 text-secondary small">{{ __('Password Confirm') }}</label>
+                                              <label for="password_confirmation" class="mt-1 text-secondary small">{{ __('Password Confirm') }}</label>
                                               <input id="password_confirmation" type="password" class="form-control border-none kt-portlet--border-bottom-danger" name="password_confirmation" value="" required>
                                           </div>
                                           <div class="form-group mt-4">
-                                              <label for="phone" class="mt-4 text-secondary small">{{ __('Phone') }}</label>
+                                              <label for="phone" class="mt-1 text-secondary small">{{ __('Phone') }}</label>
                                               <input id="phone" type="number" class="form-control border-none kt-portlet--border-bottom-danger" name="phone" value="{{ old('phone') }}" required>
                                           </div>
                                           <div class="form-group mt-4">
-                                              <label for="notes" class="mt-4 text-secondary small">{{ __('Notes') }}</label>
+                                              <label for="notes" class="mt-1 text-secondary small">{{ __('Notes') }}</label>
                                               <input id="notes" type="text" class="form-control border-none kt-portlet--border-bottom-danger" name="notes" value="{{ old('notes') }}">
                                           </div>
                                       </div>
                                       <div class="mt-4">
-
                                         <span class ='font-weight-bold question '>
                                             Website Link, Social Media Pages
                                             <div class="form-group ">

@@ -179,6 +179,8 @@ return [
 
         App\Providers\MenuServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
+
+        Srmklive\PayPal\Providers\PayPalServiceProvider::class
     ],
 
     /*

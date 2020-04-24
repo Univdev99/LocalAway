@@ -45,12 +45,25 @@ class StylistController extends Controller
 
     public function profile(Request $request)
     {
-        return view('com.stylist.sections.profile');
+        $stylist = Stylist::where('user_id', $request->user()->id)->first();
+        return view('com.stylist.sections.profile', [
+            'name'=> $stylist->stylist_name,
+            'link1' => $stylist->relevant_link1,
+            'link2' => $stylist->relevant_link2, 
+            'link3' => $stylist->relevant_link3,
+            'notes' => $stylist->notes
+            ]);
     }
 
     public function clients(Request $request)
     {
+
         return view('com.stylist.sections.clients');
+    }
+
+    public function myshop(Request $request)
+    {
+        
     }
 
     public function closet(Request $request)
@@ -93,17 +106,10 @@ class StylistController extends Controller
             'password' => ['required', 'string', 'min:6', 'confirmed']
         ]);
 
-        $name = $request->input('name');
         $user = new User;
         $user->user_type = 'stylist';
-        $names = explode(' ', $name);
-        if (count($names) > 0) {
-            $user->first_name = $names[0];
-            $user->last_name = '';
-        }
-        if (count($names) > 1) {
-            $user->last_name = $names[1];
-        }
+        $user->first_name = $request->input('first_name');
+        $user->last_name = $request->input('last_name');
         $user->birthday = '';
         $user->phone_number = $request->input('phone');
         $user->email = $request->input('email');
@@ -115,7 +121,7 @@ class StylistController extends Controller
         $stylist->stylist_type = "boutique";
         $stylist->location = $request->input('location');
         $stylist->work_hour = $request->input('hours');
-        $stylist->stylist_name = $name;
+        $stylist->stylist_name = $request->input('name');
         $stylist->notes = $request->input('notes');
         $stylist->relevant_link1 = $request->input('link1');
         $stylist->relevant_link2 = $request->input('link2');

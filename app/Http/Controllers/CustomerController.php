@@ -119,6 +119,7 @@ class CustomerController extends Controller
         $customer->age_range = $request->input('basic-age');
         $date = $request->input('capsule-date');
         $customer->capsule_date = date_create_from_format("m/d/Y",$date);
+        $customer->location = $request->input('basic-location');
         $ship_type = $request->input('basic-ship');
         $customer->ship_type = $ship_type;
         $customer->street_address = $request->input('street-address');
@@ -279,8 +280,7 @@ class CustomerController extends Controller
         $email = auth()->user()->email;
         $user = User::with('customer')->where('email', $email)->first();
         $intent = $user->createSetupIntent();
-        $payment_method =$request->session()->get('payment_method');
-        return view('com.customer.signup.payment', ['user' => $user, 'intent' => $intent, 'payment_method' => $payment_method ]);
+        return view('com.customer.signup.payment', ['user' => $user, 'intent' => $intent ]);
     }
 
     public function thankyou(Request $request)

@@ -26,24 +26,24 @@
             <small>{{ $user->customer->state }}</small><br>
 
             <input type="hidden" value="{{ $user->email }}" id="user_email">
-            <p style="font-size:20px;" class="mt-3"> How would you like to pay?<br>Only $19 due now for styling fee.</p>
+            <p style="font-size:20px;" class="mt-3"> How would you like to pay? <br> Only $19 due now for styling fee.</p>
 
             <label class="radio-container mb-2">
                 Credit Card
-                <input type="radio" name="pay_type" value="credit" @if($payment_method == 'stripe') checked @endif>
+                <input type="radio" name="pay_type" value="credit" checked>
                 <span class="checkmark">
                   <i class="fas fa-check check-sign"></i>
                 </span>
             </label>
 
-            <div id="stripe-form" class="p-3 @if($payment_method != 'stripe') d-none @endif">
+            <div id="stripe-form" class="p-3">
 
             {!! Form::open(['url' => route('customer.signup.payment.stripe'), 'data-parsley-validate', 'id' => 'payment-form']) !!}
-                @if ($message = Session::get('success'))
-                <div class="alert alert-success alert-block">
-                  <button type="button" class="close" data-dismiss="alert">×</button>
-                        <strong>{{ $message }}</strong>
-                </div>
+                @if ($message = Session::get('stripe-message'))
+                    <div class="alert alert-success alert-block">
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+                            <strong>{{ $message }}</strong>
+                    </div>
                 @endif
 
                 <div class="form-group" id="cc-group">
@@ -113,6 +113,16 @@
                     <i class="fas fa-check check-sign"></i>
                 </span>
             </label>
+            @if ($message = Session::get('paypal-message'))
+                <div class="alert alert-success alert-block">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                        <strong>{{ $message }}</strong>
+                </div>
+            @endif
+            <div class="form-group mt-5 text-center d-none" id="paypal-form">
+                <a href="{{route('payment')}}" class="btn text-white text-center btn-order">Complete Order: $19.00</a>
+            </div>
+
         </div>
         <div class="col-5 offset-1">
             <span style="font-size:20px;"> Your Order:</span>
@@ -171,7 +181,7 @@
 @endsection
 
 @section('js')
-<script>
+    <script>
         window.ParsleyConfig = {
             errorsWrapper: '<div></div>',
             errorTemplate: '<div class="alert alert-danger parsley border-0 bg-white text-danger" role="alert"></div>',
@@ -180,13 +190,14 @@
         };
 
         $('input[type=radio][name=pay_type]').change(function() {
-        if (this.value == 'credit') {
-            $("#stripe-form").removeClass('d-none');
-        }
-        else {
-            $("#stripe-form").addClass('d-none');
-        }
-    });
+            if ($(this).attr('value') == "credit"){
+                $("#stripe-form").removeClass('d-none');
+                $("#paypal-form").addClass('d-none');
+            }else{
+                $("#stripe-form").addClass('d-none');
+                $("#paypal-form").removeClass('d-none');
+            }
+        });
     </script>
 
     <script src="/js/parsley.js"></script>

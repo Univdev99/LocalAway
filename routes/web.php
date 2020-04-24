@@ -22,15 +22,15 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 // Route::domain('staging.localaway.com')->group(function () {
 
-    Route::group(["domain" => "www.localaway.com"], function () {
+    // Route::group(["domain" => "www.localaway.com"], function () {
         Route::get('/', 'HomeController@index')->name('landingPage');
-    });
+    // });
 
-    Route::group(["domain" => "www.localaway.ai"], function () {
-        Route::get('/', function () {
-            return view('ai.newlanding');
-        });
-    });
+    // Route::group(["domain" => "www.localaway.ai"], function () {
+    //     Route::get('/', function () {
+    //         return view('ai.newlanding');
+    //     });
+    // });
     Route::post('/access-ai', 'HomeController@checkAccess');
     Route::get('about', 'HomeController@about');
 
@@ -115,5 +115,15 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
     Route::get('/customer/signup/thank-you', 'CustomerController@thankyou')->name('customer.signup.thankyou');
 
     // Route::get('/phpinfo', 'FileController@phpinfo');
+
+    // Route::get('paypal/ec-checkout/{plan}', 'PayPalController@getExpressCheckout')->name('paypal.ec-checkout');
+    // Route::get('paypal/ec-checkout-success/{plan}', 'PayPalController@getExpressCheckoutSuccess')->name('paypal.ec-checkout-success');
+    // Route::get('paypal/adaptive-pay', 'PayPalController@getAdaptivePay');
+    // Route::get('paypal/cancel', 'PayPalController@cancel')->name('paypal.cancel');
+
+
+    Route::get('payment', 'PayPalController@payment')->name('payment');
+    Route::get('cancel', 'PayPalController@cancel')->name('payment.cancel');
+    Route::get('payment/success', 'PayPalController@success')->name('payment.success');
 
 

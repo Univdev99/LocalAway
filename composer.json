@@ -19,6 +19,7 @@
         "laravelcollective/html": "^6.1",
         "mtolhuys/laravel-schematics": "^0.10.0",
         "revolution/laravel-google-sheets": "^5.0",
+        "srmklive/paypal": "^1.7",
         "stevebauman/location": "^5.0"
     },
     "require-dev": {
