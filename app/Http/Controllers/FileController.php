@@ -31,19 +31,21 @@ class FileController extends Controller
         $ext = $uploadedFile->getClientOriginalExtension();
         $filename = time().'.'.$ext;
 
-        switch ($collection) {
-            case 'hero':
-                $uploadedFile = $this->resize_image($uploadedFile, 1920, 1080);
-                break;
-            case 'itinerary':
-                $uploadedFile = $this->resize_image($uploadedFile, 1280, 800);
-                break;
-            case 'logo':
-                $uploadedFile = $this->resize_image($uploadedFile, 280, 60);
-            default:
-                # code...
-                break;
-        }
+        $uploadedFile = $this->resize_image($uploadedFile);
+        // switch ($collection) {
+        //     case 'hero':
+        //         $uploadedFile = $this->resize_image($uploadedFile, 1920, 1080);
+        //         break;
+        //     case 'itinerary':
+        //         $uploadedFile = $this->resize_image($uploadedFile, 1280, 800);
+        //         break;
+        //     case 'logo':
+        //         $uploadedFile = $this->resize_image($uploadedFile, 280, 60);
+        //     default:
+        //         # code...
+        //         break;
+        // }
+
         $compressed_file = $this->compress($uploadedFile, 'storage/uploads/'.$filename, 70, $ext);
         // Storage::disk('public')->putFileAs('uploads', $uploadedFile, $filename);
         $max = Upload::where('collection',$collection)->max('extra');
@@ -248,26 +250,28 @@ class FileController extends Controller
      * @param type $crop Crop or not
      * @return type
      */
-    function resize_image($file, $w, $h, $crop=false) {
-        list($width, $height) = getimagesize($file);
-        $r = $width / $height;
-        if ($crop) {
-            if ($width > $height) {
-                $width = ceil($width-($width*abs($r-$w/$h)));
-            } else {
-                $height = ceil($height-($height*abs($r-$w/$h)));
-            }
-            $newwidth = $w;
-            $newheight = $h;
-        } else {
-            if ($w/$h > $r) {
-                $newwidth = $h*$r;
-                $newheight = $h;
-            } else {
-                $newheight = $w/$r;
-                $newwidth = $w;
-            }
-        }
+    function resize_image($file, $w=0, $h=0, $crop=false) {
+        // if($w!=0&&$h!=0){
+        //     list($width, $height) = getimagesize($file);
+        //     $r = $width / $height;
+        //     if ($crop) {
+        //         if ($width > $height) {
+        //             $width = ceil($width-($width*abs($r-$w/$h)));
+        //         } else {
+        //             $height = ceil($height-($height*abs($r-$w/$h)));
+        //         }
+        //         $newwidth = $w;
+        //         $newheight = $h;
+        //     } else {
+        //         if ($w/$h > $r) {
+        //             $newwidth = $h*$r;
+        //             $newheight = $h;
+        //         } else {
+        //             $newheight = $w/$r;
+        //             $newwidth = $w;
+        //         }
+        //     }
+        // }
 
         //Get file extension
         $ext = $file->getClientOriginalExtension();
@@ -288,9 +292,13 @@ class FileController extends Controller
             break;
         }
 
-        $dst = imagecreatetruecolor($newwidth, $newheight);
-        imagecopyresampled($dst, $src, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
+        $dst = imagescale($src, $w, $h);
 
+        // $dst = imagecreatetruecolor($newwidth, $newheight);
+        // imagecopyresampled($dst, $src, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
+        if($w == 0 && $h==0){
+            return $src;
+        }
         return $dst;
     }
 
@@ -367,7 +375,7 @@ class FileController extends Controller
     //     }
     //     dd("End");
     // }
-    
+
     // public function phpinfo()
     // {
     //     $username = "localaway";
