@@ -10,3 +10,6 @@ body.Frontend .opacty-25 {
   opacity: 0.25;
 }
 
+.instagram-layout .eapps-instagram-feed>a:last-child {
+  filter: opacity(0);
+}

@@ -61,10 +61,10 @@ $(function() {
                             if ($(this).prop('type') == "text" || $(this).prop('type') == "number" || ($(this).prop('type') == "radio" && $(this).prop("checked")) || $(this).prop('type') == "hidden") {
                                 param[$(this).attr('name')] = $(this).val();
                             }
-
                         });
                     }
                 }
+                param[$('#basic-location').attr('name')] =$('#basic-location').val();
 
                 $.ajax({
                         url: '/customer/signup/basic',

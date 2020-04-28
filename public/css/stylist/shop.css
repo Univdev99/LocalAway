@@ -718,3 +718,46 @@ ol {
         width: 16px
     }
 }
+
+.btn-plus{
+    background-color: #c6a07b;
+    color: white;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    border: none;
+    cursor: pointer;
+}
+
+.color-shop{
+    color: #fd5c48;
+}
+
+.btn-brown {
+    background-color: #c6a07b;
+    padding-left: 25px;
+    padding-right: 25px;
+    border-radius: 50px;
+    align-items: center;
+    height: 40px;
+    margin: auto;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+#upload-modal-form {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.upload-modal-text {
+    color: #02bfaf;
+}
+
+#upload_modal .btn-plus{
+    background-color: #fd5c48;
+}

@@ -2019,3 +2019,8 @@ hr.carousel-line {
         top: 13px;
     }
 }
+
+.instagram-layout .eapps-instagram-feed>a:last-child {
+    filter: opacity(0);
+}
+

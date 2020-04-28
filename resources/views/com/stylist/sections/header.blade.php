@@ -5,7 +5,7 @@
 
 @section('menu')
 <li class="nav-item ml-xl-2 ml-lg-2 ml-md-0 ml-sm-0 ml-0">
-    <a class="nav-link" href="/stylist/closet">
+    <a class="nav-link" href="/stylist/shop">
       <span>MyShop</span>
     </a>
 </li>

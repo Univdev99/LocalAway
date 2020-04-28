@@ -83,7 +83,7 @@
                     <label for="women-casual5" class="select-btn">XXL</label>
                 </div>
                     <select name="casual-fit" class="afit-select" required>
-                        <option value="none" placeholder="How do you like the fit?" hidden>How do you like the fit?</option>
+                        <option value="none" placeholder="How do you like the fit?" selected disabled>How do you like the fit?</option>
                         <option value="smaller">Smaller</option>
                         <option value="normal">Normal</option>
                         <option value="larger">Larger</option>
@@ -110,7 +110,7 @@
                     </div>
 
                     <select name="blouse-fit" class="afit-select" required>
-                        <option value="none" placeholder="How do you like the fit?" hidden>How do you like the fit?</option>
+                        <option value="none" placeholder="How do you like the fit?" selected disabled>How do you like the fit?</option>
                         <option value="smaller">Smaller</option>
                         <option value="normal">Normal</option>
                         <option value="larger">Larger</option>

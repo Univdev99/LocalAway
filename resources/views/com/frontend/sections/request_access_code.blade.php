@@ -45,7 +45,7 @@
             <div class="text-center mt-4">
                 <input type="submit" id="btn-request-send"  class="btn btn-brown text-white text-center btn-modal" value="Request Access"/>
             </div>
-            <button id="btn-access-back"><i class="fa fa-arrow-left"></i></button>
+            <button id="btn-access-back"><i class="fa fa-chevron-left"></i></button>
             <!-- </div> -->
         </form>
         </div>

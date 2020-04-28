@@ -67,6 +67,8 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
     Route::group(['middleware' => ['auth-stylist']], function () {
         Route::get('/stylist', 'StylistController@index');
+        Route::get('/stylist/shop', 'StylistController@shop')->name('com.stylist.shop');
+        Route::post('/stylist/shop/upload', 'FileController@upload');
         Route::get('/stylist/profile', 'StylistController@profile');
         Route::get('/stylist/closet', 'StylistController@closet');
         Route::get('/stylist/clients', 'StylistController@clients');

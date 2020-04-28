@@ -1,7 +1,7 @@
 @extends('com.frontend.layout')
 
 @section('css')
-  <link rel="stylesheet" href="/main/frontend.css">
+  <link rel="stylesheet" href="css/main/frontend.css">
 @endsection
 
 @section('content')

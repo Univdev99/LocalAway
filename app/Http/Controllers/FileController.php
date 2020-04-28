@@ -5,6 +5,7 @@ use App\CategoryMiddle;
 use App\Maincategory;
 use App\Materialcategory;
 use App\Product;
+use App\Stylist;
 use App\Subcategory;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
@@ -16,14 +17,6 @@ class FileController extends Controller
 {
     public function store(Request $request)
     {
-        // $request->validate([
-        //     'title' => 'required:max:255',
-        // ]);
-
-        // auth()->user()->files()->create([
-        //     'title' => $request->get('qqfilename'),
-        // ]);
-
         $collection = $request->get('collection');
         $title = $request->get('title');
 
@@ -74,7 +67,39 @@ class FileController extends Controller
         if($extension == "json"){
             $this->jsonParsing($file);
         }
-        return redirect("/dashboard/virtual-closet");
+        return redirect()->route('com.stylist.shop');
+    }
+
+    public function upload(Request $request)
+    {
+        $type = $request->input('upload-type');
+        if($type == "csv"){
+            $this->vcUpload($request);
+            return redirect()->route('com.stylist.shop');
+        }
+        $uploadedFile = $request->file('product');
+        $ext = $uploadedFile->getClientOriginalExtension();
+        $filename = time().'.'.$ext;
+
+        $uploadedFile = $this->resize_image($uploadedFile);
+
+        $compressed_file = $this->compress($uploadedFile, 'storage/uploads/'.$filename, 70, $ext);
+        $stylist = Stylist::where('user_id', auth()->user()->id)->first();
+        switch ($type) {
+            case 'homepage':
+                $stylist->homepage = $filename;
+                break;
+            case 'bio':
+                $stylist->bio = $filename;
+                break;
+            case 'logo':
+                $stylist->logo = $filename;
+                break;
+            default:
+                break;
+        }
+        $stylist->save();
+        return redirect()->route('com.stylist.shop');
     }
 
     public function delete(Request $request, $id)
@@ -206,6 +231,8 @@ class FileController extends Controller
             }
             // dd($db_array);
             try {
+                $stylist = Stylist::where('user_id', auth()->user()->id)->first();
+                $db_array = array_merge($db_array, ['boutique_id'=> $stylist->id]);
                 $product_column = Product::updateOrCreate([ 'product_id' => $id],$db_array);
             }
 

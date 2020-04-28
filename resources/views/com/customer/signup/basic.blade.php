@@ -142,8 +142,8 @@
 
                 <div class="input-container">
                     <i class="fa fa-map-marker-alt icon"></i>
-                    <select class="afit-select input-field" placeholder="location" name="basic-location" required>
-                        <option value="{{$location}}">{{$location}}</option>
+                    <select class="afit-select input-field" id="basic-location" placeholder="location" name="basic-location" required>
+                        <option value="{{$location}}" selected>{{$location}}</option>
                     </select>
                 </div>
             </div>

@@ -592,6 +592,14 @@ h4 {
    } 
 }
 
+.instagram-layout .eapps-instagram-feed>a:last-child {
+    filter: opacity(0);
+}
+
 .instagram-layout .eapps-widget>a:last-child {
-    filter:opacity(0);
+    filter: opacity(0);
+}
+
+.instagram-layout #eapps-instagram-feed-1>a:last-child {
+    filter: opacity(0);
 }

@@ -20,8 +20,18 @@ class StylistController extends Controller
 
     public function __construct()
     {
-        $logo = Upload::where('collection' ,'logo')->where('extra',1)->first();
-        View::share('logo', $logo);
+        $this->middleware(function ($request, $next) {
+            $user = \Auth::user();
+            if ($user) {
+                $logo = Upload::where('collection' ,'logo')->where('extra',1)->first();
+                View::share('logo', $logo);
+                $stylist = Stylist::where('user_id', auth()->user()->id)->first();
+                View::share('homepage', $stylist->homepage);
+                View::share('bio', $stylist->bio);
+                View::share('boutique_logo', $stylist->logo);
+            }
+            return $next($request);
+        });
     }
 
     public function signup(Request $request)
@@ -49,7 +59,7 @@ class StylistController extends Controller
         return view('com.stylist.sections.profile', [
             'name'=> $stylist->stylist_name,
             'link1' => $stylist->relevant_link1,
-            'link2' => $stylist->relevant_link2, 
+            'link2' => $stylist->relevant_link2,
             'link3' => $stylist->relevant_link3,
             'notes' => $stylist->notes
             ]);
@@ -61,20 +71,16 @@ class StylistController extends Controller
         return view('com.stylist.sections.clients');
     }
 
-    public function myshop(Request $request)
-    {
-        
-    }
-
-    public function closet(Request $request)
+    public function shop(Request $request)
     {
         $filter = $request->input('filter');
+        $stylist = Stylist::where('user_id', auth()->user()->id)->first();
 
         $products = [];
         if($filter == null){
-            $products = Product::paginate(15);
+            $products = Product::where('boutique_id', $stylist->id)->paginate(15);
         }else{
-            $middle = CategoryMiddle::whereIn('subcat_id', $filter)->with('product')->paginate(15);
+            $middle = CategoryMiddle::whereIn('subcat_id', $filter)->with('product')->where('boutique_id', $stylist->id)->paginate(15);
 
             foreach ($middle as $index ) {
                 array_push($products, $index->product);
@@ -85,7 +91,7 @@ class StylistController extends Controller
             $view = view('com.stylist.sections.products', ['filter' => Subcategory::all(), 'products' => $products])->render();
             return response()->json(['html'=>$view]);
         }
-        return view('com.stylist.sections.closet', ['filter' => Subcategory::all(), 'products' => []]);
+        return view('com.stylist.sections.shop', ['filter' => Subcategory::all(), 'products' => []]);
     }
 
     public function checkEmailDuplicate(Request $request)
@@ -208,6 +214,5 @@ class StylistController extends Controller
     {
         return view('com.stylist.stylist-thankyou');
     }
-
 
 }
