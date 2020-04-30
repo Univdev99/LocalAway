@@ -229,11 +229,10 @@ class FileController extends Controller
                     $db_array = array_merge($db_array, [$product => $attr]);
                 }
             }
-            // dd($db_array);
+            $stylist = Stylist::where('user_id', auth()->user()->id)->first();
             try {
-                $stylist = Stylist::where('user_id', auth()->user()->id)->first();
                 $db_array = array_merge($db_array, ['boutique_id'=> $stylist->id]);
-                $product_column = Product::updateOrCreate([ 'product_id' => $id],$db_array);
+                $product_column = Product::updateOrCreate([ 'product_id' => $id], $db_array);
             }
 
               //catch exception
@@ -264,6 +263,7 @@ class FileController extends Controller
 
         // $end = microtime(TRUE);
         // dd("The code took " . ($end - $start) . " seconds to complete.");
+
     }
 
     /**

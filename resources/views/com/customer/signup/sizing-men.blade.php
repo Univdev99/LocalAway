@@ -100,7 +100,7 @@
                         <div class="col-6">
                             <p class="text-left pl-2">Shirt Collar</p>
                             <select name="dress-shirt-collar-fit" class="afit-select" required>
-                                <option value="" placeholder="How do you like the fit?" selected disabled>How do you like the fit?</option>
+                                <option value="" placeholder="How do you like the fit?" disabled>How do you like the fit?</option>
                                 <option value="smaller">Smaller</option>
                                 <option value="normal">Normal</option>
                                 <option value="larger">Larger</option>
@@ -109,7 +109,7 @@
                         <div class="col-6">
                             <p class="text-left p1-2">Shirt Shoulder</p>
                             <select name="dress-shirt-shoulder-fit" class="fit-select" required>
-                                <option value="" placeholder="How do you like the fit?" selected disabled>How do you like the fit?</option>
+                                <option value="" placeholder="How do you like the fit?" disabled>How do you like the fit?</option>
                                 <option value="smaller">Smaller</option>
                                 <option value="normal">Normal</option>
                                 <option value="larger">Larger</option>

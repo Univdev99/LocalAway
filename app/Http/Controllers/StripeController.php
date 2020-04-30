@@ -16,7 +16,7 @@ class StripeController extends Controller
     //
     public function store(Request $request)
     {
-        $amount = 19;
+        $amount = 1900;
         $input = $request->all();
         $token = $input['stripeToken'];
         $email = $input['email'];
@@ -37,7 +37,7 @@ class StripeController extends Controller
             // return  back()->with('success', 'Charge successful!')->with('payment_method', 'stripe');
             return redirect()->route('customer.signup.thankyou');
 
-        } catch (Exception $ex) {
+        } catch (\Exception $ex) {
             return back()->with('stripe-message', $ex->getMessage())->with('payment_method', 'stripe');
         }
     }

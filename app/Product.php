@@ -70,6 +70,7 @@ class Product extends Model
         "external",
         "self",
         "selfRelative",
+        "boutique_id"
     ];
 
     // public function productCategories()
