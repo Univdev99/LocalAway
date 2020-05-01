@@ -33,14 +33,15 @@ class sendRequestAccessMail extends Mailable
      */
     public function build()
     {
-        return $this
-            ->subject('Request Access')
-            ->markdown('ai.sendLink')
-            ->with([
-                'name' => $this->name,
-                'link' => $this->url,
-                'access_code' => 'LOCALAWAY20'
-            ]);
+        // return $this
+        //     ->subject('Request Access')
+        //     ->markdown('ai.sendLink')
+        //     ->with([
+        //         'name' => $this->name,
+        //         'link' => $this->url,
+        //         'access_code' => $this->access_code
+        //     ]);
+        return $this->view('ai.mailSent');
     }
 
 }

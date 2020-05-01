@@ -217,6 +217,19 @@
                 Stripe.card.createToken($form, stripeResponseHandler);
                 return false;
             });
+            $('#btn-paypal').click(function(){
+                $.get("payment").done(function(res){
+                    var l = ($(window).width() - 350) / 2, t = ($(window).height() - 600) / 2;
+                    if( $(window).width() > 600){
+                        w = 500;
+                    }else{
+                        w = 350;
+                    }
+                    let params = 'scrollbars=no,resizable=no,status=no,location=no,toolbar=no,menubar=no,height=589,left=' + l + ',top=' + t + ',width=' + w;
+                    paypal = window.open(res, 'payment', params);
+                
+                });
+            });
         });
         function stripeResponseHandler(status, response) {
             var $form = $('#payment-form');
@@ -232,15 +245,6 @@
                 $form.get(0).submit();
             }
         };
-        $('#btn-paypal').click(function(){
-            $.get("payment").done(function(res){
-                let params = `scrollbars=no,resizable=no,status=no,location=no,toolbar=no,menubar=no,width=0,height=0,left=-1000,top=-1000`;
-            a = window.open(res, 'payment', params);
-            a.onbeforeunload = function(){
-                console.log('asdfhasdfh')
-            } 
-            });
-        });
     </script>
 
 @endsection

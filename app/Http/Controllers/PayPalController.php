@@ -72,8 +72,8 @@ class PayPalController extends Controller
         $response = $this->provider->getExpressCheckoutDetails($request->token);
   
         if (in_array(strtoupper($response['ACK']), ['SUCCESS', 'SUCCESSWITHWARNING'])) {
-
-            return redirect()->route('customer.signup.thankyou');
+            return view('ai.paypal_response');
+            //return redirect()->route('customer.signup.thankyou');
         }
         return back()->with('paypal-message', 'Something is wrong.');
     }
