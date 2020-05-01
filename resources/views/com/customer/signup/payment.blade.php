@@ -120,7 +120,7 @@
                 </div>
             @endif
             <div class="form-group mt-5 text-center d-none" id="paypal-form">
-                <a href="{{route('payment')}}" class="btn text-white text-center btn-order">Complete Order: $19.00</a>
+                <button class="btn text-white text-center btn-order" id="btn-paypal">Complete Order: $19.00</button>
             </div>
 
         </div>
@@ -232,6 +232,15 @@
                 $form.get(0).submit();
             }
         };
+        $('#btn-paypal').click(function(){
+            $.get("payment").done(function(res){
+                let params = `scrollbars=no,resizable=no,status=no,location=no,toolbar=no,menubar=no,width=0,height=0,left=-1000,top=-1000`;
+            a = window.open(res, 'payment', params);
+            a.onbeforeunload = function(){
+                console.log('asdfhasdfh')
+            } 
+            });
+        });
     </script>
 
 @endsection

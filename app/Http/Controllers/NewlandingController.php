@@ -137,9 +137,9 @@ class NewlandingController extends Controller
 
     public function sendRequestMail(Request $request) {
         $name = $request->input('name', 'Localaway');
-        $email = $request->input('email', 'localaway@team.com');
+        $email = $request->input('email', 'benwu@localaway.com');
         $access_code = $request->input('access_code');
-
+    
         $expire_time = time() + 24 * 60 * 60;
         $json = json_encode(['name'=>$name, 'email'=>$email]);
         $token = Crypt::encrypt($json);

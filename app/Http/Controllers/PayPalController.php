@@ -43,7 +43,8 @@ class PayPalController extends Controller
         
         try{
             $response = $this->provider->setExpressCheckout($data, false);
-            return redirect($response['paypal_link']);
+            // dd($response);
+            return $response['paypal_link'];
         } catch (\Exception $e) {
             
         }
@@ -71,8 +72,10 @@ class PayPalController extends Controller
         $response = $this->provider->getExpressCheckoutDetails($request->token);
   
         if (in_array(strtoupper($response['ACK']), ['SUCCESS', 'SUCCESSWITHWARNING'])) {
+
             return redirect()->route('customer.signup.thankyou');
         }
         return back()->with('paypal-message', 'Something is wrong.');
     }
 }
+

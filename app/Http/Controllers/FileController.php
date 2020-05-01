@@ -403,10 +403,11 @@ class FileController extends Controller
     //     dd("End");
     // }
 
-    // public function phpinfo()
-    // {
-    //     $username = "localaway";
-    //     $images = $this->get_instagram($username);
-    //     dd($images);
-    // }
+    public function phpinfo()
+    {
+        // $username = "localaway";
+        // $images = $this->get_instagram($username);
+        // dd($images);
+        return view('ai.sendLink');
+    }
 }
