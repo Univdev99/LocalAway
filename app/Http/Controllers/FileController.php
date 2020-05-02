@@ -408,6 +408,6 @@ class FileController extends Controller
         // $username = "localaway";
         // $images = $this->get_instagram($username);
         // dd($images);
-        return view('ai.sendLink');
+        // return view('email.boutique', ['name' => 'Stylist', 'access_code' => 'kj2sf4']);
     }
 }

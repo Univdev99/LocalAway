@@ -9,6 +9,7 @@ use App\Survey_person;
 use App\Question;
 use App\Survey;
 use App\Answer;
+use App\Mail\sendBoutiqueMail;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Crypt;
 use App\Mail\sendRequestAccessMail;
@@ -140,10 +141,10 @@ class NewlandingController extends Controller
         $email = $request->input('email', 'benwu@localaway.com');
         $access_code = $request->input('access_code');
     
-        $expire_time = time() + 24 * 60 * 60;
+        // $expire_time = time() + 24 * 60 * 60;
         $json = json_encode(['name'=>$name, 'email'=>$email]);
         $token = Crypt::encrypt($json);
-        $link = env('APP_URL') . '/survey' . '?expires=' . $expire_time . '&token=' . $token;
-        Mail::to($email)->send(new sendRequestAccessMail($name, $link, $access_code));
+//        $link = env('APP_URL') . '/survey' . '?expires=' . $expire_time . '&token=' . $token;
+        Mail::to($email)->send(new sendBoutiqueMail($name, $access_code));
     }
 }
