@@ -12,7 +12,7 @@
         <p> We're holding your reservation for the next 30 minutes. Complete payment & shipping steps to secure your order.</p>
     </div>
     <div class="row">
-        <div class="col-6">
+        <div class="col-md-6">
             <div class="d-flex justify-content-between">
                 <span style="font-size:20px;"> Shipping Details:</span>
                 <a href="#" style="font-size: smaller; color:#02BFAF; text-decoration: underline; line-height: 35px;">Edit</a>
@@ -124,7 +124,7 @@
             </div>
 
         </div>
-        <div class="col-5 offset-1">
+        <div class="col-md-5 offset-md-1">
             <span style="font-size:20px;"> Your Order:</span>
             <hr class="divider mt-1">
             <div>
@@ -218,7 +218,7 @@
                 return false;
             });
             $('#btn-paypal').click(function(){
-                $.get("payment").done(function(res){
+                $.get("/payment").done(function(res){
                     var l = ($(window).width() - 350) / 2, t = ($(window).height() - 600) / 2;
                     if( $(window).width() > 600){
                         w = 500;

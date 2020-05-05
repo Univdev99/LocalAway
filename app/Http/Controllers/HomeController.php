@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Survey_person;
 use Illuminate\Http\Request;
 use App\Upload;
 use Illuminate\Support\Facades\View;
@@ -53,6 +54,9 @@ class HomeController extends Controller
     public function checkAccess(Request $request)
     {
         $access_code = $request->input('access_code');
+        if(Survey_person::where('access_code', $access_code)->first()){
+            return "true";
+        }
         if($access_code == 'LOCALAWAY20'){
             return "true";
         }

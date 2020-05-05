@@ -141,14 +141,14 @@ class CustomerController extends Controller
         }
 
         $customer->save();
-        session(['gender' => $gender]);
+
+        return redirect()->route('customer.signup.sizing');
     }
 
     public function sizing(Request $request)
     {
-        $gender = session('gender');
-        $email = auth()->user()->email;
-        if($gender == "male"){
+      $customer = Customer::where('user_id', auth()->user()->id)->first();
+        if($customer->gender == "male"){
             return view('com.customer.signup.sizing-men');
         }
         return view('com.customer.signup.sizing-women');
@@ -156,9 +156,7 @@ class CustomerController extends Controller
 
     public function saveSizing(Request $request)
     {
-        $gender = session('gender');
         $email = auth()->user()->email;
-
         $user = User::where('email', $email)->first();
         if (!$user || !$user->customer) {
             return redirect()->route('landingPage');
@@ -169,7 +167,7 @@ class CustomerController extends Controller
         $customer->pant_waist_fit = $request->input('pant-waist-fit');
         $customer->pant_fit = $request->input('pant-fit');
         $customer->shoe_size = $request->input('shoe-size');
-        if($gender == "male"){
+        if($customer->gender == "male"){
             $customer->dress_shirt_size = $request->input('dress-shirt-size');
             $customer->dress_shirt_collar_fit = $request->input('dress-shirt-collar-fit');
             $customer->dress_shirt_shoulder_fit = $request->input('dress-shirt-shoulder-fit');
@@ -194,9 +192,8 @@ class CustomerController extends Controller
 
     public function style(Request $request)
     {
-        $gender = session('gender');
-        $email = auth()->user()->email;
-        if($gender == "male"){
+        $customer = Customer::where('user_id', auth()->user()->id)->first();
+        if($customer->gender == "male"){
             return view('com.customer.signup.style-men');
         }
         return view('com.customer.signup.style-women');

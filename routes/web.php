@@ -11,12 +11,9 @@
 |
 */
 
-use App\Http\Controllers\FileController;
-use App\Mail\sendRequestAccessMail;
-
-
 
 Auth::routes();
+
 
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
@@ -31,7 +28,7 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
             return view('ai.newlanding');
         });
     });
-    Route::post('/access-ai', 'HomeController@checkAccess');
+    Route::post('/confirm-access', 'HomeController@checkAccess');
     Route::get('about', 'HomeController@about');
 
     Route::get('/dashboard','DashboardController@index');
@@ -87,7 +84,7 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
     });
     Route::post('/save-email', 'NewlandingController@saveRequestInfo');
     Route::post('/save-info', 'NewlandingController@saveSurveyInfo');
-    Route::post('/send-mail', 'NewlandingController@sendRequestMail')->name('com.request-access');
+    // Route::post('/send-mail', 'NewlandingController@sendRequestMail')->name('com.request-access');
     Route::post('/survey', function () {
         return redirect('/');
     });

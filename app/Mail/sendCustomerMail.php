@@ -11,14 +11,15 @@ class sendCustomerMail extends Mailable
 {
     use Queueable, SerializesModels;
 
+    protected $name;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($name)
     {
-        //
+        $this->name = $name;
     }
 
     /**
@@ -28,6 +29,6 @@ class sendCustomerMail extends Mailable
      */
     public function build()
     {
-        return $this->view('view.name');
+        return $this->view('email.customer',['name' => $this->name]);
     }
 }

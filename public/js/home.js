@@ -8,7 +8,7 @@ $(document).ready(function() {
         $("#btn-access-submit").css("display", "none");
         var access_code = $('#access-code').val();
         $.ajax({
-            url: '/access-ai',
+            url: '/confirm-access',
             method: 'post',
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -47,8 +47,10 @@ $(document).ready(function() {
     });
 
     $("#request_send_form").submit(function() {
-        $(".spinner-border").css("display", "inline-block");
-        $("#btn-request-send").css("display", "none");
+        // $(".spinner-border").css("display", "inline-block");
+        // $("#btn-request-send").css("display", "none");
+        $('.request-input-form').hide();
+        $('.request-loading').show();
         var email = $('#email-text').val();
         var name = $('#name-text').val();
         var phone = $('#phone-text').val();
@@ -69,30 +71,20 @@ $(document).ready(function() {
                 note: note
             },
             success: function(result) {
-
-                $.ajax({
-                    url: "/send-mail",
-                    method: 'post',
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    },
-                    data: {
-                        name: name,
-                        email: email,
-                        access_code: result
-                    },
-                    success: function(response) {}
-                });
+                $('.request-input-form').show();
+                $('.request-loading').hide();
+                $("#ai_request_access_modal").modal("hide");
+                $("#ai_access_modal").modal({ backdrop: 'static', keyboard: false });
+                $("body").removeClass("modal-open");
+            },
+            error: function(result) {
+                $('.request-input-form').show();
+                $('.request-loading').hide();
+                $("#ai_request_access_modal").modal("hide");
+                $("#ai_access_modal").modal({ backdrop: 'static', keyboard: false });
+                $("body").removeClass("modal-open");
             }
         });
-
-        $(".spinner-border").css("display", "none");
-        $("#btn-request-send").css("display", "inline-block");
-        $("#hidden-name").val(name);
-        $("#hidden-email").val(email);
-        $("#ai_request_access_modal").modal("hide");
-        $("#ai_access_modal").modal({ backdrop: 'static', keyboard: false });
-        $("body").removeClass("modal-open");
         return false;
     });
 

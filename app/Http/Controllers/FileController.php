@@ -405,9 +405,13 @@ class FileController extends Controller
 
     public function phpinfo()
     {
-        // $username = "localaway";
-        // $images = $this->get_instagram($username);
-        // dd($images);
-        // return view('email.boutique', ['name' => 'Stylist', 'access_code' => 'kj2sf4']);
+        // $username = "benwu@localaway.com";
+        // $t = md5($username);
+        // dd($t);
+        return view('email.boutique',[
+            'name' => "Julia",
+            'access_code' => 482954
+        ]);
+
     }
 }

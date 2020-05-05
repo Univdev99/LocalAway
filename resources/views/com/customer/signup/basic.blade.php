@@ -49,12 +49,17 @@
             <div class="row justify-content-center">
                 <div class="my-form-row mx-4 text-left">
                     <label for="step2-feet">*Feet</label>
-                    <input id="step2-feet" name="height-feet" class="form-control text-answer" type="number" required/>
+                    <input id="step2-feet" name="height-feet" class="form-control text-answer" type="number"/>
                 </div>
 
                 <div class="my-form-row mx-4 text-left">
                     <label for="step2-inches">*Inches</label>
-                    <input id="step2-inches" name="height-inch" class="form-control  text-answer" type="number" required/>
+                    <input id="step2-inches" name="height-inch" class="form-control  text-answer" type="number"/>
+                </div>
+
+                <div class="my-form-row mx-4 text-left">
+                    <label for="step2-centimeter">*Centimeter</label>
+                    <input id="step2-centimeter" name="height-centimeter" class="form-control text-answer" type="number"/>
                 </div>
             </div>
             </div>
@@ -67,10 +72,10 @@
                 <p>Age Range?</p>
 
                 <div class="row justify-content-center">
-                    <input type="radio" id="age-1" name="basic-age" value="18-25" />
+                    <input type="radio" id="age-1" name="basic-age" value="18-25" checked/>
                     <label for="age-1" class="select-btn">18-25</label>
 
-                    <input type="radio" id="age-2" name="basic-age" value="26-30" checked/>
+                    <input type="radio" id="age-2" name="basic-age" value="26-30"/>
                     <label for="age-2" class="select-btn">26-30</label>
 
                     <input type="radio" id="age-3" name="basic-age" value="31-35" />
@@ -114,10 +119,10 @@
                 <p>Select all events or fashion needs</p>
 
                 <div class="row justify-content-center">
-                    <input type="radio" id="event-1" name="basic-event" value="Professional"/>
+                    <input type="radio" id="event-1" name="basic-event" value="Professional" checked/>
                     <label for="event-1" class="select-btn">Lounging at home</label>
 
-                    <input type="radio" id="event-2" name="basic-event" value="Happy Hour" checked/>
+                    <input type="radio" id="event-2" name="basic-event" value="Happy Hour"/>
                     <label for="event-2" class="select-btn">Zoom meeting</label>
 
                     <input type="radio" id="event-3" name="basic-event" value="Wedding Guest"/>
@@ -135,6 +140,7 @@
             </div>
         </div>
     </div>
+
     <div class="row item">
         <div class="col-xl-6 col-lg-7 col-md-10 text-center mx-auto">
             <div class="my-form-row">
@@ -149,6 +155,7 @@
             </div>
         </div>
     </div>
+
     {{-- <div class="row item item-select">
         <div class="col-xl-6 col-lg-7 col-md-10 text-center mx-auto">
             <div class="my-form-row">
@@ -285,7 +292,7 @@
         </div>
     </div> --}}
 
-    <div class="row item end-part">
+    <div class="row item-submit end-part">
         <div class="col-12">
             <h5 class="sub-page-title text-center">Shipping Address</h5>
         </div>

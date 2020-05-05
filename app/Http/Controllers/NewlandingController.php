@@ -10,6 +10,7 @@ use App\Question;
 use App\Survey;
 use App\Answer;
 use App\Mail\sendBoutiqueMail;
+use App\Mail\sendCustomerMail;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Crypt;
 use App\Mail\sendRequestAccessMail;
@@ -81,6 +82,12 @@ class NewlandingController extends Controller
     public function saveRequestInfo(Request $request)
     {
         $name = $request->input('name');
+        if(strpos($name, ' ') != false){
+            $list = explode(' ', $name);
+            $first_name = $list[0];
+        }else{
+            $first_name = $name;
+        }
         $email = $request->input('email');
         $phone = $request->input('phone');
         $person_type = $request->input('person_type');
@@ -99,7 +106,11 @@ class NewlandingController extends Controller
             ['name' => $name, 'phone' => $phone, 'person_type' => $person_type, 'location' => $request->input("country"), 'note' => $note, 'access_code' => $access_code]
         );
 
-        return $access_code;
+        if($person_type == 'stylist'){
+            Mail::to($email)->send(new sendBoutiqueMail($first_name, $access_code));
+        }else{
+            Mail::to($email)->send(new sendCustomerMail($first_name));
+        }
     }
 
 
@@ -136,15 +147,10 @@ class NewlandingController extends Controller
         }
     }
 
-    public function sendRequestMail(Request $request) {
-        $name = $request->input('name', 'Localaway');
-        $email = $request->input('email', 'benwu@localaway.com');
-        $access_code = $request->input('access_code');
-    
-        // $expire_time = time() + 24 * 60 * 60;
-        $json = json_encode(['name'=>$name, 'email'=>$email]);
-        $token = Crypt::encrypt($json);
-//        $link = env('APP_URL') . '/survey' . '?expires=' . $expire_time . '&token=' . $token;
-        Mail::to($email)->send(new sendBoutiqueMail($name, $access_code));
-    }
+//     public function sendRequestMail() {
+//         // $expire_time = time() + 24 * 60 * 60;
+//         // $json = json_encode(['name'=>$name, 'email'=>$email]);
+//         // $token = Crypt::encrypt($json);
+// //        $link = env('APP_URL') . '/survey' . '?expires=' . $expire_time . '&token=' . $token;
+//     }
 }
