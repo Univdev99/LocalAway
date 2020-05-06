@@ -16,6 +16,7 @@ class AddQuizProgressToCustomersTable extends Migration
         Schema::table('customers', function (Blueprint $table) {
             $table->integer('complete')->default(0);
             $table->string('progress')->nullable();
+            $table->integer('height_centimeter')->nullable();
         });
     }
 

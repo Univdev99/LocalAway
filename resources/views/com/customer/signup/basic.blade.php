@@ -12,7 +12,7 @@
         <img src="/images/customer-signup/progress-basic.svg" class="w-100"/>
     </div>
 <form id="basic-form" method="POST" action="{{route('customer.signup.basic.save')}}" class="form-container">
-
+@csrf
     <div class="row item first-row item-show">
         <div class="col-12 mt-3">
             <div class="my-form-row text-center">
@@ -41,7 +41,7 @@
         </div>
     </div>
 
-    <div class="row item">
+    <div class="row item input-optional">
         <div class="col-12 text-center mx-auto">
             <div class="my-form-row">
             <p>Height?</p>
@@ -292,7 +292,7 @@
         </div>
     </div> --}}
 
-    <div class="row item-submit end-part">
+    <div class="row item item-submit end-part">
         <div class="col-12">
             <h5 class="sub-page-title text-center">Shipping Address</h5>
         </div>

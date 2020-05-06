@@ -116,6 +116,7 @@ class CustomerController extends Controller
         $customer->gender = $gender;
         $customer->height_feet = $request->input('height-feet');
         $customer->height_inch = $request->input('height-inch');
+        $customer->height_centimeter = $request->input('height-centimeter');
         $customer->age_range = $request->input('basic-age');
         $date = $request->input('capsule-date');
         $customer->capsule_date = date_create_from_format("m/d/Y",$date);
@@ -218,6 +219,9 @@ class CustomerController extends Controller
       if ($user && $user->customer) {
         $customer = $user->customer;
         $customer->style = $style;
+        $customer->dislike_material = null;
+        $customer->dislike_pattern = null;
+        $customer->dislike_color = null;
         if ($materials) {
           $customer->dislike_material = implode(",", $materials);
         }

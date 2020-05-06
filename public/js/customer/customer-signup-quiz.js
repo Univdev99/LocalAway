@@ -53,31 +53,31 @@ $(function() {
                     $(".item:nth-child(" + (cur_pos + 1) + ")").addClass("item-show");
                 }
             } else {
-                const param = {}
-                var item_cnt = $(".item").length;
+                // const param = {}
+                // var item_cnt = $(".item").length;
 
-                for (var i = 1; i <= item_cnt; i++) {
-                    if (checkEmpty(".item:nth-child(" + i + ")")) {
-                        $(".item:nth-child(" + i + ") input").each(function() {
-                            if ($(this).prop('type') == "text" || $(this).prop('type') == "number" || ($(this).prop('type') == "radio" && $(this).prop("checked")) || $(this).prop('type') == "hidden") {
-                                param[$(this).attr('name')] = $(this).val();
-                            }
-                        });
-                    }
-                }
-                param[$('#basic-location').attr('name')] =$('#basic-location').val();
+                // for (var i = 1; i <= item_cnt; i++) {
+                //     if (checkEmpty(".item:nth-child(" + i + ")")) {
+                //         $(".item:nth-child(" + i + ") input").each(function() {
+                //             if ($(this).prop('type') == "text" || $(this).prop('type') == "number" || ($(this).prop('type') == "radio" && $(this).prop("checked")) || $(this).prop('type') == "hidden") {
+                //                 param[$(this).attr('name')] = $(this).val();
+                //             }
+                //         });
+                //     }
+                // }
+                // param[$('#basic-location').attr('name')] =$('#basic-location').val();
 
-                $.ajax({
-                        url: '/customer/signup/basic',
-                        type: 'post',
-                        data: param,
-                        headers: {
-                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                        },
-                    })
-                    .then(function() {
-                        window.location = '/customer/signup/sizing';
-                    });
+                // $.ajax({
+                //         url: '/customer/signup/basic',
+                //         type: 'post',
+                //         data: param,
+                //         headers: {
+                //             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                //         },
+                //     })
+                //     .then(function() {
+                //         window.location = '/customer/signup/sizing';
+                //     });
             }
         }
 
@@ -120,6 +120,17 @@ $(function() {
         // });
         if ($(item).hasClass("dislike")) {
             flag = true;
+        }
+
+        if ($(item).hasClass("input-optional")) {
+            $(item + " input[type=number]").each(function() {
+                if($(this).val() != ""){
+                    flag = true;
+                }
+            });
+            if(flag == true){
+                return true;
+            }
         }
 
         $(item + " input[type=radio]").each(function() {

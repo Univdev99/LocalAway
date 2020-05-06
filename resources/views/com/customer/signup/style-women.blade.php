@@ -233,7 +233,7 @@
                     <p class="mt-3">Any materials you don't like?</p>
 
                     <div class="row justify-content-center">
-                        <input type="checkbox" id="style-casual1" name="dislike-casual[]" value="Faux Leather" checked/>
+                        <input type="checkbox" id="style-casual1" name="dislike-casual[]" value="Faux Leather"/>
                         <label for="style-casual1" class="select-btn">Faux Leather</label>
 
                         <input type="checkbox" id="style-casual2" name="dislike-casual[]" value="Polyester"/>
@@ -265,7 +265,7 @@
                             <div class="m-0 p-0">
                                 <img class="img-content" src="/images/customer-signup/geometric.png" value="geometric">
                             </div>
-                            <input type="checkbox" id="style-pattern1" name="dislike-pattern[]" value="Geometric" checked/>
+                            <input type="checkbox" id="style-pattern1" name="dislike-pattern[]" value="Geometric"/>
                             <label for="style-pattern1" class="select-btn">Geometric</label>
                         </div>
                         <div class="col">
