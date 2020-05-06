@@ -26,9 +26,15 @@ class StylistController extends Controller
                 $logo = Upload::where('collection' ,'logo')->where('extra',1)->first();
                 View::share('logo', $logo);
                 $stylist = Stylist::where('user_id', auth()->user()->id)->first();
-                View::share('homepage', $stylist->homepage);
-                View::share('bio', $stylist->bio);
-                View::share('boutique_logo', $stylist->logo);
+                if ($stylist->homepage){
+                    View::share('homepage', $stylist->homepage);
+                }
+                if ($stylist->bio){
+                    View::share('bio', $stylist->bio);
+                }
+                if ($stylist->logo){
+                    View::share('boutique_logo', $stylist->logo);
+                }
             }
             return $next($request);
         });
