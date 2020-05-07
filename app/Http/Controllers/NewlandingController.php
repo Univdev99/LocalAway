@@ -105,12 +105,8 @@ class NewlandingController extends Controller
         $person = Survey_person::updateOrCreate(['email' => $email],
             ['name' => $name, 'phone' => $phone, 'person_type' => $person_type, 'location' => $request->input("country"), 'note' => $note, 'access_code' => $access_code]
         );
+        Mail::to($email)->send(new sendRequestAccessMail($first_name, $access_code));
 
-        if($person_type == 'stylist'){
-            Mail::to($email)->send(new sendBoutiqueMail($first_name, $access_code));
-        }else{
-            Mail::to($email)->send(new sendCustomerMail($first_name));
-        }
     }
 
 

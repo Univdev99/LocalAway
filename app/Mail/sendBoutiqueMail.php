@@ -33,6 +33,6 @@ class sendBoutiqueMail extends Mailable
         return $this->view('email.boutique', [
             'name' => $this->name,
             'access_code' => $this->access_code
-        ]);
+        ])->subject("You're In!");
     }
 }

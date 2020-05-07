@@ -13,16 +13,15 @@ class sendRequestAccessMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    protected $name, $url, $access_code;
+    protected $name, $access_code;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($name, $url, $access_code)
+    public function __construct($name, $access_code)
     {
         $this->name = $name;
-        $this->url = $url;
         $this->access_code = $access_code;
     }
 
@@ -41,7 +40,13 @@ class sendRequestAccessMail extends Mailable
         //         'link' => $this->url,
         //         'access_code' => $this->access_code
         //     ]);
-        return $this->view('ai.mailSent');
+        return $this
+            ->view('email.sendaccess')
+            ->subject("You're In!")
+            ->with([
+                'name' => $this->name,
+                'access_code' => $this->access_code
+            ]);
     }
 
 }

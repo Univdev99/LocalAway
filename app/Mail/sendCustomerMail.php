@@ -29,6 +29,6 @@ class sendCustomerMail extends Mailable
      */
     public function build()
     {
-        return $this->view('email.customer',['name' => $this->name]);
+        return $this->view('email.customer',['name' => $this->name])->subject("You're In!");
     }
 }

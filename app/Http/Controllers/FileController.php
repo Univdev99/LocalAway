@@ -408,7 +408,7 @@ class FileController extends Controller
         // $username = "benwu@localaway.com";
         // $t = md5($username);
         // dd($t);
-        return view('email.boutique',[
+        return view('email.sendaccess',[
             'name' => "Julia",
             'access_code' => 482954
         ]);
