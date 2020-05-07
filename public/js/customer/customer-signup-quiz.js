@@ -46,12 +46,12 @@ $(function() {
                             var next_index = $(this).attr('data-next');
                             $(".item:nth-child(" + (cur_pos + Number(next_index)) + ")").addClass("item-show item-selected");
                             $(".item:nth-child(" + (cur_pos + Number(next_index)) + ")").attr("data-before", next_index);
-                            $(window).scrollTop(0);
                         }
                     });
                 } else {
                     $(".item:nth-child(" + (cur_pos + 1) + ")").addClass("item-show");
                 }
+                $(window).scrollTop(0);
             } else {
                 // const param = {}
                 // var item_cnt = $(".item").length;

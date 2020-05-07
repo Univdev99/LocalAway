@@ -25,16 +25,6 @@ class StylistController extends Controller
             if ($user) {
                 $logo = Upload::where('collection' ,'logo')->where('extra',1)->first();
                 View::share('logo', $logo);
-                $stylist = Stylist::where('user_id', auth()->user()->id)->first();
-                if ($stylist->homepage){
-                    View::share('homepage', $stylist->homepage);
-                }
-                if ($stylist->bio){
-                    View::share('bio', $stylist->bio);
-                }
-                if ($stylist->logo){
-                    View::share('boutique_logo', $stylist->logo);
-                }
             }
             return $next($request);
         });
@@ -79,9 +69,15 @@ class StylistController extends Controller
 
     public function shop(Request $request)
     {
+        $stylist = Stylist::where('user_id', auth()->user()->id)->first();
+        if(!$stylist){
+            return;
+        }
         $filter = $request->input('filter');
         $stylist = Stylist::where('user_id', auth()->user()->id)->first();
-
+        if(!$stylist){
+            return;
+        }
         $products = [];
         if($filter == null){
             $products = Product::where('boutique_id', $stylist->id)->paginate(15);
@@ -94,10 +90,22 @@ class StylistController extends Controller
         }
 
         if ($request->ajax()) {
-            $view = view('com.stylist.sections.products', ['filter' => Subcategory::all(), 'products' => $products])->render();
+            $view = view('com.stylist.sections.products', [
+                'filter' => Subcategory::all(),
+                'products' => $products, 
+                'homepage' => $stylist->homepage,
+                'bio' => $stylist->bio,
+                'boutique_logo' => $stylist->logo
+                ])->render();
             return response()->json(['html'=>$view]);
         }
-        return view('com.stylist.sections.shop', ['filter' => Subcategory::all(), 'products' => []]);
+        return view('com.stylist.sections.shop', [
+            'filter' => Subcategory::all(), 
+            'products' => [],
+            'homepage' => $stylist->homepage,
+            'bio' => $stylist->bio,
+            'boutique_logo' => $stylist->logo
+            ]);
     }
 
     public function checkEmailDuplicate(Request $request)
