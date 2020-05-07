@@ -71,7 +71,7 @@
         <div class="col-12 col-lg-6">
             <div class="my-form-row">
             <label for="step1-phone-number">*Phone Number</label>
-            <input id="step1-phone-number" class="form-control" name="phone_number" type="text" value="{{ old('phone_number') }}" required>
+            <input id="step1-phone-number" class="form-control" name="phone_number" type="text" value="{{ old('phone_number') }}">
             </div>
         </div>
 
@@ -94,7 +94,7 @@
             <div class="my-form-row">
                 <label class="radio-container">
                     By checking this I agree to <a href="/terms_of_policy"><u>Terms of Service</u></a> and <a href="/privacy_policy"><u>Privacy Policy</u></a>
-                    <input type="checkbox" id="step1-policy-alert" name="term_service" checked>
+                    <input type="checkbox" id="step1-policy-alert" name="term_service">
                     <span class="checkmark">
                         <i class="fas fa-check check-sign"></i>
                     </span>

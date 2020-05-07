@@ -54,15 +54,10 @@ class HomeController extends Controller
     public function checkAccess(Request $request)
     {
         $access_code = $request->input('access_code');
-        if(Survey_person::where('access_code', $access_code)->first()){
+        if(Survey_person::where('access_code', $access_code)->first() || $access_code == 'LOCALAWAY20'){
             return "true";
         }
-        if($access_code == 'LOCALAWAY20'){
-            return "true";
-        }
-        else{
-            return "false";
-        }
+        return "false";
     }
 
     public function about()

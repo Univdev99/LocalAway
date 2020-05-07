@@ -109,7 +109,7 @@
                                           </div>
                                           <div class="form-group mt-4">
                                               <label for="phone" class="mt-1 text-secondary small">{{ __('Phone') }}</label>
-                                              <input id="phone" type="text" class="form-control border-none kt-portlet--border-bottom-danger" name="phone" value="{{ old('phone') }}" required>
+                                              <input id="phone" type="text" class="form-control border-none kt-portlet--border-bottom-danger" name="phone" value="{{ old('phone') }}">
                                           </div>
                                           <div class="form-group mt-4">
                                               <label for="notes" class="mt-1 text-secondary small">{{ __('Notes') }}</label>

@@ -73,16 +73,16 @@ $(document).ready(function() {
             success: function(result) {
                 $('.request-input-form').show();
                 $('.request-loading').hide();
-                $("#ai_request_access_modal").modal("hide");
-                $("#ai_access_modal").modal({ backdrop: 'static', keyboard: false });
-                $("body").removeClass("modal-open");
+                // $("#ai_request_access_modal").modal("hide");
+                // $("#ai_access_modal").modal({ backdrop: 'static', keyboard: false });
+                // $("body").removeClass("modal-open");
             },
             error: function(result) {
                 $('.request-input-form').show();
                 $('.request-loading').hide();
-                $("#ai_request_access_modal").modal("hide");
-                $("#ai_access_modal").modal({ backdrop: 'static', keyboard: false });
-                $("body").removeClass("modal-open");
+                // $("#ai_request_access_modal").modal("hide");
+                // $("#ai_access_modal").modal({ backdrop: 'static', keyboard: false });
+                // $("body").removeClass("modal-open");
             }
         });
         return false;
