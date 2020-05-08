@@ -119,7 +119,12 @@ class CustomerController extends Controller
         $customer->height_centimeter = $request->input('height-centimeter');
         $customer->age_range = $request->input('basic-age');
         $date = $request->input('capsule-date');
-        $customer->capsule_date = date_create_from_format("m/d/Y",$date);
+        if($date == null){
+          $customer->capsule_date = null;
+        }else{
+          $customer->capsule_date = date_create_from_format("m/d/Y",$date);
+        }
+        
         $customer->location = $request->input('basic-location');
         $ship_type = $request->input('basic-ship');
         $customer->ship_type = $ship_type;
@@ -142,6 +147,7 @@ class CustomerController extends Controller
         }
 
         $customer->save();
+        dd($date);
 
         return redirect()->route('customer.signup.sizing');
     }
