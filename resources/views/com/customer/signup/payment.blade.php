@@ -20,7 +20,9 @@
 
             <hr class="divider mt-0">
             <small>{{ $user->first_name }} {{ $user->last_name }}</small><small class="float-right">Delivery Expected by:</small><br>
-            <small>{{ $user->email }}</small><small class="float-right">{{ $user->customer->capsule_date->format('F jS') }}</small><br>
+            <small>{{ $user->email }}</small>
+            {{-- <small class="float-right">{{ $user->customer->capsule_date->format('F jS') }}</small> --}}
+            <br>
             <small>{{ $user->customer->street_address }}</small><br>
             <small>{{ $user->customer->zip_code }} {{ $user->customer->city }}</small><br>
             <small>{{ $user->customer->state }}</small><br>

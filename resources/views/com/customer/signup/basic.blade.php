@@ -42,26 +42,23 @@
     </div>
 
     <div class="row item input-optional">
-        <div class="col-12 text-center mx-auto">
+        <div class="col text-center mx-auto" style="flex: 0 0 400px;max-width: 400px;">
             <div class="my-form-row">
-            <p>Height?</p>
+                <p>Height?</p>
 
-            <div class="row justify-content-center">
-                <div class="my-form-row mx-4 text-left">
-                    <label for="step2-feet">*Feet</label>
-                    <input id="step2-feet" name="height-feet" class="form-control text-answer" type="number"/>
+                <div class="row justify-content-center">
+                    <div class="col-6 text-left">
+                        <label for="basic-height">*Height</label>                        
+                        <input id="basic-height" name="height-size" class="form-control text-answer" type="number" min="0" required/>
+                    </div>
+                    <div class="col-6" style="align-self: flex-end;">
+                        <select name="height-unit" class="afit-select" required>
+                            <option value="Feet">Feet</option>
+                            <option value="Inches">Inches</option>
+                            <option value="Centimeter">Centimeter</option>
+                        </select>
+                    </div>
                 </div>
-
-                <div class="my-form-row mx-4 text-left">
-                    <label for="step2-inches">*Inches</label>
-                    <input id="step2-inches" name="height-inch" class="form-control  text-answer" type="number"/>
-                </div>
-
-                <div class="my-form-row mx-4 text-left">
-                    <label for="step2-centimeter">*Centimeter</label>
-                    <input id="step2-centimeter" name="height-centimeter" class="form-control text-answer" type="number"/>
-                </div>
-            </div>
             </div>
         </div>
     </div>

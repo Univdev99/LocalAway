@@ -114,9 +114,8 @@ class CustomerController extends Controller
         }
         $customer = $user->customer;
         $customer->gender = $gender;
-        $customer->height_feet = $request->input('height-feet');
-        $customer->height_inch = $request->input('height-inch');
-        $customer->height_centimeter = $request->input('height-centimeter');
+        $customer->height_size = $request->input('height-size');
+        $customer->height_unit = $request->input('height-unit');
         $customer->age_range = $request->input('basic-age');
         $date = $request->input('capsule-date');
         if($date == null){
@@ -147,7 +146,6 @@ class CustomerController extends Controller
         }
 
         $customer->save();
-        dd($date);
 
         return redirect()->route('customer.signup.sizing');
     }
