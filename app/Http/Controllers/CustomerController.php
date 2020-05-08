@@ -145,6 +145,7 @@ class CustomerController extends Controller
             $customer->checkout = date_create_from_format("m/d/Y", $request->input('check-out'));
         }
 
+        $customer->complete = 1;
         $customer->save();
 
         return redirect()->route('customer.signup.sizing');
@@ -191,6 +192,7 @@ class CustomerController extends Controller
         $customer->pant_size = $request->input('pant-size');
         $customer->skirt_size = $request->input('women-short');
         $customer->dress_style = $request->input('women-dress');
+        $customer->complete = 2;
         $customer->save();
         return redirect()->route('customer.signup.style');
     }
@@ -262,6 +264,7 @@ class CustomerController extends Controller
         $customer->pinterest = $pinterest;
         $customer->linkedin = $linkedin;
         $customer->notes = $notes;
+        $customer->complete = 3;
         $customer->save();
       }
     }
@@ -290,6 +293,14 @@ class CustomerController extends Controller
 
     public function thankyou(Request $request)
     {
+      $customer = Customer::where('user_id', auth()->user()->id)->first();
+      $customer->complete = 4;
+      $customer->save();
       return view('com.customer.customer-thankyou');
+    }
+
+    public function saveRow(Request $request)
+    {
+      dd($request);
     }
 }

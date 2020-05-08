@@ -79,7 +79,7 @@
             <div class="my-form-row">
                 <label class="radio-container">
                     I want to receive text alerts about my shipments
-                    <input type="checkbox" id="step1-receive-alert" name="receive_alert" unchecked>
+                    <input type="checkbox" id="step1-receive-alert" name="receive_alert">
                     <span class="checkmark">
                     <i class="fas fa-check check-sign"></i>
                     </span>
@@ -109,7 +109,7 @@
     </div>
     <div class="row item-show item-submit">
         <div class="my-form-row text-center mx-auto">
-            <input class="round-btn next-btn float-none" type="submit" value="Next"/>
+            <input class="round-btn float-none px-4" type="submit" value="Next"/>
         </div>
     </div>
 </form>

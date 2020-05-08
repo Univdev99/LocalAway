@@ -18,7 +18,7 @@ $(function() {
             $('.next-btn').prop('type', 'button');
         }
     }
-    $('.next-btn').click(function() {
+    $('#account-form').submit(function (){
         if($('#step1-policy-alert').length && !$('#step1-policy-alert').prop('checked')){
             $('.policy-alert').show();
             return false;
@@ -26,10 +26,9 @@ $(function() {
         else{
             $('.policy-alert').hide();
         }
-
-        if ($('.item-show').hasClass('item-submit')) {
-            return;
-        }
+        return true;
+    });
+    $('.next-btn').click(function() {
 
         let cur_pos = 1;
         while (!$(".item:nth-child(" + cur_pos + ")").hasClass('item-show')) {
@@ -38,6 +37,10 @@ $(function() {
 
         const is_checked = checkEmpty(".item:nth-child(" + cur_pos + ")");
         if (is_checked) {
+            saveRow(cur_pos);
+            if ($('.item-show').hasClass('item-submit')) {
+                return true;
+            }
             if (!$(".item:nth-child(" + cur_pos + ")").hasClass("end-part")) {
                 $(".item:nth-child(" + cur_pos + ")").removeClass("item-show");
                 if ($(".item:nth-child(" + cur_pos + ")").hasClass("item-select")) {
@@ -52,7 +55,11 @@ $(function() {
                     $(".item:nth-child(" + (cur_pos + 1) + ")").addClass("item-show");
                 }
                 $(window).scrollTop(0);
-            } else {
+            }
+            else {
+                if ($('.item-show').hasClass('item-submit')) {
+                    return false;
+                }
                 // const param = {}
                 // var item_cnt = $(".item").length;
 
@@ -84,8 +91,32 @@ $(function() {
         validBackBtnShow();
         validSubmitBtn();
 
+        $(window).scrollTop(0);
         return false;
     });
+
+    function saveRow(pos)
+    {
+        const param={};
+        $(".item:nth-child(" + pos + ") input").each(function() {
+            if ($(this).prop('type') == "text" || $(this).prop('type') == "number" || ($(this).prop('type') == "radio" && $(this).prop("checked")) || $(this).prop('type') == "hidden") {
+                param[$(this).attr('name')] = $(this).val();
+            }
+        });
+        $(".item:nth-child(" + pos + ") select").each(function() {
+            param[$(this).attr('name')] = $(this).val();
+        });
+        $.ajax({
+            url: '/customer/signup/saverow',
+            type: 'post',
+            data: param,
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+        })
+        .then(function() {
+        });
+    }
 
     $(".back-btn").click(function() {
         let cur_pos = 1;
@@ -108,7 +139,7 @@ $(function() {
 
         validBackBtnShow();
         validSubmitBtn();
-
+        $(window).scrollTop(0);
     });
 
     function checkEmpty(item) {

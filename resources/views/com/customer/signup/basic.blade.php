@@ -297,28 +297,28 @@
         <div class="col-6 offset-3">
             <div class="my-form-row">
             <label for="basic-street-address">*Street Address</label>
-            <input id="basic-street-address" type="text" name="street-address" class="form-control" required />
+            <input id="basic-street-address" type="text" name="street-address" class="form-control" />
             </div>
         </div>
 
         <div class="col-6 offset-3">
             <div class="my-form-row">
             <label for="basic-city">*City</label>
-            <input id="basic-city" type="text" name="city" class="form-control" required />
+            <input id="basic-city" type="text" name="city" class="form-control" />
             </div>
         </div>
 
         <div class="col-3 offset-3">
             <div class="my-form-row">
             <label for="basic-state">*State</label>
-            <input id="basic-state" type="text" class="form-control" name="state" required />
+            <input id="basic-state" type="text" class="form-control" name="state" />
             </div>
         </div>
 
         <div class="col-3">
             <div class="my-form-row">
             <label for="basic-zip-code">*Zip Code</label>
-            <input id="basic-zip-code" type="text" class="form-control" name="zip-code" required>
+            <input id="basic-zip-code" type="text" class="form-control" name="zip-code"/>
             </div>
         </div>
     </div>

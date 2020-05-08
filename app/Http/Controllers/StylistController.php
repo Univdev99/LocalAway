@@ -122,8 +122,7 @@ class StylistController extends Controller
     {
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:6', 'confirmed']
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users']
         ]);
 
         $user = new User;
@@ -133,8 +132,8 @@ class StylistController extends Controller
         $user->birthday = '';
         $user->phone_number = $request->input('phone');
         $user->email = $request->input('email');
-        $pwd = $request->input('password');
-        $user->password = Hash::make($pwd);
+        // $pwd = $request->input('password');
+        // $user->password = Hash::make($pwd);
         $user->save();
 
         $stylist = new Stylist;

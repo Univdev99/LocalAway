@@ -110,6 +110,7 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
     Route::post('/customer/signup/basic', 'CustomerController@saveBasic')->name('customer.signup.basic.save');
     Route::post('/customer/signup/sizing', 'CustomerController@saveSizing')->name('customer.signup.sizing.save');
     Route::post('/customer/signup/style', 'CustomerController@saveStyle')->name('customer.signup.style.save');
+    Route::post('/customer/signup/saverow', 'CustomerController@saveRow');
 
     Route::get('/customer/signup/thank-you', 'CustomerController@thankyou')->name('customer.signup.thankyou');
 

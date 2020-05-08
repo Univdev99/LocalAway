@@ -94,7 +94,7 @@
                                                 </span>
                                                 @enderror
                                           </div>
-                                          <div class="form-group mt-4">
+                                          {{-- <div class="form-group mt-4">
                                               <label for="password" class="mt-1 text-secondary small">{{ __('Password') }}</label>
                                               <input id="password" type="password" class="form-control border-none kt-portlet--border-bottom-danger @error('password') is-invalid @enderror" name="password" value="" required>
                                                 @error('password')
@@ -106,7 +106,7 @@
                                           <div class="form-group mt-4">
                                               <label for="password_confirmation" class="mt-1 text-secondary small">{{ __('Password Confirm') }}</label>
                                               <input id="password_confirmation" type="password" class="form-control border-none kt-portlet--border-bottom-danger" name="password_confirmation" value="" required>
-                                          </div>
+                                          </div> --}}
                                           <div class="form-group mt-4">
                                               <label for="phone" class="mt-1 text-secondary small">{{ __('Phone') }}</label>
                                               <input id="phone" type="text" class="form-control border-none kt-portlet--border-bottom-danger" name="phone" value="{{ old('phone') }}">
