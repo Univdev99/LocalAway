@@ -329,7 +329,7 @@ p {
 .my-form-row select {
     color: #495057;
     padding: 0.5rem;
-    width: 100%;
+    /* width: 100%; */
 }
 
 .gender-image {
@@ -362,7 +362,7 @@ p {
     margin-bottom: 20px;
 }
 
-.body-type-upload {
+.body_type-upload {
     width: 80px;
 }
 
@@ -399,7 +399,7 @@ a.green:hover {
     filter: contrast(1.3);
 }
 
-.body-type-file-name {
+.body_type-file-name {
     margin-bottom: 0;
     font-size: smaller;
     color: gray;
@@ -727,3 +727,7 @@ hr.divider {
   .input-field:focus {
     border: 2px solid dodgerblue;
   }
+
+  a.nav-link {
+    color: black!important;
+}

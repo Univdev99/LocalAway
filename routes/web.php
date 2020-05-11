@@ -30,6 +30,7 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
     });
     Route::post('/confirm-access', 'HomeController@checkAccess');
     Route::get('about', 'HomeController@about');
+    Route::get('/save-newsemail', 'HomeController@saveNewsEmail');
 
     Route::get('/dashboard','DashboardController@index');
 
@@ -95,9 +96,10 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 // Route::group(array('domain' => 'localaway.com'), $appRoutes);
 
     Route::group(['middleware' => ['auth-customer']], function () {
-        Route::get('customer/upcoming-boxes', 'CustomerController@upcomingboxes')->name('com.customer.upcoming-boxes');
-        Route::get('customer/preferences', 'CustomerController@preferences')->name('com.customer.preferences');
-        Route::get('customer/account', 'CustomerController@account')->name('com.customer.account');
+        Route::get('/customer', 'CustomerController@profileTracking');
+        Route::get('/customer/upcoming-boxes', 'CustomerController@upcomingboxes')->name('com.customer.upcoming-boxes');
+        Route::get('/customer/preferences', 'CustomerController@preferences')->name('com.customer.preferences');
+        Route::get('/customer/account', 'CustomerController@account')->name('com.customer.account');
     });
     Route::get('/customer/signup/account', 'CustomerController@signup')->name('customer.signup.account');
     Route::get('/customer/signup/basic', 'CustomerController@basic')->name('customer.signup.basic');
@@ -126,4 +128,6 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
     Route::get('cancel', 'PayPalController@cancel')->name('payment.cancel');
     Route::get('payment/success', 'PayPalController@success')->name('payment.success');
 
-
+    Route::get('/getsession', function () {
+        return;
+    });

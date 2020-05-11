@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Upload;
 use Exception;
+use Illuminate\Support\Facades\Hash;
 use PhpParser\Node\Stmt\TryCatch;
 
 class FileController extends Controller
@@ -405,13 +406,17 @@ class FileController extends Controller
 
     public function phpinfo()
     {
-        // $username = "benwu@localaway.com";
-        // $t = md5($username);
-        // dd($t);
-        return view('email.sendaccess',[
-            'name' => "Julia",
-            'access_code' => 482954
-        ]);
+        $username = "benwu@localaway.com";
+        $t = Hash::make($username);
+        $a = Hash::make($username);
+        dump($t);
+        dump($a);
+        dd(Hash::check('benwu@localaway.com', $t));
+
+        // return view('email.sendaccess',[
+        //     'name' => "Julia",
+        //     'access_code' => 482954
+        // ]);
 
     }
 }

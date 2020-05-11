@@ -30,7 +30,7 @@
 <body class="signup-body">
 
 
-        @include('com.frontend.sections.header')
+        @include('com.customer.signup.header')
 
         @yield('content')
 

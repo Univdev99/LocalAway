@@ -212,7 +212,7 @@
                 var $form = $(this);
                 $form.parsley().subscribe('parsley:form:validate', function(formInstance) {
                     formInstance.submitEvent.preventDefault();
-                    alert("again");
+                    //alert("again");
                     return false;
                 });
                 $form.find('#submitBtn').prop('disabled', true);

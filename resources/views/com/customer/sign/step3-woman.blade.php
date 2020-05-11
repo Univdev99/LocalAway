@@ -34,14 +34,14 @@
       <p class="mt-3">Body Type?</p>
 
       <div class="d-flex flex-wrap mb-2">
-        <img class="woman-body-type" src="/images/customer-signup/women-body-type-1.svg" />
-        <img class="woman-body-type mr-2" src="/images/customer-signup/women-body-type-2.svg" />
+        <img class="woman-body_type" src="/images/customer-signup/women-body_type-1.svg" />
+        <img class="woman-body_type mr-2" src="/images/customer-signup/women-body_type-2.svg" />
         <div>
           <p class="question mb-0">Just You</p>
           <p class="mb-0">Add a photo of yourself</p>
           <div class="text-center mb-2 position-relative">
-            <p class="body-type-file-name"></p>
-            <img class="women-body-type-upload image-upload-placeholder" src="/images/customer-signup/women-body-type-upload.svg" />
+            <p class="body_type-file-name"></p>
+            <img class="women-body_type-upload image-upload-placeholder" src="/images/customer-signup/women-body_type-upload.svg" />
             <input type="file" class="image-upload" id="custom_woman_body_type" name="custom_woman_body_type">
           </div>
           <a href="#" class="green">

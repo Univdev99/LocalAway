@@ -1,5 +1,36 @@
 $(function() {
+    activeRow();
     validBackBtnShow();
+    var refreshSn = function ()
+    {
+        var time = 600000; // 10 mins
+        setTimeout(
+            function ()
+                {
+                $.ajax({
+                    url: '/getsession',
+                    cache: false,
+                    method: 'get',
+                    complete: function () {refreshSn();}
+                });
+            },
+            time
+        );
+    };
+    refreshSn();
+
+    function activeRow(){
+        let progress = $('.profile-progress').val();
+        if (progress == null){
+            $('.first-row').addClass('item-show');
+        }else {
+            if (document.getElementById(progress)){
+                $('#'+progress).addClass('item-show');
+            }else {
+                $('.first-row').addClass('item-show');
+            }
+        }
+    }    
 
     function validBackBtnShow() {
         if ($('.item-show').hasClass('first-row')) {
@@ -29,7 +60,6 @@ $(function() {
         return true;
     });
     $('.next-btn').click(function() {
-
         let cur_pos = 1;
         while (!$(".item:nth-child(" + cur_pos + ")").hasClass('item-show')) {
             cur_pos++;
@@ -98,6 +128,7 @@ $(function() {
     function saveRow(pos)
     {
         const param={};
+        let id = $(".item:nth-child(" + (pos+1) + ")").attr('id');
         $(".item:nth-child(" + pos + ") input").each(function() {
             if ($(this).prop('type') == "text" || $(this).prop('type') == "number" || ($(this).prop('type') == "radio" && $(this).prop("checked")) || $(this).prop('type') == "hidden") {
                 param[$(this).attr('name')] = $(this).val();
@@ -109,7 +140,7 @@ $(function() {
         $.ajax({
             url: '/customer/signup/saverow',
             type: 'post',
-            data: param,
+            data: {param: param, id: id},
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
@@ -151,17 +182,6 @@ $(function() {
         // });
         if ($(item).hasClass("dislike")) {
             flag = true;
-        }
-
-        if ($(item).hasClass("input-optional")) {
-            $(item + " input[type=number]").each(function() {
-                if($(this).val() != ""){
-                    flag = true;
-                }
-            });
-            if(flag == true){
-                return true;
-            }
         }
 
         $(item + " input[type=radio]").each(function() {

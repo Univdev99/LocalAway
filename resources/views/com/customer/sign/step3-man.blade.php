@@ -10,13 +10,13 @@
       <p class="mt-3">Body Type?</p>
 
       <div class="d-flex flex-wrap mb-2">
-        <img class="woman-body-type mr-3" src="/images/customer-signup/men-body-type.svg" />
+        <img class="woman-body_type mr-3" src="/images/customer-signup/men-body_type.svg" />
         <div>
           <p class="question mb-0">Just You</p>
           <p class="mb-0">Add a photo of yourself</p>
           <div class="text-center mb-2 position-relative">
-            <p class="body-type-file-name"></p>
-            <img class="men-body-type-upload image-upload-placeholder" src="/images/customer-signup/men-body-type-upload.svg" />
+            <p class="body_type-file-name"></p>
+            <img class="men-body_type-upload image-upload-placeholder" src="/images/customer-signup/men-body_type-upload.svg" />
             <input type="file" class="image-upload" id="custom_man_body_type" name="custom_man_body_type">
           </div>
           <a href="#" class="green">

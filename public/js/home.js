@@ -1,6 +1,6 @@
 "use strict";
 $(document).ready(function() {
-    if (sessionStorage.getItem('access_permission') != 'true') {
+    if (localStorage.getItem('access_permission') != 'true') {
         $("#ai_access_modal").modal({ backdrop: 'static', keyboard: false });
     }
     $('#request-access-form').submit(function() {
@@ -24,7 +24,7 @@ $(document).ready(function() {
                 } else {
                     $("#access_code_error").show();
                 }
-                sessionStorage.setItem('access_permission', "true");
+                localStorage.setItem('access_permission', "true");
             }
         });
         return false;
@@ -89,15 +89,21 @@ $(document).ready(function() {
     });
 
     $('#sign-btn').click(function() {
-        var url = $('#sub-email').val();
+        var email = $('#sub-email').val();
         var pattern = /^([a-zA-A0-9_.-])+@([a-zA-Z0-9_.-])+([a-zA-Z])+/;
-        if (url.match(pattern) == null) {
+        if (email.match(pattern) == null) {
             return false;
         } else {
             $('#news').css("display", "none");
-            // $('#sub-email').css("display", "none");
-            // $('#sign-btn').css("display", "none");
             $('#thank').css("display", "block");
+            $('#sub-email').val('');
+            $.get("/save-newsemail", { email })
+            .done(function(res) {
+                setTimeout(function() {
+                    $('#news').css("display", "block");
+                    $('#thank').css("display", "none");
+                }, 5000);
+            });
         }
     });
 });

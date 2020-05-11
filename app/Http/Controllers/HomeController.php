@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Survey_person;
+use App\NewsUser;
 use Illuminate\Http\Request;
 use App\Upload;
 use Illuminate\Support\Facades\View;
@@ -34,7 +35,7 @@ class HomeController extends Controller
                 return redirect('/dashboard');
             }
             if ($user_type == 'customer') {
-                return redirect('/customer/upcoming-boxes');
+                return redirect('/customer');
             } else if ($user_type == 'stylist') {
                 return redirect('/stylist');
             }
@@ -78,5 +79,16 @@ class HomeController extends Controller
             'location' => $location,
             // 'hero' => $hero,
         ]);
+    }
+
+    public function saveNewsEmail(Request $request)
+    {
+        $email = $request->input('email');
+        if(NewsUser::where('email', $email)->first()){
+            return;
+        }
+        $news = new NewsUser;
+        $news->email = $email;
+        $news->save();
     }
 }
