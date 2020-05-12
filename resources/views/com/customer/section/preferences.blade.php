@@ -46,7 +46,7 @@
             </div>
         </div>
         <div class="col-md-6 col-sm-12 text-center p-5 m-auto">
-            <h5>Finish the <a href="/" class=""><u>Style Quiz</u></a> to complete your <br> preferences and start an order.</h5>
+            <h5>Finish the <a href="/customer" class=""><u>Style Quiz</u></a> to complete your <br> preferences and start an order.</h5>
         </div>
     </div>
     </form>

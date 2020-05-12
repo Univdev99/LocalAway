@@ -21,7 +21,7 @@
       <!-- Theme Style -->
       <link rel="stylesheet" href="/css/style.css">
       <link rel="stylesheet" href="/css/localawayai.css">
-      <link rel="stylesheet" href="/css/customer/first-flow.css">
+      <link rel="stylesheet" href="/css/customer/customer.css">
       <style type="text/css">
       @font-face {
           font-family: Avenir-Black;

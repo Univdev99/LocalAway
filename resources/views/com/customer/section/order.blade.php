@@ -21,16 +21,25 @@
                     </tr>
                 </thead> --}}
                 <tbody>
-                    {{-- @foreach ($person as $row) --}}
+                    @for ($i = 0; $i < count($orders); $i++)
                         <tr>
-                            <td>1</td>
+                            <td>{{ $i + 1 }}</td>
                             <td><img src="/images/localaway-box.svg" width="100px"></td>
-                            <td><p style="color: #02bfaf;">LocalAway Discovery Box</p>Order No: 000546456<br>Date</td>
-                            <td><p style="color: blue;">Shipped</p> <p class="">Track package</p></td>
-                            <td>$19.00 </td>
-                            <td>Return</td>
+                            <td><p style="color: #02bfaf;">{{ $orders[$i]->name }}</p>Order No: {{ $orders[$i]->order_id }}<br>Date: {{ $orders[$i]->order_date }}</td>
+                            @if ($orders[$i]->status == 0)
+                                <td>
+                                <p style="color: blue;">Shipped</p>
+                                <p class="text-black">Track package</p>
+                                <td>
+                                <td>${{ $orders[$i]->price }} </td>
+                                <td><p class="color: grey;">Return</p></td>
+                            @else
+                                <td><p style="color: green;">Completed</p></td>
+                                <td>${{ $orders[$i]->price }} </td>
+                                <td><a href="#">Return</a></td>
+                            @endif                            
                         </tr>
-                    {{-- @endforeach --}}
+                    @endfor
                 </tbody>
             </table>
         </div>
@@ -42,7 +51,7 @@
             <div class="m-auto text-center">
                 <textarea name="notes" class="form-control my-4 mx-auto notes-order" placeholder="Add a note for the stylist."></textarea>
             </div>
-            <button type="submit" class="btn text-white btn-order" style="background-color: #FD5C48; ">Order Discovery Box</button>
+            <button type="submit" class="btn text-white btn-order" style="background-color: #FD5C48; ">Order Next Box</button>
         </form>
     </div>
 @endsection

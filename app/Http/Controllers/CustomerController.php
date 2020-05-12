@@ -9,7 +9,9 @@ use Stevebauman\Location\Location;
 use App\Upload;
 use App\User;
 use App\Customer;
+use App\Order;
 use App\Plan;
+use DateTime;
 use Illuminate\Support\Facades\View;
 use Illuminate\Contracts\Session\Session;
 
@@ -52,7 +54,8 @@ class CustomerController extends Controller
 
     public function order()
     {
-      return view('com.customer.section.order');
+      $orders = Customer::where('user_id', auth()->user()->id)->first()->order;
+      return view('com.customer.section.order', ['orders' => $orders]);
     }
 
     public function shop()
@@ -394,6 +397,15 @@ class CustomerController extends Controller
       $customer = Customer::where('user_id', auth()->user()->id)->first();
       $customer->complete = 4;
       $customer->save();
+      $order = new Order;
+      $order->customer_id = $customer->id;
+      $order->name = "LocalAway Discovery Box";
+      $date = new DateTime();
+      $order->order_id = $date->getTimestamp();
+      $order->order_date = date("Y-m-d");
+      $order->status = 0;
+      $order->price = 19;
+      $order->save();
       return view('com.customer.customer-thankyou');
     }
 

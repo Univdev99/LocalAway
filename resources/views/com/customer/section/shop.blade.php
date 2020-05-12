@@ -12,7 +12,7 @@
             <div class="m-auto text-center">
                 <textarea name="notes" class="form-control my-4 mx-auto notes-shop" placeholder="Add a note for the stylist."></textarea>
             </div>
-            <button type="submit" class="btn text-white btn-order" style="background-color: #FD5C48; ">Order Discovery Box</button>
+            <button type="submit" class="btn text-white btn-order" style="background-color: #FD5C48; ">Order Next Box</button>
         </form>
     </div>
 @endsection
