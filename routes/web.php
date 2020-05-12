@@ -96,10 +96,12 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 // Route::group(array('domain' => 'localaway.com'), $appRoutes);
 
     Route::group(['middleware' => ['auth-customer']], function () {
-        Route::get('/customer', 'CustomerController@profileTracking');
+        Route::get('/customer', 'CustomerController@profileTracking')->name('customer.signup.tracking');
         Route::get('/customer/upcoming-boxes', 'CustomerController@upcomingboxes')->name('com.customer.upcoming-boxes');
         Route::get('/customer/preferences', 'CustomerController@preferences')->name('com.customer.preferences');
         Route::get('/customer/account', 'CustomerController@account')->name('com.customer.account');
+        Route::get('/customer/order', 'CustomerController@order')->name('com.customer.order');
+        Route::get('/customer/shop', 'CustomerController@shop')->name('com.customer.shop');
     });
     Route::get('/customer/signup/account', 'CustomerController@signup')->name('customer.signup.account');
     Route::get('/customer/signup/basic', 'CustomerController@basic')->name('customer.signup.basic');

@@ -26,11 +26,6 @@ class CustomerController extends Controller
         View::share('logo', $logo);
     }
 
-    public function upcomingboxes()
-    {
-        return view('com.customer.section.upcomingbox');
-    }
-
     public function preferences()
     {
       $user_id = auth()->user()->id;
@@ -44,6 +39,25 @@ class CustomerController extends Controller
         'notes' => $customer->notes,
         'age' => $customer->age_range
       ]);
+    }
+
+    public function upcomingboxes()
+    {
+      $complete = Customer::where('user_id', auth()->user()->id)->first()->complete;
+      if($complete == 4){
+        return redirect()->route('com.customer.order');
+      }
+      return view('com.customer.section.upcomingbox', ['complete' => $complete]);
+    }
+
+    public function order()
+    {
+      return view('com.customer.section.order');
+    }
+
+    public function shop()
+    {
+      return view('com.customer.section.shop');
     }
 
     public function account()
@@ -70,7 +84,7 @@ class CustomerController extends Controller
         if ($check_user){
           if(Hash::check($password, $check_user->password)){
             auth()->login($check_user);
-            return redirect('/customer');
+            return redirect()->route('customer.signup.tracking');
           }else{
             $request->validate([
               'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
@@ -424,7 +438,7 @@ class CustomerController extends Controller
           return redirect()->route('customer.signup.payment');
           break;
         case 4:
-          return redirect('/customer/upcoming-boxes');
+          return redirect()->route('com.customer.order');
           break;
       }
     }

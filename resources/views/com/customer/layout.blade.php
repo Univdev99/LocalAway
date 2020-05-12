@@ -38,7 +38,7 @@
     </head>
     <body data-spy="scroll" data-target="#templateux-navbar" data-offset="200" class="Frontend About adjust-y">
         @include('com.customer.section.header')
-
+        
         @yield('content')
 
         @include('com.frontend.sections.footer')

@@ -1,4 +1,4 @@
-<section class="site-hero first-row" style="background-image: url(/storage/uploads/{{$hero->filename}}) ;" data-stellar-background-ratio="0.5" id="section-home">
+<section style="background-image: url(/storage/uploads/{{$hero->filename}}) ;" data-stellar-background-ratio="0.5" id="section-home">
     <div class="container">
         <div class="row site-hero-inner justify-content-center align-items-center">
             <div class="col-md text-center" data-aos="fade-up">
@@ -28,7 +28,7 @@
 
             <div class="row">
                 <div class="col text-center">
-                    <a href="{{ route('customer.signup.account') }}" class="btn text-white btn-quiz" style="background-color: #FD5C48; ">Start your style quiz</a>
+                    <a href="{{ route('customer.signup.account') }}" class="btn text-white btn-quiz" style="background-color: #FD5C48; ">Start Here</a>
                 </div>
                 {{-- <div class="col-lg-4 mb-3 mb-lg-0 px-0 pr-lg-3">
                     <div class="field-icon-wrap">

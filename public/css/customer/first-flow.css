@@ -88,3 +88,50 @@
 .contact-your-stylist-section {
     background-color: #f4f4f4;
 }
+
+.order-box {
+    max-width:500px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+a.active {
+    color: #02bfaf!important;
+}
+
+#order-table table, th, td {
+    border-collapse: collapse;
+  }
+  th, td {
+    padding: 15px;
+  }
+
+.notes-order {
+    width: 400px;
+    border-radius: 10px;
+}
+
+.btn-order {
+    background-color: #FD5C48;
+    width: 200px;
+    font-size: 14px;
+    padding: 10px;
+}
+
+.order-form {
+    background-color: #f1f0f0;
+    padding: 100px;
+    width: 100%;
+}
+
+.form-shop {
+    background-color: #f1f0f0;
+    padding: 30px;
+    width: 100%;
+}
+
+.notes-shop {
+    width: 400px!important;
+    height: 150px!important;
+    border-radius: 10px;
+}
