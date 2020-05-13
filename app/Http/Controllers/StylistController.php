@@ -268,6 +268,12 @@ class StylistController extends Controller
         $stylist->status = 1;
         $stylist->save();
 
+        if(!$survey_person->access_code){
+            $access_code = md5($request->email);
+            $access_code = substr($access_code, 0, 5);
+            $survey_person->access_code = $access_code;
+            $survey_person->save();
+        }
         
         Mail::to($request->email)->send(new sendBoutiquePasswordMail($user->first_name, $user->email, $survey_person->access_code, $url));
         return "Set active";

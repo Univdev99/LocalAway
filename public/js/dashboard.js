@@ -11,11 +11,11 @@ $(document).ready(function() {
     //         });
     // });
 
-    $(".boutique-inactive").click(function() {
+    $("#survey-table").on("click", ".boutique-inactive", function() {
         let email = $(this).data('email');
         $.get("/dashboard/boutique/setactive", { email })
         .done(function(res) {
+            location.reload();
         });
-        location.reload();
     });
 });

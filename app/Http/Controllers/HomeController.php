@@ -35,7 +35,8 @@ class HomeController extends Controller
                 return redirect('/dashboard');
             }
             if ($user_type == 'customer') {
-                return redirect()->route('com.customer.upcoming-boxes');
+                return redirect()->route('customer.signup.tracking');
+                // return redirect()->route('com.customer.upcoming-boxes');
             } else if ($user_type == 'stylist') {
                 return redirect('/stylist');
             }
