@@ -39,10 +39,10 @@
                               <form id="stylist-signup" action="/stylist/signup" method="post" enctype="multipart/form-data">
                                   @csrf
                                   <div id="step-2-boutique" class="mt-5 step-2">
-                                      <h1 class="font-weight-bold mb-5 title">We're excited to partner with you!<br>Welcome to the future of sustainable supply chain.</h1>
+                                      <h1 class="font-weight-bold mb-5 title">We're excited to partner with you!</h1>
                                       <div class="">
                                           <span class ='font-weight-bold question'>Question 1
-                                              <h5 class='text-dark mt-4'>What is the name and location of your boutique?</h5>
+                                              <h5 class='text-dark mt-4'>What's the name of location of your brand or a boutique?</h5>
                                           </span>
 
                                           <div class="form-group mt-4">

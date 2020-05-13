@@ -96,7 +96,7 @@ $(document).ready(function() {
         return false;
     });
 
-    $('#news-signup-alert').submit(function() {
+    $('#news-signup-form').submit(function() {
         var email = $('#sub-email').val();
         $('#news').css("display", "none");
         $('#thank').css("display", "block");
