@@ -71,39 +71,43 @@ $(document).ready(function() {
                 note: note
             },
             success: function(result) {
-                $('.request-input-form').show();
-                $('.request-loading').hide();
-                // $("#ai_request_access_modal").modal("hide");
-                // $("#ai_access_modal").modal({ backdrop: 'static', keyboard: false });
+                $('#access-thank').hide();
+                $('#access-sent-mail').show();
+                $('#access-loading').hide();
+                setTimeout(function(){ 
+                    $('#access-thank').show();
+                    $('#access-sent-mail').hide();
+                    $('#access-loading').show();
+                    $('.request-input-form').show();
+                    $('.request-loading').hide();
+                    $("#ai_request_access_modal").modal("hide");
+                    $("#ai_access_modal").modal({ backdrop: 'static', keyboard: false });
+                }, 5000);
                 // $("body").removeClass("modal-open");
             },
             error: function(result) {
                 $('.request-input-form').show();
                 $('.request-loading').hide();
-                // $("#ai_request_access_modal").modal("hide");
-                // $("#ai_access_modal").modal({ backdrop: 'static', keyboard: false });
+                $("#ai_request_access_modal").modal("hide");
+                $("#ai_access_modal").modal({ backdrop: 'static', keyboard: false });
                 // $("body").removeClass("modal-open");
             }
         });
         return false;
     });
 
-    $('#sign-btn').click(function() {
+    $('#news-signup-alert').submit(function() {
         var email = $('#sub-email').val();
-        var pattern = /^([a-zA-A0-9_.-])+@([a-zA-Z0-9_.-])+([a-zA-Z])+/;
-        if (email.match(pattern) == null) {
-            return false;
-        } else {
-            $('#news').css("display", "none");
-            $('#thank').css("display", "block");
-            $('#sub-email').val('');
-            $.get("/save-newsemail", { email })
-            .done(function(res) {
-                setTimeout(function() {
-                    $('#news').css("display", "block");
-                    $('#thank').css("display", "none");
-                }, 5000);
-            });
-        }
+        $('#news').css("display", "none");
+        $('#thank').css("display", "block");
+        $('#sub-email').val('');
+        $.get("/save-newsemail", { email })
+        .done(function(res) {
+            setTimeout(function() {
+                $('#news').css("display", "block");
+                $('#thank').css("display", "none");
+            }, 5000);
+        });
+        return false;
     });
 });

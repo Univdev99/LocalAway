@@ -39,8 +39,9 @@
                 </div>
             </div>
             <div class="request-loading text-center p-4" style="display:none;width:270px;">
-                <h4> Thank you! We will be in touch soon.</h4>
-                <div class="spinner-border" role="status">
+                <h4 id="access-thank"> Thank you! We will be in touch soon.</h4>
+                <h4 id="access-sent-mail" style="display:none;">Your access email has been sent. <br>Please check your inbox.</h4>
+                <div id="access-loading" class="spinner-border" role="status">
                 <span class="sr-only">Loading...</span>
                 </div>
             </div>

@@ -8,10 +8,10 @@
           <p id='news' class="text-white">Sign up for news</p>
           <p id='thank' class="text-white font-weight-bold text-center" style='display:none;'>Thank you!</p>
           <div id='email-btn' class="d-flex justify-content-center">
-            <input id="sub-email" type="text" class="input-sign text-white" placeholder="Enter your email">
-            <button id='sign-btn' class="btn-sign">
-              >
-            </button>
+            <form id="news-signup-form" class="d-flex">
+              <input id="sub-email" type="email" class="input-sign text-white" placeholder="Enter your email" required>
+              <input id='sign-btn' class="btn-sign" type="submit" value=">">
+            </form>
           </div>
         </div>
       </div>

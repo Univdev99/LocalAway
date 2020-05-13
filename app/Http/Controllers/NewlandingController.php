@@ -9,8 +9,8 @@ use App\Survey_person;
 use App\Question;
 use App\Survey;
 use App\Answer;
-use App\Mail\sendBoutiqueMail;
-use App\Mail\sendCustomerMail;
+use App\Mail\sendBoutiqueAccessMail;
+use App\Mail\sendCustomerAccessMail;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Crypt;
 use App\Mail\sendRequestAccessMail;
@@ -102,10 +102,21 @@ class NewlandingController extends Controller
         $access_code = md5($email);
         $access_code = substr($access_code, 0, 5);
 
-        $person = Survey_person::updateOrCreate(['email' => $email],
-            ['name' => $name, 'phone' => $phone, 'person_type' => $person_type, 'location' => $request->input("country"), 'note' => $note, 'access_code' => $access_code]
-        );
-        Mail::to($email)->send(new sendRequestAccessMail($first_name, $access_code));
+        $person = Survey_person::updateOrCreate(['email' => $email], [
+            'name' => $name,
+            'phone' => $phone,
+            'person_type' => $person_type, 
+            'location' => $request->input("country"),
+            'note' => $note,
+            'access_code' => $access_code
+        ]);
+
+        if($person_type == "stylist"){
+            $url = $this->generateBoutiqueAccessURL($name, $email);
+            Mail::to($email)->send(new sendBoutiqueAccessMail($first_name));
+        }else {
+            Mail::to($email)->send(new sendCustomerAccessMail($first_name, $access_code));
+        }
 
     }
 
@@ -143,10 +154,17 @@ class NewlandingController extends Controller
         }
     }
 
-//     public function sendRequestMail() {
-//         // $expire_time = time() + 24 * 60 * 60;
-//         // $json = json_encode(['name'=>$name, 'email'=>$email]);
-//         // $token = Crypt::encrypt($json);
-// //        $link = env('APP_URL') . '/survey' . '?expires=' . $expire_time . '&token=' . $token;
-//     }
+    public function generatePWDURL($name, $email) {
+        $expire_time = time() + 24 * 60 * 60;
+        $json = json_encode(['name'=>$name, 'email'=>$email]);
+        $token = Crypt::encrypt($json);
+        $link = env('APP_URL') . '/stylist/signup/setpassword' . '?expires=' . $expire_time . '&token=' . $token;
+    }
+
+    public function generateBoutiqueAccessURL($name, $email) {
+        $expire_time = time() + 24 * 60 * 60;
+        $json = json_encode(['name'=>$name, 'email'=>$email]);
+        $token = Crypt::encrypt($json);
+        $link = env('APP_URL') . '/stylist/signup' . '?expires=' . $expire_time . '&token=' . $token;
+    }
 }

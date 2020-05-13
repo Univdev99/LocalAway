@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 
 use App\CategoryMiddle;
+use App\Mail\sendBoutiquePasswordMail;
 use App\Product;
 use Illuminate\Support\Facades\Storage;
 
@@ -9,10 +10,14 @@ use Illuminate\Http\Request;
 use App\Upload;
 use App\Stylist;
 use App\Subcategory;
+use App\Survey_person;
 use Stevebauman\Location\Location;
 use App\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Password;
 
 class StylistController extends Controller
 {
@@ -120,10 +125,13 @@ class StylistController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users']
-        ]);
+        $email = $request->input('email');
+        if (!(User::where(['email'=>$email, 'user_type'=>'customer'])->first() && !User::where(['email'=>$email, 'user_type'=>'stylist'])->first())){
+            $request->validate([
+                'name' => ['required', 'string', 'max:255'],
+                'email' => ['required', 'string', 'email', 'max:255', 'unique:users']
+            ]);
+        }
 
         $user = new User;
         $user->user_type = 'stylist';
@@ -131,7 +139,7 @@ class StylistController extends Controller
         $user->last_name = $request->input('last_name');
         $user->birthday = '';
         $user->phone_number = $request->input('phone');
-        $user->email = $request->input('email');
+        $user->email = $email;
         // $pwd = $request->input('password');
         // $user->password = Hash::make($pwd);
         $user->save();
@@ -228,4 +236,40 @@ class StylistController extends Controller
         return view('com.stylist.stylist-thankyou');
     }
 
+    public function setpwd(Request $request)
+    {
+        $expire = $request->input('expires');
+        $token = $request->input('token');
+        $json = json_decode(Crypt::decrypt($token));
+
+        // $person = Survey_person::where(['email' => $json->email, 'name' => $json->name])->get();
+        // if($expire < time() || count($person) != 1){
+        //     return view('ai.mailSent');
+        // }
+    }
+
+    public function boutiqueActive(Request $request)
+    {
+        $stylist = User::where('email', $request->email)->first()->stylist;
+        $stylist->status = 0;
+        $stylist->save();
+        return "Set Inactive";
+    }
+
+    public function boutiqueInActive(Request $request)
+    {
+        $survey_person = Survey_person::where('email', $request->email)->first();
+
+        $user = User::where('email', $request->email)->first();
+        $token = Password::broker()->createToken($user);
+        $url = url(config('app.url').route('password.reset', ['token' => $token, 'email' => $user->email], false));
+
+        $stylist = $user->stylist;
+        $stylist->status = 1;
+        $stylist->save();
+
+        
+        Mail::to($request->email)->send(new sendBoutiquePasswordMail($user->first_name, $user->email, $survey_person->access_code, $url));
+        return "Set active";
+    }
 }

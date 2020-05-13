@@ -6,6 +6,7 @@
         { "url": "/stylist-image", "name": "Stylist Image", "icon": "" },
         { "url": "/virtual-closet", "name": "Virtual Closet", "icon": "" },
         { "url": "/customers", "name": "Customers", "icon": "" },
-        { "url": "/survey", "name": "Access Requests", "icon": "" }
+        { "url": "/survey", "name": "Survey", "icon": "" },
+        { "url": "/boutique", "name": "Boutique Access Control", "icon": "" }
     ]
 }

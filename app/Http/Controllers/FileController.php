@@ -406,17 +406,19 @@ class FileController extends Controller
 
     public function phpinfo()
     {
-        $username = "benwu@localaway.com";
-        $t = Hash::make($username);
-        $a = Hash::make($username);
-        dump($t);
-        dump($a);
-        dd(Hash::check('benwu@localaway.com', $t));
+        // $username = "benwu@localaway.com";
+        // $t = Hash::make($username);
+        // $a = Hash::make($username);
+        // dump($t);
+        // dump($a);
+        // dd(Hash::check('benwu@localaway.com', $t));
 
-        // return view('email.sendaccess',[
-        //     'name' => "Julia",
-        //     'access_code' => 482954
-        // ]);
+        return view('email.boutique_approve',[
+            'name' => "Julia",
+            'access_code' => 482954,
+            'pwd' => 'asdf',
+            "email" => "localaway@email.com"
+        ]);
 
     }
 }

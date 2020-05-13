@@ -7,20 +7,19 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class sendBoutiqueMail extends Mailable
+class sendBoutiqueAccessMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    protected $name, $access_code;
+    protected $name;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($name, $access_code)
+    public function __construct($name)
     {
         $this->name = $name;
-        $this->access_code = $access_code;
     }
 
     /**
@@ -31,8 +30,7 @@ class sendBoutiqueMail extends Mailable
     public function build()
     {
         return $this->view('email.boutique', [
-            'name' => $this->name,
-            'access_code' => $this->access_code
+            'name' => $this->name
         ])->subject("You're In!");
     }
 }

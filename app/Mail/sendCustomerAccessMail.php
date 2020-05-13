@@ -7,19 +7,20 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class sendCustomerMail extends Mailable
+class sendCustomerAccessMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    protected $name;
+    protected $name, $access_code;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($name)
+    public function __construct($name, $access_code)
     {
         $this->name = $name;
+        $this->access_code = $access_code;
     }
 
     /**
@@ -29,6 +30,9 @@ class sendCustomerMail extends Mailable
      */
     public function build()
     {
-        return $this->view('email.customer',['name' => $this->name])->subject("You're In!");
+        return $this->view('email.customer',[
+            'name' => $this->name,
+            'access_code' => $this->access_code
+        ])->subject("You're In!");
     }
 }

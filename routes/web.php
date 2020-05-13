@@ -19,15 +19,15 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 // Route::domain('staging.localaway.com')->group(function () {
 
-    Route::group(["domain" => "www.localaway.com"], function () {
+    // Route::group(["domain" => "www.localaway.com"], function () {
         Route::get('/', 'HomeController@index')->name('landingPage');
-    });
+    // });
 
-    Route::group(["domain" => "www.localaway.ai"], function () {
-        Route::get('/', function () {
-            return view('ai.newlanding');
-        });
-    });
+    // Route::group(["domain" => "www.localaway.ai"], function () {
+    //     Route::get('/', function () {
+    //         return view('ai.newlanding');
+    //     });
+    // });
     Route::post('/confirm-access', 'HomeController@checkAccess');
     Route::get('about', 'HomeController@about');
     Route::get('/save-newsemail', 'HomeController@saveNewsEmail');
@@ -49,6 +49,9 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
     Route::get('/dashboard/virtual-closet', 'DashboardController@closet');
     Route::get('/dashboard/customers', 'DashboardController@customers');
     Route::get('/dashboard/survey', 'DashboardController@survey');
+    Route::get('/dashboard/boutique', 'DashboardController@boutique');
+    Route::get('/dashboard/boutique/setinactive', 'StylistController@boutiqueActive');
+    Route::get('/dashboard/boutique/setactive', 'StylistController@boutiqueInActive');
 
     Route::post('/admin/file/upload', 'FileController@store');
     Route::post('/admin/file/vcUpload', 'FileController@vcUpload');
@@ -61,6 +64,7 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
     Route::get('/auth/redirect/{provider}', 'SocialController@redirect');
     Route::get('/auth/callback/{provider}', 'SocialController@callback');
 
+    
     Route::get('/stylist/signup', 'StylistController@signup')->name('com.stylist.signup');
 
     Route::group(['middleware' => ['auth-stylist']], function () {

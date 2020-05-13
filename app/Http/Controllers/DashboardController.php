@@ -8,6 +8,7 @@ use App\Upload;
 use App\Customer;
 use App\Question;
 use App\Answer;
+use App\Stylist;
 use App\Survey;
 use App\Survey_person;
 
@@ -128,4 +129,13 @@ class DashboardController extends Controller
             'list' => $table,
             'title' => 'Survey dashboard']);
     }
+
+    public function boutique()
+    {
+        return view('com.admin.dashboard-boutique', [
+            'stylists' => Stylist::all(),
+            'title' => 'Boutique dashboard'
+        ]);
+    }
+
 }
