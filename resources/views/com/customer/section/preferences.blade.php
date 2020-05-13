@@ -9,7 +9,7 @@
 
 <section class="container">
 <form id="step1" class="mb-5">
-    <div class="row first-row">
+    {{-- <div class="row first-row">
         <div class="kt-avatar kt-avatar--outline kt-avatar--circle mx-4 mb-3" id="kt_user_avatar_3">
             <div class="kt-avatar__holder"></div>
             <label class="kt-avatar__upload" data-toggle="kt-tooltip" title="" data-original-title="Change avatar">
@@ -25,8 +25,8 @@
             {{-- <h4> {{auth()->user()->first_name}} {{auth()->user()->last_name}}</h4> --}}
             <h4> Customer Localaway</h4>
         </div>
-    </div>
-    <div class="row">
+    </div> --}}
+    <div class="row first-row">
         <div class="col-md-6 col-sm-12">
             <div class="my-form-row">
                 <label for="gender">Gender</label>
@@ -45,9 +45,11 @@
                 <input id="age" name="age" class="form-control" type="text" value="{{$age}}"/>
             </div>
         </div>
+        @if ($complete < 4)
         <div class="col-md-6 col-sm-12 text-center p-5 m-auto">
             <h5>Finish the <a href="/customer" class=""><u>Style Quiz</u></a> to complete your <br> preferences and start an order.</h5>
         </div>
+        @endif
     </div>
     </form>
 </section>

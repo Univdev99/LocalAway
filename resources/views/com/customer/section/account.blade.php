@@ -8,7 +8,7 @@
 @section('content')
     <div class="container">
         <div class="row first-row">
-            <div class="col-6 bg-card p-4">
+            {{-- <div class="col-6 bg-card p-4">
                 <div class="row">
                     <div class="col-12 p-2">
                         <h3 class="mx-3 my-4"> Credit Card </h3>
@@ -35,7 +35,7 @@
                           </table>
                     </div>
                 </div>
-            </div>
+            </div> --}}
             <div class="col-6 p-4">
                 <div class="row">
                     <div class="col-12">
@@ -43,20 +43,20 @@
                         <div class="row">
                             <div class=" col-6">
                                 <label for="first-name">First name</label>
-                                <input id="first-name" name="first-name" class="form-control"/>
+                                <input id="first-name" name="first-name" class="form-control" value="{{ $first_name }}"/>
                             </div>
                             <div class="col-6">
                                 <label for="last-name">Last name</label>
-                                <input id="last-name" name="last-name" class="form-control"/>
+                                <input id="last-name" name="last-name" class="form-control" value="{{ $last_name }}"/>
                             </div>
                             <div class="col-12">
                                 <label for="email">Email</label>
-                                <input id="email" name="email" class="form-control" />
+                                <input id="email" name="email" class="form-control" value="{{ $email }}"/>
                             </div>
-                            <div class="col-12">
+                            {{-- <div class="col-12">
                                 <label for="password">Password</label>
-                                <input id="password" name="password" class="form-control" type="password"/>
-                            </div>
+                                <input id="password" name="password" class="form-control" value="{{ $pwd }}"/>
+                            </div> --}}
                         </div>
                     </div>
                     <div class="col-12 mt-4">
@@ -154,10 +154,10 @@
         $(".btn-billing").click(function(){
             $(this).hide();
             $(".billing-group").show();
+            $(".check-billing").hide();
         });
         $(".btn-shipping").click(function(){
             $(this).hide();
-            $(".check-billing").hide();
             $(".shipping-group").show();
         });
 

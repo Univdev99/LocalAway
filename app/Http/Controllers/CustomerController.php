@@ -39,7 +39,8 @@ class CustomerController extends Controller
         'gender' => $customer->gender,
         'destination' => $customer->street_address,
         'notes' => $customer->notes,
-        'age' => $customer->age_range
+        'age' => $customer->age_range,
+        'complete' => $customer->complete
       ]);
     }
 
@@ -65,7 +66,14 @@ class CustomerController extends Controller
 
     public function account()
     {
-        return view('com.customer.section.account');
+      $user = User::where('id', auth()->user()->id)->first();
+      
+        return view('com.customer.section.account', [
+          'first_name' => $user->first_name,
+          'last_name' => $user->last_name,
+          'email' => $user->email,
+          'pwd' => $user->password,
+        ]);
     }
 
     public function signup()
