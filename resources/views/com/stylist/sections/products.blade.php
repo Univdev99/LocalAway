@@ -2,7 +2,7 @@
     @foreach($products as $product)
         <li class="product" data-gtm-wrapper="">
             <div class="shop" data-gtm-id="174452">
-                <a class="photo js-gtm-product-click" href="#" style="left: 0px;">
+                <a class="photo js-gtm-product-click" href="{{ route('com.stylist.shop.product', [ 'product' => $product->id ] ) }}" style="left: 0px;">
                     <img class="lazy lazyloaded" src="{{ $product->e_image_urls_og }}" alt="Colmar Originals - Charge jacket in beige " title="Colmar Originals - Charge jacket in beige " lazy-done="true">
                 </a>
             </div>

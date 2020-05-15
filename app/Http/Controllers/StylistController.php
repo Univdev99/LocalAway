@@ -9,8 +9,10 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Upload;
 use App\Stylist;
+use App\Order;
 use App\Subcategory;
 use App\Survey_person;
+use App\Invoice;
 use Stevebauman\Location\Location;
 use App\User;
 use Illuminate\Support\Facades\Hash;
@@ -111,6 +113,62 @@ class StylistController extends Controller
             'bio' => $stylist->bio,
             'boutique_logo' => $stylist->logo
             ]);
+    }
+
+    public function product(Request $request, Product $product)
+    {
+        $stylist = auth()->user()->stylist;
+        if ($product->boutique_id != $stylist->id) {
+            abort(404);
+        }
+
+        $orders = Order::with(['customer.user'])->get();
+        $colors = ['gray', 'lightgray'];
+        $sizes = [32, 34, 36, 38, 40, 42, 44, 46];
+
+        return view('com.stylist.sections.product-detail', [
+            'product' => $product,
+            'orders' => $orders,
+            'stylist' => $stylist,
+            'colors' => $colors,
+            'sizes' => $sizes
+        ]);
+    }
+
+    public function invoiceCreate(Request $request)
+    {
+        $color = $request->input('color');
+        $size = $request->input('size');
+        $quantity = $request->input('quantity');
+        $product_id = $request->input('product_id');
+        $order_id = $request->input('order_id');
+        $quantity = intval($quantity);
+
+        $stylist = auth()->user()->stylist;
+        $product = Product::find($product_id);
+
+        if ($product->boutique_id != $stylist->id) {
+            abort(404);
+        }
+
+        if ($quantity <= 0 || is_null(Order::find($order_id))) {
+            abort(400);
+        }
+
+        $invoice = new Invoice();
+        $invoice->order_id = $order_id;
+        $invoice->product_id = $product_id;
+        $invoice->quantity = $quantity;
+        $invoice->color = $color;
+        $invoice->size = $size;
+        $invoice->save();
+
+        return redirect()->route('com.stylist.shop.orders');
+    }
+
+    public function orders(Request $request)
+    {
+        dd('orders');
     }
 
     public function checkEmailDuplicate(Request $request)

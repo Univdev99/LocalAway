@@ -1,0 +1,95 @@
+.product-detail {
+    padding-top: 10em;
+    padding-bottom: 5em;
+}
+
+.btn-brown {
+    background-color: #c6a07b;
+    border-radius: 50px;
+    padding-left: 1em;
+    padding-right: 1em;
+    align-items: center;
+    height: 40px;
+    border: none;
+    color: white;
+}
+
+.product-detail-content {
+    top: 10em;
+    position: relative;
+}
+
+.sold-by {
+    color: #09c1a8;
+}
+
+input:disabled {
+    background-color: white;
+    border: none;
+}
+
+input.quantity {
+    background-color: #eee;
+    border: none;
+    padding: 0.5em;
+}
+
+.product-price {
+    font-size: 2em;
+}
+
+.color {
+    margin-right: 2em;
+    width: 2em;
+    height: 2em;
+    -webkit-appearance: none;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.color:checked {
+    border: 2px solid black;
+}
+
+.size {
+    width: 2em;
+    height: 2em;
+    -webkit-appearance: none;
+    cursor: pointer;
+    border-radius: 3px;
+    background-color: #eee;
+}
+
+.size:checked {
+    background-color: black;   
+}
+
+.size-label {
+
+    position: relative;
+    margin-right: 2em;
+}
+
+.size-label input:checked + span {
+    color: white;
+}
+
+.size-label span {
+    position: absolute;
+    z-index: 9;
+    left: 5px;
+    top: 4px;
+}
+
+.order {
+    -webkit-appearance: none;
+}
+
+.order:checked + .order-content {
+    border-color: #09c1a8;
+}
+
+.order-content {
+    border-radius: 4px;
+    border: 2px solid orangered;
+}

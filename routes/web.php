@@ -19,9 +19,9 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 // Route::domain('staging.localaway.com')->group(function () {
 
-    Route::group(["domain" => "www.localaway.com"], function () {
+    // Route::group(["domain" => "www.localaway.com"], function () {
         Route::get('/', 'HomeController@index')->name('landingPage');
-    });
+    // });
 
     Route::group(["domain" => "www.localaway.ai"], function () {
         Route::get('/', function () {
@@ -70,6 +70,9 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
     Route::group(['middleware' => ['auth-stylist']], function () {
         Route::get('/stylist', 'StylistController@index');
         Route::get('/stylist/shop', 'StylistController@shop')->name('com.stylist.shop');
+        Route::get('/stylist/shop/products/{product}', 'StylistController@product')->name('com.stylist.shop.product');
+        Route::post('/stylist/shop/invoice', 'StylistController@invoiceCreate')->name('com.stylist.shop.invoice.create');
+        Route::get('/stylist/shop/orders', 'StylistController@orders')->name('com.stylist.shop.orders');
         Route::post('/stylist/shop/upload', 'FileController@upload');
         Route::get('/stylist/profile', 'StylistController@profile');
         Route::get('/stylist/closet', 'StylistController@closet');
