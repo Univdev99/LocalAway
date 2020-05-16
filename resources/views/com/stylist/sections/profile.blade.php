@@ -1,15 +1,16 @@
-@extends('com.stylist.layout')
+@extends('com.stylist.sections.order-template')
 
 @section('css')
+    @parent
     <link rel="stylesheet" type="text/css" href="/css/customer/customer-signup.css">
     <link rel="stylesheet" type="text/css" href="/css/customer/avatar.css">
     <link rel="stylesheet" type="text/css" href="/css/stylist/profile.css">
 @endsection
 
-@section('content')
+@section('subcontent')
 
-<section class="container">
-    <div class="row first-row">
+<div class="col">
+    <div class="row">
         <div class="col-md-4 m-auto text-center col-avatar">
             <div class="kt-avatar kt-avatar--outline kt-avatar--circle mx-4 mb-3" id="kt_user_avatar_3">
                 <div class="kt-avatar__holder"></div>
@@ -53,7 +54,7 @@
             <p class="my-3">No clients? Well not YET.<br>Complete your <a href="/stylist/profile"><u>profile</u></a> and <a href="#"><u>start creating</u></a></p>
         </div>
     </div>
-</section>
+</div>
 
 @endsection
 

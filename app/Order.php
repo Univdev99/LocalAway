@@ -3,6 +3,7 @@
 namespace App;
 
 use App\Customer;
+use App\Invoice;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -12,5 +13,13 @@ class Order extends Model
 
     public function customer() {
         return $this->belongsTo(Customer::class);
+    }
+
+    public function user() {
+        return $this->hasManyThrough(User::class, Customer::class);
+    }
+
+    public function invoice() {
+        return $this->hasMany(Invoice::class);
     }
 }

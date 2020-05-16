@@ -151,9 +151,14 @@ class StylistController extends Controller
             abort(404);
         }
 
-        if ($quantity <= 0 || is_null(Order::find($order_id))) {
+        $order = Order::find($order_id);
+
+        if ($quantity <= 0 || is_null($order)) {
             abort(400);
         }
+
+        $order->stylist_id = $stylist->id;
+        $order->save();
 
         $invoice = new Invoice();
         $invoice->order_id = $order_id;
@@ -163,12 +168,17 @@ class StylistController extends Controller
         $invoice->size = $size;
         $invoice->save();
 
-        return redirect()->route('com.stylist.shop.orders');
+        return redirect()->route('com.stylist.orders');
     }
 
     public function orders(Request $request)
     {
-        dd('orders');
+        $stylist = auth()->user()->stylist;
+        $orders = Order::with('invoice.product')->where('stylist_id', $stylist->id)->get();
+
+        return view('com.stylist.sections.order', [
+            'orders' => $orders
+        ]);
     }
 
     public function checkEmailDuplicate(Request $request)
