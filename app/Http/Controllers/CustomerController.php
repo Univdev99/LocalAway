@@ -56,7 +56,16 @@ class CustomerController extends Controller
     public function order()
     {
       $orders = Customer::where('user_id', auth()->user()->id)->first()->order;
-      return view('com.customer.section.order', ['orders' => $orders]);
+      $total = 0;
+      
+      foreach ($orders as $order) {
+        $total += $order->price;
+      }
+
+      return view('com.customer.section.order', [
+        'orders' => $orders,
+        'total' => $total
+      ]);
     }
 
     public function shop()

@@ -131,7 +131,7 @@
                                     </div>
                                     <div class='mt-5'>
                                         <label class="radio-container">
-                                            <h5 class='text-dark px-2 mt-2 mb-4'>Please agree to our guidelines so that we can reach you.</h5>
+                                            <h5 class='text-dark px-2 mt-2 mb-4'>Please agree to our <a href="#" class="guideline">guidelines</a> so that we can reach you.</h5>
                                             <input id="agree" type="checkbox" name="radio" checked required>
                                             <span class="checkmark">
                                                 <i class="fas fa-check check-sign "></i>
@@ -182,7 +182,7 @@
                                       </div>
                                       <div class='mt-5'>
                                           <label class="radio-container">
-                                              <h5 class='text-dark px-2 mt-2 mb-4'>Please agree to our guidelines so that we can reach you.</h5>
+                                              <h5 class='text-dark px-2 mt-2 mb-4'>Please agree to our <a href="#" class="guideline">guidelines</a> so that we can reach you.</h5>
                                               <input id="boutique-agree" type="checkbox"  checked="checked" name="radio">
                                               <span class="checkmark">
                                                   <i class="fas fa-check check-sign "></i>
@@ -212,9 +212,12 @@
               </div>
           </div>
       </div>
+
+      @include ('com.stylist.guideline')
       <script type="text/javascript" src="/js/dropzone.js"></script>
       <script src="/js/jquery-3.3.1.min.js"></script>
       <script src="/js/stylist-sign-in.js"></script>
+      <script src="/js/bootstrap.min.js"></script>
 
   </body>
 </html>

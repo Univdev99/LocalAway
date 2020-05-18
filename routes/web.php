@@ -36,7 +36,7 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
     Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/terms_of_service', function() {
-        return view('');
+        return view('com.tos');
     });
     Route::get('/privacy_policy', function () {
         return view('');

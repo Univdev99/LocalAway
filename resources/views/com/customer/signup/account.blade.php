@@ -93,7 +93,7 @@
         <div class="col-12">
             <div class="my-form-row">
                 <label class="radio-container">
-                    By checking this I agree to <a href="/terms_of_policy"><u>Terms of Service</u></a> and <a href="/privacy_policy"><u>Privacy Policy</u></a>
+                    By checking this I agree to <a href="/terms_of_service" target="_blank"><u>Terms of Service</u></a> and <a href="/privacy_policy"><u>Privacy Policy</u></a>
                     <input type="checkbox" id="step1-policy-alert" name="term_service">
                     <span class="checkmark">
                         <i class="fas fa-check check-sign"></i>

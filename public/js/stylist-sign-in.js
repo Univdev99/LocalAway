@@ -13,6 +13,11 @@ $(document).ready(function() {
         $(".hours").html(parseInt(hours) + 1);
     });
 
+    $(".guideline").click(function () {
+        $(".guideline-dialog").modal('show')
+        return false;
+    })
+
     // $("#step1").click(function() {
     //     $("#step-1").css("display", "none");
     //     if ($("#boutique").prop("checked")) {
