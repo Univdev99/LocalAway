@@ -181,6 +181,64 @@ class StylistController extends Controller
         ]);
     }
 
+    public function shippingLabel(Request $request)
+    {
+        $order_id = $request->input('order');
+        $order = Order::find($order_id);
+        $customer = $order->customer;
+        $stylist = $order->stylist;
+        $customer_user = $customer->user;
+        $stylist_user = $stylist->user;
+
+        $fromAddress = array(
+            'name' => $stylist_user->first_name . ' ' . $stylist_user->last_name,
+            'company' => 'Localaway',
+            'street1' => '215 Clayton St.',
+            'city' => 'San Francisco',
+            'state' => 'CA',
+            'zip' => '94117',
+            'country' => 'US',
+            'phone' => $stylist_user->phone_number,
+            'email' => $stylist_user->email
+        );
+        
+        $toAddress = array(
+            'name' => $customer_user->first_name . ' ' . $customer_user->last_name,
+            'company' => 'localaway',
+            'street1' => $customer->street_address,
+            'street2' => '',
+            'city' => $customer->city,
+            'state' => $customer->state,
+            'zip' => $customer->zip_code,
+            'country' => 'US',
+            'phone' => $customer_user->phone_number,
+            'email' => $customer_user->email
+        );
+        
+        $parcel = array(
+            'length'=> '5',
+            'width'=> '5',
+            'height'=> '5',
+            'distance_unit'=> 'in',
+            'weight'=> '2',
+            'mass_unit'=> 'lb',
+        );
+        
+        $shipment = array(
+            'address_from'=> $fromAddress,
+            'address_to'=> $toAddress,
+            'parcels'=> array($parcel),
+        );
+
+        $transaction = \Shippo_Transaction::create([
+            'shipment' => $shipment,
+            'carrier_account' => 'b741b99f95e841639b54272834bc478c',
+            'servicelevel_token' => 'usps_priority',
+        ]);
+
+        return redirect($transaction['label_url']);
+    }
+
     public function checkEmailDuplicate(Request $request)
     {
         $email = $request->input('email');

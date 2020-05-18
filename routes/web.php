@@ -73,6 +73,7 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
         Route::get('/stylist/shop/products/{product}', 'StylistController@product')->name('com.stylist.shop.product');
         Route::post('/stylist/shop/invoice', 'StylistController@invoiceCreate')->name('com.stylist.shop.invoice.create');
         Route::get('/stylist/orders', 'StylistController@orders')->name('com.stylist.orders');
+        Route::get('/stylist/shipping-label', 'StylistController@shippingLabel')->name('com.stylist.shipping-label');
         Route::post('/stylist/shop/upload', 'FileController@upload');
         Route::get('/stylist/profile', 'StylistController@profile')->name('com.stylist.profile');
         Route::get('/stylist/closet', 'StylistController@closet');

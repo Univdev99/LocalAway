@@ -21,7 +21,7 @@
                 <div class="d-flex justify-content-between">
                     <div>
                         <p>Client {{ $loop->iteration }} Capsule</p>
-                        <a>Add more items</a>
+                        <a href="{{ route('com.stylist.shop') }}">Add more items</a>
                     </div>
                     <a>Generate invoice to print</a>
                 </div>
@@ -63,7 +63,7 @@
 
                 <div class="d-flex justify-content-between">
                     <p>Name to ship</p>
-                    <a>Print Shipping label</a>
+                    <a href="{{ route('com.stylist.shipping-label') }}?order={{ $order->id }}" target="_blank" class="shipping-label" order="{{ $order->id }}">Print Shipping label</a>
                 </div>
                 <div>
                     <p>
@@ -80,5 +80,6 @@
 
 
 @section('js')
+    <script src="/js/stylist/product-detail.js" type="text/javascript"></script>
 @endsection
 
