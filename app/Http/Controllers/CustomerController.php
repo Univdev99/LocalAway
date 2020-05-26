@@ -68,6 +68,20 @@ class CustomerController extends Controller
       ]);
     }
 
+    public function finalizeOrder(Request $request)
+    {
+        $accept = $request->all();
+        foreach ($accept as $key => $value) {
+          if (substr($key, 0, strlen("accept-order-")) == "accept-order-") {
+            $order_id = substr($key, strlen("accept-order-"));
+            $order = Order::find($order_id);
+            $order->status = $value == "accept" ? 3 : 4;
+            $order->save();
+          }
+        }
+        return redirect()->route('com.customer.order');
+    }
+
     public function shop()
     {
       return view('com.customer.section.shop');

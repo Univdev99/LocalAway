@@ -75,6 +75,10 @@
             </div>
 @endforeach
         </div>
+        <form action="{{ route('com.stylist.orders.ship') }}" method="post">
+            @csrf
+            <button class="btn-brown" id="add-capsule">Ship</button>
+        </form>
     </div>
 @endsection
 

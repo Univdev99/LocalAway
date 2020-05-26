@@ -174,11 +174,21 @@ class StylistController extends Controller
     public function orders(Request $request)
     {
         $stylist = auth()->user()->stylist;
-        $orders = Order::with('invoice.product')->where('stylist_id', $stylist->id)->get();
+        $orders = Order::with('invoice.product')->where('stylist_id', $stylist->id)->where('status', 0)->get();
 
         return view('com.stylist.sections.order', [
             'orders' => $orders
         ]);
+    }
+
+    public function shipOrder(Request $request)
+    {
+        $stylist = auth()->user()->stylist;
+        $orders = Order::where([
+            ['stylist_id', $stylist->id],
+            ['status', 0]
+        ])->update(['status' => 1]);
+        return redirect()->route('com.stylist.orders');
     }
 
     public function shippingLabel(Request $request)

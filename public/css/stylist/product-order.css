@@ -1,3 +1,14 @@
+.btn-brown {
+    background-color: #c6a07b;
+    border-radius: 50px;
+    padding-left: 1em;
+    padding-right: 1em;
+    align-items: center;
+    height: 40px;
+    border: none;
+    color: white;
+}
+
 .product-order {
     padding-top: 10em;
     padding-bottom: 5em;

@@ -1,5 +1,16 @@
 @extends('com.customer.section.upcomingbox')
 
+@section('css')
+    <style type="text/css">
+    .return-option {
+        visibility: hidden;
+    }
+    .return-order:checked ~ .return-option {
+        visibility: visible;
+    }
+    </style>
+@endsection
+
 @section('upcomingbox')
     <div class="row">
         <div class="col-12">
@@ -19,6 +30,8 @@
                 <h5>Total Orders: 1</h5>
                 <p>Return by <span class="text-danger">(7 days from when received)</span></p>
             </div>
+            <form method="post" action="{{ route('com.customer.orders.finalize') }}">
+                @csrf
             <table id="order-table" style="width:100%">
                 {{-- <thead>
                     <tr>
@@ -37,34 +50,53 @@
                         <tr>
                             <td>{{ $i + 1 }}</td>
                             <td><img src="/images/localaway-box.svg" width="100px"></td>
-                            <td><p style="color: #02bfaf;">{{ $orders[$i]->name }}</p>Order No: {{ $orders[$i]->order_id }}<br>Date: {{ $orders[$i]->order_date }}</td>
+                            <td>
+                                <p style="color: #02bfaf;">{{ $orders[$i]->name }}</p>
+                                Order No: {{ $orders[$i]->order_id }}
+                                <br>
+                                Date: {{ $orders[$i]->order_date }}
+                            </td>
                             @if ($orders[$i]->status == 0)
-                                <td>
-                                <p style="color: blue;">Shipping</p>
-                                <a href="https://tools.usps.com/go/TrackConfirmAction_input?origTrackNum=9102969010383081813033" target="_blank">Track package</a>
-                                <td>
+                                <td>Crafting<td>
                                 <td>${{ $orders[$i]->price }} </td>
-                                <td><p class="color: grey;">Return</p></td>
+                                <td></td>
                             @elseif ($orders[$i]->status == 1)
                                 <td>
-                                    <p>Why are you returning this?
-                                    <select>
-                                        <option>Size was too big</option>
-                                        <option>Size was too small</option>
-                                        <option>Wrong item shipped</option>
-                                        <option>Didn't like</option>
-                                        <option>Other</option>
-                                    </select>
+                                    <p style="color: blue;">Shipping</p>
+                                    <a href="https://tools.usps.com/go/TrackConfirmAction_input?origTrackNum=9102969010383081813033" target="_blank">Track package</a>
+                                <td>
+                                <td>${{ $orders[$i]->price }} </td>
+                                <td></td>
+                            @elseif ($orders[$i]->status == 2)
+                                <td>
+                                    <input type="radio" name="accept-order-{{ $orders[$i]->id }}" value="accept" id="accept-order-{{ $orders[$i]->id }}" checked />
+                                    <label for="accept-order-{{ $orders[$i]->id }}">Accept</label>
+                                    <input type="radio" name="accept-order-{{ $orders[$i]->id }}" value="return" class="return-order" id="return-order-{{ $orders[$i]->id }}" />
+                                    <label for="return-order-{{ $orders[$i]->id }}">Return</label>
+                                    <div class="return-option">
+                                        <p>Why are you returning this?
+                                        <select>
+                                            <option>Size was too big</option>
+                                            <option>Size was too small</option>
+                                            <option>Wrong item shipped</option>
+                                            <option>Didn't like</option>
+                                            <option>Other</option>
+                                        </select>
+                                    </div>
                                 </td>
                                 <td>${{ $orders[$i]->price }} </td>
                                 <td>
                                     <a href="#">Add to return</a>
                                 </td>
-                            @else
+                            @elseif ($orders[$i]->status == 3)
                                 <td><p style="color: green;">Completed</p></td>
                                 <td>${{ $orders[$i]->price }} </td>
-                                <td><a href="#">Return</a></td>
-                            @endif                            
+                                <td></td>
+                            @elseif ($orders[$i]->status == 4)
+                                <td><p style="color: green;">Return</p></td>
+                                <td>${{ $orders[$i]->price }} </td>
+                                <td></td>
+                            @endif
                         </tr>
                     @endfor
                         <tr>
@@ -81,6 +113,9 @@
                         </tr>
                 </tbody>
             </table>
+
+                <button type="submit" class="btn text-white btn-order my-3" style="background-color: #FD5C48; ">Finalize Order</button>
+            </form>
         </div>
     </div>
     <div class="row text-center m-auto">
