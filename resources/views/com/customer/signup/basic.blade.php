@@ -135,8 +135,8 @@
                     <input type="radio" id="event-6" name="events" value="Surprise Me" @if($events == "Surprise Me") checked @endif>
                     <label for="event-6" class="select-btn">Surprise Me</label>
 
-                    <input type="radio" id="event-6" name="events" value="Upcoming Trip" @if($events == "Upcoming Trip") checked @endif>
-                    <label for="event-6" class="select-btn">Upcoming Trip</label>
+                    <input type="radio" id="event-7" name="events" value="Upcoming Trip" @if($events == "Upcoming Trip") checked @endif>
+                    <label for="event-7" class="select-btn">Upcoming Trip</label>
                 </div>
             </div>
         </div>
