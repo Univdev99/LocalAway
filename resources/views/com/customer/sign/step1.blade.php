@@ -76,7 +76,7 @@
     <div class="col-12">
         <div class="my-form-row">
         <label class="radio-container">
-            By checking this I agree to <a href="/terms_of_service" target="_blank"><u>Terms of Service</u></a> and <a href="/privacy_policy"><u>Privacy Policy</u></a>
+            By checking this I agree to <a href="/terms_of_service" target="_blank"><u>Terms of Service</u></a> and <a href="/privacy_policy/customer"><u>Privacy Policy</u></a>
             <input type="checkbox" id="step1-receive-alert" name="term_service" unchecked required>
             <span class="checkmark">
             <i class="fas fa-check check-sign"></i>

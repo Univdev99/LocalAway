@@ -40,7 +40,11 @@ class CustomerController extends Controller
         'destination' => $customer->street_address,
         'notes' => $customer->notes,
         'age' => $customer->age_range,
-        'complete' => $customer->complete
+        'complete' => $customer->complete,
+        'customer' => $customer,
+        'dislike_color' => empty($customer->dislike_color) ? [] : explode('|', $customer->dislike_color),
+        'dislike_material' => empty($customer->dislike_material) ? [] : explode('|', $customer->dislike_material),
+        'dislike_pattern' => empty($customer->dislike_pattern) ? [] : explode('|', $customer->dislike_pattern)
       ]);
     }
 

@@ -38,8 +38,12 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
     Route::get('/terms_of_service', function() {
         return view('com.tos');
     });
-    Route::get('/privacy_policy', function () {
-        return view('');
+    Route::get('/privacy_policy/customer', function () {
+        return view('com/customer/privacy-policy');
+    });
+
+    Route::get('/privacy_policy/stylist', function () {
+        return view('com/stylist/privacy-policy');
     });
 
     Route::get('/dashboard/logo-image', 'DashboardController@index');
