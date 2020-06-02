@@ -1,4 +1,11 @@
+@if ($hero_type === 'image')
 <section style="background-image: url(/storage/uploads/{{$hero->filename}}) ;" data-stellar-background-ratio="0.5" id="section-home">
+@else
+<section data-stellar-background-ratio="0.5" id="section-home">
+    <video autoplay muted loop style="width: 100%; position: absolute;">
+        <source src="/storage/uploads/{{$hero->filename}}">
+    </video>
+@endif
     <div class="container">
         <div class="row site-hero-inner justify-content-center align-items-center">
             <div class="col-md text-center" data-aos="fade-up">

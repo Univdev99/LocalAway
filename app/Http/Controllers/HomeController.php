@@ -45,11 +45,14 @@ class HomeController extends Controller
         $stylists = Upload::where('collection' ,'stylist')->orderBy('extra')->get();
         $itineraries = Upload::where('collection' ,'itinerary')->orderBy('extra')->get();
         $hero = Upload::where('collection' ,'hero')->where('extra',1)->first();
-        // dd($hero);
+        $hero_type = strtolower(pathinfo($hero->filename)['extension']);
+        $hero_type = in_array($hero_type, ['mp4', 'avi']) ? 'video' : 'image';
+        
         return view('com.home', [
             'stylists' => $stylists,
             'itineraries' => $itineraries,
             'hero' => $hero,
+            'hero_type' => $hero_type
         ]);
     }
 

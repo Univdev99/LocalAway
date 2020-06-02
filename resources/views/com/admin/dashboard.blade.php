@@ -27,7 +27,15 @@
                 <form method = "post" action="/admin/file/update/{{$image->id}}?collection={{$collection}}">
             @endif
                 <li class = "py-3 text-center">
-                    <img width="100px"  qq-max-size="100" qq-server-scale="" src="/storage/uploads/{{$image->filename}}">
+                    <a href="/storage/uploads/{{$image->filename}}" target="_blank">
+            @if ($image->type() === 'image')
+                        <img width="100px"  qq-max-size="100" qq-server-scale="" src="/storage/uploads/{{$image->filename}}">
+            @else
+                        <video muted style="width: 100px;">
+                            <source src="/storage/uploads/{{$image->filename}}">
+                        </video>
+            @endif
+                    </a>
                     @csrf
                     <input type="text" name="title" value="{{$image->title}}" />
                     <button type="submit" class="btn btn-primary">Update title</button>

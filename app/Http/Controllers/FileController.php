@@ -25,22 +25,29 @@ class FileController extends Controller
         $ext = $uploadedFile->getClientOriginalExtension();
         $filename = time().'.'.$ext;
 
-        $uploadedFile = $this->resize_image($uploadedFile);
-        // switch ($collection) {
-        //     case 'hero':
-        //         $uploadedFile = $this->resize_image($uploadedFile, 1920, 1080);
-        //         break;
-        //     case 'itinerary':
-        //         $uploadedFile = $this->resize_image($uploadedFile, 1280, 800);
-        //         break;
-        //     case 'logo':
-        //         $uploadedFile = $this->resize_image($uploadedFile, 280, 60);
-        //     default:
-        //         # code...
-        //         break;
-        // }
+        $hero_type = in_array($ext, ['mp4', 'avi']) ? 'video' : 'image';
 
-        $compressed_file = $this->compress($uploadedFile, 'storage/uploads/'.$filename, 70, $ext);
+        if ($hero_type === 'image') {
+            $uploadedFile = $this->resize_image($uploadedFile);
+            // switch ($collection) {
+            //     case 'hero':
+            //         $uploadedFile = $this->resize_image($uploadedFile, 1920, 1080);
+            //         break;
+            //     case 'itinerary':
+            //         $uploadedFile = $this->resize_image($uploadedFile, 1280, 800);
+            //         break;
+            //     case 'logo':
+            //         $uploadedFile = $this->resize_image($uploadedFile, 280, 60);
+            //     default:
+            //         # code...
+            //         break;
+            // }
+            
+            $compressed_file = $this->compress($uploadedFile, 'storage/uploads/'.$filename, 70, $ext);
+        } else {
+            $uploadedFile->storeAs('public/uploads', $filename);
+        }
+
         // Storage::disk('public')->putFileAs('uploads', $uploadedFile, $filename);
         $max = Upload::where('collection',$collection)->max('extra');
         if (is_null($max)){
