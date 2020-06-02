@@ -17,9 +17,9 @@
                 <th>Location</th>
                 <th>Note</th>
                 <th>Time</th>
-            @foreach ($header as $question)
+            {{-- @foreach ($header as $question)
                 <th>{{ $question->question }}</th>
-            @endforeach
+            @endforeach --}}
             </tr>
         </thead>
         <tbody>
@@ -33,14 +33,14 @@
                     <td>{{ $row->location }}</td>
                     <td>{{ $row->note }}</td>
                     <td>{{ $row->created_at }}</td>
-                    @foreach ($header as $question)
+                    {{-- @foreach ($header as $question)
                         @if (!isset($list[$row->id][$question->id]))
                             <td></td>
                         @else
                             <td>{{ $list[$row->id][$question->id] }}</td>
                         @endif
                         
-                    @endforeach
+                    @endforeach --}}
                 </tr>
             @endforeach
         </tbody>
