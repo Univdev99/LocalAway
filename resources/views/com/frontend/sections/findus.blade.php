@@ -16,8 +16,9 @@
       <small style="color: #c6a07b;">#shoplocal</small>
     </div>
     <div class="m-auto text-center instagram-layout">      
-      <div class="elfsight-app-8527c884-c2e3-4faa-baa1-709c9b705110"></div>
+      <div class="elfsight-app-a09db4d9-0e46-4409-a749-99e7613f968c"></div>
     </div>
+
     <div class=" text-center">
       <i class="fab fa-instagram" style="color: #c6a07b;"></i><br>
       <small style="color: #c6a07b;">@localaway</small>
