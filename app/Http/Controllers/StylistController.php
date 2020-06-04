@@ -233,20 +233,26 @@ class StylistController extends Controller
             'weight'=> '2',
             'mass_unit'=> 'lb',
         );
-        
-        $shipment = array(
+
+        $shipment = \Shippo_Shipment::create( array(
             'address_from'=> $fromAddress,
             'address_to'=> $toAddress,
             'parcels'=> array($parcel),
+            'async'=> false
+            )
         );
 
-        $transaction = \Shippo_Transaction::create([
-            'shipment' => $shipment,
-            'carrier_account' => 'b741b99f95e841639b54272834bc478c',
-            'servicelevel_token' => 'usps_priority',
-        ]);
+        $rate = $shipment["rates"][0];
 
-        return redirect($transaction['label_url']);
+        // Purchase the desired rate.
+        $transaction = \Shippo_Transaction::create( array( 
+            'rate' => $rate["object_id"], 
+            'label_file_type' => "png", 
+            'async' => false ) );
+
+        return view('com.stylist.shippo-label', [
+            'url' => $transaction['label_url']
+        ]);
     }
 
     public function checkEmailDuplicate(Request $request)
