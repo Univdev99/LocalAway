@@ -5,8 +5,8 @@
 @endsection
 
 @section('subcontent')
-    <div class="col-4">
-        <div class="border shadow mr-3 p-3">
+    <div class="col-md-4">
+        <div class="border shadow mr-md-3 mb-3 mb-md-0 p-3">
             <p class="text-right">ORDERS</p>
             <hr/>
             <p>My Account</p>
@@ -14,7 +14,7 @@
         </div>
     </div>
 
-    <div class="col-8">
+    <div class="col-md-8">
         <div class="row">
 @foreach ($orders as $order)
             <div class="col-12 border shadow p-5 mb-5">

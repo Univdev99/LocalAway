@@ -13,3 +13,40 @@ body.Frontend .opacty-25 {
 .instagram-layout .eapps-instagram-feed>a:last-child {
   filter: opacity(0);
 }
+
+video {
+  width: 100%;
+}
+
+.start-here {
+  margin-top: -400px !important;
+}
+
+
+@media (max-width: 1366px) {
+  .start-here {
+    margin-top: -200px !important;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .start-here {
+    margin-top: 15px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  /* video {
+    transform: scale(3);
+  } */
+
+  div.carousel-description {
+    position: absolute !important;
+    left: 1em !important;
+    top: 1em !important;
+    right: 1em !important;
+    bottom: 1em !important;
+    width: auto !important;
+    height: auto !important;
+  }
+}

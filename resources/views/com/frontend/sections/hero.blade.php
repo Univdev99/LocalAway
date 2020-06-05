@@ -1,20 +1,26 @@
 @if ($hero_type === 'image')
 <section style="background-image: url(/storage/uploads/{{$hero->filename}}) ;" data-stellar-background-ratio="0.5" id="section-home">
-@else
-<section data-stellar-background-ratio="0.5" id="section-home">
-    <video autoplay muted loop style="width: 100%; position: absolute;">
-        <source src="/storage/uploads/{{$hero->filename}}">
-    </video>
-@endif
     <div class="container">
         <div class="row site-hero-inner justify-content-center align-items-center">
             <div class="col-md text-center" data-aos="fade-up">
                 <h1 class="heading">{{$hero->title}}</h1>
             </div>
         </div>
+@else
+<section data-stellar-background-ratio="0.5" id="section-home">
+    <div style="padding-top: 8em; position: relative">
+        <video autoplay muted loop>
+            <source src="/storage/uploads/{{$hero->filename}}">
+        </video>
+        <div style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; padding-top: 8em; display: flex">
+            <h1 class="text-white m-auto" style="font-size: 4em; margin-top: 15% !important">{{ $hero->title }}</h1>
+        </div>
+    </div>
+    <div class="container">
+@endif
         <section class="section-search m-auto" >
-
-    <div class="check-availabilty" id="next">
+        
+    <div class="check-availabilty start-here" id="next">
 
       <div class="block-32" @if (!isset($animate) || $animate) data-aos="fade-up" data-aos-offset="-200" @endif>
         @csrf
