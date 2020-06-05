@@ -98,7 +98,7 @@
         </div>
     </div>
 
-    {{-- <div class="item id="row-capsule-date"">
+    <div class="item id="row-capsule-date"">
         <div class="my-form-row text-center mx-auto">
             <div class="row">
                 <p class="my-auto mx-1">What date do you need your capsule by?<br></p>
@@ -109,7 +109,7 @@
             <label for="trip-date" class="text-left">*Date</label>
             <input id="trip-date" class="form-control text-center mx-auto text-answer" name="capsule_date" type="text" placeholder="Please set date." value="{{ $capsule_date }}" required/>
         </div>
-    </div> --}}
+    </div>
 
     <div class="row item" id="row-events">
         <div class="col-xl-6 col-lg-7 col-md-10 text-center mx-auto">
