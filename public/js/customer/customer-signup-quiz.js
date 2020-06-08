@@ -326,4 +326,20 @@ $(function() {
         var d = today.addDays(10);
         $('#calendar').datepicker("setDate",  new Date(d.getFullYear(), d.getMonth(), d.getDate()));
     });
+
+    $('.radio-unit').click(function (){
+        if($(this).val() == 'imperial'){
+            $('.afit-select option[value="Feet"]').attr("hidden",false);
+            $('.afit-select option[value="Inches"]').attr("hidden",false);
+            $('.afit-select option[value="Centimeter"]').attr("hidden",true);
+            $(".afit-select").val("Feet");
+        }else{
+            $('.afit-select option[value="Feet"]').attr("hidden",true);
+            $('.afit-select option[value="Inches"]').attr("hidden",true);
+            $('.afit-select option[value="Centimeter"]').attr("hidden",false);
+            $(".afit-select").val("Centimeter");
+        }
+    });
+
+    
 })

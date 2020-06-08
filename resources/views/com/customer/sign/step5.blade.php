@@ -7,7 +7,7 @@
   <div class="col-12 mt-3">
     <div class="my-form-row">
       <p class="question">Question 1</p>
-      <p>How adventurous should you capsule be?</p>
+      <p>How adventurous should your capsule be?</p>
       
       <label class="radio-container mb-2">
         Adventure - put me into play clothes based on a special event

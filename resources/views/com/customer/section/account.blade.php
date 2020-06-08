@@ -142,7 +142,7 @@
                         </div>
                     </div>
                     
-                    <h5 class="my-5 "><u><a href="#">Contact us</a></u> with questions</h5>
+                    <h5 class="my-5 "><u><a href="#" class="contact">Contact us</a></u> with questions</h5>
                 </div>
             </div>
         </div>
@@ -150,17 +150,5 @@
 @endsection
 
 @section('js')
-    <script>
-        $(".btn-billing").click(function(){
-            $(this).hide();
-            $(".billing-group").show();
-            $(".check-billing").hide();
-        });
-        $(".btn-shipping").click(function(){
-            $(this).hide();
-            $(".shipping-group").show();
-        });
-
-    </script>
     <script src="/js/customer/account.js" type="text/javascript"></script>
 @endsection

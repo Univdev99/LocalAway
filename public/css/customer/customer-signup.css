@@ -642,6 +642,10 @@ select.form-control {
     flex-direction: column;
 }
 
+input[type=radio].radio-unit {
+    display: inline-block!important;
+}
+
 input[type=radio] {
     display: none!important;
 }
@@ -731,3 +735,8 @@ hr.divider {
   a.nav-link {
     color: black!important;
 }
+
+.label_unit {
+    font-size: 16px!important;
+}
+

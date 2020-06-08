@@ -14,6 +14,8 @@ use App\Plan;
 use DateTime;
 use Illuminate\Support\Facades\View;
 use Illuminate\Contracts\Session\Session;
+use App\Mail\sendCustomerContactMail;
+use Illuminate\Support\Facades\Mail;
 
 class CustomerController extends Controller
 {
@@ -490,4 +492,9 @@ class CustomerController extends Controller
       }
     }
     
+    public function contact()
+    {
+      $user = User::where('id', auth()->user()->id)->first();
+      Mail::to("benwu@localaway.com")->send(new sendCustomerContactMail($user->first_name, $user->email));
+    }
 }

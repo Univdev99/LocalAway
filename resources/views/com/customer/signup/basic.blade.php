@@ -47,6 +47,8 @@
             <div class="my-form-row">
                 <p>Height?</p>
 
+                <label class="label_unit"><input type="radio" class="imperial mx-2 radio-unit" name="unit" value="imperial" @if($height_unit != 'Centimeter' || !$height_unit) checked @endif>Imperial</label>
+                <label class="label_unit"><input type="radio" class="metric mx-2 radio-unit" name="unit" value="metric" @if($height_unit == 'Centimeter') checked @endif>Metric</label>
                 <div class="row justify-content-center">
                     <div class="col-6 text-left">
                         <label for="height">*Height</label>                        
@@ -54,9 +56,9 @@
                     </div>
                     <div class="col-6" style="align-self: flex-end;">
                         <select name="height_unit" class="afit-select" required>
-                            <option value="Feet"  @if($height_unit != 'Feet' || !$height_unit) selected @endif>Feet</option>
-                            <option value="Inches"  @if($height_unit == 'Inches') selected @endif>Inches</option>
-                            <option value="Centimeter"  @if($height_unit == 'Centimeter') selected @endif>Centimeter</option>
+                            <option value="Feet"  @if($height_unit == 'Feet' || !$height_unit) selected @elseif($height_unit == "Centimeter") hidden @endif>Feet</option>
+                            <option value="Inches"  @if($height_unit == 'Inches') selected @elseif($height_unit == "Centimeter") hidden @endif>Inches</option>
+                            <option value="Centimeter"  @if($height_unit == 'Centimeter') selected @else hidden @endif>Centimeter</option>
                         </select>
                     </div>
                 </div>

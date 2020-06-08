@@ -309,7 +309,7 @@
 
             <div class="col-8 offset-2 mt-3">
               <div class="my-form-row">
-                <p>How exciting should you capsule be?</p>
+                <p>How exciting should your capsule be?</p>
 
                 <label class="radio-container mb-2">
                   Adventure - put me into play clothes based on a special event
@@ -366,7 +366,7 @@
                 </label>
 
                 <label class="radio-container mb-2">
-                  Capsules from 40 - 60$ (just one or two pieces)
+                  Capsules from $40 - $60 (just one or two pieces)
                   <input type="radio" name="capsule_spend" value="one-or-two" @if($capsule_spend == "one-or-two") checked @endif>
                   <span class="checkmark">
                     <i class="fas fa-check check-sign"></i>
@@ -374,23 +374,39 @@
                 </label>
 
                 <label class="radio-container mb-2">
-                  Capsules from 70 - 150$ (outfit - lower end)
-                  <input type="radio" name="capsule_spend" value="outfit-lower" @if($capsule_spend == "outfit-lower") checked @endif>
+                  Capsules from $70 - $150 (few pieces higher end)
+                  <input type="radio" name="capsule_spend" value="highger-end" @if($capsule_spend == "highger-end") checked @endif>
                   <span class="checkmark">
                     <i class="fas fa-check check-sign"></i>
                   </span>
                 </label>
 
                 <label class="radio-container mb-2">
-                  Capsules from 150 - 250$ (higher end)
-                  <input type="radio" name="capsule_spend" value="higher-end" @if($capsule_spend == "higher-end" || !$capsule_spend) checked @endif>
+                  Capsules from $150 - $250 (few pieces highest end)
+                  <input type="radio" name="capsule_spend" value="highest-end" @if($capsule_spend == "highest-end" || !$capsule_spend) checked @endif>
                   <span class="checkmark">
                     <i class="fas fa-check check-sign"></i>
                   </span>
                 </label>
 
                 <label class="radio-container mb-2">
-                  Capsules from 300$+ (luxury)
+                  Capsules from $300 - $500 (lower end outfit)
+                  <input type="radio" name="capsule_spend" value="lower-outfit" @if($capsule_spend == "lower-outfit") checked @endif>
+                  <span class="checkmark">
+                    <i class="fas fa-check check-sign"></i>
+                  </span>
+                </label>
+
+                <label class="radio-container mb-2">
+                  Capsules from $500 - $1500 (higher end outfit)
+                  <input type="radio" name="capsule_spend" value="higher-outfit" @if($capsule_spend == "higher-outfit") checked @endif>
+                  <span class="checkmark">
+                    <i class="fas fa-check check-sign"></i>
+                  </span>
+                </label>
+
+                <label class="radio-container mb-2">
+                  Capsules from $1500+ (luxury outfit)
                   <input type="radio" name="capsule_spend" value="luxury" @if($capsule_spend == "luxury") checked @endif>
                   <span class="checkmark">
                     <i class="fas fa-check check-sign"></i>
