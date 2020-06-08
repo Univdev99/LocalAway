@@ -495,6 +495,6 @@ class CustomerController extends Controller
     public function contact()
     {
       $user = User::where('id', auth()->user()->id)->first();
-      Mail::to("benwu@localaway.com")->send(new sendCustomerContactMail($user->first_name, $user->email));
+      Mail::to("hello@localaway.com")->send(new sendCustomerContactMail($user->first_name, $user->email));
     }
 }
