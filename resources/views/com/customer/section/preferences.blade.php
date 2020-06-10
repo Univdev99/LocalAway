@@ -137,27 +137,44 @@
                             @else
                             <img src="/images/customer-signup/body-men/type3.svg" style="height: 10em;" >
                             @endif
-                            <div class="customer-quiz-value">
-                                {{ ucwords(preg_replace('/_/i', ' ', $customer->body_type)) }}
+                            <div class="ml-3">
+                                <span>Body Type</span>
+                                <span class="customer-quiz-value">{{ ucwords(preg_replace('/_/i', ' ', $customer->body_type)) }}</span>
                                 <br/>
-                                {{ $customer->height_size }}
+                                <span>Height</span>
+                                <span class="customer-quiz-value">{{ $customer->height_size }}</span>
                             </div>
                         </div>
                     </div>
                     <div class="col-6 quiz-item">
                         <img class="quiz-image" style="width: 6em;" src="/images/customer-signup/men-casual-shirt.svg" >
                         <br/>
-                        Casual Shirts <span class="customer-quiz-value">{{ $customer->casual_shirt_size }}</span>
+                        <p>Casual Shirt</p>
+                        <div>
+                            <span>Size</span><span class="customer-quiz-value">{{ $customer->casual_shirt_size }}</span><br/>
+                            <span>Fit</span><span class="customer-quiz-value">{{ ucfirst($customer->casual_fit) }}</span>
+                        </div>
                     </div>
                     <div class="col-6 quiz-item">
                         <img class="quiz-image" src="/images/customer-signup/men-dress-shirt.svg" >
                         <br/>
-                        Dress Style <span class="customer-quiz-value">{{ $customer->dress_shirt_size }}</span>
+                        <p>Dress Shirt</p>
+                        <div>
+                            <span>Size</span><span class="customer-quiz-value">{{ $customer->dress_shirt_size }}</span><br/>
+                            <span>Collar Fit</span><span class="customer-quiz-value">{{ ucfirst($customer->dress_shirt_collar_fit) }}</span><br/>
+                            <span>Shoulder Fit</span><span class="customer-quiz-value">{{ ucfirst($customer->dressshoulder_fit) }}</span>
+                        </div>
                     </div>
                     <div class="col-6 quiz-item">
                         <img class="quiz-image" src="/images/customer-signup/men-pant.svg" style="width: 2em;" />
                         <br/>
-                        Pant Size <span class="customer-quiz-value">{{ $customer->pant_size }}</span>
+                        <p>Pant</p>
+                        <div>
+                            <span>Waist Fit</span><span class="customer-quiz-value">{{ ucfirst($customer->pant_waist_fit) }}</span><br/>
+                            <span>Rise</span><span class="customer-quiz-value">{{ ucfirst($customer->pant_rise) }}</span><br/>
+                            <span>Fit</span><span class="customer-quiz-value">{{ ucfirst($customer->pant_fit) }}</span><br/>
+                            <span>Size</span><span class="customer-quiz-value">{{ ucfirst($customer->pant_size) }}</span><br/>
+                        </div>
                     </div>
                     <div class="col-6 quiz-item">
                         <img class="quiz-image" src="/images/customer-signup/men-waist.svg" />
@@ -167,7 +184,7 @@
                     <div class="col-6 quiz-item">
                         <img class="quiz-image" src="/images/customer-signup/men-short-pant.svg" />
                         <br/>
-                        Short Length <span class="customer-quiz-value">{{ $customer->shorts_length }}</span>
+                        Shorts Length<span class="customer-quiz-value">{{ $customer->shorts_length }}</span>
                     </div>
                     <div class="col-6 quiz-item">
                         <img class="quiz-image" src="/images/customer-signup/men-shoe.svg" />
