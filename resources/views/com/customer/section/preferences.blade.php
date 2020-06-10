@@ -46,12 +46,14 @@
                 <input id="age" name="age" class="form-control" type="text" value="{{$age}}"/>
             </div>
         </div>
+    </div>
+    <div class="row">
         <div class="col-md-6 col-sm-12 text-center p-5">
         @if ($complete < 4)
             <h5>Finish the <a href="/customer" class=""><u>Style Quiz</u></a> to complete your <br> preferences and start an order.</h5>
         @else
             <p class="text-left font-weight-bold">
-                <strong>Sizing</strong>
+                <strong style="color: black">Sizing</strong>
             </p>
             @if ($customer->gender == 'female')
                 <div class="row">
@@ -143,7 +145,7 @@
                         </div>
                     </div>
                     <div class="col-6 quiz-item">
-                        <img class="quiz-image" src="/images/customer-signup/men-casual-shirt.svg" >
+                        <img class="quiz-image" style="width: 6em;" src="/images/customer-signup/men-casual-shirt.svg" >
                         <br/>
                         Casual Shirts <span class="customer-quiz-value">{{ $customer->casual_shirt_size }}</span>
                     </div>
@@ -153,9 +155,9 @@
                         Dress Style <span class="customer-quiz-value">{{ $customer->dress_shirt_size }}</span>
                     </div>
                     <div class="col-6 quiz-item">
-                        <img class="quiz-image" src="/images/customer-signup/men-pant.svg" />
+                        <img class="quiz-image" src="/images/customer-signup/men-pant.svg" style="width: 2em;" />
                         <br/>
-                        Short Length <span class="customer-quiz-value">{{ $customer->pant_size }}</span>
+                        Pant Size <span class="customer-quiz-value">{{ $customer->pant_size }}</span>
                     </div>
                     <div class="col-6 quiz-item">
                         <img class="quiz-image" src="/images/customer-signup/men-waist.svg" />
@@ -165,41 +167,45 @@
                     <div class="col-6 quiz-item">
                         <img class="quiz-image" src="/images/customer-signup/men-short-pant.svg" />
                         <br/>
-                        Waist <span class="customer-quiz-value">{{ $customer->shorts_length }}</span>
+                        Short Length <span class="customer-quiz-value">{{ $customer->shorts_length }}</span>
                     </div>
                     <div class="col-6 quiz-item">
                         <img class="quiz-image" src="/images/customer-signup/men-shoe.svg" />
                         <br/>
-                        Waist <span class="customer-quiz-value">{{ $customer->shoe_size }}</span>
+                        Shoe Size <span class="customer-quiz-value">{{ $customer->shoe_size }}</span>
                     </div>
                 </div>
             @endif
 
             <p class="text-left font-weight-bold">
-                <strong>Dislikes</strong>
+                <strong style="color: black;">Dislikes</strong>
             </p>
 
             <div class="text-left">Color</div>
             <div class="d-flex">
-            @foreach ($dislike_color as $color)
+            @forelse  ($dislike_color as $color)
                 <div style="background-color: {{ $color }}; border-radius: 10px; margin-right: 10px; width: 3em; height: 3em"></div>
-            @endforeach
+            @empty
+                <small>Undefined</small>
+            @endforelse
             </div>
 
-            <div class="text-left">Materials</div>
+            <div class="text-left mt-3">Materials</div>
             <div class="d-flex">
-            @foreach ($dislike_material as $material)
+            @forelse ($dislike_material as $material)
                 <div class="customer-quiz-value">{{ $material }}</div>
-            @endforeach
+            @empty
+                <small>Undefined</small>
+            @endforelse
             </div>
 
-            <p class="text-left">
-                <strong>Patterns</strong>
-            </p>
+            <div class="text-left mt-3">Patterns</div>
             <div class="d-flex">
-            @foreach ($dislike_pattern as $pattern)
+            @forelse ($dislike_pattern as $pattern)
                 <img class="img-content" src="/images/customer-signup/{{ strtolower($pattern) }}.png">
-            @endforeach
+            @empty
+                <small>Undefined</small>
+            @endforelse
             </div>
         @endif
         </div>
