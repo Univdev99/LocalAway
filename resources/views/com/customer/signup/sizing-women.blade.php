@@ -96,6 +96,7 @@
 
         <div class="row item" id="row-women-blouse-size">
             <div class="col-xl-5 col-lg-6 col-md-8 text-center mx-auto">
+                <div class="my-form-row">
                     <p class="mt-3">Button Up Blouse Size?</p>
                     <div class="img-wrap">
                         <img class="img-content" src="/images/customer-signup/women-blouse.svg" >
@@ -118,6 +119,7 @@
                         <option value="normal" @if($buttonup_blouse_fit == "normal") selected @endif>Normal</option>
                         <option value="larger" @if($buttonup_blouse_fit == "larger") selected @endif>Larger</option>
                     </select>
+                </div>
             </div>
         </div>
 

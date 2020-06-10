@@ -86,13 +86,15 @@ class StylistController extends Controller
             return;
         }
         $products = [];
+        
         if($filter == null){
             $products = Product::where('boutique_id', $stylist->id)->paginate(15);
         }else{
-            $middle = CategoryMiddle::whereIn('subcat_id', $filter)->with('product')->where('boutique_id', $stylist->id)->paginate(15);
-
+            $middle = CategoryMiddle::whereIn('subcat_id', $filter)->with('product')->paginate(15);
             foreach ($middle as $index ) {
-                array_push($products, $index->product);
+                if ($index->product && $index->product->boutique_id == $stylist->id) {
+                    array_push($products, $index->product);
+                }
             }
         }
 

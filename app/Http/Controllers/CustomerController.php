@@ -37,9 +37,36 @@ class CustomerController extends Controller
       if(!$customer){
         return redirect()->route('customer.signup.basic');
       }
+      switch ($customer->capsule_spend) {
+        case 'single':
+          $budget = "less than $40";
+          break;
+        case 'one-or-two':
+          $budget = "$40 - $60";
+          break;
+        case 'highger-end':
+          $budget = "$70 - $150";
+          break;
+        case 'highest-end':
+          $budget = "$150 - $250";
+          break;
+        case 'lower-outfit':
+          $budget = "$300 - $500";
+          break;
+        case 'higher-outfit':
+          $budget = "$500 - $1500";
+          break;
+        case 'luxury':
+          $budget = "$1500+";
+          break;  
+        default:
+          $budget = "$150 - $250";
+          break;
+      }
       return view('com.customer.section.preferences', [
         'gender' => $customer->gender,
         'destination' => $customer->street_address,
+        'budget' => $budget,
         'notes' => $customer->notes,
         'age' => $customer->age_range,
         'complete' => $customer->complete,

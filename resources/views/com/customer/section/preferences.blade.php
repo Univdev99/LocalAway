@@ -39,9 +39,9 @@
                 <label for="phone-number">Phone</label>
                 <input id="phone-number" class="form-control" name="phone-number" type="tel" value="{{auth()->user()->phone_number}}">
                 <label for="budget">Budget</label>
-                <input id="budget" name="budget" class="form-control"/>
+                <input id="budget" name="budget" class="form-control" value="{{ $budget }}"/>
                 <label for="notes">Notes</label>
-                <textarea id="notes" name="notes" class="form-control" style="width: 100%; height: 8em;resize:none;" value="{{$notes}}"></textarea>
+                <textarea id="notes" name="notes" class="form-control" style="width: 100%; height: 8em;resize:none;" value="{{ $notes }}"></textarea>
                 <label for="age">Age</label>
                 <input id="age" name="age" class="form-control" type="text" value="{{$age}}"/>
             </div>
