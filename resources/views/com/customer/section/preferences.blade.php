@@ -191,6 +191,17 @@
                         <br/>
                         Shoe Size <span class="customer-quiz-value">{{ $customer->shoe_size }}</span>
                     </div>
+                    <div class="col-6 quiz-item">
+                    @if (strtolower($customer->style) == 'casual')
+                        <img class="quiz-image" src="/images/customer-signup/men-style-casual.svg" />
+                    @elseif (strtolower($customer->style) == 'classic')
+                        <img class="quiz-image" src="/images/customer-signup/men-style-classic.svg" />
+                    @else
+                        <img class="quiz-image" src="/images/customer-signup/men-style-edgy.svg" />
+                    @endif
+                        <br/>
+                        Personal Style <span class="customer-quiz-value">{{ ucfirst($customer->style) }}</span>
+                    </div>
                 </div>
             @endif
 
