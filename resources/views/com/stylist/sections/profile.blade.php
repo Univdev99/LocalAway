@@ -48,12 +48,6 @@
         </div>
 
     </div>
-    <div class="row my-3">
-        <div class="col-12 mx-auto text-center">
-            <h4 class="my-4">Clients</h4>
-            <p class="my-3">No clients? Well not YET.<br>Complete your <a href="/stylist/profile"><u>profile</u></a> and <a href="#"><u>start creating</u></a></p>
-        </div>
-    </div>
 </div>
 
 @endsection

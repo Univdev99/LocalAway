@@ -7,7 +7,13 @@
 
 @section('content')
 <div class="container first-row">
-    <div class="col-avatar">
+    <div class="row my-3">
+        <div class="col-12 mx-auto text-center">
+            <h4 class="my-4">Clients</h4>
+            <p class="my-3">No clients? Well not YET.<br>Complete your <a href="/stylist/profile"><u>profile</u></a> and <a href="#"><u>start creating</u></a></p>
+        </div>
+    </div>
+    {{-- <div class="col-avatar">
         <div class="kt-avatar kt-avatar--outline kt-avatar--circle" id="kt_user_avatar_3">
             <div class="kt-avatar__holder"></div>
             <label class="kt-avatar__upload" data-toggle="kt-tooltip" title="" data-original-title="Change avatar">
@@ -134,7 +140,7 @@
             <h5> client</h5>
         </div>
         <a href="/" class=""><u>www.boutique.com</u></a>
-    </div>
+    </div> --}}
 </div>
 @endsection
 
