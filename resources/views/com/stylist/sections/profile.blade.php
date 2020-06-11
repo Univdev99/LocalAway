@@ -11,23 +11,26 @@
 
 <div class="col">
     <div class="row">
-        <div class="col-md-4 m-auto text-center col-avatar">
-            <div class="kt-avatar kt-avatar--outline kt-avatar--circle mx-4 mb-3" id="kt_user_avatar_3">
-                <div class="kt-avatar__holder"></div>
-                <label class="kt-avatar__upload" data-toggle="kt-tooltip" title="" data-original-title="Change avatar">
-                    <i class="fa fa-plus"></i>
-                    <input type="file" name="profile_avatar" accept=".png, .jpg, .jpeg">
-                </label>
-                <span class="kt-avatar__cancel" data-toggle="kt-tooltip" title="" data-original-title="Cancel avatar">
-                    <i class="fa fa-times"></i>
-                </span>
+        <div class="col-md-4 d-flex col-avatar" style="width:100%;height:100%;">
+            <div class="m-auto">
+                <div class="kt-avatar kt-avatar--outline kt-avatar--circle m-4" id="kt_user_avatar_3">
+                    <div class="kt-avatar__holder"></div>
+                    <label class="kt-avatar__upload" data-toggle="kt-tooltip" title="" data-original-title="Change avatar">
+                        <i class="fa fa-plus"></i>
+                        <input type="file" name="profile_avatar" accept=".png, .jpg, .jpeg">
+                    </label>
+                    <span class="kt-avatar__cancel" data-toggle="kt-tooltip" title="" data-original-title="Cancel avatar">
+                        <i class="fa fa-times"></i>
+                    </span>
+                </div>
+                <div class="name text-center my-4 h4">
+                    <span class="d-block text-dark">{{auth()->user()->first_name}} {{auth()->user()->last_name}}</span>
+                </div>
+                <span class="d-block color-client h4 my-4">{{ $name }}
             </div>
-            <div class="name text-center my-auto">
-                <h5> {{auth()->user()->first_name}} {{auth()->user()->last_name}}</h5>
-            </div>
-            <a href="/" class=""><u>www.boutique.com</u></a>
         </div>
         <div class="col-md-6 col-off-2">
+            {{-- <form action="/" --}}
             <div class="my-form-row">
                 <label for="name">Name</label>
                 <input id="name" name="name" class="form-control" value="{{auth()->user()->first_name}} {{auth()->user()->last_name}}"/>
@@ -42,7 +45,7 @@
                 <label for="notes">Profile Bio</label>
                 <textarea id="notes" name="notes" class="form-control text-card">{{$notes}}</textarea>
                 <div class="col-3 mx-auto text-center">
-                    <button class="btn btn-block text-white btn-brown my-2 py-2 btn-edit">Edit</button>
+                    <button class="btn btn-block text-white btn-brown my-2 py-2 btn-edit">Save</button>
                 </div>
             </div>
         </div>

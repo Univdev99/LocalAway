@@ -10,9 +10,11 @@
 <section class="content">
     <div class="row boutique-image justify-content-center align-items-center first-row ">
         @if(!$homepage)
-            <div class="homepage-noset m-5 mx-auto text-center">
-                <h1 class="color-shop m-5">Upload homepage photo</h1>
-                <button class="btn-plus btn-upload m-5" data="homepage"><i class="fa fa-plus"></i></button>
+
+            <div class="col homepage-noset m-5 mx-auto text-center">
+                <span class="m-4 d-block">Hi {{ auth()->user()->first_name }} {{ auth()->user()->last_name }}!</span>
+                <span class="color-shop m-5 h2">Upload homepage photo</span>
+                <button class="btn-plus btn-upload m-3" data="homepage"><i class="fa fa-plus"></i></button>
             </div>
         @else
             <div class="text-center mx-auto my-4">
@@ -23,28 +25,34 @@
 
     <div class="row">
         <div style="width:350px;">
-            <div class="row justify-content-center align-items-center d-block">
-                <div class="m-4 text-center">
+            <div class="justify-content-center align-items-center d-block">
+                <div class="m-4">
                     @if (!$boutique_logo)
-                        <h4 class="color-shop m-3">Upload a logo</h4>
-                        <button class="btn-plus btn-upload m-3" data="logo"><i class="fa fa-plus"></i></button>
+                        <div class="row ">
+                            <button class="btn-plus btn-upload m-3" data="logo"><i class="fa fa-plus"></i></button>
+                            <span class="color-shop mx-2 my-auto">Upload a logo</span>
+                        </div>
                     @else
-                        <img src="/storage/uploads/{{ $boutique_logo }}" width="300px" >
+                        <img src="/storage/uploads/{{ $boutique_logo }}" width="300px" class="m-2">
                     @endif
                     @if (!$bio)
-                        <h4 class="color-shop m-3">Upload a avatar</h4>
-                        <button class="btn-plus btn-upload m-3" data="bio"><i class="fa fa-plus"></i></button>
+                        <div class="row">
+                            <button class="btn-plus btn-upload m-3" data="bio"><i class="fa fa-plus"></i></button>
+                            <span class="color-shop mx-2 my-auto">Upload a avatar</span>
+                        </div>
                     @else
-                        <img src="/storage/uploads/{{ $bio }}" width="300px" height="300px">
+                        <img src="/storage/uploads/{{ $bio }}" width="250px" height="250px" class="ml-3">
                     @endif
-                    <h5 class="m-3 text-center">Boutique Name</h5>
-                    <textarea id="notes" name="notes" class="form-control border-0" placeholder="Description"></textarea>
-                    <button class="btn-brown px-5 my-4">Edit</button>
+                    <span class="m-3 ml-4 h4 d-block text-dark">{{ $name }}</span>
+                    <textarea id="notes" name="notes" class="form-control border-0 mx-3" placeholder="Description"></textarea>
+                    <button class="btn-brown px-5 m-4">Edit</button>
                 </div>
             </div>
         </div>
         <div class="col">
-            <button class="btn-brown btn-upload float-right" data="csv">Add CSV File</button>
+            <div class="mt-3 mb-5 mr-5 text-right">
+                <button class="btn-brown btn-upload" data="csv">Add CSV File</button>
+            </div>
             @include('com.stylist.sections.closet')
         </div>
     </div>

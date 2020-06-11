@@ -84,10 +84,6 @@ class StylistController extends Controller
             return;
         }
         $filter = $request->input('filter');
-        $stylist = Stylist::where('user_id', auth()->user()->id)->first();
-        if(!$stylist){
-            return;
-        }
         $products = [];
         
         if($filter == null){
@@ -105,7 +101,8 @@ class StylistController extends Controller
         if ($request->ajax()) {
             $view = view('com.stylist.sections.products', [
                 'filter' => Subcategory::all(),
-                'products' => $products, 
+                'products' => $products,
+                'name' => $stylist->stylist_name,
                 'homepage' => $stylist->homepage,
                 'bio' => $stylist->bio,
                 'boutique_logo' => $stylist->logo
@@ -115,10 +112,11 @@ class StylistController extends Controller
         return view('com.stylist.sections.shop', [
             'filter' => Subcategory::all(), 
             'products' => [],
+            'name' => $stylist->stylist_name,
             'homepage' => $stylist->homepage,
             'bio' => $stylist->bio,
             'boutique_logo' => $stylist->logo
-            ]);
+        ]);
     }
 
     public function product(Request $request, Product $product)

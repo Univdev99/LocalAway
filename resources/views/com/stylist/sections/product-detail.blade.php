@@ -26,7 +26,7 @@
             </div>
             <hr />
             <div class="product-price">
-                $<input type="number" value="{{ $product->e_price_USD }}" name="product_price" id="product-price" disabled />
+                <h3>$<input type="number" class="h3" value="{{ $product->e_price_USD }}" name="product_price" id="product-price" disabled /></h3>
             </div>
             <hr />
             <div>

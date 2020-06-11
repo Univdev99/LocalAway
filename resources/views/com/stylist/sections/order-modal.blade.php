@@ -7,14 +7,14 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
-        <p>Which client order would you like to add to?</p>
+      <div class="modal-body text-center">
+        <p class="text-left text-dark h5 m-4">Which client order would you like to add to?</p>
         @foreach ($orders as $order)
           <label for="order-{{ $order->id }}" class="m-2">
               <input type="radio" name="order_id" id="order-{{ $order->id }}" value="{{ $order->id }}" class="order" checked />
-              <div class="order-content p-3">
-                  <p>{{ $order->name }}</p>
-                  <p>{{ $order->customer->user->first_name }} {{ $order->customer->user->last_name }}</p>
+              <div class="order-content p-2 text-center d-flex" style="width:180px;height:110px;">
+                  {{-- <p>{{ $order->name }}</p> --}}
+                  <p class="m-auto h5">{{ $order->customer->user->first_name }} {{ $order->customer->user->last_name }}</p>
               </div>
           </label>
         @endforeach
