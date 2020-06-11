@@ -22,7 +22,7 @@
                 <span class="sold-by">{{ $stylist->stylist_name }}</span>
             </div>
             <div class="mt-5">
-                <input type="text" value="{{ $product->product_name }}" name="product_name" id="product-name" disabled />
+                <input type="text" value="{{ $product->product_name }}" name="product_name" id="product-name" disabled style="width:100%;"/>
             </div>
             <hr />
             <div class="product-price">

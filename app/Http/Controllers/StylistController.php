@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 
 use App\CategoryMiddle;
+use App\Customer;
 use App\Mail\sendBoutiquePasswordMail;
 use App\Product;
 use Illuminate\Support\Facades\Storage;
@@ -70,8 +71,10 @@ class StylistController extends Controller
 
     public function clients(Request $request)
     {
+        $client_list = Customer::all();
+        // dd(Customer::all());
 
-        return view('com.stylist.sections.clients');
+        return view('com.stylist.sections.clients', ["clients" => $client_list]);
     }
 
     public function shop(Request $request)
@@ -91,7 +94,7 @@ class StylistController extends Controller
             // dd($stylist->id);
             $products = Product::where('boutique_id', $stylist->id)->paginate(15);
         }else{
-            $middle = CategoryMiddle::whereIn('subcat_id', $filter)->with('product')->where('boutique_id', $stylist->id)->paginate(15);
+            $middle = CategoryMiddle::whereIn('subcat_id', $filter)->with('product')->paginate(15);
             foreach ($middle as $index ) {
                 if ($index->product && $index->product->boutique_id == $stylist->id) {
                     array_push($products, $index->product);

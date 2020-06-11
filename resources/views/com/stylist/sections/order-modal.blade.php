@@ -9,15 +9,15 @@
       </div>
       <div class="modal-body">
         <p>Which client order would you like to add to?</p>
-@foreach ($orders as $order)
-        <label for="order-{{ $order->id }}">
-            <input type="radio" name="order_id" id="order-{{ $order->id }}" value="{{ $order->id }}" class="order" checked />
-            <div class="order-content p-3">
-                <p>{{ $order->name }}</p>
-                <p>{{ $order->customer->user->first_name }} {{ $order->customer->user->last_name }}</p>
-            </div>
-        </label>
-@endforeach
+        @foreach ($orders as $order)
+          <label for="order-{{ $order->id }}" class="m-2">
+              <input type="radio" name="order_id" id="order-{{ $order->id }}" value="{{ $order->id }}" class="order" checked />
+              <div class="order-content p-3">
+                  <p>{{ $order->name }}</p>
+                  <p>{{ $order->customer->user->first_name }} {{ $order->customer->user->last_name }}</p>
+              </div>
+          </label>
+        @endforeach
       </div>
       <div class="modal-footer">
         <button class="btn-brown">Proceed</button>

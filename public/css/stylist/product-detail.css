@@ -93,3 +93,8 @@ input.quantity {
     border-radius: 4px;
     border: 2px solid orangered;
 }
+
+.modal-dialog {
+    max-width: 1000px;
+
+}
