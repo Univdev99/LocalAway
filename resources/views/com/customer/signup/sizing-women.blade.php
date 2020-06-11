@@ -21,7 +21,7 @@
                         <div class="img-wrap img-div selected">
                             <img class="img-content" src="/images/customer-signup/body-women/type1.svg" >
                         </div>
-                        <input type="radio" class="img-radio" name="body_type" value="Hourglass" @if($body_type == "Hourglass" || !$body_type) checked @endif>
+                        <input type="radio" class="img-radio" name="body_type" value="hourglass" @if($body_type == "Hourglass" || !$body_type) checked @endif>
                         <label>Hourglass</label>
                     </div>
 
@@ -29,7 +29,7 @@
                         <div class="img-wrap img-div">
                             <img class="img-content" src="/images/customer-signup/body-women/type2.svg" >
                         </div>
-                        <input type="radio" class="img-radio" name="body_type" value="Round" @if($body_type == "Round") checked @endif>
+                        <input type="radio" class="img-radio" name="body_type" value="round" @if($body_type == "Round") checked @endif>
                         <label>Round</label>
                     </div>
 

@@ -59,9 +59,9 @@
                 <div class="row">
                     <div class="col-6 quiz-item">
                         <div class="d-flex">
-                            @if ($customer->body_type == 'Hourglass')
+                            @if ($customer->body_type == 'hourglass')
                             <img src="/images/customer-signup/body-women/type1.svg" style="height: 10em;">
-                            @elseif ($customer->body_type == 'Round')
+                            @elseif ($customer->body_type == 'round')
                             <img src="/images/customer-signup/body-women/type2.svg" style="height: 10em;" >
 
                             @elseif ($customer->body_type == 'inverted_triangle')
@@ -81,49 +81,62 @@
                         </div>
                     </div>
                     <div class="col-6 quiz-item">
-                        <img class="quiz-image" src="/images/customer-signup/women-skirt.svg" >
-                        <br/>
-                        Skirt Lengths <span class="customer-quiz-value">{{ $customer->skirt_size }}</span>
-                    </div>
-                    <div class="col-6 quiz-item">
-                        <img class="quiz-image" src="/images/customer-signup/women-bra-size.svg" >
-                        <br/>
-                        Bra Size <span class="customer-quiz-value">{{ $customer->bra_cup }} {{ $customer->bra_size }}</span>
-                    </div>
-                    <div class="col-6 quiz-item">
                         <img class="quiz-image" src="/images/customer-signup/women-casual-shirt.svg" >
                         <br/>
-                        Casual Shirts <span class="customer-quiz-value">{{ $customer->casual_shirt_size }}</span>
-                    </div>
-                    <div class="col-6 quiz-item">
-                        <img class="quiz-image" src="/images/customer-signup/women-dress.svg" >
-                        <br/>
-                        Dress Style <span class="customer-quiz-value">{{ $customer->dress_shirt_size }}</span>
+                        <p>Casual Shirt</p>
+                        <div>
+                            <span>Size</span><span class="customer-quiz-value">{{ $customer->casual_shirt_size }}</span><br/>
+                            <span>Fit</span><span class="customer-quiz-value">{{ ucfirst($customer->casual_fit) }}</span>
+                        </div>
                     </div>
                     <div class="col-6 quiz-item">
                         <img class="quiz-image" src="/images/customer-signup/women-blouse.svg" >
                         <br/>
-                        Button-Up Shirts <span class="customer-quiz-value">{{ $customer->buttonup_blouse_size }}</span>
+                        <p>Button Up Blouse</p>
+                        <div>
+                            <span>Size</span><span class="customer-quiz-value">{{ $customer->buttonup_blouse_size }}</span><br/>
+                            <span>Fit</span><span class="customer-quiz-value">{{ ucfirst($customer->buttonup_blouse_fit) }}</span>
+                        </div>
                     </div>
                     <div class="col-6 quiz-item">
-                        <img class="quiz-image" src="/images/customer-signup/men-short-pant.svg" />
+                        <img class="quiz-image" src="/images/customer-signup/women-bra-size.svg" >
                         <br/>
-                        Short Length <span class="customer-quiz-value">{{ $customer->shorts_length }}</span>
+                        <p>Bra</p>
+                        <div>
+                            <span>Size</span><span class="customer-quiz-value">{{ $customer->bra_size }}</span><br/>
+                            <span>Cup</span><span class="customer-quiz-value">{{ ucfirst($customer->bra_cup) }}</span>
+                        </div>
                     </div>
                     <div class="col-6 quiz-item">
-                        <img class="quiz-image" src="/images/customer-signup/men-waist.svg" />
+                        <img class="quiz-image" src="/images/customer-signup/women-pant.svg" style="width: 1.5em;" />
                         <br/>
-                        Waist <span class="customer-quiz-value">{{ $customer->waist_size }}</span>
+                        <p>Pant</p>
+                        <div>
+                            <span>Waist Fit</span><span class="customer-quiz-value">{{ ucfirst($customer->pant_waist_fit) }}</span><br/>
+                            <span>Rise</span><span class="customer-quiz-value">{{ ucfirst($customer->pant_rise) }}</span><br/>
+                            <span>Fit</span><span class="customer-quiz-value">{{ ucfirst($customer->pant_fit) }}</span><br/>
+                            <span>Size</span><span class="customer-quiz-value">{{ ucfirst($customer->pant_size) }}</span><br/>
+                        </div>
                     </div>
                     <div class="col-6 quiz-item">
-                        <img class="quiz-image" src="/images/customer-signup/women-shoe.svg" >
+                        <img class="quiz-image" src="/images/customer-signup/women-skirt.svg" />
                         <br/>
-                        Shoe Size <span class="customer-quiz-value"{{ $customer->shoe_size }}</span>
+                        Skirt Length <span class="customer-quiz-value">{{ ucfirst($customer->skirt_size) }}</span>
                     </div>
                     <div class="col-6 quiz-item">
-                        <img class="quiz-image" src="/images/customer-signup/women-pant.svg" >
+                        <img class="quiz-image" src="/images/customer-signup/women-dress.svg" style="width: 2.5em" />
                         <br/>
-                        Pants <span class="customer-quiz-value">{{ $customer->pant_size }}</span>
+                        Dress Style <span class="customer-quiz-value">{{ ucfirst($customer->dress_style) }}</span>
+                    </div>
+                    <div class="col-6 quiz-item">
+                        <img class="quiz-image" src="/images/customer-signup/women-shoe.svg" />
+                        <br/>
+                        Shoe Size <span class="customer-quiz-value">{{ ucfirst($customer->shoe_size) }}</span>
+                    </div>
+                    <div class="col-6 quiz-item">
+                        <img class="quiz-image" src="/images/customer-signup/women-style-{{ strtolower($customer->style) }}.svg" style="width: 5.5em"/>
+                        <br/>
+                        Personal Style <span class="customer-quiz-value">{{ ucfirst($customer->style) }}</span>
                     </div>
                 </div>
             @else
@@ -192,13 +205,7 @@
                         Shoe Size <span class="customer-quiz-value">{{ $customer->shoe_size }}</span>
                     </div>
                     <div class="col-6 quiz-item">
-                    @if (strtolower($customer->style) == 'casual')
-                        <img class="quiz-image" src="/images/customer-signup/men-style-casual.svg" />
-                    @elseif (strtolower($customer->style) == 'classic')
-                        <img class="quiz-image" src="/images/customer-signup/men-style-classic.svg" />
-                    @else
-                        <img class="quiz-image" src="/images/customer-signup/men-style-edgy.svg" />
-                    @endif
+                        <img class="quiz-image" src="/images/customer-signup/men-style-{{ strtolower($customer->style) }}.svg" />
                         <br/>
                         Personal Style <span class="customer-quiz-value">{{ ucfirst($customer->style) }}</span>
                     </div>
@@ -214,7 +221,7 @@
             @forelse  ($dislike_color as $color)
                 <div style="background-color: {{ $color }}; border-radius: 10px; margin-right: 10px; width: 3em; height: 3em"></div>
             @empty
-                <small>Undefined</small>
+                <small>None</small>
             @endforelse
             </div>
 
@@ -223,7 +230,7 @@
             @forelse ($dislike_material as $material)
                 <div class="customer-quiz-value">{{ $material }}</div>
             @empty
-                <small>Undefined</small>
+                <small>None</small>
             @endforelse
             </div>
 
@@ -232,7 +239,7 @@
             @forelse ($dislike_pattern as $pattern)
                 <img class="img-content" src="/images/customer-signup/{{ strtolower($pattern) }}.png">
             @empty
-                <small>Undefined</small>
+                <small>None</small>
             @endforelse
             </div>
         @endif

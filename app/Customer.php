@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 use App\User;
+use App\CustomerProfile;
 
 class Customer extends Model
 {
@@ -19,5 +20,10 @@ class Customer extends Model
     public function order()
     {
         return $this->hasMany(Order::class);
+    }
+
+    public function profile()
+    {
+        return $this->hasOne(CustomerProfile::class);
     }
 }

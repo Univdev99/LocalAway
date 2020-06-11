@@ -62,38 +62,38 @@
                     <div class="col-12 mt-4">
                         <h3 class="my-2"> Shipping Address</h3>
                         <button class="btn btn-block text-white btn-brown my-2 px-0 btn-shipping">Add Address</button>
-                        <div class="row shipping-group" style="display:none;">
+                        <div class="row shipping-group" style="@if (is_null(optional($profile)->shipping_street1)) display:none; @endif ">
                             <div class="col-12">
                                 <label for="shipping-name">Name</label>
-                                <input id="shipping-name" name="shipping-name" class="form-control"/>
+                                <input id="shipping-name" name="shipping-name" class="form-control" value="{{ optional($profile)->shipping_name }}" />
                             </div>
                             <div class="col-12">
                                 <label for="shipping-address1">Street Address1</label>
-                                <input id="shipping-address1" name="shipping-address1" class="form-control"/>
+                                <input id="shipping-address1" name="shipping-address1" class="form-control" value="{{ optional($profile)->shipping_street1 }}"/>
                             </div>
                             <div class="col-12">
                                 <label for="shipping-address2">Street Address2</label>
-                                <input id="shipping-address2" name="shipping-address2" class="form-control"/>
+                                <input id="shipping-address2" name="shipping-address2" class="form-control" value="{{ optional($profile)->shipping_street2 }}"/>
                             </div>
                             <div class="col-5">
                                 <label for="shipping-city">City</label>
-                                <input id="shipping-city" name="shipping-city" class="form-control"/>
+                                <input id="shipping-city" name="shipping-city" class="form-control" value="{{ optional($profile)->shipping_city }}"/>
                             </div>
                             <div class="col-4">
                                 <label for="shipping-state">State</label>
-                                <input id="shipping-state" name="shipping-state" class="form-control" />
+                                <input id="shipping-state" name="shipping-state" class="form-control" value="{{ optional($profile)->shipping_state }}"/>
                             </div>
                             <div class="col-3">
                                 <label for="shipping-code">Zip Code</label>
-                                <input id="shipping-code" name="shipping-code" class="form-control"/>
+                                <input id="shipping-code" name="shipping-code" class="form-control" value="{{ optional($profile)->shipping_zipcode }}"/>
                             </div>
                             <div class="col-12">
                                 <label for="shipping-country">Country</label>
-                                <input id="shipping-country" name="shipping-country" class="form-control"/>
+                                <input id="shipping-country" name="shipping-country" class="form-control" value="{{ optional($profile)->country_city }}" />
                             </div>
                             <div class="col-12">
                                 <label for="shipping-phone">Phone</label>
-                                <input id="shipping-phone" name="shipping-phone" class="form-control" type="tel"/>
+                                <input id="shipping-phone" name="shipping-phone" class="form-control" type="tel" value="{{ optional($profile)->shipping_phone }}" />
                             </div>
                         </div>
                     </div>

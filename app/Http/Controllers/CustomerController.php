@@ -102,6 +102,7 @@ class CustomerController extends Controller
           'last_name' => $user->last_name,
           'email' => $user->email,
           'pwd' => $user->password,
+          'profile' => $user->profile
         ]);
     }
 
