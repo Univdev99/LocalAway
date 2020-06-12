@@ -14,21 +14,26 @@
 @section('upcomingbox')
     <div class="row">
         <div class="col-12">
-            <div class="alert alert-dark my-4">
-                <strong>Return policy</strong>
-                <p class="mb-0">
-                    Items must be returned within a workweek 7 day window from when they are recieved.
-                    If somthing happens and you need help, contact hello@localaway.com 
-                </p>
+            <div class="alert my-4 d-flex" style="background-color: #f3f3f3; border-radius: 5px; border-color: #ced4e0;">
+                <i class="fa fa-info-circle mr-2 mt-1"></i>
+                <div>
+                    <strong style="font-weight: 900;">Return policy</strong>
+                    <p class="mb-0">
+                        <small>
+                        Items must be returned within a workweek 7 day window from when they are recieved.
+                        If somthing happens and you need help, contact hello@localaway.com 
+                        </small>
+                    </p>
+                </div>
             </div>
         </div>
         <div class="col-3">
-            <h5> My Account</h5>
+            <p> My Account</p>
         </div>
         <div class="col-9">
             <div class="d-flex justify-content-between">
-                <h5>Total Orders: 1</h5>
-                <p>Return by <span class="text-danger">(7 days from when received)</span></p>
+                <p>Total Orders: 1</p>
+                <p>Return by <span style="color:magenta">(7 days from when received)</span></p>
             </div>
             <form method="post" action="{{ route('com.customer.orders.finalize') }}">
                 @csrf
