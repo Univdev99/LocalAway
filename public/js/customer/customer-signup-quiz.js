@@ -331,15 +331,13 @@ $(function() {
 
     $('.radio-unit').click(function (){
         if($(this).val() == 'imperial'){
-            $('.afit-select option[value="Feet"]').attr("hidden",false);
-            $('.afit-select option[value="Inches"]').attr("hidden",false);
-            $('.afit-select option[value="Centimeter"]').attr("hidden",true);
-            $(".afit-select").val("Feet");
+            $(".height_div2").attr("hidden",false);
+            $(".height_comment").html("*Feet");
+            $("#height2").val("");
         }else{
-            $('.afit-select option[value="Feet"]').attr("hidden",true);
-            $('.afit-select option[value="Inches"]').attr("hidden",true);
-            $('.afit-select option[value="Centimeter"]').attr("hidden",false);
-            $(".afit-select").val("Centimeter");
+            $(".height_div2").attr("hidden",true);
+            $(".height_comment").html("*Centimeter");
+            $("#height2").val(0);
         }
     });
 

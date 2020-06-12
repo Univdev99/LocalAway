@@ -224,6 +224,7 @@ class CustomerController extends Controller
       return view('com.customer.signup.basic', [
         'gender' => $customer->gender,
         'height_size' => $customer->height_size,
+        'height_subsize' => $customer->height_subsize,
         'height_unit' => $customer->height_unit,
         'age_range' => $customer->age_range,
         'capsule_date' => date_format($customer->capsule_date,"m/d/Y"),
@@ -249,6 +250,7 @@ class CustomerController extends Controller
         $customer = $user->customer;
         $customer->gender = $gender;
         $customer->height_size = $request->input('height_size');
+        $customer->height_subsize = $request->input('height_subsize');
         $customer->height_unit = $request->input('height_unit');
         $customer->age_range = $request->input('age_range');
         $date = $request->input('capsule_date');

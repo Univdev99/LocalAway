@@ -19,7 +19,7 @@
             <div class="my-form-row text-center">
                 <p >First the basics</p>
                 <div class="d-flex flex-wrap justify-content-center">
-                    <div class="mr-5 img-selector">
+                    <div class="mr-sm-5 mx-auto img-selector">
                         <div class="gender-image img-div">
                             <img src="/images/customer-signup/gender-circle.svg" class="w-100"/>
                             <img src="/images/customer-signup/gender-man.svg" />
@@ -29,7 +29,7 @@
                         <label for="gender-1">Male</label>
                     </div>
 
-                    <div class="ml-5 img-selector">
+                    <div class="ml-sm-5 mx-auto img-selector">
                         <div class="gender-image img-div selected">
                             <img src="/images/customer-signup/gender-circle.svg" class="w-100"/>
                             <img src="/images/customer-signup/gender-woman.svg" />
@@ -47,9 +47,9 @@
             <div class="my-form-row">
                 <p>Height?</p>
 
-                <label class="label_unit"><input type="radio" class="imperial mx-2 radio-unit" value="imperial" @if($height_unit != 'Centimeter' || !$height_unit) checked @endif>Imperial</label>
-                <label class="label_unit"><input type="radio" class="metric mx-2 radio-unit" value="metric" @if($height_unit == 'Centimeter') checked @endif>Metric</label>
-                <div class="row justify-content-center">
+                <label class="label_unit"><input type="radio" class="mx-2 radio-unit" name="height_unit" value="imperial" @if($height_unit != 'metric' || !$height_unit) checked @endif>Imperial</label>
+                <label class="label_unit"><input type="radio" class="mx-2 radio-unit" name="height_unit" value="metric" @if($height_unit == 'metric') checked @endif>Metric</label>
+                {{-- <div class="row justify-content-center">
                     <div class="col-6 text-left">
                         <label for="height">*Height</label>                        
                         <input id="height" name="height_size" class="form-control text-answer" type="number" min="0" value="{{ $height_size }}" required/>
@@ -60,6 +60,16 @@
                             <option value="Inches"  @if($height_unit == 'Inches') selected @elseif($height_unit == "Centimeter") hidden @endif>Inches</option>
                             <option value="Centimeter"  @if($height_unit == 'Centimeter') selected @else hidden @endif>Centimeter</option>
                         </select>
+                    </div>
+                </div> --}}
+                <div class="d-flex mb-4 mt-5">
+                    <div class="height_div1 text-left mx-auto" style="width:100px;">
+                        <label class="height_comment" for="height1">@if($height_unit != 'metric' || !$height_unit) *Feet @else *Centimeter @endif</label>
+                        <input id="height1" name="height_size" class="form-control text-answer" type="number" min="0" value="{{ $height_size }}" required/>
+                    </div>
+                    <div class="height_div2 text-left mx-auto" style="width:100px;" @if($height_unit == "metric") hidden="hidden" @endif>
+                        <label for="height2">*Inches</label>
+                        <input id="height2" name="height_subsize" class="form-control text-answer" type="number" min="0" value="@if($height_unit !="imperial" || !$height_unit) 0 @else {{ $height_subsize }} @endif" required/>
                     </div>
                 </div>
             </div>
