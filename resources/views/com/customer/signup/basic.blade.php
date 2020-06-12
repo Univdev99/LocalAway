@@ -19,7 +19,7 @@
             <div class="my-form-row text-center">
                 <p >First the basics</p>
                 <div class="d-flex flex-wrap justify-content-center">
-                    <div class="mx-5 img-selector">
+                    <div class="mr-5 img-selector">
                         <div class="gender-image img-div">
                             <img src="/images/customer-signup/gender-circle.svg" class="w-100"/>
                             <img src="/images/customer-signup/gender-man.svg" />
@@ -29,7 +29,7 @@
                         <label for="gender-1">Male</label>
                     </div>
 
-                    <div class="mx-5 img-selector">
+                    <div class="ml-5 img-selector">
                         <div class="gender-image img-div selected">
                             <img src="/images/customer-signup/gender-circle.svg" class="w-100"/>
                             <img src="/images/customer-signup/gender-woman.svg" />
@@ -47,8 +47,8 @@
             <div class="my-form-row">
                 <p>Height?</p>
 
-                <label class="label_unit"><input type="radio" class="imperial mx-2 radio-unit" name="unit" value="imperial" @if($height_unit != 'Centimeter' || !$height_unit) checked @endif>Imperial</label>
-                <label class="label_unit"><input type="radio" class="metric mx-2 radio-unit" name="unit" value="metric" @if($height_unit == 'Centimeter') checked @endif>Metric</label>
+                <label class="label_unit"><input type="radio" class="imperial mx-2 radio-unit" value="imperial" @if($height_unit != 'Centimeter' || !$height_unit) checked @endif>Imperial</label>
+                <label class="label_unit"><input type="radio" class="metric mx-2 radio-unit" value="metric" @if($height_unit == 'Centimeter') checked @endif>Metric</label>
                 <div class="row justify-content-center">
                     <div class="col-6 text-left">
                         <label for="height">*Height</label>                        
@@ -100,11 +100,11 @@
         </div>
     </div>
 
-    <div class="item id="row-capsule-date"">
+    <div class="item" id="row-capsule-date">
         <div class="my-form-row text-center mx-auto">
-            <div class="row">
+            <div class="d-flex">
                 <p class="my-auto mx-1">What date do you need your capsule by?<br></p>
-                <input type="button" id="basic-asap" class="round-btn p-2" value="ASAP"/>
+                <input type="button" id="basic-asap" class="round-btn py-1 px-3" value="ASAP"/>
             </div>
             <div id="calendar"></div>
 
@@ -330,7 +330,7 @@
     </div>
 
     <div class="row submit-btns m-4">
-        <div class="col-6 offset-3 text-center">
+        <div class="col-lg-6 offset-lg-3 text-center">
             <input class="round-btn back-btn mr-5 float-left" type="button" value="Back"/>
             <input class="round-btn next-btn float-right" type="button" value="Next"/>
         </div>

@@ -130,8 +130,10 @@ $(function() {
         const param={};
         let id = $(".item:nth-child(" + (pos+1) + ")").attr('id');
         $(".item:nth-child(" + pos + ") input").each(function() {
-            if ($(this).prop('type') == "text" || $(this).prop('type') == "number" || ($(this).prop('type') == "radio" && $(this).prop("checked")) || $(this).prop('type') == "hidden") {
-                param[$(this).attr('name')] = $(this).val();
+            if($(this).attr('name') != undefined){
+                if ($(this).prop('type') == "text" || $(this).prop('type') == "number" || ($(this).prop('type') == "radio" && $(this).prop("checked")) || $(this).prop('type') == "hidden") {
+                    param[$(this).attr('name')] = $(this).val();
+                }
             }
         });
         $(".item:nth-child(" + pos + ") select").each(function() {

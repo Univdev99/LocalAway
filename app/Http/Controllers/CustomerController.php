@@ -226,7 +226,7 @@ class CustomerController extends Controller
         'height_size' => $customer->height_size,
         'height_unit' => $customer->height_unit,
         'age_range' => $customer->age_range,
-        'capsule_date' => $customer->capsule_date,
+        'capsule_date' => date_format($customer->capsule_date,"m/d/Y"),
         'location' => $customer->location,
         'ship_type' => $customer->ship_type,
         'street_address' => $customer->street_address,
@@ -511,7 +511,11 @@ class CustomerController extends Controller
       }
       if ($array != []){
         foreach ($array as $name => $value){
-          $customer->$name = $value;
+          if($name == "capsule_date"){
+            $customer->$name = date_create_from_format("m/d/Y",$value);
+          }else{
+            $customer->$name = $value;
+          }
         }
       }
       if($id){

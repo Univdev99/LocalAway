@@ -328,7 +328,7 @@
         </div>
 
         <div class="row submit-btns m-4">
-            <div class="col-6 offset-3 text-center">
+            <div class="col-lg-6 offset-lg-3 text-center">
                 <input class="round-btn back-btn mr-5 float-left" type="button" value="Back">
                 <input class="round-btn next-btn float-right" type="button" value="Next">
             </div>

@@ -16,8 +16,8 @@
         <div class="row item first-row" id="row-men-style">
             <div class="m-auto text-center">
                     <p class="mt-3">Describe your personal style?</p>
-                <div class="row">
-                    <div class="d-block flex-wrap m-4 text-center">
+                <div class="row mx-0">
+                    <div class="d-block flex-wrap m-lg-4 mx-auto text-center">
                         <div class="img-wrap">
                             <img class="img-content" src="/images/customer-signup/men-style-edgy.svg" />
                         </div>
@@ -25,7 +25,7 @@
                         <label for="style-1"  class="select-btn">Edgy</label>
                     </div>
 
-                    <div class="d-block flex-wrap m-4 text-center">
+                    <div class="d-block flex-wrap m-lg-4 mx-auto text-center">
                         <div class="img-wrap">
                             <img class="img-content" src="/images/customer-signup/men-style-casual.svg" />
                         </div>
@@ -33,7 +33,7 @@
                         <label for="style-2" class="select-btn">Casual</label>
                     </div>
 
-                    <div class="d-block flex-wrap m-4 text-center">
+                    <div class="d-block flex-wrap m-lg-4 mx-auto text-center">
                         <div class="img-wrap">
                             <img class="img-content" src="/images/customer-signup/men-style-classic.svg" />
                         </div>
@@ -454,7 +454,7 @@
         </div>
 
         <div class="row submit-btns m-4">
-            <div class="col-6 offset-3 text-center">
+            <div class="col-lg-6 offset-lg-3 text-center">
                 <input class="round-btn back-btn mr-5 float-left" type="button" value="Back"/>
                 <input class="round-btn next-btn float-right" type="button" value="Next"/>
             </div>
