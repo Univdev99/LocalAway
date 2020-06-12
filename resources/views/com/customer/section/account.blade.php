@@ -61,85 +61,119 @@
                     </div>
                     <div class="col-12 mt-4">
                         <h3 class="my-2"> Shipping Address</h3>
+                    @if (is_null($profile))
                         <button class="btn btn-block text-white btn-brown my-2 px-0 btn-shipping">Add Address</button>
-                        <div class="row shipping-group" style="@if (is_null(optional($profile)->shipping_street1)) display:none; @endif ">
+                    @endif
+                        <form action="{{ route('com.customer.save-account') }}" method="post">
+                        @csrf
+                        <input type="hidden" name="customer_id" value="{{ $customer_id }}" />
+                        <div class="row shipping-group" style="@if (is_null($profile)) display:none; @endif ">
                             <div class="col-12">
                                 <label for="shipping-name">Name</label>
-                                <input id="shipping-name" name="shipping-name" class="form-control" value="{{ optional($profile)->shipping_name }}" />
+                                <input id="shipping-name" name="shipping_name" class="form-control" value="{{ optional($profile)->shipping_name }}" />
                             </div>
                             <div class="col-12">
                                 <label for="shipping-address1">Street Address1</label>
-                                <input id="shipping-address1" name="shipping-address1" class="form-control" value="{{ optional($profile)->shipping_street1 }}"/>
+                                <input id="shipping-address1" name="shipping_street1" class="form-control" value="{{ optional($profile)->shipping_street1 }}"/>
                             </div>
                             <div class="col-12">
                                 <label for="shipping-address2">Street Address2</label>
-                                <input id="shipping-address2" name="shipping-address2" class="form-control" value="{{ optional($profile)->shipping_street2 }}"/>
+                                <input id="shipping-address2" name="shipping_street2" class="form-control" value="{{ optional($profile)->shipping_street2 }}"/>
                             </div>
                             <div class="col-5">
                                 <label for="shipping-city">City</label>
-                                <input id="shipping-city" name="shipping-city" class="form-control" value="{{ optional($profile)->shipping_city }}"/>
+                                <input id="shipping-city" name="shipping_city" class="form-control" value="{{ optional($profile)->shipping_city }}"/>
                             </div>
                             <div class="col-4">
                                 <label for="shipping-state">State</label>
-                                <input id="shipping-state" name="shipping-state" class="form-control" value="{{ optional($profile)->shipping_state }}"/>
+                                <input id="shipping-state" name="shipping_state" class="form-control" value="{{ optional($profile)->shipping_state }}"/>
                             </div>
                             <div class="col-3">
                                 <label for="shipping-code">Zip Code</label>
-                                <input id="shipping-code" name="shipping-code" class="form-control" value="{{ optional($profile)->shipping_zipcode }}"/>
+                                <input id="shipping-code" name="shipping_zipcode" class="form-control" value="{{ optional($profile)->shipping_zipcode }}"/>
                             </div>
                             <div class="col-12">
                                 <label for="shipping-country">Country</label>
-                                <input id="shipping-country" name="shipping-country" class="form-control" value="{{ optional($profile)->country_city }}" />
+                                <input id="shipping-country" name="shipping_country" class="form-control" value="{{ optional($profile)->shipping_country }}" />
                             </div>
                             <div class="col-12">
                                 <label for="shipping-phone">Phone</label>
-                                <input id="shipping-phone" name="shipping-phone" class="form-control" type="tel" value="{{ optional($profile)->shipping_phone }}" />
+                                <input id="shipping-phone" name="shipping_phone" class="form-control" type="tel" value="{{ optional($profile)->shipping_phone }}" />
+                            </div>
+                            <div class="col-6">
+                                <button class="btn btn-block text-white btn-brown mt-2 px-0">Save</button>
+                            </div>
+                            <div class="col-6">
+                            @if (is_null($profile))
+                                <button type="button" id="shipping-cancel" class="btn btn-block text-white btn-brown mt-2 px-0">Cancel</button>
+                            @else
+                                <button type="reset" class="btn btn-block text-white btn-brown mt-2 px-0">Reset</button>
+                            @endif
                             </div>
                         </div>
+                        </form>
                     </div>
                     <div class="col-12 mt-4">
                         <h3 class="my-2"> Billing Address</h3>
+                    @if (isset($profile) && is_null($profile->billing_street1))
                         <div class="checkbox checkbox-info checkbox-circle check-billing">
                             <input id="check-billing" class="styled" type="checkbox">
                             <label for="check-billing">
                                 Same as Shipping
                             </label>
                         </div>
+                    @endif
+                    @if (is_null($profile) || is_null($profile->billing_street1))
                         <button class="btn btn-block text-white btn-brown mt-2 px-0 btn-billing">Add Address</button>
-                        <div class="row billing-group" style="display:none;">
+                    @endif
+                        <form action="{{ route('com.customer.save-account') }}" method="post">
+                        @csrf
+                        <input type="hidden" name="customer_id" value="{{ $customer_id }}" />
+                        <div class="row billing-group" style="@if (is_null($profile) || is_null(optional($profile)->billing_street1)) display:none; @endif ">
                             <div class="col-12">
                                 <label for="billing-name">Name</label>
-                                <input id="billing-name" name="billing-name" class="form-control"/>
+                                <input id="billing-name" name="billing_name" class="form-control" value="{{ optional($profile)->billing_name }}" />
                             </div>
                             <div class="col-12">
                                 <label for="billing-address1">Street Address1</label>
-                                <input id="billing-address1" name="billing-address1" class="form-control"/>
+                                <input id="billing-address1" name="billing_street1" class="form-control" value="{{ optional($profile)->billing_street1 }}"/>
                             </div>
                             <div class="col-12">
                                 <label for="billing-address2">Street Address2</label>
-                                <input id="billing-address2" name="billing-address2" class="form-control"/>
+                                <input id="billing-address2" name="billing_street2" class="form-control" value="{{ optional($profile)->billing_street2 }}"/>
                             </div>
                             <div class="col-5">
                                 <label for="billing-city">City</label>
-                                <input id="billing-city" name="billing-city" class="form-control"/>
+                                <input id="billing-city" name="billing_city" class="form-control" value="{{ optional($profile)->billing_city }}"/>
                             </div>
                             <div class="col-4">
                                 <label for="billing-state">State</label>
-                                <input id="billing-state" name="billing-state" class="form-control" />
+                                <input id="billing-state" name="billing_state" class="form-control" value="{{ optional($profile)->billing_state }}"/>
                             </div>
                             <div class="col-3">
                                 <label for="billing-code">Zip Code</label>
-                                <input id="billing-code" name="billing-code" class="form-control"/>
+                                <input id="billing-code" name="billing_zipcode" class="form-control" value="{{ optional($profile)->billing_zipcode }}"/>
                             </div>
                             <div class="col-12">
                                 <label for="billing-country">Country</label>
-                                <input id="billing-country" name="billing-country" class="form-control"/>
+                                <input id="billing-country" name="billing_country" class="form-control" value="{{ optional($profile)->billing_country }}" />
                             </div>
                             <div class="col-12">
                                 <label for="billing-phone">Phone</label>
-                                <input id="billing-phone" name="billing-phone" class="form-control" type="tel"/>
+                                <input id="billing-phone" name="billing_phone" class="form-control" type="tel" value="{{ optional($profile)->billing_phone }}" />
+                            </div>
+                            <div class="col-6">
+                                <button class="btn btn-block text-white btn-brown mt-2 px-0">Save</button>
+                            </div>
+                            <div class="col-6">
+                            @if (is_null($profile) || is_null(optional($profile)->billing_street1))
+                                <button type="button" id="billing-cancel" class="btn btn-block text-white btn-brown mt-2 px-0">Cancel</button>
+                            @else
+                                <button type="reset" class="btn btn-block text-white btn-brown mt-2 px-0">Reset</button>
+                            @endif
                             </div>
                         </div>
+                        </form>
                     </div>
                     
                     <h5 class="my-5 "><u><a href="#" class="contact">Contact us</a></u> with questions</h5>

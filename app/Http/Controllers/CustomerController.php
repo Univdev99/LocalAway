@@ -9,6 +9,7 @@ use Stevebauman\Location\Location;
 use App\Upload;
 use App\User;
 use App\Customer;
+use App\CustomerProfile;
 use App\Order;
 use App\Plan;
 use DateTime;
@@ -129,8 +130,30 @@ class CustomerController extends Controller
           'last_name' => $user->last_name,
           'email' => $user->email,
           'pwd' => $user->password,
-          'profile' => $user->profile
+          'customer_id' => $user->customer->id,
+          'profile' => $user->customer->profile
         ]);
+    }
+
+    public function saveProfile(Request $request)
+    {
+      $customer_id = $request->input('customer_id');
+      $customer = Customer::find($customer_id);
+      $address = $request->all();
+      
+      $profile = $customer->profile;
+      if (is_null($profile)) {
+        $profile = new CustomerProfile;
+      }
+      $profile->customer_id = $customer->id;
+      foreach ($address as $key => $value) {
+        if ($key !== '_token' && $key !== 'customer_id') {
+          $profile->$key = $value;
+        }
+      }
+      $profile->save();
+      
+      return redirect()->route('com.customer.account');
     }
 
     public function signup()

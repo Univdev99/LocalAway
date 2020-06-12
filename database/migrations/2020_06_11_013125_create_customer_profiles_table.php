@@ -17,23 +17,23 @@ class CreateCustomerProfilesTable extends Migration
             $table->bigIncrements('id');
             
             $table->bigInteger('customer_id');
-            $table->string('shipping_name');
-            $table->string('shipping_street1');
-            $table->string('shipping_street2');
-            $table->string('shipping_city');
-            $table->string('shipping_state');
-            $table->string('shipping_zipcode');
-            $table->string('shipping_country');
-            $table->string('shipping_phone');
+            $table->string('shipping_name')->nullable();
+            $table->string('shipping_street1')->nullable();
+            $table->string('shipping_street2')->nullable();
+            $table->string('shipping_city')->nullable();
+            $table->string('shipping_state')->nullable();
+            $table->string('shipping_zipcode')->nullable();
+            $table->string('shipping_country')->nullable();
+            $table->string('shipping_phone')->nullable();
 
-            $table->string('billing_name');
-            $table->string('billing_street1');
-            $table->string('billing_street2');
-            $table->string('billing_city');
-            $table->string('billing_state');
-            $table->string('billing_zipcode');
-            $table->string('billing_country');
-            $table->string('billing_phone');
+            $table->string('billing_name')->nullable();
+            $table->string('billing_street1')->nullable();
+            $table->string('billing_street2')->nullable();
+            $table->string('billing_city')->nullable();
+            $table->string('billing_state')->nullable();
+            $table->string('billing_zipcode')->nullable();
+            $table->string('billing_country')->nullable();
+            $table->string('billing_phone')->nullable();
             $table->timestamps();
         });
     }
