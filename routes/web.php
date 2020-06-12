@@ -19,9 +19,9 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 // Route::domain('staging.localaway.com')->group(function () {
 
-    Route::group(["domain" => "www.localaway.com"], function () {
+    // Route::group(["domain" => "www.localaway.com"], function () {
         Route::get('/', 'HomeController@index')->name('landingPage');
-    });
+    // });
 
     Route::group(["domain" => "www.localaway.ai"], function () {
         Route::get('/', function () {
@@ -83,6 +83,7 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
         Route::get('/stylist/profile', 'StylistController@profile')->name('com.stylist.profile');
         Route::get('/stylist/closet', 'StylistController@closet');
         Route::get('/stylist/clients', 'StylistController@clients');
+        Route::post('/stylist/profile/save', 'StylistController@saveProfile')->name('com.stylist.profile.save');
     });
 
     Route::get('/stylist/check-email', 'StylistController@checkEmailDuplicate');

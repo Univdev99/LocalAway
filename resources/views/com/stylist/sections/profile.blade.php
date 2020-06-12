@@ -30,7 +30,8 @@
             </div>
         </div>
         <div class="col-md-6 col-off-2">
-            {{-- <form action="/" --}}
+            <form action="{{ route('com.stylist.profile.save') }}" method="post">
+            @csrf
             <div class="my-form-row">
                 <label for="name">Name</label>
                 <input id="name" name="name" class="form-control" value="{{auth()->user()->first_name}} {{auth()->user()->last_name}}"/>
@@ -40,14 +41,15 @@
                 <input id="boutique" name="boutique" class="form-control" value="{{$name}}"/>
                 <label for="link">Website</label>
                 <input id="link" name="link1" class="form-control" value="{{$link1}}"/>
-                <input id="link" name="link1" class="form-control" value="{{$link2}}"/>
-                <input id="link" name="link1" class="form-control" value="{{$link3}}"/>
+                <input id="link" name="link2" class="form-control" value="{{$link2}}"/>
+                <input id="link" name="link3" class="form-control" value="{{$link3}}"/>
                 <label for="notes">Profile Bio</label>
                 <textarea id="notes" name="notes" class="form-control text-card">{{$notes}}</textarea>
                 <div class="col-3 mx-auto text-center">
                     <button class="btn btn-block text-white btn-brown my-2 py-2 btn-edit">Save</button>
                 </div>
             </div>
+            </form>
         </div>
 
     </div>

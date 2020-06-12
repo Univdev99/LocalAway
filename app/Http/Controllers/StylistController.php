@@ -69,6 +69,18 @@ class StylistController extends Controller
             ]);
     }
 
+    public function saveProfile(Request $request)
+    {
+        $stylist = Stylist::where('user_id', $request->user()->id)->first();
+        $stylist->stylist_name = $request->input('boutique', '');
+        $stylist->relevant_link1 = $request->input('link1', '');
+        $stylist->relevant_link2 = $request->input('link2', '');
+        $stylist->relevant_link3 = $request->input('link3', '');
+        $stylist->notes = $request->input('notes', '');
+        $stylist->save();
+        return redirect()->route('com.stylist.profile');
+    }
+
     public function clients(Request $request)
     {
         $client_list = Customer::all();
