@@ -1,4 +1,4 @@
-    <div class="header">
+    {{-- <div class="header">
         <div class="row justify-content-center align-items-center">
             <div class="col-md text-center">
                 <h1 class="heading">Closet</h1>
@@ -17,7 +17,7 @@
                 @endif
             </div>
         </div>
-    </div>
+    </div> --}}
 
     <div class="row">
         <div class="col" >

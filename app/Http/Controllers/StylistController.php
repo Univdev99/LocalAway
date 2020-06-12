@@ -69,6 +69,18 @@ class StylistController extends Controller
             ]);
     }
 
+    public function saveProfile(Request $request)
+    {
+        $stylist = Stylist::where('user_id', $request->user()->id)->first();
+        $stylist->stylist_name = $request->input('boutique', '');
+        $stylist->relevant_link1 = $request->input('link1', '');
+        $stylist->relevant_link2 = $request->input('link2', '');
+        $stylist->relevant_link3 = $request->input('link3', '');
+        $stylist->notes = $request->input('notes', '');
+        $stylist->save();
+        return redirect()->route('com.stylist.profile');
+    }
+
     public function clients(Request $request)
     {
         $client_list = Customer::all();
@@ -84,10 +96,6 @@ class StylistController extends Controller
             return;
         }
         $filter = $request->input('filter');
-        $stylist = Stylist::where('user_id', auth()->user()->id)->first();
-        if(!$stylist){
-            return;
-        }
         $products = [];
         
         if($filter == null){
@@ -105,7 +113,8 @@ class StylistController extends Controller
         if ($request->ajax()) {
             $view = view('com.stylist.sections.products', [
                 'filter' => Subcategory::all(),
-                'products' => $products, 
+                'products' => $products,
+                'name' => $stylist->stylist_name,
                 'homepage' => $stylist->homepage,
                 'bio' => $stylist->bio,
                 'boutique_logo' => $stylist->logo
@@ -115,10 +124,11 @@ class StylistController extends Controller
         return view('com.stylist.sections.shop', [
             'filter' => Subcategory::all(), 
             'products' => [],
+            'name' => $stylist->stylist_name,
             'homepage' => $stylist->homepage,
             'bio' => $stylist->bio,
             'boutique_logo' => $stylist->logo
-            ]);
+        ]);
     }
 
     public function product(Request $request, Product $product)

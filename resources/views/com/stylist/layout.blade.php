@@ -21,6 +21,8 @@
       <link rel="stylesheet" href="/css/style.css">
       <link rel="stylesheet" href="/css/localawayai.css">
       <link rel="stylesheet" href="/css/stylist/index.css">
+      <link rel="stylesheet" type="text/css" href="/css/customer/avatar.css">
+      <link rel="stylesheet" type="text/css" href="/css/stylist/clients.css">
       <style type="text/css">
       @font-face {
           font-family: Avenir-Black;

@@ -31,9 +31,9 @@
         <div class="col-md-6 col-sm-12">
             <div class="my-form-row">
                 <label for="gender">Gender</label>
-                <input id="gender" name="gender" class="form-control" value="{{$gender}}"/>
+                <input id="gender" name="gender" class="form-control" value="@if($gender == "male") Male @else Female @endif"/>
                 <label for="email">Email</label>
-                <input id="email" name="email" class="form-control" value="{{auth()->user()->email}}"/>
+                <input id="email" name="email" class="form-control" value="{{auth()->user()->email}}" style="color:#02DFAF;"/>
                 <label for="destination">Destination</label>
                 <input id="destination" name="destination" class="form-control" value="{{$destination}}"/>
                 <label for="phone-number">Phone</label>
@@ -151,10 +151,9 @@
                             <img src="/images/customer-signup/body-men/type3.svg" style="height: 10em;" >
                             @endif
                             <div class="ml-3">
-                                <span>Body Type</span>
                                 <span class="customer-quiz-value">{{ ucwords(preg_replace('/_/i', ' ', $customer->body_type)) }}</span>
                                 <br/>
-                                <span>Height</span>
+                                <br>
                                 <span class="customer-quiz-value">{{ $customer->height_size }}</span>
                             </div>
                         </div>
@@ -237,7 +236,7 @@
             <div class="text-left mt-3">Patterns</div>
             <div class="d-flex">
             @forelse ($dislike_pattern as $pattern)
-                <img class="img-content" src="/images/customer-signup/{{ strtolower($pattern) }}.png">
+                <img class="img-content m-1" src="/images/customer-signup/{{ strtolower($pattern) }}.png">
             @empty
                 <small>None</small>
             @endforelse
