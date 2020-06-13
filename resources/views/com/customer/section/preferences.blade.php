@@ -75,8 +75,13 @@
                             @endif
                             <div class="customer-quiz-value">
                                 {{ ucwords(preg_replace('/_/i', ' ', $customer->body_type)) }}
-                                <br/>
-                                {{ $customer->height_size }}
+                                <br>
+                                <br>
+                                @if($customer->height_unit == 'imperial')
+                                    {{ $customer->height_size }}'{{ $customer->height_subsize }}"
+                                @else
+                                    {{ $customer->height_size }}cm
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -151,10 +156,15 @@
                             <img src="/images/customer-signup/body-men/type3.svg" style="height: 10em;" >
                             @endif
                             <div class="ml-3">
-                                <span class="customer-quiz-value">{{ ucwords(preg_replace('/_/i', ' ', $customer->body_type)) }}</span>
-                                <br/>
+                                <span class="customer-quiz-value">{{ ucwords(preg_replace('/_/i', ' ', $customer->body_type)) }}
                                 <br>
-                                <span class="customer-quiz-value">{{ $customer->height_size }}</span>
+                                <br>
+                                    @if($customer->height_unit == 'imperial')
+                                        {{ $customer->height_size }}'{{ $customer->height_subsize }}"
+                                    @else
+                                        {{ $customer->height_size }}cm
+                                    @endif
+                                </span>
                             </div>
                         </div>
                     </div>

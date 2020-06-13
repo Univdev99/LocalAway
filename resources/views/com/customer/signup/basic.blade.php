@@ -69,7 +69,7 @@
                     </div>
                     <div class="height_div2 text-left mx-auto" style="width:100px;" @if($height_unit == "metric") hidden="hidden" @endif>
                         <label for="height2">*Inches</label>
-                        <input id="height2" name="height_subsize" class="form-control text-answer" type="number" min="0" value="@if($height_unit !="imperial" || !$height_unit) 0 @else {{ $height_subsize }} @endif" required/>
+                        <input id="height2" name="height_subsize" class="form-control text-answer" type="number" min="0" value="@if($height_unit !="imperial" || !$height_unit){{ 0 }}@else {{ $height_subsize }} @endif" required/>
                     </div>
                 </div>
             </div>
