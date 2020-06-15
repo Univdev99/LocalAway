@@ -222,20 +222,21 @@ class CustomerController extends Controller
       //     $location = 'Undefined Country';
       // }
       return view('com.customer.signup.basic', [
-        'gender' => $customer->gender,
-        'height_size' => $customer->height_size,
-        'height_subsize' => $customer->height_subsize,
-        'height_unit' => $customer->height_unit,
-        'age_range' => $customer->age_range,
-        'capsule_date' => date_format($customer->capsule_date,"m/d/Y"),
-        'location' => $customer->location,
-        'ship_type' => $customer->ship_type,
-        'street_address' => $customer->street_address,
-        'city' => $customer->city,
-        'state' => $customer->state,
-        'zip_code' => $customer->zip_code,
-        'events' => $customer->events,
-        'progress' => $customer->progress
+        'customer' => $customer
+        // 'gender' => $customer->gender,
+        // 'height_size' => $customer->height_size,
+        // 'height_subsize' => $customer->height_subsize,
+        // 'height_unit' => $customer->height_unit,
+        // 'age_range' => $customer->age_range,
+        // 'capsule_date' => date_format($customer->capsule_date,"m/d/Y"),
+        // 'location' => $customer->location,
+        // 'ship_type' => $customer->ship_type,
+        // 'street_address' => $customer->street_address,
+        // 'city' => $customer->city,
+        // 'state' => $customer->state,
+        // 'zip_code' => $customer->zip_code,
+        // 'events' => $customer->events,
+        // 'progress' => $customer->progress
       ]);
     }
 
