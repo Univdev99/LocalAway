@@ -91,7 +91,7 @@
                                 </td>
                                 <td>${{ $orders[$i]->price }} </td>
                                 <td>
-                                    <a href="#">Add to return</a>
+                                    <a href="#">return</a>
                                 </td>
                             @elseif ($orders[$i]->status == 3)
                                 <td><p style="color: green;">Completed</p></td>
@@ -119,7 +119,7 @@
                 </tbody>
             </table>
 
-                <button type="submit" class="btn text-white btn-order my-3" style="background-color: #FD5C48; ">Finalize Order</button>
+                {{-- <button type="submit" class="btn text-white btn-order my-3" style="background-color: #FD5C48; ">Finalize Order</button> --}}
             </form>
         </div>
     </div>
