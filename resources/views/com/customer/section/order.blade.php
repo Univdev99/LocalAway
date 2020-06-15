@@ -104,7 +104,7 @@
                             @endif
                         </tr>
                     @endfor
-                        <tr>
+                        {{-- <tr>
                             <td></td>
                             <td></td>
                             <td></td>
@@ -115,7 +115,7 @@
                             <td>
                                 Request Return Label
                             </td>
-                        </tr>
+                        </tr> --}}
                 </tbody>
             </table>
 
