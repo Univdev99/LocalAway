@@ -152,7 +152,7 @@
                     <div class="col-12 quiz-item">
                         <div class="d-flex">
                         @forelse ($style as $style_item)
-                            <img class="quiz-image mr-4" src="/images/customer-signup/women-style-{{ $style_item }}.svg" style="width: 5.5em"/>
+                            <img class="quiz-image mr-4" src="/images/customer-signup/women-style-{{ strtolower($style_item) }}.svg" style="width: 5.5em"/>
                         @empty
                             <small>None</small>
                         @endforelse
