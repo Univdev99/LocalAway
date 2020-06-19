@@ -23,10 +23,11 @@
         </div>
 
         <div class="name text-center my-auto">
-            {{-- <h4> {{auth()->user()->first_name}} {{auth()->user()->last_name}}</h4> --}}
+            {{-- <h4> {{auth()->user()->first_name}} {{auth()->user()->last_name}}</h4>
             <h4> Customer Localaway</h4>
         </div>
     </div> --}}
+
     <div class="row first-row">
         <div class="col-md-6 col-sm-12">
             <div class="my-form-row">
@@ -126,22 +127,37 @@
                     <div class="col-6 quiz-item">
                         <img class="quiz-image" src="/images/customer-signup/women-skirt.svg" />
                         <br/>
-                        Skirt Length <span class="customer-quiz-value">{{ ucfirst($customer->skirt_size) }}</span>
+                        Skirt Length 
+                        @forelse (explode('|', $customer->skirt_size) as $item)
+                            <span class="customer-quiz-value">{{ ucfirst($item) }}</span>
+                        @empty
+                            <small>None</small>
+                        @endforelse
                     </div>
                     <div class="col-6 quiz-item">
                         <img class="quiz-image" src="/images/customer-signup/women-dress.svg" style="width: 2.5em" />
                         <br/>
-                        Dress Style <span class="customer-quiz-value">{{ ucfirst($customer->dress_style) }}</span>
+                        Dress Style 
+                        @forelse (explode('|', $customer->dress_style) as $item)
+                            <span class="customer-quiz-value">{{ ucfirst($item) }}</span>
+                        @empty
+                            <small>None</small>
+                        @endforelse
                     </div>
                     <div class="col-6 quiz-item">
                         <img class="quiz-image" src="/images/customer-signup/women-shoe.svg" />
                         <br/>
                         Shoe Size <span class="customer-quiz-value">{{ ucfirst($customer->shoe_size) }}</span>
                     </div>
-                    <div class="col-6 quiz-item">
-                        <img class="quiz-image" src="/images/customer-signup/women-style-{{ strtolower($customer->style) }}.svg" style="width: 5.5em"/>
-                        <br/>
-                        Personal Style <span class="customer-quiz-value">{{ ucfirst($customer->style) }}</span>
+                    <div class="col-12 quiz-item">
+                        <div class="d-flex">
+                        @forelse ($style as $style_item)
+                            <img class="quiz-image mr-4" src="/images/customer-signup/women-style-{{ $style_item }}.svg" style="width: 5.5em"/>
+                        @empty
+                            <small>None</small>
+                        @endforelse
+                        </div>
+                        <div class="text-left mt-3">Personal Style</div>
                     </div>
                 </div>
             @else
@@ -184,7 +200,7 @@
                         <div>
                             <span>Size</span><span class="customer-quiz-value">{{ $customer->dress_shirt_size }}</span><br/>
                             <span>Collar Fit</span><span class="customer-quiz-value">{{ ucfirst($customer->dress_shirt_collar_fit) }}</span><br/>
-                            <span>Shoulder Fit</span><span class="customer-quiz-value">{{ ucfirst($customer->dressshoulder_fit) }}</span>
+                            <span>Shoulder Fit</span><span class="customer-quiz-value">{{ ucfirst($customer->dress_shirt_shoulder_fit) }}</span>
                         </div>
                     </div>
                     <div class="col-6 quiz-item">
@@ -193,9 +209,7 @@
                         <p>Pant</p>
                         <div>
                             <span>Waist Fit</span><span class="customer-quiz-value">{{ ucfirst($customer->pant_waist_fit) }}</span><br/>
-                            <span>Rise</span><span class="customer-quiz-value">{{ ucfirst($customer->pant_rise) }}</span><br/>
                             <span>Fit</span><span class="customer-quiz-value">{{ ucfirst($customer->pant_fit) }}</span><br/>
-                            <span>Size</span><span class="customer-quiz-value">{{ ucfirst($customer->pant_size) }}</span><br/>
                         </div>
                     </div>
                     <div class="col-6 quiz-item">
@@ -206,17 +220,28 @@
                     <div class="col-6 quiz-item">
                         <img class="quiz-image" src="/images/customer-signup/men-short-pant.svg" />
                         <br/>
-                        Shorts Length<span class="customer-quiz-value">{{ $customer->shorts_length }}</span>
+                        Shorts Length
+                        @forelse (explode('|', $customer->shorts_length) as $item)
+                            <span class="customer-quiz-value">{{ ucfirst($item) }}</span>
+                        @empty
+                            <small>None</small>
+                        @endforelse
                     </div>
                     <div class="col-6 quiz-item">
                         <img class="quiz-image" src="/images/customer-signup/men-shoe.svg" />
                         <br/>
                         Shoe Size <span class="customer-quiz-value">{{ $customer->shoe_size }}</span>
                     </div>
-                    <div class="col-6 quiz-item">
-                        <img class="quiz-image" src="/images/customer-signup/men-style-{{ strtolower($customer->style) }}.svg" />
-                        <br/>
-                        Personal Style <span class="customer-quiz-value">{{ ucfirst($customer->style) }}</span>
+                    <div class="col-12 quiz-item">
+                        
+                        <div class="d-flex">
+                        @forelse ($style as $style_item)
+                            <img class="quiz-image mr-4" src="/images/customer-signup/men-style-{{ strtolower($style_item) }}.svg" width="5.5em"/>
+                        @empty
+                            <small>None</small>
+                        @endforelse
+                        </div>
+                        <div class="text-left mt-3">Personal Style</div>
                     </div>
                 </div>
             @endif
@@ -227,11 +252,11 @@
 
             <div class="text-left">Color</div>
             <div class="d-flex">
-            @forelse  ($dislike_color as $color)
-                <div style="background-color: {{ $color }}; border-radius: 10px; margin-right: 10px; width: 3em; height: 3em"></div>
-            @empty
-                <small>None</small>
-            @endforelse
+                @forelse  ($dislike_color as $color)
+                    <div style="background-color: {{ $color }}; border-radius: 10px; margin-right: 10px; width: 3em; height: 3em"></div>
+                @empty
+                    <small>None</small>
+                @endforelse
             </div>
 
             <div class="text-left mt-3">Materials</div>
@@ -254,7 +279,7 @@
         @endif
         </div>
     </div>
-    </form>
+</form>
 </section>
 
 @endsection

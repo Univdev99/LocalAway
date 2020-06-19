@@ -12,7 +12,7 @@
     </div>
     <form id="style" method="POST" action="{{route('customer.signup.style.save')}}" enctype="multipart/form-data">
         @csrf
-        <input class="profile-progress" type="hidden" value="{{ $progress }}">
+        <input class="profile-progress" type="hidden" value="{{ $customer->progress }}">
         <div class="row item first-row" id="row-men-style">
             <div class="m-auto text-center">
                     <p class="mt-3">Describe your personal style?</p>
@@ -21,7 +21,7 @@
                         <div class="img-wrap">
                             <img class="img-content" src="/images/customer-signup/men-style-edgy.svg" />
                         </div>
-                        <input type="radio" id="style-1" name="style" value="Edgy" @if($style == "Edgy" || !$style) checked @endif>
+                        <input type="radio" id="style-1" name="style" value="Edgy" @if($customer->style == "Edgy" || !$customer->style) checked @endif>
                         <label for="style-1"  class="select-btn">Edgy</label>
                     </div>
 
@@ -29,7 +29,7 @@
                         <div class="img-wrap">
                             <img class="img-content" src="/images/customer-signup/men-style-casual.svg" />
                         </div>
-                        <input type="radio" id="style-2" name="style" value="Casual" @if($style == "Casual") checked @endif>
+                        <input type="radio" id="style-2" name="style" value="Casual" @if($customer->style == "Casual") checked @endif>
                         <label for="style-2" class="select-btn">Casual</label>
                     </div>
 
@@ -37,14 +37,14 @@
                         <div class="img-wrap">
                             <img class="img-content" src="/images/customer-signup/men-style-classic.svg" />
                         </div>
-                        <input type="radio" id="style-3" name="style" value="Classic" @if($style == "Classic") checked @endif>
+                        <input type="radio" id="style-3" name="style" value="Classic" @if($customer->style == "Classic") checked @endif>
                         <label for="style-3" class="select-btn">Classic</label>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="row item dislike" id="row-men-color">
+        <div class="row item multiselect-row" id="row-men-color">
             <div class="m-auto">
                 <div class="my-form-row">
                     <p>Which colors would you NEVER wear? Select all that apply.</p>
@@ -53,7 +53,7 @@
                 <div class="dislike-color-palette">
                     <div class="dislike-color">
                     <div style="background-color:#673AB7">
-                        <input type="checkbox" class="color-check" name="dislike_color[]" value="#673AB7" @if(strpos($dislike_color, "#673AB7") != false) checked @endif>
+                        <input type="checkbox" class="color-check" name="dislike_color[]" value="#673AB7" @if(strpos($customer->dislike_color, "#673AB7") != false) checked @endif>
                         <span class="checkmark">
                         <i class="fas fa-check check-sign"></i>
                         </span>
@@ -62,7 +62,7 @@
                     </div>
                     <div class="dislike-color">
                     <div style="background-color:#00BCD4">
-                        <input type="checkbox" class="color-check" name="dislike_color[]" value="#00BCD4" @if(strpos($dislike_color, "#00BCD4") != false) checked @endif>
+                        <input type="checkbox" class="color-check" name="dislike_color[]" value="#00BCD4" @if(strpos($customer->dislike_color, "#00BCD4") != false) checked @endif>
                         <span class="checkmark">
                         <i class="fas fa-check check-sign"></i>
                         </span>
@@ -70,7 +70,7 @@
                     </div>
                     <div class="dislike-color">
                     <div style="background-color:#CDDC39">
-                        <input type="checkbox" class="color-check" name="dislike_color[]" value="#CDDC39" @if(strpos($dislike_color, "#CDDC39") != false) checked @endif>
+                        <input type="checkbox" class="color-check" name="dislike_color[]" value="#CDDC39" @if(strpos($customer->dislike_color, "#CDDC39") != false) checked @endif>
                         <span class="checkmark">
                         <i class="fas fa-check check-sign"></i>
                         </span>
@@ -78,7 +78,7 @@
                     </div>
                     <div class="dislike-color">
                     <div style="background-color:#FFFFFF;border:1px solid lightgrey;">
-                        <input type="checkbox" class="color-check" name="dislike_color[]" value="#FFFFFF" @if(strpos($dislike_color, "#FFFFFF") != false) checked @endif>
+                        <input type="checkbox" class="color-check" name="dislike_color[]" value="#FFFFFF" @if(strpos($customer->dislike_color, "#FFFFFF") != false) checked @endif>
                         <span class="checkmark">
                         <i class="fas fa-check check-sign"></i>
                         </span>
@@ -86,7 +86,7 @@
                     </div>
                     <div class="dislike-color">
                     <div style="background-color:#000000">
-                        <input type="checkbox" class="color-check" name="dislike_color[]" value="#000000" @if(strpos($dislike_color, "#000000") != false) checked @endif>
+                        <input type="checkbox" class="color-check" name="dislike_color[]" value="#000000" @if(strpos($customer->dislike_color, "#000000") != false) checked @endif>
                         <span class="checkmark">
                         <i class="fas fa-check check-sign"></i>
                         </span>
@@ -95,7 +95,7 @@
 
                     <div class="dislike-color">
                     <div style="background-color:#9C27B0">
-                        <input type="checkbox" class="color-check" name="dislike_color[]" value="#9C27B0" @if(strpos($dislike_color, "#9C27B0") != false) checked @endif>
+                        <input type="checkbox" class="color-check" name="dislike_color[]" value="#9C27B0" @if(strpos($customer->dislike_color, "#9C27B0") != false) checked @endif>
                         <span class="checkmark">
                         <i class="fas fa-check check-sign"></i>
                         </span>
@@ -103,7 +103,7 @@
                     </div>
                     <div class="dislike-color">
                     <div style="background-color:#03A9F4">
-                        <input type="checkbox" class="color-check" name="dislike_color[]" value="#03A9F4" @if(strpos($dislike_color, "#03A9F4") != false) checked @endif>
+                        <input type="checkbox" class="color-check" name="dislike_color[]" value="#03A9F4" @if(strpos($customer->dislike_color, "#03A9F4") != false) checked @endif>
                         <span class="checkmark">
                         <i class="fas fa-check check-sign"></i>
                         </span>
@@ -111,7 +111,7 @@
                     </div>
                     <div class="dislike-color">
                     <div style="background-color:#8BC34A">
-                        <input type="checkbox" class="color-check" name="dislike_color[]" value="#8BC34A" @if(strpos($dislike_color, "#8BC34A") != false) checked @endif>
+                        <input type="checkbox" class="color-check" name="dislike_color[]" value="#8BC34A" @if(strpos($customer->dislike_color, "#8BC34A") != false) checked @endif>
                         <span class="checkmark">
                         <i class="fas fa-check check-sign"></i>
                         </span>
@@ -119,7 +119,7 @@
                     </div>
                     <div class="dislike-color">
                     <div style="background-color:#FF9800">
-                        <input type="checkbox" class="color-check" name="dislike_color[]" value="#FF9800" @if(strpos($dislike_color, "#FF9800") != false) checked @endif>
+                        <input type="checkbox" class="color-check" name="dislike_color[]" value="#FF9800" @if(strpos($customer->dislike_color, "#FF9800") != false) checked @endif>
                         <span class="checkmark">
                         <i class="fas fa-check check-sign"></i>
                         </span>
@@ -127,7 +127,7 @@
                     </div>
                     <div class="dislike-color">
                     <div style="background-color:#795548">
-                        <input type="checkbox" class="color-check" name="dislike_color[]" value="#795548" @if(strpos($dislike_color, "#795548") != false) checked @endif>
+                        <input type="checkbox" class="color-check" name="dislike_color[]" value="#795548" @if(strpos($customer->dislike_color, "#795548") != false) checked @endif>
                         <span class="checkmark">
                         <i class="fas fa-check check-sign"></i>
                         </span>
@@ -136,7 +136,7 @@
 
                     <div class="dislike-color">
                     <div style="background-color:#E91E63">
-                        <input type="checkbox" class="color-check" name="dislike_color[]" value="#E91E63" @if(strpos($dislike_color, "#E91E63") != false) checked @endif>
+                        <input type="checkbox" class="color-check" name="dislike_color[]" value="#E91E63" @if(strpos($customer->dislike_color, "#E91E63") != false) checked @endif>
                         <span class="checkmark">
                         <i class="fas fa-check check-sign"></i>
                         </span>
@@ -144,7 +144,7 @@
                     </div>
                     <div class="dislike-color">
                     <div style="background-color:#5677FC">
-                        <input type="checkbox" class="color-check" name="dislike_color[]" value="#5677FC" @if(strpos($dislike_color, "#5677FC") != false) checked @endif>
+                        <input type="checkbox" class="color-check" name="dislike_color[]" value="#5677FC" @if(strpos($customer->dislike_color, "#5677FC") != false) checked @endif>
                         <span class="checkmark">
                         <i class="fas fa-check check-sign"></i>
                         </span>
@@ -152,7 +152,7 @@
                     </div>
                     <div class="dislike-color">
                     <div style="background-color:#259B24">
-                        <input type="checkbox" class="color-check" name="dislike_color[]" value="#259B24" @if(strpos($dislike_color, "#259B24") != false) checked @endif>
+                        <input type="checkbox" class="color-check" name="dislike_color[]" value="#259B24" @if(strpos($customer->dislike_color, "#259B24") != false) checked @endif>
                         <span class="checkmark">
                         <i class="fas fa-check check-sign"></i>
                         </span>
@@ -160,7 +160,7 @@
                     </div>
                     <div class="dislike-color">
                     <div style="background-color:#FFC107">
-                        <input type="checkbox" class="color-check" name="dislike_color[]" value="#FFC107" @if(strpos($dislike_color, "#FFC107") != false) checked @endif>
+                        <input type="checkbox" class="color-check" name="dislike_color[]" value="#FFC107" @if(strpos($customer->dislike_color, "#FFC107") != false) checked @endif>
                         <span class="checkmark">
                         <i class="fas fa-check check-sign"></i>
                         </span>
@@ -168,7 +168,7 @@
                     </div>
                     <div class="dislike-color">
                     <div style="background-color:#9E9E9E">
-                        <input type="checkbox" class="color-check" name="dislike_color[]" value="#9E9E9E" @if(strpos($dislike_color, "#9E9E9E") != false) checked @endif>
+                        <input type="checkbox" class="color-check" name="dislike_color[]" value="#9E9E9E" @if(strpos($customer->dislike_color, "#9E9E9E") != false) checked @endif>
                         <span class="checkmark">
                         <i class="fas fa-check check-sign"></i>
                         </span>
@@ -177,7 +177,7 @@
 
                     <div class="dislike-color">
                     <div style="background-color:#E51C23">
-                        <input type="checkbox" class="color-check" name="dislike_color[]" value="#E51C23" @if(strpos($dislike_color, "#E51C23") != false) checked @endif>
+                        <input type="checkbox" class="color-check" name="dislike_color[]" value="#E51C23" @if(strpos($customer->dislike_color, "#E51C23") != false) checked @endif>
                         <span class="checkmark">
                         <i class="fas fa-check check-sign"></i>
                         </span>
@@ -185,7 +185,7 @@
                     </div>
                     <div class="dislike-color">
                     <div style="background-color:#3F51B5">
-                        <input type="checkbox" class="color-check" name="dislike_color[]" value="#3F51B5" @if(strpos($dislike_color, "#3F51B5") != false) checked @endif>
+                        <input type="checkbox" class="color-check" name="dislike_color[]" value="#3F51B5" @if(strpos($customer->dislike_color, "#3F51B5") != false) checked @endif>
                         <span class="checkmark">
                         <i class="fas fa-check check-sign"></i>
                         </span>
@@ -193,7 +193,7 @@
                     </div>
                     <div class="dislike-color">
                     <div style="background-color:#009688">
-                        <input type="checkbox" class="color-check" name="dislike_color[]" value="#009688" @if(strpos($dislike_color, "#009688") != false) checked @endif>
+                        <input type="checkbox" class="color-check" name="dislike_color[]" value="#009688" @if(strpos($customer->dislike_color, "#009688") != false) checked @endif>
                         <span class="checkmark">
                         <i class="fas fa-check check-sign"></i>
                         </span>
@@ -201,7 +201,7 @@
                     </div>
                     <div class="dislike-color">
                     <div style="background-color:#FFEB3B">
-                        <input type="checkbox" class="color-check" name="dislike_color[]" value="#FFEB3B" @if(strpos($dislike_color, "#FFEB3B") != false) checked @endif>
+                        <input type="checkbox" class="color-check" name="dislike_color[]" value="#FFEB3B" @if(strpos($customer->dislike_color, "#FFEB3B") != false) checked @endif>
                         <span class="checkmark">
                         <i class="fas fa-check check-sign"></i>
                         </span>
@@ -209,7 +209,7 @@
                     </div>
                     <div class="dislike-color">
                     <div style="background-color:#607D8B">
-                        <input type="checkbox" class="color-check" name="dislike_color[]" value="#607D8B" @if(strpos($dislike_color, "#607D8B") != false) checked @endif>
+                        <input type="checkbox" class="color-check" name="dislike_color[]" value="#607D8B" @if(strpos($customer->dislike_color, "#607D8B") != false) checked @endif>
                         <span class="checkmark">
                         <i class="fas fa-check check-sign"></i>
                         </span>
@@ -220,35 +220,35 @@
             </div>
         </div>
 
-        <div class="row item dislike" id="row-men-material">
+        <div class="row item multiselect-row" id="row-men-material">
             <div class="col-xl-6 col-lg-7 col-md-10 text-center mx-auto">
                 <div class="my-form-row">
                     <p class="mt-3">Any materials you don't like?</p>
 
-                    <div class="row justify-content-center dislike">
-                        <input type="checkbox" id="dislike-casual1" name="dislike_material[]" value="Faux Leather" @if(strpos($dislike_material, "Faux Leather") != false) checked @endif>
+                    <div class="row justify-content-center">
+                        <input type="checkbox" id="dislike-casual1" name="dislike_material[]" value="Faux Leather" @if(strpos($customer->dislike_material, "Faux Leather") != false) checked @endif>
                         <label for="dislike-casual1" class="select-btn">Faux Leather</label>
 
-                        <input type="checkbox" id="dislike-casual2" name="dislike_material[]" value="Polyester" @if(strpos($dislike_material, "Polyester") != false) checked @endif>
+                        <input type="checkbox" id="dislike-casual2" name="dislike_material[]" value="Polyester" @if(strpos($customer->dislike_material, "Polyester") != false) checked @endif>
                         <label for="dislike-casual2" class="select-btn">Polyester</label>
 
-                        <input type="checkbox" id="dislike-casual3" name="dislike_material[]" value="Faux Fur" @if(strpos($dislike_material, "Faux Fur") != false) checked @endif>
+                        <input type="checkbox" id="dislike-casual3" name="dislike_material[]" value="Faux Fur" @if(strpos($customer->dislike_material, "Faux Fur") != false) checked @endif>
                         <label for="dislike-casual3" class="select-btn">Faux Fur</label>
 
-                        <input type="checkbox" id="dislike-casual4" name="dislike_material[]" value="Gold" @if(strpos($dislike_material, "Gold") != false) checked @endif>
+                        <input type="checkbox" id="dislike-casual4" name="dislike_material[]" value="Gold" @if(strpos($customer->dislike_material, "Gold") != false) checked @endif>
                         <label for="dislike-casual4" class="select-btn">Gold</label>
 
-                        <input type="checkbox" id="dislike-casual5" name="dislike_material[]" value="Nickel" @if(strpos($dislike_material, "Nickel") != false) checked @endif>
+                        <input type="checkbox" id="dislike-casual5" name="dislike_material[]" value="Nickel" @if(strpos($customer->dislike_material, "Nickel") != false) checked @endif>
                         <label for="dislike-casual5" class="select-btn">Nickel</label>
 
-                        <input type="checkbox" id="dislike-casual6" name="dislike_material[]" value="Silver" @if(strpos($dislike_material, "Silver") != false) checked @endif>
+                        <input type="checkbox" id="dislike-casual6" name="dislike_material[]" value="Silver" @if(strpos($customer->dislike_material, "Silver") != false) checked @endif>
                         <label for="dislike-casual6" class="select-btn">Silver</label>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="row item dislike" id="row-men-pattern">
+        <div class="row item multiselect-row" id="row-men-pattern">
             <div class="col m-auto">
                 <div class="my-form-row text-center">
                     <p>Which patterns would you never wear? Select all that apply.</p>
@@ -258,21 +258,21 @@
                             <div class="m-0 p-0">
                                 <img class="img-content" src="/images/customer-signup/geometric.png" value="geometric">
                             </div>
-                            <input type="checkbox" id="dislike-pattern1" name="dislike_pattern[]" value="Geometric" @if(strpos($dislike_pattern, "Geometric") != false) checked @endif>
+                            <input type="checkbox" id="dislike-pattern1" name="dislike_pattern[]" value="Geometric" @if(strpos($customer->dislike_pattern, "Geometric") != false) checked @endif>
                             <label for="dislike-pattern1" class="select-btn">Geometric</label>
                         </div>
                         <div class="col">
                             <div class="m-0 p-0">
-                                <img class="img-content" src="/images/customer-signup/animal_prints.png" value="animal_prints">
+                                <img class="img-content" src="/images/customer-signup/animal prints.png" value="animal_prints">
                             </div>
-                            <input type="checkbox" id="dislike-pattern2" name="dislike_pattern[]" value="Animal Prints"  @if(strpos($dislike_pattern, "Animal Prints" ) != false) checked @endif>
+                            <input type="checkbox" id="dislike-pattern2" name="dislike_pattern[]" value="Animal Prints"  @if(strpos($customer->dislike_pattern, "Animal Prints" ) != false) checked @endif>
                             <label for="dislike-pattern2" class="select-btn">Animal Prints</label>
                         </div>
                         <div class="col">
                             <div class="m-0 p-0">
                                 <img class="img-content" src="/images/customer-signup/houndstooth.png" value="houndstooth">
                             </div>
-                            <input type="checkbox" id="dislike-pattern3" name="dislike_pattern[]" value="Houndstooth"  @if(strpos($dislike_pattern, "Houndstooth" ) != false) checked @endif>
+                            <input type="checkbox" id="dislike-pattern3" name="dislike_pattern[]" value="Houndstooth"  @if(strpos($customer->dislike_pattern, "Houndstooth" ) != false) checked @endif>
                             <label for="dislike-pattern3" class="select-btn">Houndstooth</label>
 
                         </div>
@@ -280,21 +280,21 @@
                             <div class="m-0 p-0">
                                 <img class="img-content" src="/images/customer-signup/camoflauge.png" value="camoflauge">
                             </div>
-                            <input type="checkbox" id="dislike-pattern4" name="dislike_pattern[]" value="Camoflauge"  @if(strpos($dislike_pattern, "Camoflauge" ) != false) checked @endif>
+                            <input type="checkbox" id="dislike-pattern4" name="dislike_pattern[]" value="Camoflauge"  @if(strpos($customer->dislike_pattern, "Camoflauge" ) != false) checked @endif>
                             <label for="dislike-pattern4" class="select-btn">Camoflauge</label>
                         </div>
                         <div class="col">
                             <div class="m-0 p-0">
                                 <img class="img-content" src="/images/customer-signup/florals.png" value="florals">
                             </div>
-                            <input type="checkbox" id="dislike-pattern5" name="dislike_pattern[]" value="Florals"  @if(strpos($dislike_pattern, "Florals" ) != false) checked @endif>
+                            <input type="checkbox" id="dislike-pattern5" name="dislike_pattern[]" value="Florals"  @if(strpos($customer->dislike_pattern, "Florals" ) != false) checked @endif>
                             <label for="dislike-pattern5" class="select-btn">Florals</label>
                         </div>
                         <div class="col">
                             <div class="m-0 p-0">
                                 <img class="img-content" src="/images/customer-signup/plaid.png" value="plaid">
                             </div>
-                            <input type="checkbox" id="dislike-pattern6" name="dislike_pattern[]" value="Plaid"  @if(strpos($dislike_pattern, "Plaid" ) != false) checked @endif>
+                            <input type="checkbox" id="dislike-pattern6" name="dislike_pattern[]" value="Plaid"  @if(strpos($customer->dislike_pattern, "Plaid" ) != false) checked @endif>
                             <label for="dislike-pattern6" class="select-btn">Plaid</label>
                         </div>
                     </div>
@@ -313,7 +313,7 @@
 
                 <label class="radio-container mb-2">
                   Adventure - put me into play clothes based on a special event
-                  <input type="radio" name="capsule" value="adventure"  @if($capsule == "adventure" ) checked @endif>
+                  <input type="radio" name="capsule" value="adventure"  @if($customer->capsule == "adventure" ) checked @endif>
                   <span class="checkmark">
                     <i class="fas fa-check check-sign"></i>
                   </span>
@@ -321,7 +321,7 @@
 
                 <label class="radio-container mb-2">
                   Extremely - I want to look like an influencer, totally on today's trend
-                  <input type="radio" name="capsule" value="extremely" @if($capsule == "extremely") checked @endif>
+                  <input type="radio" name="capsule" value="extremely" @if($customer->capsule == "extremely") checked @endif>
                   <span class="checkmark">
                     <i class="fas fa-check check-sign"></i>
                   </span>
@@ -329,7 +329,7 @@
 
                 <label class="radio-container mb-2">
                   Morderately - I want to try a few new things but nothing too bold
-                  <input type="radio" name="capsule" value="moerderately" @if($capsule == "moerderately") checked @endif>
+                  <input type="radio" name="capsule" value="moerderately" @if($customer->capsule == "moerderately") checked @endif>
                   <span class="checkmark">
                     <i class="fas fa-check check-sign"></i>
                   </span>
@@ -337,7 +337,7 @@
 
                 <label class="radio-container mb-2">
                   Rarely - I want to stick to what I know works for me but open to trying something a bit different here and there
-                  <input type="radio" name="capsule" value="rarely" @if($capsule == "rarely") checked @endif>
+                  <input type="radio" name="capsule" value="rarely" @if($customer->capsule == "rarely") checked @endif>
                   <span class="checkmark">
                     <i class="fas fa-check check-sign"></i>
                   </span>
@@ -345,7 +345,7 @@
 
                 <label class="radio-container mb-2">
                   Never - I want to blend in with "Stealth" mode
-                  <input type="radio" name="capsule" value="never" @if($capsule == "never" || !$capsule) checked @endif>
+                  <input type="radio" name="capsule" value="never" @if($customer->capsule == "never" || !$customer->capsule) checked @endif>
                   <span class="checkmark">
                     <i class="fas fa-check check-sign"></i>
                   </span>
@@ -359,7 +359,7 @@
 
                 <label class="radio-container mb-2">
                   Single item
-                  <input type="radio" name="capsule_spend" value="single" @if($capsule_spend == "single") checked @endif>
+                  <input type="radio" name="capsule_spend" value="single" @if($customer->capsule_spend == "single") checked @endif>
                   <span class="checkmark">
                     <i class="fas fa-check check-sign"></i>
                   </span>
@@ -367,7 +367,7 @@
 
                 <label class="radio-container mb-2">
                   Capsules from $40 - $60 (just one or two pieces)
-                  <input type="radio" name="capsule_spend" value="one-or-two" @if($capsule_spend == "one-or-two") checked @endif>
+                  <input type="radio" name="capsule_spend" value="one-or-two" @if($customer->capsule_spend == "one-or-two") checked @endif>
                   <span class="checkmark">
                     <i class="fas fa-check check-sign"></i>
                   </span>
@@ -375,7 +375,7 @@
 
                 <label class="radio-container mb-2">
                   Capsules from $70 - $150 (few pieces higher end)
-                  <input type="radio" name="capsule_spend" value="highger-end" @if($capsule_spend == "highger-end") checked @endif>
+                  <input type="radio" name="capsule_spend" value="highger-end" @if($customer->capsule_spend == "highger-end") checked @endif>
                   <span class="checkmark">
                     <i class="fas fa-check check-sign"></i>
                   </span>
@@ -383,7 +383,7 @@
 
                 <label class="radio-container mb-2">
                   Capsules from $150 - $250 (few pieces highest end)
-                  <input type="radio" name="capsule_spend" value="highest-end" @if($capsule_spend == "highest-end" || !$capsule_spend) checked @endif>
+                  <input type="radio" name="capsule_spend" value="highest-end" @if($customer->capsule_spend == "highest-end" || !$customer->capsule_spend) checked @endif>
                   <span class="checkmark">
                     <i class="fas fa-check check-sign"></i>
                   </span>
@@ -391,7 +391,7 @@
 
                 <label class="radio-container mb-2">
                   Capsules from $300 - $500 (lower end outfit)
-                  <input type="radio" name="capsule_spend" value="lower-outfit" @if($capsule_spend == "lower-outfit") checked @endif>
+                  <input type="radio" name="capsule_spend" value="lower-outfit" @if($customer->capsule_spend == "lower-outfit") checked @endif>
                   <span class="checkmark">
                     <i class="fas fa-check check-sign"></i>
                   </span>
@@ -399,7 +399,7 @@
 
                 <label class="radio-container mb-2">
                   Capsules from $500 - $1500 (higher end outfit)
-                  <input type="radio" name="capsule_spend" value="higher-outfit" @if($capsule_spend == "higher-outfit") checked @endif>
+                  <input type="radio" name="capsule_spend" value="higher-outfit" @if($customer->capsule_spend == "higher-outfit") checked @endif>
                   <span class="checkmark">
                     <i class="fas fa-check check-sign"></i>
                   </span>
@@ -407,7 +407,7 @@
 
                 <label class="radio-container mb-2">
                   Capsules from $1500+ (luxury outfit)
-                  <input type="radio" name="capsule_spend" value="luxury" @if($capsule_spend == "luxury") checked @endif>
+                  <input type="radio" name="capsule_spend" value="luxury" @if($customer->capsule_spend == "luxury") checked @endif>
                   <span class="checkmark">
                     <i class="fas fa-check check-sign"></i>
                   </span>
@@ -421,22 +421,22 @@
 
                 <div class="mb-3">
                   <label for="step5-instagram">Instagram</label>
-                  <input id="step5-instagram" class="form-control" name="instagram" value="{{ $instagram }}">
+                  <input id="step5-instagram" class="form-control" name="instagram" value="{{ $customer->instagram }}">
                 </div>
 
                 <div class="mb-3">
                   <label for="step5-twitter">Twitter</label>
-                  <input id="step5-twitter" class="form-control" name="twitter" value="{{ $twitter }}">
+                  <input id="step5-twitter" class="form-control" name="twitter" value="{{ $customer->twitter }}">
                 </div>
 
                 <div class="mb-3">
                   <label for="step5-pinterest">Pinterest</label>
-                  <input id="step5-pinterest" class="form-control" name="pinterest" value="{{ $pinterest }}">
+                  <input id="step5-pinterest" class="form-control" name="pinterest" value="{{ $customer->pinterest }}">
                 </div>
 
                 <div>
                   <label for="step5-linkedin">Linkedin</label>
-                  <input id="step5-linkedin" class="form-control" name="linkedin" value="{{ $linkedin }}">
+                  <input id="step5-linkedin" class="form-control" name="linkedin" value="{{ $customer->linkedin }}">
                 </div>
               </div>
             </div>
@@ -447,7 +447,7 @@
 
                 <label for="step5-notes">Notes</label>
                 <br/>
-                <textarea class="additional-note" id="step5-notes" name="notes" value="{{ $notes }}"></textarea>
+                <textarea class="additional-note" id="step5-notes" name="notes" value="{{ $customer->notes }}"></textarea>
                 <!-- <input id="step5-notes" class="form-control" /> -->
               </div>
             </div>

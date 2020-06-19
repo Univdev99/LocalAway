@@ -20,17 +20,16 @@
                 <p >First the basics</p>
                 <div class="d-flex flex-wrap justify-content-center">
                     <div class="mr-sm-5 mx-auto img-selector">
-                        <div class="gender-image img-div">
+                        <div class="gender-image img-div @if($customer->gender == 'male') selected @endif">
                             <img src="/images/customer-signup/gender-circle.svg" class="w-100"/>
                             <img src="/images/customer-signup/gender-man.svg" />
                         </div>
-
                         <input type="radio" id="gender-1" class="img-radio" name="gender" value="male" @if($customer->gender == 'male') checked @endif/>
                         <label for="gender-1">Male</label>
                     </div>
 
                     <div class="ml-sm-5 mx-auto img-selector">
-                        <div class="gender-image img-div selected">
+                        <div class="gender-image img-div @if($customer->gender != 'male') selected @endif">
                             <img src="/images/customer-signup/gender-circle.svg" class="w-100"/>
                             <img src="/images/customer-signup/gender-woman.svg" />
                         </div>
@@ -69,7 +68,7 @@
                     </div>
                     <div class="height_div2 text-left mx-auto" style="width:100px;" @if($customer->height_unit == "metric") hidden="hidden" @endif>
                         <label for="height2">*Inches</label>
-                        <input id="height2" name="height_subsize" class="form-control text-answer" type="number" min="0" value="@if($customer->height_unit !="imperial" || !$customer->height_unit){{ 0 }}@else {{ $customer->height_subsize }} @endif" required/>
+                        <input id="height2" name="height_subsize" class="form-control text-answer" type="number" min="0" value="@if($customer->height_unit !="imperial" && $customer->height_unit){{0}}@else{{$customer->height_subsize}}@endif" required/>
                     </div>
                 </div>
             </div>

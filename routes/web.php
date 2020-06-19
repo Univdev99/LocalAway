@@ -116,6 +116,7 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
         Route::get('/customer/account', 'CustomerController@account')->name('com.customer.account');
         Route::get('/customer/order', 'CustomerController@order')->name('com.customer.order');
         Route::get('/customer/shop', 'CustomerController@shop')->name('com.customer.shop');
+        Route::get('/customer/order/{id}', 'CustomerController@orderBox')->name('com.customer.orderbox');
         Route::post('/customer/orders/finalize', 'CustomerController@finalizeOrder')->name('com.customer.orders.finalize');
         Route::get('/customer/contact', 'CustomerController@contact');
         Route::post('/customer/profile', 'CustomerController@saveProfile')->name('com.customer.save-account');

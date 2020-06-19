@@ -13,27 +13,27 @@
 
 @section('upcomingbox')
     <div class="row">
-        <div class="col-12">
+        {{-- <div class="col-12">
             <div class="alert my-4 d-flex" style="background-color: #f3f3f3; border-radius: 5px; border-color: #ced4e0;">
                 <i class="fa fa-info-circle mr-2 mt-1"></i>
                 <div>
                     <strong style="font-weight: 900;">Return policy</strong>
                     <p class="mb-0">
                         <small>
-                        Items must be returned within a workweek 7 day window from when they are recieved.
-                        If somthing happens and you need help, contact hello@localaway.com 
+                        Items must be returned within a workweek 7 days window from when they are received.
+                        If something happens and you need help, contact hello@localaway.com 
                         </small>
                     </p>
                 </div>
             </div>
-        </div>
+        </div> --}}
         <div class="col-3">
             <p> My Account</p>
         </div>
         <div class="col-9">
             <div class="d-flex justify-content-between">
                 <p>Total Orders: 1</p>
-                <p>Return by <span style="color:magenta">(7 days from when received)</span></p>
+                {{-- <p>Return by <span style="color:magenta">(7 days from when received)</span></p> --}}
             </div>
             <form method="post" action="{{ route('com.customer.orders.finalize') }}">
                 @csrf
@@ -125,7 +125,7 @@
     </div>
     <div class="row text-center m-auto">
         <form class="text-center order-form" action="{{ route('customer.signup.payment') }}" method="get">
-            <h3> Order another box?</h3>
+            <span class="h3 text-dark"> Order another box?</span>
             <p>For you or a gift: simply adjust any preferences or just add a note for your stylist.</p>
             <div class="m-auto text-center">
                 <textarea name="notes" class="form-control my-4 mx-auto notes-order" placeholder="Add a note for the stylist."></textarea>

@@ -72,6 +72,7 @@ class CustomerController extends Controller
         'age' => $customer->age_range,
         'complete' => $customer->complete,
         'customer' => $customer,
+        'style' => empty($customer->style) ? [] : explode('|', $customer->style),
         'dislike_color' => empty($customer->dislike_color) ? [] : explode('|', $customer->dislike_color),
         'dislike_material' => empty($customer->dislike_material) ? [] : explode('|', $customer->dislike_material),
         'dislike_pattern' => empty($customer->dislike_pattern) ? [] : explode('|', $customer->dislike_pattern)
@@ -100,6 +101,11 @@ class CustomerController extends Controller
         'orders' => $orders,
         'total' => $total
       ]);
+    }
+
+    public function orderBox(Request $request)
+    {
+      
     }
 
     public function finalizeOrder(Request $request)
@@ -223,20 +229,6 @@ class CustomerController extends Controller
       // }
       return view('com.customer.signup.basic', [
         'customer' => $customer
-        // 'gender' => $customer->gender,
-        // 'height_size' => $customer->height_size,
-        // 'height_subsize' => $customer->height_subsize,
-        // 'height_unit' => $customer->height_unit,
-        // 'age_range' => $customer->age_range,
-        // 'capsule_date' => date_format($customer->capsule_date,"m/d/Y"),
-        // 'location' => $customer->location,
-        // 'ship_type' => $customer->ship_type,
-        // 'street_address' => $customer->street_address,
-        // 'city' => $customer->city,
-        // 'state' => $customer->state,
-        // 'zip_code' => $customer->zip_code,
-        // 'events' => $customer->events,
-        // 'progress' => $customer->progress
       ]);
     }
 
@@ -249,19 +241,7 @@ class CustomerController extends Controller
             return response('No registered email', 400);
         }
         $customer = $user->customer;
-        $customer->gender = $gender;
-        $customer->height_size = $request->input('height_size');
-        $customer->height_subsize = $request->input('height_subsize');
-        $customer->height_unit = $request->input('height_unit');
-        $customer->age_range = $request->input('age_range');
-        $date = $request->input('capsule_date');
-        if($date == null){
-          $customer->capsule_date = null;
-        }else{
-          $customer->capsule_date = date_create_from_format("m/d/Y",$date);
-        }
         
-        $customer->location = $request->input('location');
         $ship_type = $request->input('ship_type');
         $customer->ship_type = $ship_type;
         $customer->street_address = $request->input('street_address');
@@ -293,36 +273,11 @@ class CustomerController extends Controller
       $customer = Customer::where('user_id', auth()->user()->id)->first();
         if($customer->gender == "male"){
             return view('com.customer.signup.sizing-men', [
-              'body_type' => $customer->body_type,
-              'casual_shirt_size' => $customer->casual_shirt_size,
-              'casual_fit' => $customer->casual_fit,
-              'pant_waist_fit' => $customer->pant_waist_fit,
-              'pant_fit' => $customer->pant_fit,
-              'shoe_size' => $customer->shoe_size,
-              'dress_shirt_size' => $customer->dress_shirt_size,
-              'dress_shirt_collar_fit' => $customer->dress_shirt_collar_fit,
-              'dress_shirt_shoulder_fit' => $customer->dress_shirt_shoulder_fit,
-              'waist_size' => $customer->waist_size,
-              'shorts_length' => $customer->shorts_length,
-              'progress' => $customer->progress
+              'customer' => $customer
             ]);
         }
         return view('com.customer.signup.sizing-women', [
-            'body_type' => $customer->body_type,
-            'casual_shirt_size' => $customer->casual_shirt_size,
-            'casual_fit' => $customer->casual_fit,
-            'pant_waist_fit' => $customer->pant_waist_fit,
-            'pant_fit' => $customer->pant_fit,
-            'shoe_size' => $customer->shoe_size,
-            'buttonup_blouse_size' => $customer->buttonup_blouse_size,
-            'buttonup_blouse_fit' => $customer->buttonup_blouse_fit,
-            'bra_size' => $customer->bra_size,
-            'bra_cup' => $customer->bra_cup,
-            'pant_rise' => $customer->pant_rise,
-            'pant_size' => $customer->pant_size,
-            'skirt_size' => $customer->skirt_size,
-            'dress_style' => $customer->dress_style,
-            'progress' => $customer->progress
+            'customer' => $customer
         ]);
     }
 
@@ -334,30 +289,7 @@ class CustomerController extends Controller
             return redirect()->route('landingPage');
         }
         $customer = $user->customer;
-        $customer->body_type = $request->input('body_type');
-        $customer->casual_shirt_size = $request->input('casual_shirt_size');
-        $customer->pant_waist_fit = $request->input('pant_waist_fit');
-        $customer->pant_fit = $request->input('pant_fit');
         $customer->shoe_size = $request->input('shoe_size');
-        if($customer->gender == "male"){
-            $customer->dress_shirt_size = $request->input('dress_shirt_size');
-            $customer->dress_shirt_collar_fit = $request->input('dress_shirt_collar_fit');
-            $customer->dress_shirt_shoulder_fit = $request->input('dress_shirt_shoulder_fit');
-            $customer->waist_size = $request->input('waist_size');
-            $customer->shorts_length = $request->input('shorts_length');
-            $customer->save();
-            return redirect()->route('customer.signup.style');
-        }
-
-        $customer->casual_fit = $request->input('casual_fit');
-        $customer->buttonup_blouse_size = $request->input('buttonup_blouse_size');
-        $customer->buttonup_blouse_fit = $request->input('buttonup_blouse_fit');
-        $customer->bra_size = $request->input('bra_size');
-        $customer->bra_cup = $request->input('bra_cup');
-        $customer->pant_rise = $request->input('pant_rise');
-        $customer->pant_size = $request->input('pant-size');
-        $customer->skirt_size = $request->input('skirt_size');
-        $customer->dress_style = $request->input('dress_style');
         $customer->complete = 2;
         $customer->save();
         return redirect()->route('customer.signup.style');
@@ -368,39 +300,17 @@ class CustomerController extends Controller
         $customer = Customer::where('user_id', auth()->user()->id)->first();
         if($customer->gender == "male"){
             return view('com.customer.signup.style-men',[
-              'style' => $customer->style,
-              'dislike_material' => $customer->dislike_material,
-              'dislike_pattern' => $customer->dislike_pattern,
-              'dislike_color' => $customer->dislike_color,
-              'capsule' => $customer->capsule,
-              'capsule_spend' => $customer->capsule_spend,
-              'instagram' => $customer->instagram,
-              'twitter' => $customer->twitter,
-              'pinterest' => $customer->pinterest,
-              'linkedin' => $customer->linkedin,
-              'notes' => $customer->notes,
-              'progress' => $customer->progress
+              'customer' => $customer
           ]);
         }
         return view('com.customer.signup.style-women', [
-          'style' => $customer->style,
-          'dislike_material' => $customer->dislike_material,
-          'dislike_pattern' => $customer->dislike_pattern,
-          'dislike_color' => $customer->dislike_color,
-          'capsule' => $customer->capsule,
-          'capsule_spend' => $customer->capsule_spend,
-          'instagram' => $customer->instagram,
-          'twitter' => $customer->twitter,
-          'pinterest' => $customer->pinterest,
-          'linkedin' => $customer->linkedin,
-          'notes' => $customer->notes,
-          'progress' => $customer->progress
+          'customer' => $customer
         ]);
     }
 
     public function saveStyle(Request $request)
     {
-        $this->dislike($request);
+        // $this->dislike($request);
         $this->almostDone($request);
         return redirect()->route('customer.signup.payment');
     }
@@ -416,7 +326,7 @@ class CustomerController extends Controller
       $user = User::where('email', $email)->first();
       if ($user && $user->customer) {
         $customer = $user->customer;
-        $customer->style = $style;
+        $customer->style = null;
         $customer->dislike_material = null;
         $customer->dislike_pattern = null;
         $customer->dislike_color = null;
@@ -505,24 +415,30 @@ class CustomerController extends Controller
       $array = [];
       $id = null;
       $customer = Customer::where('user_id', auth()->user()->id)->first();
+      
       foreach ($request->request as $name => $value){
-        if($name ==  "param"){
-          $array = $value;
-        }else{
-          $id = $value;
+        if ($value == null){
+          continue;
         }
-      }
-      if ($array != []){
-        foreach ($array as $name => $value){
-          if($name == "capsule_date"){
-            $customer->$name = date_create_from_format("m/d/Y",$value);
-          }else{
-            $customer->$name = $value;
-          }
+        switch ($name) {
+          case 'capsule_date':
+            $customer->$name = date_create_from_format("m/d/Y",$value);  
+            break;
+          case 'skirt_size':
+          case 'dress_style':
+          case 'style':
+          case 'dislike_color': 
+          case 'dislike_material': 
+          case 'dislike_pattern':
+            $customer->$name = implode('|', $value);
+            break;
+          case 'id':
+            $customer->progress = $value;
+            break;
+          default:
+            $customer->$name = $value;  
+            break;
         }
-      }
-      if($id){
-        $customer->progress = $id;
       }
       
       $customer->save();

@@ -127,22 +127,32 @@ $(function() {
 
     function saveRow(pos)
     {
-        const param={};
+        const data={};
+        let param=[];
         let id = $(".item:nth-child(" + (pos+1) + ")").attr('id');
         $(".item:nth-child(" + pos + ") input").each(function() {
             if($(this).attr('name') != undefined){
-                if ($(this).prop('type') == "text" || $(this).prop('type') == "number" || ($(this).prop('type') == "radio" && $(this).prop("checked")) || $(this).prop('type') == "hidden") {
-                    param[$(this).attr('name')] = $(this).val();
+                if ($(this).prop('type') == "text" ||
+                    $(this).prop('type') == "number" ||
+                    ($(this).prop('type') == "radio" && $(this).prop("checked")) ||
+                    $(this).prop('type') == "hidden") {
+                    data[$(this).attr('name')] = $(this).val();
+                } else if($(this).prop('type') == "checkbox" && $(this).prop("checked")){
+                    param.push($(this).val());
                 }
             }
         });
+        if($(".item:nth-child(" + pos + ") input[type=checkbox]").length > 0){
+            data[$(".item:nth-child(" + pos + ") input[type=checkbox]").attr('name')] = param;
+        }
         $(".item:nth-child(" + pos + ") select").each(function() {
-            param[$(this).attr('name')] = $(this).val();
+            data[$(this).attr('name')] = $(this).val();
         });
+        data['id'] = id;
         $.ajax({
             url: '/customer/signup/saverow',
             type: 'post',
-            data: {param: param, id: id},
+            data,
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
@@ -182,7 +192,7 @@ $(function() {
         //         flag = true;
         //     }
         // });
-        if ($(item).hasClass("dislike")) {
+        if ($(item).hasClass("multiselect-row")) {
             flag = true;
         }
 
