@@ -19,6 +19,7 @@ class VerifyCsrfToken extends Middleware
      * @var array
      */
     protected $except = [
-        'admin/file/upload'
+        'admin/file/upload',
+        '/shippo-transaction-updated'
     ];
 }

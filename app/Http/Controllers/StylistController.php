@@ -266,9 +266,26 @@ class StylistController extends Controller
             'label_file_type' => "png", 
             'async' => false ) );
 
+        $order->transaction_id = $transaction['object_id'];
+        $order->save();
+
         return view('com.stylist.shippo-label', [
             'url' => $transaction['label_url']
         ]);
+    }
+
+    public function shippoTransactionUpdated(Request $request)
+    {
+        $data = $request->data;
+        $status = $data['tracking_status'];
+        
+        if ($status['status'] === 'DELIVERED') {
+            $order = Order::where('transaction_id', $status['object_id'])->first();
+            if ($order) {
+                $order->status = 2;
+                $order->save();
+            }
+        }
     }
 
     public function checkEmailDuplicate(Request $request)

@@ -86,6 +86,8 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
         Route::post('/stylist/profile/save', 'StylistController@saveProfile')->name('com.stylist.profile.save');
     });
 
+    Route::post('/shippo-transaction-updated', 'StylistController@shippoTransactionUpdated');
+
     Route::get('/stylist/check-email', 'StylistController@checkEmailDuplicate');
 
     Route::post('/stylist/signup', 'StylistController@store');
